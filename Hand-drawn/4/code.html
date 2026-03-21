@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Segmentation Dashboard - Sketch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- BEGIN: Custom Sketch Styles -->
+<style data-purpose="sketchy-aesthetic">
+    @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+    :root {
+      --ink-color: #1a1a1a;
+      --bg-color: #ffffff;
+    }
+
+    body {
+      font-family: 'Architects Daughter', cursive;
+      background-color: var(--bg-color);
+      color: var(--ink-color);
+    }
+
+    /* Hand-drawn border effect */
+    .sketch-border {
+      border: 2px solid var(--ink-color);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    }
+
+    /* Sketchy lines for dividers and axes */
+    .sketch-line {
+      border-bottom: 2px solid var(--ink-color);
+      width: 100%;
+      height: 2px;
+    }
+
+    /* Textures and hatching */
+    .hatched-fill-1 {
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, var(--ink-color) 5px, var(--ink-color) 7px);
+    }
+    .hatched-fill-2 {
+      background-image: repeating-linear-gradient(-45deg, transparent, transparent 3px, var(--ink-color) 3px, var(--ink-color) 4px);
+    }
+    .hatched-fill-3 {
+      background-image: repeating-linear-gradient(90deg, transparent, transparent 4px, var(--ink-color) 4px, var(--ink-color) 5px);
+    }
+
+    /* Rough input styling */
+    input[type="radio"], input[type="range"], select {
+      accent-color: var(--ink-color);
+      border: 1px solid var(--ink-color);
+    }
+    
+    .scribble-dot {
+      width: 4px;
+      height: 4px;
+      background-color: var(--ink-color);
+      border-radius: 50%;
+      display: inline-block;
+      position: absolute;
+    }
+
+    /* Irregular table borders */
+    table, th, td {
+      border: 1px solid var(--ink-color) !important;
+    }
+  </style>
+<!-- END: Custom Sketch Styles -->
+</head>
+<body class="p-6">
+<!-- BEGIN: Layout Container -->
+<div class="flex flex-col md:flex-row gap-8 max-w-7xl mx-auto" data-purpose="main-layout">
+<!-- BEGIN: Sidebar Navigation -->
+<aside class="w-full md:w-64 sketch-border p-6 h-fit" data-purpose="sidebar">
+<h1 class="text-2xl font-bold mb-6 underline decoration-wavy">Dashboard Settings</h1>
+<!-- Radio Group -->
+<div class="mb-8">
+<p class="font-bold mb-3">Segmentation Type</p>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4" name="seg" type="radio"/> Demographic
+          </label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4" name="seg" type="radio"/> Behavioral
+          </label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4" name="seg" type="radio"/> Psychographic
+          </label>
+</div>
+</div>
+<!-- Slider Control -->
+<div class="mb-8">
+<label class="font-bold block mb-2" for="clusters">Number of Clusters: 4</label>
+<input class="w-full" id="clusters" max="10" min="2" step="1" type="range"/>
+</div>
+<!-- Dropdown Control -->
+<div class="mb-4">
+<label class="font-bold block mb-2" for="metrics">Primary Metric</label>
+<select class="w-full bg-transparent p-2 sketch-border border-2 outline-none" id="metrics">
+<option>Customer Value</option>
+<option>Retention Rate</option>
+<option>Churn Risk</option>
+</select>
+</div>
+</aside>
+<!-- END: Sidebar Navigation -->
+<!-- BEGIN: Main Dashboard Content -->
+<main class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8" data-purpose="dashboard-grid">
+<!-- TOP-LEFT: Scatter Plot -->
+<section class="sketch-border p-6 relative min-h-[300px]" data-purpose="scatter-plot">
+<h3 class="text-lg font-bold mb-4">PCA Cluster Distribution</h3>
+<div class="relative w-full h-48 border-l-2 border-b-2 border-black ml-4 mb-4">
+<!-- Synthetic Scatter Scribbles -->
+<div class="absolute top-10 left-10 w-20 h-20 opacity-70">
+<!-- Simulated cluster scribbles -->
+<span class="scribble-dot top-2 left-4"></span>
+<span class="scribble-dot top-5 left-12"></span>
+<span class="scribble-dot top-10 left-8"></span>
+<span class="scribble-dot top-14 left-15"></span>
+<span class="scribble-dot top-18 left-2"></span>
+</div>
+<div class="absolute bottom-5 right-10 w-24 h-16 opacity-70">
+<span class="scribble-dot top-4 left-20"></span>
+<span class="scribble-dot top-8 left-15"></span>
+<span class="scribble-dot top-12 left-22"></span>
+<span class="scribble-dot top-5 left-8"></span>
+</div>
+<!-- Axis Labels -->
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-sm italic">Component 1 (42% Var)</span>
+<span class="absolute -left-8 top-1/2 -translate-y-1/2 -rotate-90 text-sm italic whitespace-nowrap">Component 2 (18% Var)</span>
+</div>
+</section>
+<!-- TOP-RIGHT: Horizontal Grouped Bar Chart -->
+<section class="sketch-border p-6" data-purpose="grouped-bar-chart">
+<h3 class="text-lg font-bold mb-4">Behavioral Metrics by Cluster</h3>
+<div class="space-y-6">
+<!-- Row 1 -->
+<div class="flex items-center gap-2">
+<span class="w-16 text-xs font-bold">Frequency</span>
+<div class="flex-1 h-12 flex gap-1 items-end">
+<div class="w-1/4 h-[80%] sketch-border hatched-fill-1"></div>
+<div class="w-1/4 h-[40%] sketch-border hatched-fill-2"></div>
+<div class="w-1/4 h-[60%] sketch-border hatched-fill-3"></div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center gap-2">
+<span class="w-16 text-xs font-bold">Recency</span>
+<div class="flex-1 h-12 flex gap-1 items-end">
+<div class="w-1/4 h-[30%] sketch-border hatched-fill-1"></div>
+<div class="w-1/4 h-[90%] sketch-border hatched-fill-2"></div>
+<div class="w-1/4 h-[50%] sketch-border hatched-fill-3"></div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center gap-2">
+<span class="w-16 text-xs font-bold">Monetary</span>
+<div class="flex-1 h-12 flex gap-1 items-end">
+<div class="w-1/4 h-[70%] sketch-border hatched-fill-1"></div>
+<div class="w-1/4 h-[20%] sketch-border hatched-fill-2"></div>
+<div class="w-1/4 h-[85%] sketch-border hatched-fill-3"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- BOTTOM-LEFT: Stacked Bar Chart -->
+<section class="sketch-border p-6" data-purpose="stacked-bar-chart">
+<h3 class="text-lg font-bold mb-4">Demographic Split (0-100%)</h3>
+<div class="flex gap-8 items-end h-40 mb-8 px-4 border-b-2 border-black">
+<!-- Col 1 -->
+<div class="flex-1 flex flex-col h-full">
+<div class="h-[40%] hatched-fill-1 border-x border-t border-black"></div>
+<div class="h-[30%] hatched-fill-2 border-x border-t border-black"></div>
+<div class="h-[20%] hatched-fill-3 border-x border-t border-black"></div>
+<div class="h-[10%] border-x border-t border-black bg-white"></div>
+</div>
+<!-- Col 2 -->
+<div class="flex-1 flex flex-col h-full">
+<div class="h-[20%] hatched-fill-1 border-x border-t border-black"></div>
+<div class="h-[50%] hatched-fill-2 border-x border-t border-black"></div>
+<div class="h-[15%] hatched-fill-3 border-x border-t border-black"></div>
+<div class="h-[15%] border-x border-t border-black bg-white"></div>
+</div>
+<!-- Col 3 -->
+<div class="flex-1 flex flex-col h-full">
+<div class="h-[60%] hatched-fill-1 border-x border-t border-black"></div>
+<div class="h-[10%] hatched-fill-2 border-x border-t border-black"></div>
+<div class="h-[20%] hatched-fill-3 border-x border-t border-black"></div>
+<div class="h-[10%] border-x border-t border-black bg-white"></div>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex flex-wrap gap-4 text-xs justify-center">
+<div class="flex items-center gap-1"><span class="w-3 h-3 hatched-fill-1 border border-black"></span> Group A</div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 hatched-fill-2 border border-black"></span> Group B</div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 hatched-fill-3 border border-black"></span> Group C</div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 border border-black bg-white"></span> Others</div>
+</div>
+</section>
+<!-- BOTTOM-RIGHT: Data Table -->
+<section class="sketch-border p-6 relative overflow-hidden" data-purpose="data-table">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-bold">Raw Cluster Data</h3>
+<button class="text-xs px-2 py-1 sketch-border hover:bg-gray-100 transition-colors">Export CSV</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50">
+<th class="p-2 border font-bold">ID</th>
+<th class="p-2 border font-bold">Cluster</th>
+<th class="p-2 border font-bold">Score</th>
+<th class="p-2 border font-bold">Size</th>
+<th class="p-2 border font-bold">Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="p-2 border">C-001</td>
+<td class="p-2 border">Premium</td>
+<td class="p-2 border">0.92</td>
+<td class="p-2 border">1,240</td>
+<td class="p-2 border">+5%</td>
+</tr>
+<tr>
+<td class="p-2 border">C-002</td>
+<td class="p-2 border">Churn Risk</td>
+<td class="p-2 border">0.45</td>
+<td class="p-2 border">890</td>
+<td class="p-2 border">-12%</td>
+</tr>
+<tr>
+<td class="p-2 border">C-003</td>
+<td class="p-2 border">Casual</td>
+<td class="p-2 border">0.68</td>
+<td class="p-2 border">3,120</td>
+<td class="p-2 border">+2%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- END: Main Dashboard Content -->
+</div>
+<!-- END: Layout Container -->
+</body></html>

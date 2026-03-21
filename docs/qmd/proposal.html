@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Proposal - COFINFAD Analytics – COFINFAD Analytics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<header id="title-block-header">
+
+
+</header>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#f97415",
+          "background-light": "#080808",
+          "background-dark": "#080808",
+          "card-dark": "#121212",
+        },
+        fontFamily: {
+          "display": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.add('dark');
+  });
+</script>
+<style>
+  /* Remove all Quarto default styles */
+  #title-block-header { display: none !important; }
+  .quarto-title { display: none !important; }
+  header#title-block-header { display: none !important; }
+  header { display: none !important; }
+  #quarto-content { margin: 0 !important; padding: 0 !important; }
+  .page-columns { display: block !important; }
+  body > div.container-fluid, body > .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  main.content { margin: 0 !important; padding: 0 !important; max-width: 100% !important; }
+  body { background-color: #080808 !important; color: #e2e8f0 !important; font-family: 'Inter', sans-serif !important; margin: 0 !important; }
+  html { background-color: #080808 !important; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  /* Reset Quarto table styles */
+  table { border: none !important; }
+  th, td { border: none !important; }
+  tr.odd, tr.even { background: transparent !important; }
+  tr.header { background: transparent !important; }
+</style>
+<div class="bg-[#080808] font-display text-slate-100 min-h-screen">
+<nav class="sticky top-0 z-50 w-full border-b border-[#1f1f1f] bg-[#080808]/90 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20 items-center">
+<a href="../qmd/homepage.html" class="flex items-center gap-2 no-underline">
+<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
+</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="../qmd/proposal.html">Proposal</a>
+<div class="relative dropdown group">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+                        Methodology <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="dropdown-menu hidden absolute left-0 mt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Data Preparation</a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Exploratory Analysis</a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Clustering</a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Prediction</a>
+</div>
+</div>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Findings</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Poster</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Meeting Minutes</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Team</a>
+</div>
+<div class="flex items-center gap-3">
+<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline">Shiny App</a>
+<button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8"><header id="title-block-header" class="quarto-title-block"><h1 class="title">Proposal - COFINFAD Analytics</h1></header>
+<!-- Hero Section -->
+<section class="relative mb-16 rounded-2xl overflow-hidden bg-[#0d0d0d] p-12 md:p-24 flex flex-col items-center text-center border border-white/5">
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+<div class="relative z-10 max-w-3xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8">PROJECT PROPOSAL</span>
+<h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight">Democratizing Fintech Analytics</h1>
+<p class="text-xl md:text-2xl text-slate-300 font-medium mb-4">A Visual Analytics Approach to Customer Lifecycle and Transactional Behavior in Colombia</p>
+<p class="text-slate-500 text-base mt-6">Team 13 — Ji Guofang &nbsp;|&nbsp; Lin Yan &nbsp;|&nbsp; Nguyen Trong Nhan</p>
+</div>
+</section>
+
+<div class="space-y-12">
+
+<!-- 01. Motivation -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-primary font-bold text-sm mb-2 block">SECTION 01</span>
+<h3 class="text-3xl font-bold mb-8">Motivation</h3>
+<div class="space-y-6 text-slate-400 text-lg leading-relaxed ">
+<p>Colombia's fintech sector has grown rapidly, with digital financial services expanding across diverse demographic segments and regions with varying levels of financial inclusion. For fintech operators, the ability to understand who their customers are, how they transact, and when they are likely to leave is critical for sustaining growth. Yet for many non-technical business users, the analytical tools to answer these questions remain locked behind programming expertise and complex statistical software.</p>
+<p>This project addresses that gap. Using the Colombian Fintech Financial Analytics Dataset (COFINFAD), we will build an interactive R Shiny application that transforms raw financial data into accessible, visual business intelligence. The application is designed around a single analytical thread: understanding what drives customer churn by examining transactional behavior, identifying behavioral segments, and modeling churn risk — all within a unified, interactive environment that requires no coding from the end user.</p>
+</div>
+</div>
+
+<!-- 02. Objectives -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-primary font-bold text-sm mb-2 block">SECTION 02</span>
+<h3 class="text-3xl font-bold mb-6">Objectives</h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-10">The project follows a coherent analytical narrative: we first explore <strong class="text-white">what</strong> is happening in the data (Module 1: EDA &amp; CDA), then ask <strong class="text-white">why</strong> by grouping customers into behavioral segments (Module 2: Clustering), and finally predict <strong class="text-white">what will happen</strong> by modeling churn probability (Module 3: Predictive Modeling). The eight key observations below are deliberately sequenced along this narrative arc.</p>
+
+<!-- Module 1 -->
+<div class="mb-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 shrink-0 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
+<span class="material-symbols-outlined text-xl">query_stats</span>
+</div>
+<h4 class="text-xl font-bold text-white">Module 1: Exploratory &amp; Confirmatory Data Analysis</h4>
+</div>
+<div class="space-y-6 pl-[52px]">
+<div class="border-l-2 border-blue-500/30 pl-6">
+<h5 class="font-bold text-white mb-2">Observation 1 — Seasonal transaction volume patterns differ by transaction type</h5>
+<p class="text-slate-400 leading-relaxed">By plotting monthly total transaction amounts as interactive line charts, faceted or color-coded by type (Transfer, Withdrawal, Payment, Deposit), we expect to uncover distinct seasonal peaks. For example, Transfers may spike at year-end while Deposits may be steadier. This gives analysts a first look at when financial activity concentrates and which channels drive volume.</p>
+</div>
+<div class="border-l-2 border-blue-500/30 pl-6">
+<h5 class="font-bold text-white mb-2">Observation 2 — Transaction behavior varies significantly across income brackets and acquisition channels</h5>
+<p class="text-slate-400 leading-relaxed">Using ANOVA and Welch's T-tests on the mean transaction value (avg_tx_value) grouped by income_bracket (Low, Medium, High, Very High) and acquisition_channel (Organic, Referral, Paid Ad, Partnership), we will test whether observed differences are statistically significant. The Shiny app will display interactive box plots alongside p-value summaries, enabling users to select any grouping variable and dependent variable for confirmatory testing.</p>
+</div>
+<div class="border-l-2 border-blue-500/30 pl-6">
+<h5 class="font-bold text-white mb-2">Observation 3 — Customer demographics cluster geographically across Colombian regions</h5>
+<p class="text-slate-400 leading-relaxed">A choropleth map of the 15 Colombian departments in the dataset will visualize spatial distributions of customer counts, average income bracket, and average churn probability. This helps analysts identify regions where the fintech service is over- or under-penetrated and where churn risk is geographically concentrated.</p>
+</div>
+</div>
+</div>
+
+<!-- Module 2 -->
+<div class="mb-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 shrink-0 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center border border-purple-500/20">
+<span class="material-symbols-outlined text-xl">hub</span>
+</div>
+<h4 class="text-xl font-bold text-white">Module 2: Customer Behavior Clustering</h4>
+</div>
+<div class="space-y-6 pl-[52px]">
+<div class="border-l-2 border-purple-500/30 pl-6">
+<h5 class="font-bold text-white mb-2">Observation 4 — Customers form distinct behavioral segments based on transactional metrics</h5>
+<p class="text-slate-400 leading-relaxed">Using pre-computed customer-level features (tx_count, avg_tx_value, total_tx_volume, weekend_transaction_ratio, customer_tenure, credit_utilization_ratio), we will perform cluster analysis to segment the 48,723 customers. The key segmentation variables are chosen to capture the Recency-Frequency-Monetary (RFM) dimensions plus behavioral volatility.</p>
+</div>
+<div class="border-l-2 border-purple-500/30 pl-6">
+<h5 class="font-bold text-white mb-2">Observation 5 — The optimal number of clusters can be determined visually</h5>
+<p class="text-slate-400 leading-relaxed">The Shiny app will display an elbow plot (within-cluster sum of squares vs. k) and a silhouette plot to help users select the appropriate number of clusters. These diagnostic plots will update dynamically as users adjust the feature inputs.</p>
+</div>
+<div class="border-l-2 border-purple-500/30 pl-6">
+<h5 class="font-bold text-white mb-2">Observation 6 — Cluster membership correlates with demographic and product characteristics</h5>
+<p class="text-slate-400 leading-relaxed">Once clusters are formed, linked bar charts will show the demographic composition (income_bracket, acquisition_channel, clv_segment) of each cluster. PCA scatter plots color-coded by cluster will reveal separation in the reduced feature space. This cross-referencing allows analysts to build intuitive profiles: for example, “Cluster 2 is dominated by high-income, low-frequency users acquired through partnerships.”</p>
+</div>
+</div>
+</div>
+
+<!-- Module 3 -->
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">psychology</span>
+</div>
+<h4 class="text-xl font-bold text-white">Module 3: Churn Prediction &amp; What-If Simulation</h4>
+</div>
+<div class="space-y-6 pl-[52px]">
+<div class="border-l-2 border-green-500/30 pl-6">
+<h5 class="font-bold text-white mb-2">Observation 7 — A small set of features dominates churn prediction</h5>
+<p class="text-slate-400 leading-relaxed">Using a pre-trained logistic regression model with Lasso (L1) regularization, the app will display a variable importance plot showing which features most strongly predict churn_probability. Users can adjust the regularization penalty (λ) via a slider to see how the model progressively drops less important variables, providing an intuitive understanding of feature relevance.</p>
+</div>
+<div class="border-l-2 border-green-500/30 pl-6">
+<h5 class="font-bold text-white mb-2">Observation 8 — Changing specific customer attributes meaningfully shifts predicted churn risk</h5>
+<p class="text-slate-400 leading-relaxed">A What-If simulator panel will allow users to input hypothetical customer profiles (e.g., adjusting tx_count, avg_tx_value, customer_tenure, credit_utilization_ratio) and see the predicted churn probability update in real time. This enables business users to answer questions like: “If we increase a customer's active_products from 1 to 3, how much does their churn risk drop?”</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 03. Data -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-primary font-bold text-sm mb-2 block">SECTION 03</span>
+<h3 class="text-3xl font-bold mb-8">Data</h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-8">The project uses the Colombian Fintech Financial Analytics Dataset (COFINFAD), consisting of two relational tables linked by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">customer_id</code>:</p>
+
+<!-- Data Tables -->
+<div class="overflow-x-auto mb-10">
+
+<table class="w-full text-left border-collapse caption-top">
+<thead>
+<tr class="border-b border-white/10 header">
+<th class="py-4 px-6 text-sm font-bold text-white" data-quarto-table-cell-role="th">Table</th>
+<th class="py-4 px-6 text-sm font-bold text-white" data-quarto-table-cell-role="th">Records</th>
+<th class="py-4 px-6 text-sm font-bold text-white" data-quarto-table-cell-role="th">Variables</th>
+<th class="py-4 px-6 text-sm font-bold text-white" data-quarto-table-cell-role="th">Key Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-white/5 odd">
+<td class="py-4 px-6 text-primary font-medium">Customer Demographics</td>
+<td class="py-4 px-6 text-slate-300">48,723</td>
+<td class="py-4 px-6 text-slate-300">54</td>
+<td class="py-4 px-6 text-slate-400 text-sm">age, gender, location (15 departments), income_bracket (Low/Medium/High/Very High), occupation (35 types), customer_segment, churn_probability, customer_lifetime_value, satisfaction scores, product holdings</td>
+</tr>
+<tr class="even">
+<td class="py-4 px-6 text-primary font-medium">Transaction Log</td>
+<td class="py-4 px-6 text-slate-300">3,159,157</td>
+<td class="py-4 px-6 text-slate-300">4</td>
+<td class="py-4 px-6 text-slate-400 text-sm">customer_id, date (2023-01 to 2023-12), amount (COP), type (Transfer, Withdrawal, Payment, Deposit)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<!-- 3.1 Aggregation -->
+<h4 class="text-xl font-bold text-white mb-4">3.1 Why the Transaction Log Needs Aggregation</h4>
+<p class="text-slate-400 leading-relaxed mb-6">The raw transaction log contains 3.15 million rows. Loading this directly into a Shiny application is not feasible for interactive use — every user interaction (filtering, plotting) would require processing millions of rows, resulting in response times of several seconds or more. Therefore, we aggregate the transaction log into two derived tables during data preparation:</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<h5 class="font-bold text-white">Aggregation 1: Monthly Summary</h5>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-3">For Module 1 (Temporal EDA). Group by month and transaction type, computing total_amount, tx_count, and avg_amount.</p>
+<p class="text-slate-500 text-sm">Collapses <strong class="text-slate-300">3.15M rows → 48 rows</strong> (12 months × 4 types), enabling instant rendering of time-series charts.</p>
+</div>
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">person</span>
+<h5 class="font-bold text-white">Aggregation 2: Customer-Level Features</h5>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-3">For Module 2 (Clustering). Group by customer_id and pivot transaction types wider, computing: total amount and count for each of the 4 types (8 features), spending_volatility, weekend ratio, and recency.</p>
+<p class="text-slate-500 text-sm">Most features already exist in customer_data.csv; this aggregation validates and adds per-type breakdowns.</p>
+</div>
+</div>
+
+<!-- 3.2 Cleaning -->
+<h4 class="text-xl font-bold text-white mb-4">3.2 Data Cleaning and Imputation</h4>
+<p class="text-slate-400 leading-relaxed">The <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">credit_utilization_ratio</code> column has 37.5% missing values (18,263 of 48,723 records). We will handle this with median imputation grouped by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">income_bracket</code>, since credit utilization patterns likely differ across income levels. All cleaning steps will be documented on the project website with analytical rationale, not just code.</p>
+</div>
+
+<!-- 04. Methodology -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-primary font-bold text-sm mb-2 block">SECTION 04</span>
+<h3 class="text-3xl font-bold mb-8">Methodology</h3>
+
+<!-- Methodology Flowchart -->
+<div class="my-10 flex justify-center">
+<img src="proposal pic/cofinfad_workflow_flowchart_sketch/screen.png" alt="COFINFAD Methodology Flowchart" class="rounded-xl border border-white/10 max-w-full" style="max-height: 800px;">
+</div>
+
+<!-- 4.1 Module 1 -->
+<div class="mb-12">
+<h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+<span class="text-blue-400">4.1</span> Module 1: Exploratory &amp; Confirmatory Data Analysis
+</h4>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+<div>
+<h5 class="font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">show_chart</span> Visualizations</h5>
+<ul class="space-y-3 text-slate-400">
+<li class="flex gap-3"><span class="text-primary mt-1">•</span><span><strong class="text-slate-300">Time-series line chart:</strong> Monthly total transaction amount, filterable by transaction type. Built with ggplot2 + plotly for hover tooltips and zoom.</span></li>
+<li class="flex gap-3"><span class="text-primary mt-1">•</span><span><strong class="text-slate-300">Choropleth map:</strong> Customer count, average churn probability, or average CLV by Colombian department. Built with tmap for interactive spatial exploration.</span></li>
+<li class="flex gap-3"><span class="text-primary mt-1">•</span><span><strong class="text-slate-300">Distribution plots:</strong> Histograms and box plots of avg_tx_value, tx_count, and customer_tenure, grouped by user-selected categorical variable.</span></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">calculate</span> Statistical Tests</h5>
+<ul class="space-y-3 text-slate-400">
+<li class="flex gap-3"><span class="text-primary mt-1">•</span><span><strong class="text-slate-300">ANOVA:</strong> To test whether mean transaction values differ across income brackets (4 groups) or occupations.</span></li>
+<li class="flex gap-3"><span class="text-primary mt-1">•</span><span><strong class="text-slate-300">Welch's T-test:</strong> For pairwise comparisons between two selected groups (e.g., Organic vs. Referral acquisition channels).</span></li>
+<li class="flex gap-3"><span class="text-primary mt-1">•</span><span>Test results (F-statistic, p-value, effect size) will be displayed in a summary panel beside the corresponding plot.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- 4.2 Module 2 -->
+<div class="mb-12">
+<h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+<span class="text-purple-400">4.2</span> Module 2: Customer Behavior Clustering
+</h4>
+
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl mb-8">
+<h5 class="font-bold text-white mb-3">Why Not Run K-Means Live in Shiny?</h5>
+<p class="text-slate-400 leading-relaxed mb-4">Running K-Means clustering on 48,723 records with multiple features on every user interaction is computationally expensive. Interactions should respond in under one second.</p>
+<h5 class="font-bold text-white mb-3">Our Approach: Pre-compute + Visual Exploration</h5>
+<ul class="space-y-2 text-slate-400 text-sm">
+<li class="flex gap-3"><span class="text-primary mt-0.5">•</span><span><strong class="text-slate-300">Pre-compute clusters offline:</strong> Run clustering for k = 2 to 8 on standardized features, store labels as columns (cluster_k2, cluster_k3, …, cluster_k8).</span></li>
+<li class="flex gap-3"><span class="text-primary mt-0.5">•</span><span><strong class="text-slate-300">User selects k via slider:</strong> The app reads pre-computed labels instantly — no re-computation needed.</span></li>
+<li class="flex gap-3"><span class="text-primary mt-0.5">•</span><span><strong class="text-slate-300">User selects PCA axes:</strong> PCA is also pre-computed. The scatter plot re-renders instantly.</span></li>
+</ul>
+</div>
+
+<h5 class="font-bold text-white mb-4">Clustering Methods</h5>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<h6 class="font-bold text-purple-400 mb-2">K-Means</h6>
+<p class="text-slate-400 text-sm leading-relaxed">Fast, well-suited for roughly spherical clusters. Hartigan-Wong algorithm via R's stats::kmeans(). Diagnostic: elbow plot and silhouette scores.</p>
+</div>
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<h6 class="font-bold text-purple-400 mb-2">Hierarchical (Ward's)</h6>
+<p class="text-slate-400 text-sm leading-relaxed">Produces a dendrogram revealing nested cluster structure. hclust() with method = "ward.D2", cut at different k values.</p>
+</div>
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<h6 class="font-bold text-purple-400 mb-2">PAM (Medoids)</h6>
+<p class="text-slate-400 text-sm leading-relaxed">More robust to outliers than K-Means. Uses actual data points as cluster centers. Particularly relevant for financial data with extreme transaction amounts.</p>
+</div>
+</div>
+
+<h5 class="font-bold text-white mb-4">Feature Selection for Clustering</h5>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">tx_count</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">avg_tx_value</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">customer_tenure</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">weekend_transaction_ratio</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">credit_utilization_ratio</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">active_products</span>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed">The UI presents named presets (“RFM Features”, “Full Behavioral Features”, “Engagement Features”) alongside a custom option that triggers a brief re-computation with a loading spinner.</p>
+</div>
+
+<!-- 4.3 Module 3 -->
+<div>
+<h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+<span class="text-green-400">4.3</span> Module 3: Churn Prediction &amp; What-If Simulation
+</h4>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+<div>
+<h5 class="font-bold text-white mb-4">Model Specification</h5>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">Dependent variable: <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">churn_probability</code> (continuous, 0 to 1). Treated as a regression problem using regularized linear models.</p>
+<h6 class="font-semibold text-slate-300 mb-2 text-sm">Independent Variables:</h6>
+<ul class="space-y-2 text-slate-400 text-sm">
+<li><strong class="text-slate-300">Transactional:</strong> tx_count, avg_tx_value, total_tx_volume, monthly_transaction_count, transaction_frequency, weekend_transaction_ratio, avg_daily_transactions</li>
+<li><strong class="text-slate-300">Demographic:</strong> age, household_size, income_bracket (dummy-encoded), customer_tenure</li>
+<li><strong class="text-slate-300">Engagement:</strong> active_products, app_logins_frequency, feature_usage_diversity, credit_utilization_ratio, satisfaction_score, nps_score, support_tickets_count, resolved_tickets_ratio</li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-white mb-4">Modeling Approach</h5>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">We use <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">glmnet</code> in R to fit regularized regression models:</p>
+<ul class="space-y-3 text-slate-400 text-sm">
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">•</span><span><strong class="text-slate-300">Lasso (L1):</strong> Performs automatic variable selection by shrinking less important coefficients to exactly zero. Primary model for feature importance.</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">•</span><span><strong class="text-slate-300">Ridge (L2):</strong> Retains all variables but shrinks coefficients proportionally. Comparison model to validate Lasso selections.</span></li>
+</ul>
+<p class="text-slate-400 text-sm leading-relaxed mt-4">Pre-trained offline using cv.glmnet() with 10-fold cross-validation. Saved as .rds file loaded at Shiny startup.</p>
+</div>
+</div>
+
+<h5 class="font-bold text-white mb-4">Feature Engineering</h5>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+<div class="p-4 bg-[#0d0d0d] border border-white/5 rounded-lg">
+<code class="text-green-400 text-sm">product_diversity_ratio</code>
+<p class="text-slate-500 text-xs mt-2">active_products / 5 (max possible products)</p>
+</div>
+<div class="p-4 bg-[#0d0d0d] border border-white/5 rounded-lg">
+<code class="text-green-400 text-sm">ticket_resolution_gap</code>
+<p class="text-slate-500 text-xs mt-2">support_tickets_count × (1 − resolved_tickets_ratio)</p>
+</div>
+<div class="p-4 bg-[#0d0d0d] border border-white/5 rounded-lg">
+<code class="text-green-400 text-sm">satisfaction_gap</code>
+<p class="text-slate-500 text-xs mt-2">base_satisfaction − satisfaction_score</p>
+</div>
+</div>
+
+<h5 class="font-bold text-white mb-4">Shiny Interactivity</h5>
+<ul class="space-y-3 text-slate-400">
+<li class="flex gap-3"><span class="text-green-400 mt-1">•</span><span><strong class="text-slate-300">Variable importance plot:</strong> Horizontal bar chart of absolute Lasso coefficients at user-selected λ.</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-1">•</span><span><strong class="text-slate-300">λ slider:</strong> Users adjust the regularization penalty to see how the model simplifies — teaching the bias-variance tradeoff visually.</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-1">•</span><span><strong class="text-slate-300">What-If panel:</strong> Users input feature values via sliders and dropdowns. The app calls predict() on the pre-trained glmnet model and displays predicted churn probability as a gauge chart in real time.</span></li>
+</ul>
+</div>
+</div>
+
+<!-- 05. Prototype Sketches -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-primary font-bold text-sm mb-2 block">SECTION 05</span>
+<h3 class="text-3xl font-bold mb-6">Prototype Sketches</h3>
+
+<!-- Prototype Sketch Image -->
+<div class="my-10 flex justify-center">
+<img src="proposal pic/cofinfad_shiny_app_prototype_sketch/screen.png" alt="COFINFAD Shiny App Prototype Sketch" class="rounded-xl border border-white/10 max-w-full" style="max-height: 700px;">
+</div>
+
+<p class="text-slate-400 text-lg leading-relaxed mb-10">The Shiny app uses <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">bslib</code> for layout, with a global sidebar for overarching filters and a tabset-based main panel for the three modules. All heavy computation is done offline; the app only loads pre-processed data and pre-trained models.</p>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Inputs -->
+<div>
+<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">tune</span> 5.1 Inputs</h4>
+
+<div class="space-y-6">
+<div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide">Global Sidebar</h5>
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>• Date range selector (filtering monthly summary for Module 1)</li>
+<li>• Income bracket multi-select filter</li>
+<li>• Customer segment filter (inactive, occasional, regular, power)</li>
+</ul>
+</div>
+<div class="p-5 bg-[#0d0d0d] border border-blue-500/10 rounded-xl">
+<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide">Module 1: EDA &amp; CDA Tab</h5>
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>• Transaction type checkboxes (Transfer, Withdrawal, Payment, Deposit)</li>
+<li>• Statistical test selector (ANOVA / T-test)</li>
+<li>• Grouping variable dropdown (income_bracket, acquisition_channel, customer_segment, clv_segment)</li>
+<li>• Dependent variable dropdown (avg_tx_value, tx_count, customer_tenure)</li>
+<li>• Choropleth map metric selector (customer count, avg churn probability, avg CLV)</li>
+</ul>
+</div>
+<div class="p-5 bg-[#0d0d0d] border border-purple-500/10 rounded-xl">
+<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide">Module 2: Clustering Tab</h5>
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>• Number of clusters (k) slider: 2 to 8</li>
+<li>• Algorithm radio buttons: K-Means / Hierarchical / PAM</li>
+<li>• Feature preset dropdown: RFM Features / Full Behavioral / Engagement / Custom</li>
+<li>• PCA axis selectors (PC1 vs PC2, PC1 vs PC3, etc.)</li>
+</ul>
+</div>
+<div class="p-5 bg-[#0d0d0d] border border-green-500/10 rounded-xl">
+<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide">Module 3: Prediction Tab</h5>
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>• λ (regularization penalty) slider</li>
+<li>• Model type toggle: Lasso / Ridge</li>
+<li>• What-If input panel: sliders for tx_count, avg_tx_value, customer_tenure, active_products, credit_utilization_ratio, satisfaction_score, nps_score, etc.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Outputs -->
+<div>
+<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">monitor</span> 5.2 Outputs</h4>
+
+<div class="space-y-6">
+<div class="p-5 bg-[#0d0d0d] border border-blue-500/10 rounded-xl">
+<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide">Module 1</h5>
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>• Interactive time-series line chart (plotly)</li>
+<li>• Choropleth map of Colombian departments (tmap)</li>
+<li>• Box plot / histogram of selected variable</li>
+<li>• Statistical test result panel (test statistic, p-value, effect size, interpretation)</li>
+</ul>
+</div>
+<div class="p-5 bg-[#0d0d0d] border border-purple-500/10 rounded-xl">
+<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide">Module 2</h5>
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>• PCA scatter plot color-coded by cluster (plotly)</li>
+<li>• Elbow plot and silhouette plot for cluster diagnostics</li>
+<li>• Linked bar charts of cluster demographic composition</li>
+<li>• Cluster summary statistics table (mean of each feature per cluster)</li>
+</ul>
+</div>
+<div class="p-5 bg-[#0d0d0d] border border-green-500/10 rounded-xl">
+<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide">Module 3</h5>
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>• Variable importance horizontal bar chart</li>
+<li>• Cross-validation performance plot (λ vs. MSE)</li>
+<li>• What-If predicted churn probability gauge</li>
+<li>• Comparison table: current vs. hypothetical customer profile</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 06. R Packages -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-primary font-bold text-sm mb-2 block">SECTION 06</span>
+<h3 class="text-3xl font-bold mb-8">R Packages</h3>
+<div class="overflow-x-auto">
+
+<table class="w-full text-left border-collapse caption-top">
+<thead>
+<tr class="border-b border-white/10 header">
+<th class="py-4 px-6 text-sm font-bold text-white" data-quarto-table-cell-role="th">Category</th>
+<th class="py-4 px-6 text-sm font-bold text-white" data-quarto-table-cell-role="th">Package</th>
+<th class="py-4 px-6 text-sm font-bold text-white" data-quarto-table-cell-role="th">Purpose</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="border-b border-white/5 odd">
+<td class="py-3 px-6 text-slate-300">Data Wrangling</td>
+<td class="py-3 px-6"><code class="text-primary">tidyverse, lubridate</code></td>
+<td class="py-3 px-6 text-slate-400">Data manipulation, pivoting, date parsing</td>
+</tr>
+<tr class="border-b border-white/5 even">
+<td class="py-3 px-6 text-slate-300">Shiny Framework</td>
+<td class="py-3 px-6"><code class="text-primary">shiny, bslib, shinyWidgets</code></td>
+<td class="py-3 px-6 text-slate-400">App framework, modern UI layout, extended input widgets</td>
+</tr>
+<tr class="border-b border-white/5 odd">
+<td class="py-3 px-6 text-slate-300">Visualization</td>
+<td class="py-3 px-6"><code class="text-primary">ggplot2, plotly, tmap</code></td>
+<td class="py-3 px-6 text-slate-400">Static plots, interactive charts, choropleth maps</td>
+</tr>
+<tr class="border-b border-white/5 even">
+<td class="py-3 px-6 text-slate-300">Clustering</td>
+<td class="py-3 px-6"><code class="text-primary">cluster, factoextra</code></td>
+<td class="py-3 px-6 text-slate-400">PAM algorithm, cluster visualization, silhouette/elbow plots</td>
+</tr>
+<tr class="border-b border-white/5 odd">
+<td class="py-3 px-6 text-slate-300">Dimensionality Reduction</td>
+<td class="py-3 px-6"><code class="text-primary">stats (prcomp)</code></td>
+<td class="py-3 px-6 text-slate-400">PCA for scatter plot visualization of clusters</td>
+</tr>
+<tr class="border-b border-white/5 even">
+<td class="py-3 px-6 text-slate-300">Modeling</td>
+<td class="py-3 px-6"><code class="text-primary">glmnet</code></td>
+<td class="py-3 px-6 text-slate-400">Lasso and Ridge regularization for churn prediction</td>
+</tr>
+<tr class="odd">
+<td class="py-3 px-6 text-slate-300">Statistical Tests</td>
+<td class="py-3 px-6"><code class="text-primary">stats (base R), rstatix</code></td>
+<td class="py-3 px-6 text-slate-400">ANOVA, T-tests, effect sizes</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+<!-- 07. Project Schedule -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-primary font-bold text-sm mb-2 block">SECTION 07</span>
+<h3 class="text-3xl font-bold mb-6">Project Schedule</h3>
+<p class="text-slate-400 leading-relaxed mb-10">Each team member is responsible for one module in Take-home Exercise 2, then all members collaborate to integrate the modules into the unified Shiny application. Minutes of meeting are documented within 24 hours of every session.</p>
+
+<div class="relative border-l border-white/10 ml-6 space-y-10">
+<!-- Phase 1 -->
+<div class="relative pl-12">
+<div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-primary ring-4 ring-[#121212]"></div>
+<div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
+<span class="text-xs font-black text-primary uppercase tracking-widest">Phase 1 — 08 March 2026</span>
+<span class="text-xs text-slate-600">All members</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-2">Data Preparation</h4>
+<p class="text-slate-400">Aggregate transaction log, clean customer data, engineer features, pre-compute clusters, train glmnet model.</p>
+<p class="text-slate-500 text-sm mt-1">Deliverable: Prepared .rds files</p>
+</div>
+<!-- Phase 2 -->
+<div class="relative pl-12">
+<div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-primary/80 ring-4 ring-[#121212]"></div>
+<div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
+<span class="text-xs font-black text-primary uppercase tracking-widest">Phase 2 — 15 March 2026</span>
+<span class="text-xs text-slate-600">Individual</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-2">Take-home Exercise 2</h4>
+<p class="text-slate-400">Each member prototypes one module (EDA, Clustering, Modeling) as a standalone Quarto report with UI storyboard.</p>
+<p class="text-slate-500 text-sm mt-1">Deliverable: 3 Quarto reports</p>
+</div>
+<!-- Phase 3 -->
+<div class="relative pl-12">
+<div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-primary/60 ring-4 ring-[#121212]"></div>
+<div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
+<span class="text-xs font-black text-primary uppercase tracking-widest">Phase 3 — 22 March 2026</span>
+<span class="text-xs text-slate-600">All members</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-2">Shiny App Integration</h4>
+<p class="text-slate-400">Combine modules into unified Shiny app: establish global reactive values, shared sidebar, cross-module linking, UI/UX polish.</p>
+<p class="text-slate-500 text-sm mt-1">Deliverable: Working Shiny app</p>
+</div>
+<!-- Phase 4 -->
+<div class="relative pl-12">
+<div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-slate-600 ring-4 ring-[#121212]"></div>
+<div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
+<span class="text-xs font-black text-slate-500 uppercase tracking-widest">Phase 4 — 29 March 2026</span>
+<span class="text-xs text-slate-600">All members</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-2">Project Poster &amp; Report</h4>
+<p class="text-slate-400">Draft project poster; synthesize the 8 key observations into the final report using cross-referenced visual evidence.</p>
+<p class="text-slate-500 text-sm mt-1">Deliverable: Poster + report draft</p>
+</div>
+<!-- Phase 5 -->
+<div class="relative pl-12">
+<div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-slate-700 ring-4 ring-[#121212]"></div>
+<div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
+<span class="text-xs font-black text-slate-600 uppercase tracking-widest">Phase 5 — 02 April 2026</span>
+<span class="text-xs text-slate-600">All members</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-2">Practice Poster Presentation</h4>
+<p class="text-slate-400">Rehearse and refine poster presentation.</p>
+<p class="text-slate-500 text-sm mt-1">Deliverable: Poster presentation</p>
+</div>
+<!-- Phase 6 -->
+<div class="relative pl-12">
+<div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-slate-800 ring-4 ring-[#121212]"></div>
+<div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
+<span class="text-xs font-black text-slate-700 uppercase tracking-widest">Phase 6 — 05 April 2026</span>
+<span class="text-xs text-slate-600">All members</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-2">Final Deployment</h4>
+<p class="text-slate-400">Final deployment to shinyapps.io, stress testing, ZIP submission.</p>
+<p class="text-slate-500 text-sm mt-1">Deliverable: Deployed app + ZIP</p>
+</div>
+</div>
+<!-- Gantt Chart -->
+<div class="mt-16">
+<h4 class="text-xl font-bold text-white mb-8">Gantt Chart</h4>
+<div class="overflow-x-auto">
+
+<table class="w-full text-sm caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="text-left py-3 px-4 text-slate-400 font-semibold w-48" data-quarto-table-cell-role="th">Task</th>
+<th class="text-left py-3 px-4 text-slate-400 font-semibold w-24" data-quarto-table-cell-role="th">Owner</th>
+<th class="text-center py-2 px-1 text-slate-500 text-xs w-16" data-quarto-table-cell-role="th">W1<br>
+2-8 Mar</th>
+<th class="text-center py-2 px-1 text-slate-500 text-xs w-16" data-quarto-table-cell-role="th">W2<br>
+9-15 Mar</th>
+<th class="text-center py-2 px-1 text-slate-500 text-xs w-16" data-quarto-table-cell-role="th">W3<br>
+16-22 Mar</th>
+<th class="text-center py-2 px-1 text-slate-500 text-xs w-16" data-quarto-table-cell-role="th">W4<br>
+23-29 Mar</th>
+<th class="text-center py-2 px-1 text-slate-500 text-xs w-16" data-quarto-table-cell-role="th">W5<br>
+30 Mar-5 Apr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-t border-white/5 odd">
+<td class="py-3 px-4 text-white font-medium">Data Preparation</td>
+<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-1"><div class="h-6 rounded-md bg-primary">
+
+</div></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+</tr>
+<tr class="border-t border-white/5 even">
+<td class="py-3 px-4 text-white font-medium">Module 1: EDA Module</td>
+<td class="py-3 px-4 text-slate-400">Lin Yan</td>
+<td class="py-3 px-1"><div class="h-6 rounded-l-md bg-blue-500">
+
+</div></td>
+<td class="py-3 px-1"><div class="h-6 rounded-r-md bg-blue-500">
+
+</div></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+</tr>
+<tr class="border-t border-white/5 odd">
+<td class="py-3 px-4 text-white font-medium">Module 2: Clustering Module</td>
+<td class="py-3 px-4 text-slate-400">Ji Guofang</td>
+<td class="py-3 px-1"><div class="h-6 rounded-l-md bg-purple-500">
+
+</div></td>
+<td class="py-3 px-1"><div class="h-6 rounded-r-md bg-purple-500">
+
+</div></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+</tr>
+<tr class="border-t border-white/5 even">
+<td class="py-3 px-4 text-white font-medium">Module 3: Prediction Module</td>
+<td class="py-3 px-4 text-slate-400">Nguyen Trong Nhan</td>
+<td class="py-3 px-1"><div class="h-6 rounded-l-md bg-pink-500">
+
+</div></td>
+<td class="py-3 px-1"><div class="h-6 rounded-r-md bg-pink-500">
+
+</div></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+</tr>
+<tr class="border-t border-white/5 odd">
+<td class="py-3 px-4 text-white font-medium">Shiny App Integration</td>
+<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"><div class="h-6 rounded-md bg-primary">
+
+</div></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+</tr>
+<tr class="border-t border-white/5 even">
+<td class="py-3 px-4 text-white font-medium">Project Poster &amp; Report</td>
+<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"><div class="h-6 rounded-md bg-primary">
+
+</div></td>
+<td class="py-3 px-1"></td>
+</tr>
+<tr class="border-t border-white/5 odd">
+<td class="py-3 px-4 text-white font-medium">Practice Presentation</td>
+<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"><div class="h-6 rounded-l-md bg-slate-500">
+
+</div></td>
+</tr>
+<tr class="border-t border-white/5 even">
+<td class="py-3 px-4 text-white font-medium">Final Deployment</td>
+<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"></td>
+<td class="py-3 px-1"><div class="h-6 rounded-r-md bg-slate-500">
+
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<!-- Legend -->
+<div class="flex flex-wrap gap-6 mt-6">
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-primary"></div><span class="text-xs text-slate-400">All members</span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-blue-500"></div><span class="text-xs text-slate-400">Lin Yan (EDA)</span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-purple-500"></div><span class="text-xs text-slate-400">Ji Guofang (Clustering)</span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-pink-500"></div><span class="text-xs text-slate-400">Nguyen Trong Nhan (Prediction)</span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-slate-500"></div><span class="text-xs text-slate-400">Final phase</span></div>
+</div>
+</div>
+</div>
+
+
+
+<!-- Download Action -->
+<div class="flex justify-center py-20">
+<a href="Project_Proposal_Team13_v2.docx" download="" class="flex items-center gap-4 px-12 py-5 bg-primary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
+<span class="material-symbols-outlined">download</span>
+DOWNLOAD FULL PROPOSAL (DOCX)
+</a>
+</div>
+
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-white/5 py-16 bg-[#0c0c0c]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-10">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="size-6" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="font-bold text-xl">COFINFAD Analytics</span>
+</div>
+
+<p class="text-sm text-slate-600">© 2026 COFINFAD Analytics. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+
+
+
+
+
+
+</body></html>

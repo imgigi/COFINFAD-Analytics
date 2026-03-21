@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us - Sketch Dashboard</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- BEGIN: Custom Sketch Styles -->
+<style data-purpose="sketch-typography">
+    @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gochi+Hand&display=swap');
+    
+    body {
+      font-family: 'Architects Daughter', cursive;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    
+    h1, h2, h3, .logo {
+      font-family: 'Gochi Hand', cursive;
+    }
+  </style>
+<style data-purpose="sketch-borders">
+    /* Hand-drawn effect for borders */
+    .sketch-border {
+      border: 2px solid #000;
+      border-radius: 4px 10px 4px 10px / 10px 4px 10px 4px;
+      position: relative;
+    }
+    
+    .sketch-border-bottom {
+      border-bottom: 2px solid #000;
+      border-radius: 0 0 8px 4px / 0 0 4px 8px;
+    }
+
+    .sketch-border-right {
+      border-right: 2px solid #000;
+    }
+
+    .sketch-pill {
+      border: 1.5px solid #000;
+      border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+      padding: 2px 12px;
+    }
+
+    .sketch-underline {
+      position: relative;
+    }
+    .sketch-underline::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #000;
+      border-radius: 10px 2px 8px 3px;
+    }
+
+    /* Sketchy texture overlay simulation */
+    .sketch-texture {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+    }
+  </style>
+<!-- END: Custom Sketch Styles -->
+</head>
+<body class="min-h-screen p-4 md:p-8">
+<div class="sketch-texture"></div>
+<!-- BEGIN: MainHeader -->
+<header class="max-w-7xl mx-auto flex justify-between items-center mb-16 py-4 sketch-border-bottom" data-purpose="top-navigation">
+<div class="logo text-3xl font-bold tracking-tighter" data-purpose="brand-logo">
+      SKETCH_DASH
+    </div>
+<nav class="flex gap-8 items-center" data-purpose="main-nav">
+<a class="hover:italic" href="#">Dashboard</a>
+<a class="hover:italic" href="#">Projects</a>
+<a class="sketch-underline" href="#">About</a>
+<a class="hover:italic" href="#">Contact</a>
+</nav>
+</header>
+<!-- END: MainHeader -->
+<main class="max-w-7xl mx-auto">
+<!-- BEGIN: HeroSection -->
+<section class="mb-20" data-purpose="hero-content">
+<div class="mb-4">
+<span class="sketch-pill text-sm px-4 py-1">THE BLUEPRINT</span>
+</div>
+<h1 class="text-6xl md:text-7xl font-bold mb-6 leading-none">
+        Rough Ideas,<br/>Concrete Data.
+      </h1>
+<p class="max-w-2xl text-lg mb-10 italic">
+        We believe that the best insights start as messy sketches. Our dashboard preserves that creative spark while delivering pinpoint accuracy.
+      </p>
+<!-- Stats Row -->
+<div class="flex flex-wrap items-center py-6 sketch-border" data-purpose="hero-stats">
+<div class="flex-1 text-center px-4 sketch-border-right border-black">
+<div class="text-4xl font-bold">12k+</div>
+<div class="text-sm">Lines Drawn</div>
+</div>
+<div class="flex-1 text-center px-4 sketch-border-right border-black">
+<div class="text-4xl font-bold">84%</div>
+<div class="text-sm">Human Touch</div>
+</div>
+<div class="flex-1 text-center px-4 sketch-border-right border-black">
+<div class="text-4xl font-bold">2.5s</div>
+<div class="text-sm">Ink Dry Time</div>
+</div>
+<div class="flex-1 text-center px-4">
+<div class="text-4xl font-bold">∞</div>
+<div class="text-sm">Possibilities</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: FeatureCards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20" data-purpose="feature-cards">
+<!-- Card 1 -->
+<div class="sketch-border p-6 flex flex-col h-full">
+<div class="w-10 h-10 sketch-border flex items-center justify-center mb-4">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-2xl font-bold mb-2">Raw Design</h3>
+<p class="mb-6 flex-grow">Every element is hand-crafted with digital ink to ensure a unique aesthetic for every user.</p>
+<div class="flex gap-2 flex-wrap">
+<span class="sketch-pill text-xs">PENCIL</span>
+<span class="sketch-pill text-xs">HB_2</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="sketch-border p-6 flex flex-col h-full">
+<div class="w-10 h-10 sketch-border flex items-center justify-center mb-4">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-2xl font-bold mb-2">Honest Data</h3>
+<p class="mb-6 flex-grow">Transparent reporting without the glossy corporate polish. Just the facts, as they are.</p>
+<div class="flex gap-2 flex-wrap">
+<span class="sketch-pill text-xs">STATS</span>
+<span class="sketch-pill text-xs">CHARCOAL</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="sketch-border p-6 flex flex-col h-full">
+<div class="w-10 h-10 sketch-border flex items-center justify-center mb-4">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-2xl font-bold mb-2">Rapid Iteration</h3>
+<p class="mb-6 flex-grow">Updating your workspace should be as fast as sketching on a napkin in a coffee shop.</p>
+<div class="flex gap-2 flex-wrap">
+<span class="sketch-pill text-xs">SPRINT</span>
+<span class="sketch-pill text-xs">DRAFT</span>
+</div>
+</div>
+</section>
+<!-- END: FeatureCards -->
+<!-- BEGIN: BottomGrid -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-16" data-purpose="detailed-info">
+<!-- Left Column: Metrics -->
+<div data-purpose="metrics-list">
+<h2 class="text-4xl font-bold mb-4">Project Vitals</h2>
+<p class="mb-8 italic">A closer look at how we measure the soul of the platform.</p>
+<div class="space-y-6">
+<div class="flex items-center justify-between py-2 sketch-border-bottom">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 sketch-border flex items-center justify-center">○</span>
+<span class="font-bold">Creative Flow</span>
+</div>
+<span class="font-bold text-xl">92/100</span>
+</div>
+<div class="flex items-center justify-between py-2 sketch-border-bottom">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 sketch-border flex items-center justify-center">△</span>
+<span class="font-bold">Ink Density</span>
+</div>
+<span class="font-bold text-xl">4.2 px</span>
+</div>
+<div class="flex items-center justify-between py-2 sketch-border-bottom">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 sketch-border flex items-center justify-center">□</span>
+<span class="font-bold">Paper Quality</span>
+</div>
+<span class="font-bold text-xl">Premium</span>
+</div>
+<div class="flex items-center justify-between py-2 sketch-border-bottom">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 sketch-border flex items-center justify-center">✧</span>
+<span class="font-bold">User Delight</span>
+</div>
+<span class="font-bold text-xl">Max</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Team/Details -->
+<div data-purpose="team-list">
+<h2 class="text-4xl font-bold mb-8">The Architects</h2>
+<div class="space-y-8">
+<!-- Row 1 -->
+<div class="flex gap-4">
+<div class="w-16 h-16 sketch-border rounded-full flex-shrink-0 flex items-center justify-center italic text-xs">IMG_1</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="text-xl font-bold">Arthur Pen</span>
+<span class="sketch-pill text-[10px] uppercase">Lead Sketcher</span>
+</div>
+<p class="text-sm opacity-80 italic">Articulating the vision with every stroke of his 2B pencil. Finds beauty in the smudge.</p>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex gap-4">
+<div class="w-16 h-16 sketch-border rounded-full flex-shrink-0 flex items-center justify-center italic text-xs">IMG_2</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="text-xl font-bold">Dot Matrix</span>
+<span class="sketch-pill text-[10px] uppercase">Ink Specialist</span>
+</div>
+<p class="text-sm opacity-80 italic">Manages the flow of black ink across the digital canvas. Hates straight lines.</p>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex gap-4">
+<div class="w-16 h-16 sketch-border rounded-full flex-shrink-0 flex items-center justify-center italic text-xs">IMG_3</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="text-xl font-bold">Eraser Head</span>
+<span class="sketch-pill text-[10px] uppercase">QC Lead</span>
+</div>
+<p class="text-sm opacity-80 italic">The filter between chaos and clarity. Makes sure every sketch tells the right story.</p>
+</div>
+</div>
+</div>
+<div class="mt-12 flex items-center gap-4 py-4 px-6 sketch-border italic bg-white" data-purpose="info-footer">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<p>Note: No erasers were harmed in the making of this dashboard.</p>
+</div>
+</div>
+</section>
+<!-- END: BottomGrid -->
+</main>
+<footer class="max-w-7xl mx-auto mt-24 py-10 sketch-border-bottom text-center opacity-60">
+<p>© 2023 Sketchy Dashboard Logic. All rights hand-drawn.</p>
+</footer>
+</body></html>

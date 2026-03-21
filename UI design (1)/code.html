@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>COFINFAD Analytics - Design System</title>
+<!-- BEGIN: External Assets -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- END: External Assets -->
+<!-- BEGIN: Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              background: '#0d0d12',
+              surface: '#1a1a24',
+              surfaceDeep: '#12121a',
+              border: 'rgba(255,255,255,0.08)',
+              orange: '#f97316',
+              purple: '#a855f7',
+              pink: '#ec4899',
+              amber: '#eab308',
+              primary: '#ffffff',
+              secondary: '#9ca3af',
+              hint: '#4b5563',
+            }
+          },
+          fontFamily: {
+            headings: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<style data-purpose="custom-layouts">
+    body {
+      background-color: #0d0d12;
+      color: #ffffff;
+    }
+    .swatch-card {
+      height: 160px;
+      width: 100%;
+      border-radius: 1rem;
+    }
+    .grid-pattern {
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .dashed-green-border {
+      border: 1px dashed #22c55e;
+    }
+    .chart-container {
+      width: 200px;
+      height: 140px;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen grid-pattern pb-32">
+<!-- BEGIN: Main Container -->
+<main class="max-w-7xl mx-auto px-6 py-12 space-y-24">
+<!-- BEGIN: Header Section -->
+<header class="border-b border-brand-border pb-8" data-purpose="header">
+<p class="text-brand-orange font-mono text-xs tracking-widest mb-2 uppercase">Design System v1.0</p>
+<h1 class="font-headings text-4xl font-bold">COFINFAD <span class="text-brand-purple">Analytics</span></h1>
+<p class="text-brand-secondary mt-2">Style Tile &amp; Reference Sheet for Colombia's Fintech Ecosystem</p>
+</header>
+<!-- END: Header Section -->
+<!-- BEGIN: Colour System -->
+<section data-purpose="color-system" id="colors">
+<h2 class="font-headings text-xl mb-8 border-l-4 border-brand-orange pl-4 uppercase tracking-wider">01. Colour System</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-12">
+<!-- Swatch Block -->
+<div class="space-y-2">
+<span class="text-[10px] text-brand-secondary font-mono">Background</span>
+<div class="swatch-card border border-brand-border bg-[#0d0d12]"></div>
+<span class="text-[10px] text-white font-mono block">#0D0D12</span>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] text-brand-secondary font-mono">Surface</span>
+<div class="swatch-card border border-brand-border bg-[#1a1a24]"></div>
+<span class="text-[10px] text-white font-mono block">#1A1A24</span>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] text-brand-secondary font-mono">Surface Deep</span>
+<div class="swatch-card border border-brand-border bg-[#12121a]"></div>
+<span class="text-[10px] text-white font-mono block">#12121A</span>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] text-brand-secondary font-mono">Border</span>
+<div class="swatch-card border border-white/20 bg-white/10"></div>
+<span class="text-[10px] text-white font-mono block">RGBA(255,255,255,0.08)</span>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] text-brand-secondary font-mono">Orange</span>
+<div class="swatch-card bg-[#f97316]"></div>
+<span class="text-[10px] text-white font-mono block">#F97316</span>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] text-brand-secondary font-mono">Purple</span>
+<div class="swatch-card bg-[#a855f7]"></div>
+<span class="text-[10px] text-white font-mono block">#A855F7</span>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] text-brand-secondary font-mono">Pink</span>
+<div class="swatch-card bg-[#ec4899]"></div>
+<span class="text-[10px] text-white font-mono block">#EC4899</span>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] text-brand-secondary font-mono">Amber</span>
+<div class="swatch-card bg-[#eab308]"></div>
+<span class="text-[10px] text-white font-mono block">#EAB308</span>
+</div>
+</div>
+<!-- Text Samples -->
+<div class="flex flex-wrap gap-8 p-6 bg-brand-surface rounded-xl border border-brand-border">
+<div>
+<p class="text-[10px] text-brand-hint uppercase mb-1">Primary Text</p>
+<p class="text-white text-lg font-medium">The quick brown fox</p>
+</div>
+<div>
+<p class="text-[10px] text-brand-hint uppercase mb-1">Secondary Text</p>
+<p class="text-brand-secondary text-lg">The quick brown fox</p>
+</div>
+<div>
+<p class="text-[10px] text-brand-hint uppercase mb-1">Hint Text</p>
+<p class="text-brand-hint text-lg">The quick brown fox</p>
+</div>
+</div>
+</section>
+<!-- END: Colour System -->
+<!-- BEGIN: Type Scale -->
+<section data-purpose="typography" id="typography">
+<h2 class="font-headings text-xl mb-8 border-l-4 border-brand-purple pl-4 uppercase tracking-wider">02. Type Scale</h2>
+<div class="space-y-10 bg-brand-surfaceDeep p-8 rounded-2xl border border-brand-border">
+<div>
+<p class="text-[10px] text-brand-hint mb-2">Headline 1 / Space Grotesk Bold / 48px</p>
+<h3 class="font-headings text-5xl font-bold leading-tight">
+            Democratizing <span class="text-brand-orange">Fintech</span> <span class="text-brand-purple">Analytics</span>
+</h3>
+</div>
+<div>
+<p class="text-[10px] text-brand-hint mb-2">Headline 2 / Space Grotesk Semibold / 24px</p>
+<h4 class="font-headings text-2xl font-semibold text-white">Customer Segmentation</h4>
+</div>
+<div>
+<p class="text-[10px] text-brand-hint mb-2">Subhead / Inter Medium / 18px</p>
+<h5 class="font-sans text-lg font-medium text-white">Monthly Transaction Volume by Type</h5>
+</div>
+<div>
+<p class="text-[10px] text-brand-hint mb-2">Body / Inter Regular / 15px / 1.7 LH</p>
+<p class="font-sans text-[15px] text-brand-secondary leading-[1.7] max-w-2xl">
+            Explore temporal trends and geographic patterns across Colombia. Our analytics engine processes millions of data points to deliver actionable insights for banking leaders.
+          </p>
+</div>
+<div class="flex gap-12 items-end">
+<div>
+<p class="text-[10px] text-brand-hint mb-2">Caption / Overline</p>
+<p class="font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-brand-orange">AVG CHURN RATE · 34.3%</p>
+</div>
+<div>
+<p class="text-[10px] text-brand-hint mb-2">Mono / JetBrains Mono</p>
+<p class="font-mono text-[13px] text-brand-purple">λ = 1.051e-04 · Active features: 6/19</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Type Scale -->
+<!-- BEGIN: Interactive Elements & Tags -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-12" data-purpose="interactive-components" id="interactive">
+<!-- Buttons -->
+<div class="space-y-8">
+<h2 class="font-headings text-xl mb-8 border-l-4 border-brand-pink pl-4 uppercase tracking-wider">03. Buttons</h2>
+<div class="flex flex-wrap gap-4">
+<button class="px-6 py-2.5 bg-brand-orange text-white rounded-lg font-medium hover:bg-orange-600 transition-colors">Primary CTA</button>
+<button class="px-6 py-2.5 border border-brand-orange text-brand-orange rounded-lg font-medium hover:bg-brand-orange/10 transition-colors">Secondary</button>
+<button class="px-6 py-2.5 border border-brand-purple text-brand-purple rounded-lg font-medium hover:bg-brand-purple/10 transition-colors">Purple Action</button>
+<button class="px-6 py-2.5 bg-white/5 text-brand-secondary rounded-lg font-medium hover:bg-white/10 transition-colors">Ghost</button>
+<button class="px-6 py-2.5 border border-brand-pink text-brand-pink rounded-lg font-medium hover:bg-brand-pink/10 transition-colors">Danger</button>
+<button class="px-6 py-2.5 bg-brand-hint/20 text-brand-hint rounded-lg font-medium cursor-not-allowed">Disabled</button>
+</div>
+<h2 class="font-headings text-xl mt-16 mb-8 border-l-4 border-brand-amber pl-4 uppercase tracking-wider">04. Category Tags</h2>
+<div class="space-y-4">
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange">Time Series</span>
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange">Regression</span>
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange">Prophet</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-purple/10 border border-brand-purple/30 text-brand-purple">K-Means</span>
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-purple/10 border border-brand-purple/30 text-brand-purple">Clustering</span>
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-purple/10 border border-brand-purple/30 text-brand-purple">PCA</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-pink/10 border border-brand-pink/30 text-brand-pink">Lasso</span>
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-pink/10 border border-brand-pink/30 text-brand-pink">Elastic Net</span>
+<span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-pink/10 border border-brand-pink/30 text-brand-pink">Gradient Boost</span>
+</div>
+</div>
+</div>
+<!-- Inputs & Controls -->
+<div class="space-y-8">
+<h2 class="font-headings text-xl mb-8 border-l-4 border-brand-secondary pl-4 uppercase tracking-wider">06. Inputs &amp; Controls</h2>
+<div class="bg-brand-surface p-8 rounded-2xl border border-brand-border space-y-6">
+<div class="space-y-2">
+<label class="text-[11px] text-brand-secondary font-medium uppercase">Analysis Reference</label>
+<input class="w-full bg-brand-background border-brand-border rounded-lg text-white focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all" placeholder="Enter ID..." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[11px] text-brand-secondary font-medium uppercase">Region</label>
+<select class="w-full bg-brand-background border-brand-border rounded-lg text-white focus:ring-2 focus:ring-brand-orange">
+<option>Bogotá D.C.</option>
+<option>Medellín</option>
+<option>Cali</option>
+</select>
+</div>
+<div class="flex items-center gap-8 py-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-brand-border bg-brand-background text-brand-orange focus:ring-offset-brand-background focus:ring-brand-orange" type="checkbox"/>
+<span class="text-sm text-brand-secondary group-hover:text-white transition-colors">Include anomalies</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="w-5 h-5 border-brand-border bg-brand-background text-brand-orange focus:ring-offset-brand-background focus:ring-brand-orange" name="mode" type="radio"/>
+<span class="text-sm text-brand-secondary group-hover:text-white transition-colors">Real-time</span>
+</label>
+</div>
+<div class="space-y-3">
+<label class="text-[11px] text-brand-secondary font-medium uppercase">Confidence Threshold</label>
+<input class="w-full h-1.5 bg-brand-background rounded-lg appearance-none cursor-pointer accent-brand-orange" type="range"/>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Interactive Elements & Tags -->
+<!-- BEGIN: Card System -->
+<section data-purpose="card-variants" id="cards">
+<h2 class="font-headings text-xl mb-8 border-l-4 border-brand-orange pl-4 uppercase tracking-wider">05. Card System</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- KPI Card -->
+<div class="bg-brand-surface p-6 rounded-xl border border-brand-border">
+<div class="w-10 h-10 bg-brand-orange/10 rounded-lg flex items-center justify-center mb-4">
+<svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<p class="text-[11px] text-brand-secondary font-bold tracking-wider mb-1">TOTAL CUSTOMERS</p>
+<p class="text-3xl font-headings font-bold">48,723</p>
+</div>
+<!-- Feature Card -->
+<div class="bg-brand-surface p-6 rounded-xl border border-brand-border border-t-[3px] border-t-brand-orange">
+<h4 class="font-headings text-lg font-semibold mb-2">Predictive Modeling</h4>
+<p class="text-sm text-brand-secondary leading-relaxed">Advanced ML workflows specifically tuned for Colombian market volatility.</p>
+</div>
+<!-- Recommendation Box -->
+<div class="bg-brand-surfaceDeep p-6 rounded-xl dashed-green-border">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<h4 class="font-headings text-sm font-semibold text-green-500">Low Risk</h4>
+</div>
+<p class="text-sm text-white/80">Segment exhibits stable liquidity patterns and consistent repayment history over 12 months.</p>
+</div>
+<!-- Info Banner -->
+<div class="bg-brand-surface p-6 rounded-xl border border-brand-border border-l-[3px] border-l-brand-orange">
+<h4 class="font-mono text-sm font-bold text-white mb-1">LASSO (L1)</h4>
+<p class="text-xs text-brand-secondary">Feature selection algorithm active for sparse datasets in recent batch run.</p>
+</div>
+</div>
+</section>
+<!-- END: Card System -->
+<!-- BEGIN: Data Visualisation Previews -->
+<section data-purpose="chart-previews" id="viz">
+<h2 class="font-headings text-xl mb-8 border-l-4 border-brand-purple pl-4 uppercase tracking-wider">07. Data Visualisation</h2>
+<div class="flex flex-wrap gap-6">
+<!-- Line Chart Preview -->
+<div class="chart-container bg-brand-surface border border-brand-border rounded-lg p-3 relative overflow-hidden">
+<p class="text-[10px] text-brand-hint mb-2">Line / Multi-Color</p>
+<svg class="w-full h-16" viewbox="0 0 100 40">
+<path d="M0 30 Q 20 10, 40 25 T 80 15 T 100 20" fill="none" stroke="#f97316" stroke-width="2"></path>
+<path d="M0 35 Q 25 20, 50 30 T 100 10" fill="none" stroke="#a855f7" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Bar Chart Preview -->
+<div class="chart-container bg-brand-surface border border-brand-border rounded-lg p-3 flex flex-col justify-between">
+<p class="text-[10px] text-brand-hint">Horizontal Bar / Orange</p>
+<div class="space-y-2">
+<div class="h-2 w-3/4 bg-brand-orange rounded-full"></div>
+<div class="h-2 w-1/2 bg-brand-orange/60 rounded-full"></div>
+<div class="h-2 w-5/6 bg-brand-orange rounded-full"></div>
+</div>
+</div>
+<!-- Heatmap Preview -->
+<div class="chart-container bg-brand-surface border border-brand-border rounded-lg p-3">
+<p class="text-[10px] text-brand-hint mb-2">Heatmap / Purple to Orange</p>
+<div class="grid grid-cols-4 gap-1">
+<div class="h-4 bg-brand-purple"></div><div class="h-4 bg-brand-purple/80"></div><div class="h-4 bg-brand-purple/40"></div><div class="h-4 bg-brand-orange/40"></div>
+<div class="h-4 bg-brand-purple/60"></div><div class="h-4 bg-brand-orange/60"></div><div class="h-4 bg-brand-orange/80"></div><div class="h-4 bg-brand-orange"></div>
+<div class="h-4 bg-brand-purple/20"></div><div class="h-4 bg-brand-orange/40"></div><div class="h-4 bg-brand-orange/20"></div><div class="h-4 bg-brand-purple/10"></div>
+</div>
+</div>
+<!-- Diverging Bar Preview -->
+<div class="chart-container bg-brand-surface border border-brand-border rounded-lg p-3">
+<p class="text-[10px] text-brand-hint mb-2">Diverging Bar / Purple &amp; Pink</p>
+<div class="space-y-2">
+<div class="flex gap-0.5"><div class="h-2 w-4 bg-brand-purple"></div><div class="h-2 w-8 border-l border-white/20"></div></div>
+<div class="flex gap-0.5"><div class="h-2 w-8 bg-brand-purple"></div><div class="h-2 w-4 border-l border-white/20"></div></div>
+<div class="flex gap-0.5 justify-end"><div class="h-2 w-6 border-r border-white/20"></div><div class="h-2 w-4 bg-brand-pink"></div></div>
+<div class="flex gap-0.5 justify-end"><div class="h-2 w-2 border-r border-white/20"></div><div class="h-2 w-10 bg-brand-pink"></div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Data Visualisation Previews -->
+</main>
+<!-- END: Main Container -->
+<!-- BEGIN: Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-brand-surface/80 backdrop-blur-xl border-t border-brand-border z-50" data-purpose="site-navigation">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-gradient-to-tr from-brand-orange to-brand-purple rounded-lg"></div>
+<span class="font-headings font-bold text-lg hidden sm:block">COFINFAD <span class="text-brand-secondary font-normal">Analytics</span></span>
+</div>
+<ul class="flex items-center gap-8 h-full">
+<li class="h-full">
+<a class="h-full flex items-center text-sm font-medium text-white border-b-2 border-brand-orange" href="#">Dashboard</a>
+</li>
+<li class="h-full">
+<a class="h-full flex items-center text-sm font-medium text-brand-secondary hover:text-white transition-colors" href="#">Segmentation</a>
+</li>
+<li class="h-full">
+<a class="h-full flex items-center text-sm font-medium text-brand-secondary hover:text-white transition-colors" href="#">Forecasting</a>
+</li>
+<li class="h-full">
+<a class="h-full flex items-center text-sm font-medium text-brand-secondary hover:text-white transition-colors" href="#">Settings</a>
+</li>
+</ul>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center text-brand-secondary hover:border-brand-orange hover:text-white transition-all">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</nav>
+<!-- END: Bottom Navigation -->
+</body></html>

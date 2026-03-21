@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>COFINFAD Shiny App Prototype Sketch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- BEGIN: Custom Styling for Notebook/Sketch Effect -->
+<style data-purpose="notebook-background">
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive;
+    }
+    
+    /* Lined paper texture */
+    .notebook-page {
+      background-color: #ffffff;
+      background-image: linear-gradient(#e5e5e5 1px, transparent 1px);
+      background-size: 100% 1.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 900px;
+      min-height: 1100px;
+      padding: 3rem 2rem;
+      position: relative;
+      border: 1px solid #ddd;
+    }
+
+    /* Red vertical margin line */
+    .notebook-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 4rem;
+      width: 1px;
+      height: 100%;
+      background-color: rgba(255, 0, 0, 0.3);
+    }
+  </style>
+<style data-purpose="ink-colors">
+    .ink-blue {
+      color: #1e3a8a; /* Deep blue pen ink */
+    }
+    .stroke-blue {
+      stroke: #1e3a8a;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fill-blue {
+      fill: #1e3a8a;
+      opacity: 0.1;
+    }
+    .ink-orange {
+      color: #ea580c; /* Orange highlight ink */
+    }
+    .stroke-orange {
+      stroke: #ea580c;
+      fill: none;
+      stroke-width: 2.5;
+    }
+    .highlight-orange {
+      border: 2px dashed #ea580c;
+      border-radius: 8px;
+      padding: 2px 4px;
+    }
+  </style>
+<!-- END: Custom Styling -->
+</head>
+<body class="p-8">
+<!-- BEGIN: Notebook Container -->
+<main class="notebook-page ink-blue">
+<!-- Header Title -->
+<header class="mb-10 pl-16">
+<h1 class="text-4xl font-bold italic underline decoration-blue-800 underline-offset-8">
+        COFINFAD Shiny App Prototype
+      </h1>
+</header>
+<!-- 2x2 Grid Layout -->
+<section class="grid grid-cols-2 gap-8 pl-16 pr-4">
+<!-- BEGIN: Box 1 - Line Chart -->
+<article class="border-2 border-blue-900/30 p-4 rounded-sm min-h-[400px] flex flex-col" data-purpose="view-1-monthly-trends">
+<h2 class="text-xl font-bold mb-4">View 1: Line Chart (Monthly Trends)</h2>
+<div class="flex-grow flex items-center justify-center relative">
+<svg class="w-full h-auto" viewbox="0 0 300 150">
+<!-- Axes -->
+<path class="stroke-blue" d="M20 10 L20 130 L280 130"></path>
+<!-- Labels -->
+<text fill="#1e3a8a" font-size="8" x="280" y="145">Dec</text>
+<text fill="#1e3a8a" font-size="8" x="20" y="145">Jan Feb Mar ...</text>
+<text fill="#1e3a8a" font-size="8" transform="rotate(-90, 5, 70)" x="5" y="70">Amount</text>
+<!-- Wavy Lines -->
+<path class="stroke-blue" d="M20 100 Q 50 20, 80 80 T 140 60 T 200 110 T 280 40"></path> <!-- Solid -->
+<path class="stroke-blue" d="M20 110 Q 60 50, 100 90 T 180 40 T 280 100" stroke-dasharray="4"></path> <!-- Dashed -->
+<path class="stroke-blue" d="M20 120 Q 70 80, 120 110 T 220 70 T 280 90" stroke-dasharray="1 3"></path> <!-- Dotted -->
+<path class="stroke-blue" d="M20 90 Q 40 110, 80 50 T 160 80 T 280 20" stroke-dasharray="8 2 1 2"></path> <!-- Dash-dot -->
+</svg>
+<!-- Orange Emphasis Arrow & Note -->
+<div class="absolute -right-4 top-1/2 transform translate-x-full text-xs ink-orange w-24">
+<svg class="w-10 h-10 mb-1" viewbox="0 0 50 30">
+<path class="stroke-orange" d="M5 15 L40 15 M30 5 L40 15 L30 25" fill="none"></path>
+</svg>
+<p>Show seasonal peaks by tx type.</p>
+</div>
+</div>
+<div class="mt-4 text-[10px] space-y-1">
+<p>Legend below:</p>
+<div class="grid grid-cols-2">
+<span>solid = Transfer</span>
+<span>dashed = Withdrawal</span>
+<span>dotted = Payment</span>
+<span>dash-dot = Deposit</span>
+</div>
+</div>
+</article>
+<!-- END: Box 1 -->
+<!-- BEGIN: Box 2 - Choropleth Map -->
+<article class="border-2 border-blue-900/30 p-4 rounded-sm min-h-[400px]" data-purpose="view-2-choropleth-map">
+<h2 class="text-xl font-bold mb-4">View 2: Choropleth Map</h2>
+<div class="flex justify-center mb-4">
+<!-- Rough Outline of Colombia -->
+<svg class="w-32 h-auto" viewbox="0 0 150 200">
+<path class="stroke-blue" d="M70 10 L100 30 L130 80 L120 140 L100 180 L70 190 L30 150 L20 100 L40 40 Z"></path>
+<!-- Inner crosshatching for shaded regions -->
+<path class="stroke-blue" d="M40 50 L60 70 M45 55 L65 75 M50 60 L70 80" opacity="0.5"></path>
+<path class="stroke-blue" d="M80 120 L110 150 M85 125 L115 155" opacity="0.8"></path>
+<path class="stroke-blue" d="M60 20 L80 40" opacity="0.3"></path>
+</svg>
+</div>
+<div class="text-sm space-y-2">
+<p>→ Darker shading means <span class="ink-orange font-bold text-lg">HIGHER</span> churn rate.</p>
+<p>→ Tooltip shows: <span class="italic">dept name, churn %, user count.</span></p>
+</div>
+</article>
+<!-- END: Box 2 -->
+<!-- BEGIN: Box 3 - Cluster Scatter Plot -->
+<article class="border-2 border-blue-900/30 p-4 rounded-sm min-h-[400px] relative" data-purpose="view-3-cluster-plot">
+<h2 class="text-xl font-bold mb-4">View 3: Cluster Scatter Plot</h2>
+<div class="flex justify-center">
+<svg class="w-full h-auto" viewbox="0 0 200 150">
+<path class="stroke-blue" d="M20 10 L20 130 L180 130"></path>
+<text fill="#1e3a8a" font-size="8" x="180" y="140">PC1</text>
+<text fill="#1e3a8a" font-size="8" x="5" y="15">PC2</text>
+<!-- Clusters -->
+<g class="cluster-1">
+<circle cx="50" cy="40" fill="#1e3a8a" r="2"></circle>
+<circle cx="55" cy="45" fill="#1e3a8a" r="2"></circle>
+<circle cx="45" cy="50" fill="#1e3a8a" r="2"></circle>
+<ellipse class="stroke-blue" cx="50" cy="45" fill="none" rx="15" ry="15" stroke-dasharray="2"></ellipse>
+</g>
+<g class="cluster-2">
+<rect fill="#1e3a8a" height="3" width="3" x="120" y="30"></rect>
+<rect fill="#1e3a8a" height="3" width="3" x="130" y="40"></rect>
+<rect fill="#1e3a8a" height="3" width="3" x="125" y="35"></rect>
+<ellipse class="stroke-blue" cx="127" cy="35" fill="none" rx="15" ry="15" stroke-dasharray="2"></ellipse>
+</g>
+<g class="cluster-3">
+<path d="M80 100 L84 106 L76 106 Z" fill="#1e3a8a"></path>
+<path d="M90 110 L94 116 L86 116 Z" fill="#1e3a8a"></path>
+<ellipse class="stroke-blue" cx="85" cy="110" fill="none" rx="15" ry="15" stroke-dasharray="2"></ellipse>
+</g>
+<g class="cluster-4">
+<circle cx="150" cy="90" fill="none" r="2" stroke="#1e3a8a"></circle>
+<circle cx="155" cy="95" fill="none" r="2" stroke="#1e3a8a"></circle>
+<ellipse class="stroke-blue" cx="152" cy="92" fill="none" rx="15" ry="15" stroke-dasharray="2"></ellipse>
+</g>
+</svg>
+</div>
+<div class="mt-4 text-[10px] space-y-1">
+<p>Legend: ● = High-value active, ○ = Low-freq dormant, △ = New users</p>
+<p class="mt-2">Note: K selected by elbow plot, user adjusts <span class="highlight-orange ink-orange">K slider</span> (2-8).</p>
+</div>
+</article>
+<!-- END: Box 3 -->
+<!-- BEGIN: Box 4 - What-If Gauge -->
+<article class="border-2 border-blue-900/30 p-4 rounded-sm min-h-[400px] relative" data-purpose="view-4-what-if">
+<h2 class="text-xl font-bold mb-4">View 4: What-If Gauge</h2>
+<!-- Gauge -->
+<div class="flex flex-col items-center mb-4">
+<svg class="w-32" viewbox="0 0 100 60">
+<path class="stroke-blue" d="M10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="4"></path>
+<line class="stroke-blue" stroke-width="2" x1="50" x2="35" y1="50" y2="25"></line> <!-- Needle -->
+<circle cx="50" cy="50" fill="#1e3a8a" r="3"></circle>
+<text fill="#1e3a8a" font-size="6" x="35" y="58">0.34</text>
+</svg>
+<p class="text-xs italic mt-1">Predicted Churn Probability</p>
+</div>
+<!-- Table -->
+<table class="w-full text-xs border-collapse border border-blue-900/20">
+<thead>
+<tr class="bg-blue-50">
+<th class="border border-blue-900/20 p-1">Feature</th>
+<th class="border border-blue-900/20 p-1">Current</th>
+<th class="border border-blue-900/20 p-1">What-If</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border border-blue-900/20 p-1">tx_count</td>
+<td class="border border-blue-900/20 p-1 text-center">12</td>
+<td class="border border-blue-900/20 p-1 text-center font-bold">20</td>
+</tr>
+<tr>
+<td class="border border-blue-900/20 p-1">tenure</td>
+<td class="border border-blue-900/20 p-1 text-center">6</td>
+<td class="border border-blue-900/20 p-1 text-center font-bold">12</td>
+</tr>
+<tr>
+<td class="border border-blue-900/20 p-1">products</td>
+<td class="border border-blue-900/20 p-1 text-center">1</td>
+<td class="border border-blue-900/20 p-1 text-center font-bold">3</td>
+</tr>
+</tbody>
+</table>
+<!-- Interactive Note -->
+<div class="mt-4 flex items-start gap-2">
+<svg class="w-8 h-8 flex-shrink-0" viewbox="0 0 40 20">
+<path class="stroke-orange" d="M5 5 L30 15 M25 5 L30 15 L20 18" fill="none"></path>
+</svg>
+<p class="text-xs ink-orange italic pt-2">user changes inputs → gauge updates in real time.</p>
+</div>
+</article>
+<!-- END: Box 4 -->
+</section>
+<!-- Page Footer / Annotations -->
+<footer class="mt-12 pl-16 opacity-40 italic text-sm">
+<p>Draft #1 - Machine Learning Visualization Dashboard</p>
+<p>Cofinfad Internal Tooling Team</p>
+</footer>
+</main>
+<!-- END: Notebook Container -->
+</body></html>

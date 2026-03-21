@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Pipeline Flowchart</title>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for a handwritten feel -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&amp;family=Gochi+Hand&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="hand-drawn-typography">
+    body {
+      background-color: #fcfcfc;
+      font-family: 'Architects Daughter', cursive;
+      color: #1a1a1a;
+    }
+    .hand-text {
+      font-family: 'Gochi Hand', cursive;
+      font-size: 1.1rem;
+    }
+  </style>
+<style data-purpose="diagram-styling">
+    /* Custom shapes and line styles to mimic pen on paper */
+    .flow-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      position: relative;
+    }
+
+    /* Sketchy border effect */
+    .sketch-box {
+      border: 2px solid #1a1a1a;
+      border-radius: 4px;
+      box-shadow: 2px 3px 0px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    /* Parallelogram for I/O */
+    .parallelogram {
+      transform: skew(-15deg);
+      border: 2px solid #1a1a1a;
+      padding: 0.5rem 1.5rem;
+      background: #fff;
+      display: inline-block;
+    }
+    .parallelogram span {
+      transform: skew(15deg);
+      display: block;
+    }
+
+    /* Grouping container */
+    .group-box {
+      background-color: #fffde7; /* Light yellow shade */
+      border: 2px solid #1a1a1a;
+      padding: 2rem 1rem 1.5rem 1rem;
+      margin: 1.5rem 0;
+      position: relative;
+      border-radius: 2px;
+    }
+    .group-label {
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      background: #fffde7;
+      padding: 0 10px;
+      border: 2px solid #1a1a1a;
+      font-weight: bold;
+    }
+
+    /* Arrows */
+    .arrow-down {
+      width: 2px;
+      height: 30px;
+      background: #1a1a1a;
+      margin: 0 auto;
+      position: relative;
+    }
+    .arrow-down::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: -4px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 8px solid #1a1a1a;
+    }
+
+    .arrow-right {
+      height: 2px;
+      width: 40px;
+      background: #1a1a1a;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .arrow-right::after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: -4px;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 8px solid #1a1a1a;
+    }
+
+    /* Connector lines for splitting paths */
+    .split-container {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      padding-top: 20px;
+    }
+    .split-line-top {
+      position: absolute;
+      top: 0;
+      left: 25%;
+      right: 25%;
+      height: 2px;
+      background: #1a1a1a;
+    }
+    .split-line-vertical {
+      width: 2px;
+      height: 20px;
+      background: #1a1a1a;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      background: #fff;
+      padding: 0.5rem;
+      min-width: 140px;
+      text-align: center;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+<main class="flow-container">
+<!-- BEGIN: Top Input -->
+<section class="flex flex-col items-center mb-4" data-purpose="input-section">
+<div class="parallelogram sketch-box">
+<span class="hand-text">in: customer_data.csv + transactions.csv</span>
+</div>
+<div class="arrow-down"></div>
+</section>
+<!-- END: Top Input -->
+<!-- BEGIN: Data Preparation Group -->
+<section class="group-box" data-purpose="data-prep-block">
+<div class="group-label">Data Preparation</div>
+<div class="flex flex-col items-center">
+<div class="process-step sketch-box hand-text">Read Input</div>
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text max-w-xs">Clean Data (median imputation for credit_utilization by income_bracket)</div>
+<!-- Split Path -->
+<div class="w-full relative mt-4">
+<div class="split-line-top"></div>
+<div class="flex justify-around">
+<div class="flex flex-col items-center w-1/2">
+<div class="split-line-vertical"></div>
+<div class="process-step sketch-box hand-text mt-2 h-full">Aggregate Monthly Summary (3.15M → 48 rows)</div>
+</div>
+<div class="flex flex-col items-center w-1/2">
+<div class="split-line-vertical"></div>
+<div class="process-step sketch-box hand-text mt-2 h-full">Aggregate Customer Features (per-type tx breakdown)</div>
+</div>
+</div>
+</div>
+<div class="w-1/2 flex justify-center mt-4 relative">
+<!-- Merging lines simulated by layout -->
+<div class="arrow-down"></div>
+</div>
+<div class="flex items-center w-full justify-center">
+<div class="process-step sketch-box hand-text max-w-md">Engineer Features (product_diversity_ratio, ticket_resolution_gap, satisfaction_gap)</div>
+<div class="flex items-center ml-4">
+<div class="arrow-right"></div>
+<div class="parallelogram sketch-box ml-2">
+<span class="hand-text">out: prepared_data.rds</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Data Preparation Group -->
+<div class="arrow-down"></div>
+<!-- BEGIN: Offline Computation Group -->
+<section class="group-box" data-purpose="offline-comp-block">
+<div class="group-label">Offline Computation</div>
+<div class="flex justify-between items-start gap-4">
+<!-- Left Path -->
+<div class="flex flex-col items-center flex-1">
+<div class="process-step sketch-box hand-text mb-4">Run K-Means/PAM/Hierarchical for K=2..8</div>
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text mt-2">Store cluster labels</div>
+</div>
+<!-- Middle Path -->
+<div class="flex flex-col items-center flex-1">
+<div class="process-step sketch-box hand-text mb-4">Run PCA on standardized features</div>
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text mt-2">Store PC scores</div>
+</div>
+<!-- Right Path -->
+<div class="flex flex-col items-center flex-1">
+<div class="process-step sketch-box hand-text mb-4">Train glmnet Lasso + Ridge with 10-fold CV</div>
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text mt-2">Store model .rds</div>
+</div>
+</div>
+<!-- Out file for block -->
+<div class="flex justify-end items-center mt-6">
+<div class="arrow-right"></div>
+<div class="parallelogram sketch-box ml-2">
+<span class="hand-text">out: clusters.rds, pca.rds, model.rds</span>
+</div>
+</div>
+</section>
+<!-- END: Offline Computation Group -->
+<div class="arrow-down"></div>
+<!-- BEGIN: Shiny App Group -->
+<section class="group-box" data-purpose="shiny-viz-block">
+<div class="group-label">Shiny App - Interactive Visualization</div>
+<div class="flex justify-between items-start gap-4">
+<!-- Mod 1 -->
+<div class="flex flex-col items-center flex-1">
+<div class="parallelogram sketch-box mb-4"><span class="hand-text">Module 1</span></div>
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text text-sm w-full mb-2">Plot time-series</div>
+<div class="arrow-down !h-4"></div>
+<div class="process-step sketch-box hand-text text-sm w-full mb-2">Plot choropleth map</div>
+<div class="arrow-down !h-4"></div>
+<div class="process-step sketch-box hand-text text-sm w-full">Run ANOVA/T-test</div>
+</div>
+<!-- Mod 2 -->
+<div class="flex flex-col items-center flex-1">
+<div class="parallelogram sketch-box mb-4"><span class="hand-text">Module 2</span></div>
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text text-sm w-full mb-2">Plot PCA scatter</div>
+<div class="arrow-down !h-4"></div>
+<div class="process-step sketch-box hand-text text-sm w-full mb-2">Plot elbow/silhouette</div>
+<div class="arrow-down !h-4"></div>
+<div class="process-step sketch-box hand-text text-sm w-full">Plot cluster profiles</div>
+</div>
+<!-- Mod 3 -->
+<div class="flex flex-col items-center flex-1">
+<div class="parallelogram sketch-box mb-4"><span class="hand-text">Module 3</span></div>
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text text-sm w-full mb-2">Plot variable importance</div>
+<div class="arrow-down !h-4"></div>
+<div class="process-step sketch-box hand-text text-sm w-full mb-2">Plot CV curve</div>
+<div class="arrow-down !h-4"></div>
+<div class="process-step sketch-box hand-text text-sm w-full">What-If gauge</div>
+</div>
+</div>
+<!-- Merge down to final steps -->
+<div class="flex flex-col items-center mt-8">
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text px-8 py-2">Combine into tabset panel</div>
+<div class="arrow-down"></div>
+<div class="process-step sketch-box hand-text font-bold text-lg px-12 py-3 bg-white">Shiny App</div>
+</div>
+</section>
+<!-- END: Shiny App Group -->
+</main>
+</body></html>

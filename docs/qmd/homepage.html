@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>COFINFAD Analytics | Fintech Intelligence Colombia – COFINFAD Analytics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<header id="title-block-header">
+<h1 class="title">COFINFAD Analytics | Fintech Intelligence Colombia</h1>
+
+</header>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#f97316",
+          "background-light": "#080808",
+          "background-dark": "#080808",
+          "card-dark": "#111111",
+          "border-dark": "#1f1f1f",
+        },
+        fontFamily: {
+          "display": ["Inter", "sans-serif"]
+        },
+        borderRadius: {
+          "DEFAULT": "0.5rem",
+          "lg": "1rem",
+          "xl": "1.5rem",
+          "full": "9999px"
+        },
+      },
+    },
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.add('dark');
+  });
+</script>
+<style>
+  #title-block-header { display: none !important; }
+  .quarto-title { display: none !important; }
+  header#title-block-header { display: none !important; }
+  header { display: none !important; }
+  #quarto-content { margin: 0 !important; padding: 0 !important; }
+  .page-columns { display: block !important; }
+  body > div.container-fluid, body > .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  main.content { margin: 0 !important; padding: 0 !important; max-width: 100% !important; }
+  body { background-color: #080808 !important; color: #e2e8f0 !important; font-family: 'Inter', sans-serif !important; margin: 0 !important; }
+  html { background-color: #080808 !important; }
+  .sticky-nav { position: sticky; top: 0; z-index: 50; }
+  .dropdown:hover .dropdown-menu { display: block; }
+</style>
+<div class="bg-[#080808] font-display text-slate-200 antialiased">
+<!-- Sticky Navbar -->
+<nav class="sticky-nav w-full border-b border-border-dark bg-[#080808]/90 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20 items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="../qmd/proposal.html">Proposal</a>
+<div class="relative dropdown group">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+                        Methodology <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="dropdown-menu hidden absolute left-0 mt-2 w-56 bg-card-dark border border-border-dark rounded-lg shadow-xl overflow-hidden">
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Data Preparation</a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Exploratory Analysis</a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Clustering</a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Prediction</a>
+</div>
+</div>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Findings</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Poster</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Meeting Minutes</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Team</a>
+</div>
+<div class="flex items-center gap-3">
+<a href="#shiny-app" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline">
+                    Shiny App
+                </a>
+<button class="p-2 border border-border-dark rounded-lg hover:bg-card-dark transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-24 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<h1 class="text-5xl md:text-8xl font-black tracking-tight mb-8 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+            COFINFAD Analytics
+        </h1>
+<p class="text-xl md:text-2xl font-medium text-slate-400 max-w-3xl mx-auto mb-4">
+            Democratizing Fintech Analytics: A Visual Analytics Approach to Customer Lifecycle and Transactional Behavior in Colombia
+        </p>
+<p class="text-primary font-semibold tracking-widest uppercase text-sm mb-12">
+            SMU ISSS608 · Team 13
+        </p>
+<div class="flex flex-col sm:flex-row justify-center gap-5">
+<a href="../qmd/proposal.html" class="bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-lg shadow-primary/20 no-underline">
+                Explore Proposal
+            </a>
+<a href="#shiny-app" class="border-2 border-primary text-primary hover:bg-primary/10 px-10 py-5 rounded-xl font-bold text-lg transition-all no-underline">
+                Shiny App
+            </a>
+</div>
+</div>
+<!-- Decorative Gradient -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-primary/5 blur-[120px] rounded-full -z-10 opacity-30"></div>
+</section>
+<!-- Stats Row -->
+<section class="max-w-7xl mx-auto px-4 py-16">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-card-dark border border-border-dark p-10 rounded-2xl transition-transform hover:-translate-y-1">
+<p class="text-primary text-5xl font-black mb-2">48,723</p>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">Customers</p>
+</div>
+<div class="bg-card-dark border border-border-dark p-10 rounded-2xl transition-transform hover:-translate-y-1">
+<p class="text-primary text-5xl font-black mb-2">3.16M</p>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">Transactions</p>
+</div>
+<div class="bg-card-dark border border-border-dark p-10 rounded-2xl transition-transform hover:-translate-y-1">
+<p class="text-primary text-5xl font-black mb-2">54</p>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">Variables</p>
+</div>
+<div class="bg-card-dark border border-border-dark p-10 rounded-2xl transition-transform hover:-translate-y-1">
+<p class="text-primary text-5xl font-black mb-2">3</p>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">Modules</p>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="max-w-7xl mx-auto px-4 py-28">
+<div class="flex flex-col lg:flex-row items-center gap-20">
+<div class="flex-1 space-y-8">
+<h2 class="text-4xl md:text-5xl font-bold border-l-4 border-primary pl-8">About This Project</h2>
+<div class="space-y-6 text-slate-400 leading-relaxed text-lg">
+<p>COFINFAD Analytics is an interactive R Shiny application that transforms Colombia's fintech data into accessible, visual business intelligence. Built on a dataset of 48,723 customers and 3.16 million transactions, the app follows a three-stage analytical narrative: exploring transactional patterns through interactive EDA, segmenting customers via multi-method clustering, and predicting churn risk with regularized regression — all within a unified dashboard requiring no coding.</p>
+</div>
+<a href="../qmd/proposal.html" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all no-underline text-lg">
+Read Full Proposal <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="flex-1 w-full">
+<div class="aspect-video bg-card-dark border border-border-dark rounded-3xl overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-7xl text-primary opacity-60">hub</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Modules Section -->
+<section class="max-w-7xl mx-auto px-4 py-28">
+<h2 class="text-4xl font-bold mb-6 text-center">Core Modules</h2>
+<p class="text-slate-400 text-center max-w-3xl mx-auto mb-16 text-lg">Our analysis follows a coherent narrative: explore <strong class="text-white">what</strong> is happening (EDA), ask <strong class="text-white">why</strong> via customer segmentation (Clustering), and predict <strong class="text-white">what will happen</strong> (Churn Prediction).</p>
+<div class="grid md:grid-cols-3 gap-10">
+<!-- Card 1: Module 1 -->
+<div class="bg-card-dark border border-border-dark p-10 rounded-2xl group hover:border-primary/50 transition-all">
+<div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-blue-500 transition-colors">
+<span class="material-symbols-outlined text-blue-400 group-hover:text-white text-3xl">query_stats</span>
+</div>
+<span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20 mb-4 inline-block">Module 1</span>
+<h3 class="text-2xl font-bold mb-4">Exploratory &amp; Confirmatory Data Analysis</h3>
+<p class="text-slate-400 mb-3 leading-relaxed">Interactive time-series of transaction volumes, ANOVA &amp; Welch's T-test with effect-size reporting, Leaflet choropleth maps of 15 Colombian departments, correlation heatmaps, and demographic distribution analysis.</p>
+<div class="flex flex-wrap gap-2 mt-6">
+<span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">ggplot2</span>
+<span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">plotly</span>
+<span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">leaflet</span>
+<span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">sf</span>
+</div>
+</div>
+<!-- Card 2: Module 2 -->
+<div class="bg-card-dark border border-border-dark p-10 rounded-2xl group hover:border-primary/50 transition-all">
+<div class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-purple-500 transition-colors">
+<span class="material-symbols-outlined text-purple-400 group-hover:text-white text-3xl">hub</span>
+</div>
+<span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/20 mb-4 inline-block">Module 2</span>
+<h3 class="text-2xl font-bold mb-4">Customer Behavior Clustering</h3>
+<p class="text-slate-400 mb-3 leading-relaxed">Segment 48,723 customers using K-Means, Hierarchical (Ward's D2), and PAM with 10 behavioral features. PCA scatter plots, elbow &amp; silhouette diagnostics, and cluster profile radar charts.</p>
+<div class="flex flex-wrap gap-2 mt-6">
+<span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/20">cluster</span>
+<span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/20">factoextra</span>
+<span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/20">viridis</span>
+</div>
+</div>
+<!-- Card 3: Module 3 -->
+<div class="bg-card-dark border border-border-dark p-10 rounded-2xl group hover:border-primary/50 transition-all">
+<div class="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-green-500 transition-colors">
+<span class="material-symbols-outlined text-green-400 group-hover:text-white text-3xl">psychology</span>
+</div>
+<span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20 mb-4 inline-block">Module 3</span>
+<h3 class="text-2xl font-bold mb-4">Churn Prediction &amp; What-If Simulation</h3>
+<p class="text-slate-400 mb-3 leading-relaxed">Pre-trained Lasso (L1) &amp; Ridge (L2) via 10-fold CV. Interactive λ slider for bias-variance tradeoff. What-If simulator adjusts customer attributes and shows predicted churn probability in real time.</p>
+<div class="flex flex-wrap gap-2 mt-6">
+<span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">glmnet</span>
+<span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">shiny</span>
+<span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">bslib</span>
+<span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">DT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Shiny App Section -->
+<section id="shiny-app" class="max-w-7xl mx-auto px-4 py-28">
+<div class="bg-card-dark border border-border-dark p-12 md:p-16 rounded-3xl text-center">
+<span class="material-symbols-outlined text-primary text-6xl mb-6">rocket_launch</span>
+<h2 class="text-4xl font-bold mb-6">Interactive Shiny Dashboard</h2>
+<p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
+            Our R Shiny application brings all three modules together in a unified, interactive dashboard. Explore transaction trends, segment customers, and simulate churn scenarios — no coding required.
+        </p>
+<div class="flex flex-wrap justify-center gap-6 mb-10">
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-blue-400">show_chart</span>
+<span class="text-sm">Plotly Interactive Charts</span>
+</div>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-purple-400">map</span>
+<span class="text-sm">Leaflet Choropleth Maps</span>
+</div>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-green-400">tune</span>
+<span class="text-sm">What-If Churn Simulator</span>
+</div>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-yellow-400">hub</span>
+<span class="text-sm">Multi-Method Clustering</span>
+</div>
+</div>
+<p class="text-slate-500 text-sm">Built with R Shiny + bslib · Pre-computed clusters &amp; glmnet models for instant responsiveness</p>
+</div>
+</section>
+<!-- Team Section -->
+<section class="max-w-7xl mx-auto px-4 py-28 bg-[#0a0a0a] rounded-3xl border border-border-dark mb-28">
+<h2 class="text-4xl font-bold mb-16 text-center">Our Team</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-16 text-center">
+<div class="space-y-6">
+<div class="w-36 h-36 mx-auto rounded-full border-4 border-primary/30 overflow-hidden p-1 bg-background-dark group hover:border-primary transition-all">
+<div class="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+<span class="text-4xl font-black text-primary/60">JG</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-xl">Ji Guofang</h4>
+<p class="text-primary text-sm font-semibold uppercase tracking-widest mt-1">Team Member</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="w-36 h-36 mx-auto rounded-full border-4 border-primary/30 overflow-hidden p-1 bg-background-dark group hover:border-primary transition-all">
+<div class="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+<span class="text-4xl font-black text-primary/60">LY</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-xl">Lin Yan</h4>
+<p class="text-primary text-sm font-semibold uppercase tracking-widest mt-1">Team Member</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="w-36 h-36 mx-auto rounded-full border-4 border-primary/30 overflow-hidden p-1 bg-background-dark group hover:border-primary transition-all">
+<div class="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+<span class="text-4xl font-black text-primary/60">NTN</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-xl">Nguyen Trong Nhan</h4>
+<p class="text-primary text-sm font-semibold uppercase tracking-widest mt-1">Team Member</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#050505] border-t border-border-dark py-20">
+<div class="max-w-7xl mx-auto px-4">
+<div class="flex items-center gap-2 mb-16">
+<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<span class="text-primary font-black text-2xl tracking-tighter">COFINFAD</span>
+</div>
+<div class="pt-10 border-t border-border-dark flex flex-col md:flex-row justify-between gap-6 text-[10px] text-slate-600 uppercase tracking-[0.3em]">
+<p>© 2026 COFINFAD Analytics. All Rights Reserved.</p>
+<p>Designed with passion by SMU Team 13</p>
+</div>
+</div>
+</footer>
+</div>
+
+
+
+
+
+
+</body></html>

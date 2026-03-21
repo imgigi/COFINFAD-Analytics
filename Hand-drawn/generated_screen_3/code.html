@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Churn Prediction Dashboard - Sketch</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="sketch-styling">
+    /* Global hand-drawn feel */
+    @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+    body {
+      font-family: 'Architects+Daughter', cursive;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    /* Hand-drawn border effect */
+    .sketch-border {
+      border: 2px solid #000;
+      border-radius: 4px 12px 4px 18px / 15px 5px 12px 6px;
+      box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    }
+
+    /* Sketchy dividers */
+    .sketch-hr {
+      border: none;
+      height: 2px;
+      background: #000;
+      width: 100%;
+      margin: 1rem 0;
+      clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
+    }
+
+    /* Rough Hatched Patterns for bars */
+    .hatch-pattern {
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 5px,
+        #000 5px,
+        #000 6px
+      );
+    }
+
+    /* Custom slider styling for hand-drawn look */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 2px;
+      background: #000;
+      border-radius: 0;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 2px solid #000;
+      height: 18px;
+      width: 10px;
+      background: #fff;
+      margin-top: -8px;
+      cursor: pointer;
+    }
+
+    /* Hand-drawn circles for radio buttons */
+    input[type="radio"] {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #000;
+      border-radius: 50% 40% 60% 45%;
+      display: inline-block;
+      position: relative;
+    }
+    input[type="radio"]:checked::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #000;
+      top: 2px;
+      left: 2px;
+      border-radius: 50%;
+    }
+  </style>
+<style data-purpose="layout-spacing">
+    .main-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+  </style>
+</head>
+<body class="p-4">
+<div class="main-grid gap-8">
+<!-- BEGIN: Sidebar -->
+<aside class="sketch-border p-6 h-fit" data-purpose="sidebar-controls">
+<h1 class="text-2xl font-bold mb-6 underline decoration-wavy">Model Params</h1>
+<!-- Radio Selection -->
+<div class="mb-6">
+<label class="flex items-center gap-2 mb-2 cursor-pointer">
+<input checked="" name="model_type" type="radio"/> <span>Logistic Regression</span>
+</label>
+<label class="flex items-center gap-2 mb-4 cursor-pointer">
+<input name="model_type" type="radio"/> <span>Random Forest</span>
+</label>
+</div>
+<!-- Main Slider -->
+<div class="mb-6">
+<label class="block mb-1">Threshold</label>
+<input class="w-full" type="range"/>
+<div class="flex justify-between text-xs mt-1">
+<span>|</span><span>|</span><span>|</span><span>|</span><span>|</span>
+</div>
+</div>
+<div class="sketch-hr"></div>
+<!-- Variable Sliders -->
+<div class="space-y-6">
+<h2 class="text-lg font-semibold">Features</h2>
+<div data-purpose="slider-item">
+<div class="flex justify-between text-sm mb-1">
+<span>Tenure</span>
+<span>42 mo</span>
+</div>
+<input class="w-full" type="range"/>
+<div class="flex justify-between text-[10px] text-gray-600">
+<span>0</span><span>72</span>
+</div>
+</div>
+<div data-purpose="slider-item">
+<div class="flex justify-between text-sm mb-1">
+<span>Monthly Charge</span>
+<span>$85</span>
+</div>
+<input class="w-full" type="range"/>
+<div class="flex justify-between text-[10px] text-gray-600">
+<span>$18</span><span>$120</span>
+</div>
+</div>
+<div data-purpose="slider-item">
+<div class="flex justify-between text-sm mb-1">
+<span>Total Data</span>
+<span>250GB</span>
+</div>
+<input class="w-full" type="range"/>
+<div class="flex justify-between text-[10px] text-gray-600">
+<span>0</span><span>1TB</span>
+</div>
+</div>
+<div data-purpose="slider-item">
+<div class="flex justify-between text-sm mb-1">
+<span>Age</span>
+<span>34</span>
+</div>
+<input class="w-full" type="range"/>
+<div class="flex justify-between text-[10px] text-gray-600">
+<span>18</span><span>100</span>
+</div>
+</div>
+<div data-purpose="slider-item">
+<div class="flex justify-between text-sm mb-1">
+<span>Support Calls</span>
+<span>2</span>
+</div>
+<input class="w-full" type="range"/>
+<div class="flex justify-between text-[10px] text-gray-600">
+<span>0</span><span>10+</span>
+</div>
+</div>
+<button class="sketch-border w-full py-1 mt-4 hover:bg-black hover:text-white transition-colors">
+          Reset All
+        </button>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: Main Content -->
+<main data-purpose="dashboard-display">
+<!-- Metrics Row -->
+<div class="grid grid-cols-4 gap-4 mb-8">
+<div class="sketch-border p-4 text-center">
+<div class="text-4xl font-bold">24.8%</div>
+<div class="text-sm">Churn Prob.</div>
+</div>
+<div class="sketch-border p-4 text-center bg-gray-50">
+<div class="text-2xl font-bold">MODERATE</div>
+<div class="text-sm">Risk Level</div>
+</div>
+<div class="sketch-border p-4 text-center">
+<div class="text-3xl font-bold">0.862</div>
+<div class="text-sm">R² Value</div>
+</div>
+<div class="sketch-border p-4 text-center">
+<div class="text-3xl font-bold">0.14</div>
+<div class="text-sm">RMSE</div>
+</div>
+</div>
+<!-- Info Banner -->
+<div class="sketch-border p-4 mb-8 bg-white border-dashed">
+<h3 class="text-xl font-bold mb-1">Analysis Snapshot: Segment Alpha-9</h3>
+<p class="text-sm">Current prediction assumes standard contract terms without promotional discounting.</p>
+<p class="text-sm italic opacity-75">Update frequency: Real-time via streaming pipeline v2.1</p>
+</div>
+<!-- Recommendation Box -->
+<div class="sketch-border p-6 mb-8 border-2">
+<div class="flex items-start gap-4">
+<div class="text-4xl">✓</div>
+<div>
+<h4 class="text-lg font-bold mb-2">Recommended Actions:</h4>
+<ul class="list-disc ml-5 space-y-1">
+<li>Offer loyalty discount for Tenure &gt; 24 months to stabilize risk.</li>
+<li>Schedule outbound check-in for high support call frequency.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Charts Grid -->
+<div class="chart-grid">
+<!-- Top-Left: Diverging Bar Chart -->
+<div class="sketch-border p-4 h-64 flex flex-col" data-purpose="diverging-bar">
+<span class="text-sm font-bold mb-4">Feature Importance (Diverging)</span>
+<div class="flex-1 flex flex-col justify-around">
+<div class="flex items-center gap-2">
+<div class="w-20 text-right text-xs">Tenure</div>
+<div class="flex-1 flex items-center">
+<div class="w-1/2 flex justify-end"><div class="h-4 w-1/2 hatch-pattern border border-black mr-px"></div></div>
+<div class="w-1/2"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-20 text-right text-xs">Calls</div>
+<div class="flex-1 flex items-center">
+<div class="w-1/2"></div>
+<div class="w-1/2"><div class="h-4 w-3/4 hatch-pattern border border-black ml-px"></div></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-20 text-right text-xs">Price</div>
+<div class="flex-1 flex items-center">
+<div class="w-1/2"></div>
+<div class="w-1/2"><div class="h-4 w-1/4 hatch-pattern border border-black ml-px"></div></div>
+</div>
+</div>
+</div>
+<div class="text-[10px] text-center mt-2">- Impact +</div>
+</div>
+<!-- Top-Right: Line Chart -->
+<div class="sketch-border p-4 h-64 relative" data-purpose="line-chart">
+<span class="text-sm font-bold mb-2 block">Cumulative Lift</span>
+<svg class="w-full h-40" viewbox="0 0 200 100">
+<!-- Axes -->
+<path d="M 10 90 L 190 90" fill="none" stroke="black" stroke-width="2"></path>
+<path d="M 10 90 L 10 10" fill="none" stroke="black" stroke-width="2"></path>
+<!-- Curve -->
+<path d="M 10 90 Q 40 80, 80 40 T 180 10" fill="none" stroke="black" stroke-dasharray="2,1" stroke-width="3"></path>
+<!-- Reference Lines -->
+<line stroke="black" stroke-dasharray="4,4" stroke-width="1" x1="100" x2="100" y1="10" y2="90"></line>
+</svg>
+<div class="absolute bottom-6 right-8 text-[10px]">Pop. %</div>
+</div>
+<!-- Bottom-Left: Scatter Plot -->
+<div class="sketch-border p-4 h-64 relative" data-purpose="scatter-plot">
+<span class="text-sm font-bold mb-2 block">Actual vs Predicted</span>
+<svg class="w-full h-40" viewbox="0 0 100 100">
+<!-- Diagonal -->
+<line stroke="#ccc" stroke-width="1" x1="10" x2="90" y1="90" y2="10"></line>
+<!-- Points (Simulated dots) -->
+<circle cx="20" cy="80" r="1.5"></circle>
+<circle cx="25" cy="72" r="1.5"></circle>
+<circle cx="40" cy="65" r="1.5"></circle>
+<circle cx="55" cy="40" r="1.5"></circle>
+<circle cx="70" cy="35" r="1.5"></circle>
+<circle cx="85" cy="15" r="1.5"></circle>
+<!-- Axes -->
+<path d="M 10 90 L 90 90" fill="none" stroke="black" stroke-width="1.5"></path>
+<path d="M 10 90 L 10 10" fill="none" stroke="black" stroke-width="1.5"></path>
+</svg>
+</div>
+<!-- Bottom-Right: Histogram + Curve -->
+<div class="sketch-border p-4 h-64 relative" data-purpose="histogram-chart">
+<span class="text-sm font-bold mb-2 block">Prob. Distribution</span>
+<div class="flex items-end gap-1 h-32 mt-4 px-2">
+<div class="w-4 h-8 hatch-pattern border border-black"></div>
+<div class="w-4 h-12 hatch-pattern border border-black"></div>
+<div class="w-4 h-24 hatch-pattern border border-black"></div>
+<div class="w-4 h-20 hatch-pattern border border-black"></div>
+<div class="w-4 h-16 hatch-pattern border border-black"></div>
+<div class="w-4 h-10 hatch-pattern border border-black"></div>
+<div class="w-4 h-4 hatch-pattern border border-black"></div>
+</div>
+<!-- Overlaid curve -->
+<svg class="absolute bottom-8 left-6 w-5/6 h-24 pointer-events-none" viewbox="0 0 140 60">
+<path d="M 0 55 Q 35 10, 70 5, 105 40, 140 55" fill="none" stroke="black" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</main>
+<!-- END: Main Content -->
+</div>
+</body></html>

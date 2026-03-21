@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sketchy Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for Hand-drawn feel -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&amp;family=Gochi+Hand&amp;family=Patrick+Hand&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="sketchy-core-styles">
+    :root {
+      --sketch-border: 2px solid #222;
+    }
+    
+    body {
+      background-color: #fff;
+      font-family: 'Patrick Hand', cursive;
+      color: #111;
+    }
+
+    /* Sketchy borders using border-radius and uneven widths */
+    .sketch-border {
+      border: var(--sketch-border);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      padding: 1rem;
+    }
+
+    .sketch-input {
+      border: 2px solid #333;
+      border-radius: 4px 10px 4px 10px/10px 4px 10px 4px;
+      background: transparent;
+      padding: 4px 8px;
+      font-family: 'Architects Daughter', cursive;
+    }
+
+    .sketch-button {
+      border: 2px solid #333;
+      border-radius: 5px 12px 5px 12px/12px 5px 12px 5px;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    
+    .sketch-button:active {
+      transform: scale(0.98);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Gochi Hand', cursive;
+    }
+
+    /* Hand-drawn line effect for charts */
+    .squiggly-svg {
+      filter: url(#roughpaper);
+    }
+  </style>
+<style data-purpose="chart-hatching">
+    /* Hatching patterns for charts instead of solid fills */
+    .hatch-pattern {
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, #222 5px, #222 6px);
+    }
+    .hatch-pattern-alt {
+      background-image: repeating-linear-gradient(-45deg, transparent, transparent 8px, #444 8px, #444 9px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex p-4">
+<!-- SVG Filters for rough paper/sketchy look -->
+<svg style="position: absolute; width: 0; height: 0;">
+<filter id="roughpaper">
+<feturbulence basefrequency="0.04" numoctaves="5" result="noise" type="fractalNoise"></feturbulence>
+<fedisplacementmap in="SourceGraphic" in2="noise" scale="2"></fedisplacementmap>
+</filter>
+</svg>
+<!-- BEGIN: Sidebar -->
+<aside class="w-1/5 pr-6 border-r-2 border-dashed border-gray-400 flex flex-col gap-6" data-purpose="sidebar">
+<header>
+<h1 class="text-4xl mb-6">Dashboard</h1>
+</header>
+<!-- Section 1 -->
+<section class="sketch-border" data-purpose="filters-dates">
+<div class="flex justify-between items-center mb-2 cursor-pointer">
+<h2 class="text-xl">Time Frame</h2>
+<span>▼</span>
+</div>
+<div class="flex flex-col gap-2">
+<input class="sketch-input w-full text-sm" placeholder="From: DD/MM/YY" type="text"/>
+<input class="sketch-input w-full text-sm" placeholder="To: DD/MM/YY" type="text"/>
+<div class="mt-2 space-y-1">
+<label class="flex items-center gap-2 text-sm"><input class="rounded-none border-2 border-black" type="checkbox"/> Region A</label>
+<label class="flex items-center gap-2 text-sm"><input class="rounded-none border-2 border-black" type="checkbox"/> Region B</label>
+<label class="flex items-center gap-2 text-sm"><input class="rounded-none border-2 border-black" type="checkbox"/> Online Only</label>
+<label class="flex items-center gap-2 text-sm"><input class="rounded-none border-2 border-black" type="checkbox"/> Verified</label>
+</div>
+</div>
+</section>
+<!-- Section 2 -->
+<section class="sketch-border" data-purpose="filters-categories">
+<div class="flex justify-between items-center mb-2 cursor-pointer">
+<h2 class="text-xl">Categories</h2>
+<span>▼</span>
+</div>
+<select class="sketch-input w-full text-sm">
+<option>All Transactions</option>
+<option>Retail</option>
+<option>Services</option>
+</select>
+</section>
+<!-- Section 3 -->
+<section class="sketch-border" data-purpose="filters-advanced">
+<div class="flex justify-between items-center mb-2 cursor-pointer">
+<h2 class="text-xl">Advanced</h2>
+<span>▼</span>
+</div>
+<div class="flex flex-col gap-2">
+<select class="sketch-input w-full text-sm"><option>Currency: USD</option></select>
+<select class="sketch-input w-full text-sm"><option>Threshold: Low</option></select>
+<select class="sketch-input w-full text-sm"><option>Export: PDF</option></select>
+</div>
+</section>
+<div class="mt-auto pt-4">
+<button class="sketch-button w-full text-lg hover:bg-gray-100">Reset Filters</button>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: Main Area -->
+<main class="w-4/5 pl-8 flex flex-col gap-8" data-purpose="main-content">
+<!-- Metric Cards Row -->
+<section class="grid grid-cols-4 gap-6" data-purpose="metric-cards">
+<div class="sketch-border text-center">
+<div class="text-3xl mb-1">❂</div>
+<p class="text-sm">Total Sales</p>
+<p class="text-2xl font-bold">12,450</p>
+</div>
+<div class="sketch-border text-center">
+<div class="text-3xl mb-1">☖</div>
+<p class="text-sm">Active Users</p>
+<p class="text-2xl font-bold">3,892</p>
+</div>
+<div class="sketch-border text-center">
+<div class="text-3xl mb-1">⚡</div>
+<p class="text-sm">Conv. Rate</p>
+<p class="text-2xl font-bold">4.2%</p>
+</div>
+<div class="sketch-border text-center">
+<div class="text-3xl mb-1">⚒</div>
+<p class="text-sm">Avg. Ticket</p>
+<p class="text-2xl font-bold">$142</p>
+</div>
+</section>
+<!-- Middle Row: Line Chart and Map -->
+<section class="grid grid-cols-3 gap-6" data-purpose="middle-visuals">
+<!-- Monthly Transaction Volume -->
+<div class="col-span-2 sketch-border min-h-[300px] flex flex-col">
+<h2 class="text-2xl mb-4 italic underline decoration-wavy">Monthly Transaction Volume by Type</h2>
+<div class="flex-grow relative overflow-hidden">
+<!-- Simplified squiggly lines via SVG -->
+<svg class="w-full h-full squiggly-svg" preserveaspectratio="none" viewbox="0 0 400 150">
+<!-- X and Y axis -->
+<path d="M 20 130 L 380 130" fill="none" stroke="black" stroke-width="2"></path>
+<path d="M 20 130 L 20 10" fill="none" stroke="black" stroke-width="2"></path>
+<!-- 4 Squiggly lines -->
+<path d="M 30 110 Q 70 80 100 100 T 170 60 T 240 90 T 310 40 T 370 70" fill="none" stroke="black" stroke-width="2"></path>
+<path d="M 30 90 Q 80 110 120 70 T 190 100 T 260 50 T 330 80 T 370 30" fill="none" opacity="0.7" stroke="black" stroke-dasharray="4" stroke-width="1.5"></path>
+<path d="M 30 120 Q 60 120 110 90 T 180 110 T 250 80 T 320 100 T 370 60" fill="none" stroke="black" stroke-width="1"></path>
+<path d="M 30 70 Q 90 40 130 60 T 200 30 T 270 50 T 340 20 T 370 40" fill="none" stroke="gray" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex justify-center gap-6 mt-4 text-xs font-bold">
+<span>── Type A</span>
+<span>- - Type B</span>
+<span>― Type C</span>
+<span class="text-gray-500">── Type D</span>
+</div>
+</div>
+<!-- Map of Colombia Area -->
+<div class="sketch-border flex flex-col items-center justify-between" data-purpose="regional-map">
+<h2 class="text-xl">Regional Activity</h2>
+<div class="w-full aspect-[3/4] flex items-center justify-center relative">
+<!-- Rough outline representation of Colombia -->
+<svg class="w-3/4 h-3/4 squiggly-svg" viewbox="0 0 100 130">
+<path d="M40 5 L60 10 L75 30 L70 60 L85 85 L70 120 L50 110 L30 120 L15 90 L10 60 L20 30 L40 5 Z" fill="none" stroke="black" stroke-width="2"></path>
+<!-- Interior hatching on some parts of the map -->
+<path d="M30 40 L50 60 M25 70 L45 90 M55 30 L75 50" stroke="black" stroke-width="1"></path>
+</svg>
+<!-- Legend Bar -->
+<div class="absolute right-2 top-1/4 h-1/2 w-4 border-2 border-black flex flex-col">
+<div class="h-1/3 hatch-pattern border-b border-black"></div>
+<div class="h-1/3 bg-gray-100 border-b border-black"></div>
+<div class="h-1/3 bg-white"></div>
+</div>
+</div>
+<p class="text-xs">Density Key</p>
+</div>
+</section>
+<!-- Bottom 2x2 Grid -->
+<section class="grid grid-cols-2 gap-6 pb-8" data-purpose="bottom-charts">
+<!-- Horizontal Bar Chart -->
+<div class="sketch-border h-64 flex flex-col">
+<h3 class="mb-4">Top Segments</h3>
+<div class="space-y-4 flex-grow px-4">
+<div class="flex items-center gap-2">
+<span class="w-12 text-xs">Retail</span>
+<div class="h-6 w-3/4 hatch-pattern border-2 border-black"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-12 text-xs">Food</span>
+<div class="h-6 w-1/2 hatch-pattern-alt border-2 border-black"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-12 text-xs">Travel</span>
+<div class="h-6 w-2/3 hatch-pattern border-2 border-black"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-12 text-xs">Other</span>
+<div class="h-6 w-1/4 hatch-pattern-alt border-2 border-black"></div>
+</div>
+</div>
+</div>
+<!-- Box Plot -->
+<div class="sketch-border h-64 flex flex-col">
+<h3 class="mb-4">Distribution by Group</h3>
+<div class="flex-grow flex items-end justify-around px-4 border-b-2 border-black pb-2">
+<!-- Box Plot Item 1 -->
+<div class="w-8 flex flex-col items-center">
+<div class="w-px h-8 border-l border-black"></div>
+<div class="w-6 h-12 border-2 border-black bg-gray-50 flex items-center"><div class="w-full h-px border-b border-black"></div></div>
+<div class="w-px h-6 border-l border-black"></div>
+<span class="text-[10px] mt-1">G1</span>
+</div>
+<!-- Box Plot Item 2 -->
+<div class="w-8 flex flex-col items-center">
+<div class="w-px h-4 border-l border-black"></div>
+<div class="w-6 h-16 border-2 border-black bg-gray-50 flex items-center"><div class="w-full h-px border-b border-black"></div></div>
+<div class="w-px h-10 border-l border-black"></div>
+<span class="text-[10px] mt-1">G2</span>
+</div>
+<!-- Box Plot Item 3 -->
+<div class="w-8 flex flex-col items-center">
+<div class="w-px h-12 border-l border-black"></div>
+<div class="w-6 h-8 border-2 border-black bg-gray-50 flex items-center"><div class="w-full h-px border-b border-black"></div></div>
+<div class="w-px h-4 border-l border-black"></div>
+<span class="text-[10px] mt-1">G3</span>
+</div>
+<!-- Box Plot Item 4 -->
+<div class="w-8 flex flex-col items-center">
+<div class="w-px h-6 border-l border-black"></div>
+<div class="w-6 h-10 border-2 border-black bg-gray-50 flex items-center"><div class="w-full h-px border-b border-black"></div></div>
+<div class="w-px h-8 border-l border-black"></div>
+<span class="text-[10px] mt-1">G4</span>
+</div>
+</div>
+</div>
+<!-- Heatmap (12x12 Grid) -->
+<div class="sketch-border h-72 flex flex-col">
+<h3 class="mb-2 text-center">Hourly Heatmap</h3>
+<div class="flex-grow flex items-center justify-center">
+<div class="grid grid-cols-12 grid-rows-12 border border-black" style="width: 200px; height: 200px;">
+<!-- Dummy Grid Cells -->
+<!-- We'll use a script/loop simulation concept but just code them manually for the "look" -->
+<!-- Top Labels -->
+<div class="absolute -translate-y-6 text-[8px] flex w-[200px] justify-between">
+<span>00</span><span>06</span><span>12</span><span>18</span><span>23</span>
+</div>
+<!-- Left Labels -->
+<div class="absolute -translate-x-8 text-[8px] flex flex-col h-[200px] justify-between">
+<span>Mon</span><span>Wed</span><span>Fri</span><span>Sun</span>
+</div>
+<!-- Generate some shaded cells manually or randomly in concept -->
+<div class="border border-gray-300"></div><div class="border border-gray-300 hatch-pattern"></div>
+<div class="border border-gray-300"></div><div class="border border-gray-300"></div>
+<div class="border border-gray-300 hatch-pattern"></div><div class="border border-gray-300"></div>
+<div class="border border-gray-300"></div><div class="border border-gray-300 hatch-pattern"></div>
+<div class="border border-gray-300"></div><div class="border border-gray-300"></div>
+<div class="border border-gray-300"></div><div class="border border-gray-300"></div>
+<!-- ... repeating for effect ... -->
+<div class="border border-gray-300 hatch-pattern"></div><div class="border border-gray-300"></div>
+<div class="border border-gray-300"></div><div class="border border-gray-300 hatch-pattern"></div>
+<div class="border border-gray-300"></div><div class="border border-gray-300"></div>
+<div class="border border-gray-300"></div><div class="border border-gray-300"></div>
+<div class="border border-gray-300 hatch-pattern"></div><div class="border border-gray-300"></div>
+<div class="border border-gray-300"></div><div class="border border-gray-300"></div>
+<!-- Just filling space for the 12x12 look without 144 divs -->
+<div class="col-span-12 row-span-10 flex flex-wrap">
+<!-- placeholder for many cells -->
+<script>
+                 const grid = document.currentScript.parentElement;
+                 for(let i=0; i<120; i++) {
+                   const cell = document.createElement('div');
+                   cell.className = "w-[16.66px] h-[16.66px] border border-gray-200 " + (Math.random() > 0.8 ? 'hatch-pattern' : '');
+                   grid.appendChild(cell);
+                 }
+               </script>
+</div>
+</div>
+</div>
+</div>
+<!-- Stacked Bar Chart -->
+<div class="sketch-border h-72 flex flex-col">
+<h3 class="mb-4">Weekly Components</h3>
+<div class="flex-grow flex items-end justify-around px-8 border-b-2 border-black">
+<div class="w-10 flex flex-col-reverse">
+<div class="h-10 border-2 border-black hatch-pattern"></div>
+<div class="h-8 border-2 border-black border-b-0 bg-gray-100"></div>
+<div class="h-16 border-2 border-black border-b-0"></div>
+</div>
+<div class="w-10 flex flex-col-reverse">
+<div class="h-14 border-2 border-black hatch-pattern"></div>
+<div class="h-12 border-2 border-black border-b-0 bg-gray-100"></div>
+<div class="h-6 border-2 border-black border-b-0"></div>
+</div>
+<div class="w-10 flex flex-col-reverse">
+<div class="h-6 border-2 border-black hatch-pattern"></div>
+<div class="h-20 border-2 border-black border-b-0 bg-gray-100"></div>
+<div class="h-12 border-2 border-black border-b-0"></div>
+</div>
+<div class="w-10 flex flex-col-reverse">
+<div class="h-18 border-2 border-black hatch-pattern"></div>
+<div class="h-4 border-2 border-black border-b-0 bg-gray-100"></div>
+<div class="h-14 border-2 border-black border-b-0"></div>
+</div>
+</div>
+<div class="flex justify-center gap-4 text-[10px] mt-2">
+<span>● Cat 1</span>
+<span class="opacity-50">● Cat 2</span>
+<span class="italic">● Cat 3</span>
+</div>
+</div>
+</section>
+</main>
+<!-- END: Main Area -->
+</body></html>

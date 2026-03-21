@@ -1,0 +1,13 @@
+# Large data files
+transactions_data (1).csv
+customer_data (1).csv
+
+# R artifacts
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+/.quarto/
+**/*.quarto_ipynb
