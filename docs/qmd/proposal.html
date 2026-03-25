@@ -420,17 +420,113 @@ ul.task-list li input[type="checkbox"] {
 <span class="text-primary font-bold text-sm mb-2 block">SECTION 05</span>
 <h3 class="text-3xl font-bold mb-6">Prototype Sketches</h3>
 
-<!-- Prototype Sketch Image -->
-<div class="my-10 flex justify-center">
-<img src="proposal pic/cofinfad_shiny_app_prototype_sketch/screen.png" alt="COFINFAD Shiny App Prototype Sketch" class="rounded-xl border border-white/10 max-w-full" style="max-height: 700px;">
+<!-- Application Architecture Overview -->
+<p class="text-slate-400 text-lg leading-relaxed mb-6">The COFINFAD Shiny application is built with a <strong class="text-white">navbar-based multi-page layout</strong> powered by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">bslib</code>. Each module occupies its own tab within a top-level navigation bar, and every tab follows a consistent <strong class="text-white">sidebar + main panel</strong> pattern — the sidebar provides analytics calibration controls (filters, sliders, dropdowns) while the main panel displays responsive output panels. All heavy computation is done offline; the app only loads pre-processed data and pre-trained models.</p>
+
+<!-- Shiny Layouts & Components -->
+<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">dashboard</span> 5.1 Shiny Layouts &amp; Components</h4>
+
+<div class="space-y-8 mb-10">
+
+<!-- Layout Architecture -->
+<div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide">Layout Architecture</h5>
+<p class="text-slate-400 text-sm leading-relaxed mb-3">The outermost shell of the application is <code class="text-primary">bslib::page_navbar()</code>, which renders a fixed top navigation bar with the COFINFAD brand title on the left and three clickable tabs — <em>EDA &amp; CDA</em>, <em>Clustering</em>, and <em>Prediction</em> — on the right. The <code class="text-primary">theme</code> argument is set to <code class="text-primary">bs_theme(bootswatch = "darkly")</code> to apply a dark colour scheme across all panels.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-3">Each tab is created with <code class="text-primary">bslib::nav_panel()</code>. Inside every <code class="text-primary">nav_panel()</code>, a <code class="text-primary">bslib::layout_sidebar()</code> splits the view into a <strong class="text-white">left sidebar</strong> (approximately 300 px wide) that holds all analytics calibration controls, and a <strong class="text-white">main content area</strong> on the right that displays the output panels.</p>
+<p class="text-slate-400 text-sm leading-relaxed">Within the main content area, <code class="text-primary">bslib::layout_columns()</code> with <code class="text-primary">col_widths = c(6, 6)</code> arranges output panels into a responsive two-column grid. Each individual panel (chart, table, or statistics card) is wrapped in a <code class="text-primary">bslib::card()</code> with a <code class="text-primary">card_header()</code> that labels the visualization (e.g., "Monthly Transaction Volume", "PCA Scatter Plot", "Churn Probability Gauge").</p>
 </div>
 
-<p class="text-slate-400 text-lg leading-relaxed mb-10">The Shiny app uses <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">bslib</code> for layout, with a global sidebar for overarching filters and a tabset-based main panel for the three modules. All heavy computation is done offline; the app only loads pre-processed data and pre-trained models.</p>
+<!-- Calibration Input Components -->
+<div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide">Calibration Input Components</h5>
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><code class="text-primary">dateRangeInput()</code> — placed in the Module 1 sidebar; allows users to select a start and end month to filter the time-series line chart of monthly transaction volume, so that seasonal or trend patterns can be examined at different time windows.</li>
+<li><code class="text-primary">shinyWidgets::pickerInput()</code> — used for multi-select dropdowns throughout all three modules. In Module 1, it filters customers by income bracket and segment. In Module 2, it selects which behavioural features to include in the clustering algorithm. The <code class="text-primary">multiple = TRUE</code> and <code class="text-primary">live-search</code> options let users search and select from long feature lists.</li>
+<li><code class="text-primary">checkboxGroupInput()</code> — placed in Module 1 to toggle which transaction types (Transfer, Withdrawal, Payment, Deposit) are included in the EDA charts and statistical tests.</li>
+<li><code class="text-primary">selectInput()</code> — used in Module 1 for choosing the grouping variable (e.g., income_bracket, customer_segment) and dependent variable (e.g., avg_tx_value, tx_count) that feed into the ANOVA / T-test, as well as the choropleth map metric.</li>
+<li><code class="text-primary">sliderInput()</code> — in Module 2, controls the number of clusters <em>k</em> (range 2–8) to recalculate the clustering in real time. In Module 3, controls the regularization penalty λ for Lasso/Ridge, and also drives the What-If scenario panel where each customer attribute (tx_count, avg_tx_value, customer_tenure, credit_utilization_ratio, satisfaction_score, etc.) has its own slider so users can simulate hypothetical customer profiles and see the predicted churn probability update instantly.</li>
+<li><code class="text-primary">radioButtons()</code> — in Module 2, switches between K-Means, Hierarchical, and PAM algorithms. In Module 3, toggles between Lasso and Ridge regularization models. Each selection triggers a reactive recalculation of the corresponding output panels.</li>
+</ul>
+</div>
+
+<!-- Output Components -->
+<div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide">Output Components</h5>
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><code class="text-primary">plotly::plotlyOutput()</code> — renders the interactive time-series line chart (Module 1), PCA scatter plot colour-coded by cluster (Module 2), elbow and silhouette diagnostic plots (Module 2), variable importance bar chart, and cross-validation λ-vs-MSE curve (Module 3). Plotly provides hover tooltips, zoom, and brush selection across all charts.</li>
+<li><code class="text-primary">leaflet::leafletOutput()</code> — renders the choropleth map of Colombian departments in Module 1, coloured by the user-selected metric (customer count, average churn probability, or average CLV). Users can zoom, pan, and click on departments to see detailed tooltips.</li>
+<li><code class="text-primary">DT::DTOutput()</code> — displays the cluster summary statistics table in Module 2 (mean of each feature per cluster) and the current-vs-hypothetical comparison table in Module 3. Both tables are sortable, searchable, and paginated.</li>
+<li><code class="text-primary">uiOutput()</code> — used for the statistical test result panel in Module 1 (dynamically renders test statistic, p-value, effect size, and interpretation) and the churn probability gauge in Module 3 (a reactive HTML gauge that updates as What-If sliders change).</li>
+</ul>
+</div>
+
+</div>
+
+<!-- Wireframe Sketches -->
+<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">draw</span> 5.2 Wireframe Sketches</h4>
+<p class="text-slate-400 text-sm mb-6">Each wireframe shows the sidebar calibration controls on the left and the output panels on the right, illustrating how users interact with the analytics.</p>
+
+<!-- Module 1 Wireframe -->
+<div class="my-8">
+<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide">Module 1: EDA &amp; Confirmatory Data Analysis</h5>
+<div class="flex justify-center mb-4">
+<img src="../images/eda_wireframe.png" alt="Module 1 Wireframe — EDA &amp; CDA tab showing sidebar with date range, income bracket filter, transaction type checkboxes, statistical test selector, grouping and dependent variable dropdowns; main panel with time-series line chart, choropleth map, box plot, and statistical test result card" class="rounded-xl border border-white/10 max-w-full" style="max-height: 600px;">
+</div>
+<div class="p-5 bg-[#0d0d0d] border border-blue-500/10 rounded-xl text-sm text-slate-400 leading-relaxed">
+<p class="font-bold text-blue-400 mb-2">How the user interacts with this tab:</p>
+<ol class="list-decimal list-inside space-y-1.5">
+<li>The user opens the app and lands on the <strong class="text-white">EDA &amp; CDA</strong> tab. The sidebar on the left presents all filtering and analysis controls.</li>
+<li>Using the <strong class="text-white">date range picker</strong>, the user narrows the time window (e.g., 2023-01 to 2023-06) — the time-series line chart on the right immediately updates to show monthly transaction volume for that period only.</li>
+<li>The user then uses the <strong class="text-white">income bracket</strong> and <strong class="text-white">customer segment</strong> multi-select dropdowns to filter the dataset (e.g., selecting only "High Income" and "Power" customers). All four output panels reactively refresh to reflect the filtered subset.</li>
+<li>To check which transaction types matter, the user toggles the <strong class="text-white">transaction type checkboxes</strong> (e.g., unchecking "Deposit" to focus on outgoing transactions).</li>
+<li>For confirmatory analysis, the user selects a <strong class="text-white">statistical test</strong> (ANOVA or T-test), picks a <strong class="text-white">grouping variable</strong> (e.g., income_bracket) and a <strong class="text-white">dependent variable</strong> (e.g., avg_tx_value). The statistics result card instantly displays the test statistic, p-value, effect size, and a plain-language interpretation.</li>
+<li>On the choropleth map, the user switches the <strong class="text-white">map metric</strong> dropdown (e.g., from "customer count" to "avg churn probability") to explore geographic patterns across Colombian departments.</li>
+</ol>
+</div>
+</div>
+
+<!-- Module 2 Wireframe -->
+<div class="my-8">
+<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide">Module 2: Customer Segmentation (Clustering)</h5>
+<div class="flex justify-center mb-4">
+<img src="../images/segmentation_wireframe.png" alt="Module 2 Wireframe — Clustering tab showing sidebar with k slider, algorithm radio buttons, feature preset dropdown, PCA axis selectors; main panel with PCA scatter plot, elbow plot, silhouette plot, and cluster summary table" class="rounded-xl border border-white/10 max-w-full" style="max-height: 600px;">
+</div>
+<div class="p-5 bg-[#0d0d0d] border border-purple-500/10 rounded-xl text-sm text-slate-400 leading-relaxed">
+<p class="font-bold text-purple-400 mb-2">How the user interacts with this tab:</p>
+<ol class="list-decimal list-inside space-y-1.5">
+<li>The user navigates to the <strong class="text-white">Clustering</strong> tab. The sidebar presents controls for calibrating the segmentation analysis.</li>
+<li>First, the user selects a <strong class="text-white">feature preset</strong> from the dropdown (e.g., "RFM Features" for recency-frequency-monetary, or "Full Behavioral" for all features). This determines which customer attributes are fed into the clustering algorithm.</li>
+<li>The user then chooses a <strong class="text-white">clustering algorithm</strong> via radio buttons — K-Means, Hierarchical, or PAM. The elbow plot, silhouette plot, and PCA scatter plot all recalculate reactively to show results for the selected method.</li>
+<li>Using the <strong class="text-white">k slider</strong> (range 2–8), the user experiments with different numbers of clusters. As the slider moves, the PCA scatter plot re-colours the data points, the silhouette plot updates to show cluster cohesion, and the summary table refreshes with new per-cluster means — allowing the user to visually compare which k produces the most meaningful segments.</li>
+<li>The user adjusts the <strong class="text-white">PCA axis selectors</strong> (e.g., switching from PC1 vs PC2 to PC1 vs PC3) to view the clusters from different angles in the reduced-dimension space.</li>
+<li>The <strong class="text-white">cluster summary table</strong> at the bottom shows the mean of each feature per cluster, helping the user interpret and label each segment (e.g., "high-value loyal customers" vs. "at-risk low-engagement customers").</li>
+</ol>
+</div>
+</div>
+
+<!-- Module 3 Wireframe -->
+<div class="my-8">
+<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide">Module 3: Churn Prediction (What-If)</h5>
+<div class="flex justify-center mb-4">
+<img src="../images/screen.png" alt="Module 3 Wireframe — Prediction tab showing sidebar with lambda slider, model type toggle, What-If sliders for tx_count, avg_tx_value, tenure, etc.; main panel with variable importance bar chart, CV performance plot, churn probability gauge, and comparison table" class="rounded-xl border border-white/10 max-w-full" style="max-height: 600px;">
+</div>
+<div class="p-5 bg-[#0d0d0d] border border-green-500/10 rounded-xl text-sm text-slate-400 leading-relaxed">
+<p class="font-bold text-green-400 mb-2">How the user interacts with this tab:</p>
+<ol class="list-decimal list-inside space-y-1.5">
+<li>The user navigates to the <strong class="text-white">Prediction</strong> tab. The sidebar is split into two sections: model calibration at the top and the What-If scenario panel below.</li>
+<li>In the model calibration section, the user selects a <strong class="text-white">model type</strong> (Lasso or Ridge) via radio buttons. The variable importance bar chart and cross-validation plot update to show results for the chosen regularization method.</li>
+<li>The user drags the <strong class="text-white">λ slider</strong> to adjust the regularization penalty. The CV performance plot (showing λ vs. MSE) highlights the current λ position, and the variable importance chart updates to reflect which customer features remain significant at that penalty level — helping the user understand the bias-variance tradeoff.</li>
+<li>In the <strong class="text-white">What-If scenario panel</strong>, the user builds a hypothetical customer profile by adjusting individual sliders: tx_count, avg_tx_value, customer_tenure, active_products, credit_utilization_ratio, satisfaction_score, nps_score, etc. Each slider represents one customer attribute.</li>
+<li>As the user moves any slider, the <strong class="text-white">churn probability gauge</strong> on the right updates in real time — for example, increasing support_calls from 2 to 8 might push the predicted churn probability from 24% to 67%, showing the user exactly which factors drive churn risk.</li>
+<li>The <strong class="text-white">comparison table</strong> at the bottom displays the current slider values side-by-side with the baseline customer profile, making it easy to see what was changed and how it affects the prediction.</li>
+</ol>
+</div>
+</div>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 <!-- Inputs -->
 <div>
-<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">tune</span> 5.1 Inputs</h4>
+<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">tune</span> 5.3 Inputs (Calibration Controls)</h4>
 
 <div class="space-y-6">
 <div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
@@ -473,7 +569,7 @@ ul.task-list li input[type="checkbox"] {
 
 <!-- Outputs -->
 <div>
-<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">monitor</span> 5.2 Outputs</h4>
+<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">monitor</span> 5.4 Outputs</h4>
 
 <div class="space-y-6">
 <div class="p-5 bg-[#0d0d0d] border border-blue-500/10 rounded-xl">
