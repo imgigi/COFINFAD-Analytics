@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="bg-[#0d0d0d] rounded-xl border border-green-500/10 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-green-400">mood</span>
-<h5 class="text-white font-semibold text-lg">Satisfaction Improvement</h5>
+<h5 class="text-white font-semibold text-lg"><span class="lang-en">Satisfaction Improvement</span><span class="lang-cn">满意度提升</span></h5>
 </div>
 <p class="text-slate-400 text-base leading-relaxed">Improving satisfaction score from 3 to 7 yields a comparable reduction of roughly <strong class="text-green-400">15 percentage points</strong>, demonstrating that service quality investments have directly measurable impact on retention.</p>
 </div>
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="border-l-2 border-green-500/30 pl-6">
-<h4 class="text-xl font-semibold text-white mb-4">Actionable Retention Strategies Based on Model</h4>
+<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Actionable Retention Strategies Based on Model</span><span class="lang-cn">基于模型的可操作留存策略</span></h4>
 <p class="text-slate-400 text-lg leading-relaxed">The prediction model translates directly into actionable retention strategies. For customers flagged as high churn risk, the model coefficients prescribe specific interventions ranked by expected impact: (1) address satisfaction gaps through proactive outreach and service recovery, (2) increase product breadth through targeted cross-sell campaigns, (3) resolve friction by expediting open support tickets, and (4) implement NPS-triggered escalation workflows. Each intervention can be cost-justified using the What-If simulator to estimate the expected churn reduction per dollar invested.</p>
 </div>
 
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="material-symbols-outlined text-primary text-2xl">device_hub</span>
 <span class="text-primary font-bold text-sm">SECTION 04</span>
 </div>
-<h3 class="text-3xl font-bold mb-10">Cross-Module Synthesis</h3>
+<h3 class="text-3xl font-bold mb-10"><span class="lang-en">Cross-Module Synthesis</span><span class="lang-cn">跨模块综合分析</span></h3>
 
 <div class="text-slate-400 text-lg leading-relaxed space-y-6">
 <p>The true analytical value of the COFINFAD project emerges not from any single module in isolation but from the convergence of findings across all three. Each module validates, enriches, and extends the others in a reinforcing analytical loop.</p>
@@ -316,48 +316,48 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="space-y-8 mt-8">
 
 <div class="border-l-2 border-primary/30 pl-6">
-<h4 class="text-xl font-semibold text-white mb-4">How Clustering Segments Relate to Churn Risk</h4>
+<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">How Clustering Segments Relate to Churn Risk</span><span class="lang-cn">聚类细分与流失风险的关系</span></h4>
 <p class="text-slate-400 text-lg leading-relaxed">Overlaying churn prediction scores onto the behavioral clusters reveals a clear risk gradient. Power Users exhibit the lowest average churn probability, confirming that deep engagement is protective. The At-Risk segment shows the highest predicted churn rates, validating the clustering algorithm&rsquo;s ability to identify behaviorally deteriorating customers even before they formally churn. Dormant users present moderate-to-high churn risk but lower expected recovery value, while New Adopters occupy a pivotal middle ground where early intervention can shift their trajectory toward retention or attrition.</p>
 </div>
 
 <div class="border-l-2 border-primary/30 pl-6">
-<h4 class="text-xl font-semibold text-white mb-4">Geographic and Demographic Patterns Across Modules</h4>
+<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Geographic and Demographic Patterns Across Modules</span><span class="lang-cn">跨模块的地理与人口统计模式</span></h4>
 <p class="text-slate-400 text-lg leading-relaxed">The geographic concentration of churn risk identified in exploratory analysis aligns precisely with the spatial distribution of the At-Risk and Dormant clusters. Rural departments with higher average churn probabilities are the same regions where these high-risk segments are overrepresented. Demographic cross-tabulation further reveals that income bracket associations with cluster membership mirror the income-churn correlations detected by the prediction model, providing multi-method triangulation of the same underlying phenomena.</p>
 </div>
 
 <div class="border-l-2 border-primary/30 pl-6">
-<h4 class="text-xl font-semibold text-white mb-4">Integrated Customer Understanding</h4>
+<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Integrated Customer Understanding</span><span class="lang-cn">整合的客户理解</span></h4>
 <p class="text-slate-400 text-lg leading-relaxed">Combining EDA insights, cluster profiles, and prediction model outputs produces a 360-degree view of each customer. EDA provides the macro context&mdash;seasonal patterns, geographic distributions, and population-level trends. Clustering assigns each customer to a behavioral archetype with associated business meaning. Prediction quantifies individual-level churn risk and identifies the specific levers available for intervention. Together, these three layers enable a progression from understanding (EDA) to segmentation (clustering) to action (prediction), forming a complete analytical pipeline for customer lifecycle management.</p>
 </div>
 
 <div class="border-l-2 border-primary/30 pl-6">
-<h4 class="text-xl font-semibold text-white mb-4">Recommendations for the Financial Institution</h4>
+<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Recommendations for the Financial Institution</span><span class="lang-cn">对金融机构的建议</span></h4>
 <div class="grid md:grid-cols-2 gap-6 mt-4">
 <div class="bg-[#0d0d0d] rounded-xl border border-white/5 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-purple-400">shield</span>
-<h5 class="text-white font-semibold text-lg">Retain High-Value Customers</h5>
+<h5 class="text-white font-semibold text-lg"><span class="lang-en">Retain High-Value Customers</span><span class="lang-cn">留住高价值客户</span></h5>
 </div>
 <p class="text-slate-400 text-base leading-relaxed">Deploy loyalty programs and early warning triggers for Power Users. Monitor satisfaction score and NPS in real time, with automated escalation when metrics dip below threshold values.</p>
 </div>
 <div class="bg-[#0d0d0d] rounded-xl border border-white/5 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-pink-400">priority_high</span>
-<h5 class="text-white font-semibold text-lg">Intervene on At-Risk Segment</h5>
+<h5 class="text-white font-semibold text-lg"><span class="lang-en">Intervene on At-Risk Segment</span><span class="lang-cn">干预高风险群体</span></h5>
 </div>
 <p class="text-slate-400 text-base leading-relaxed">Prioritize personalized outreach and product bundling for the At-Risk cluster. The What-If model quantifies that increasing active products from 1 to 3 reduces churn by ~15 percentage points.</p>
 </div>
 <div class="bg-[#0d0d0d] rounded-xl border border-white/5 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-primary">map</span>
-<h5 class="text-white font-semibold text-lg">Expand Underserved Regions</h5>
+<h5 class="text-white font-semibold text-lg"><span class="lang-en">Expand Underserved Regions</span><span class="lang-cn">拓展服务不足的地区</span></h5>
 </div>
 <p class="text-slate-400 text-base leading-relaxed">Design region-specific campaigns for rural departments where churn risk is highest. Address infrastructure gaps and digital literacy barriers through local agent partnerships and simplified product offerings.</p>
 </div>
 <div class="bg-[#0d0d0d] rounded-xl border border-white/5 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-green-400">trending_up</span>
-<h5 class="text-white font-semibold text-lg">Optimize New Adopter Onboarding</h5>
+<h5 class="text-white font-semibold text-lg"><span class="lang-en">Optimize New Adopter Onboarding</span><span class="lang-cn">优化新用户引导</span></h5>
 </div>
 <p class="text-slate-400 text-base leading-relaxed">Invest in structured onboarding sequences for New Adopters to accelerate multi-product adoption. Early cross-sell prompts and satisfaction check-ins during the first 90 days are critical for long-term retention.</p>
 </div>
