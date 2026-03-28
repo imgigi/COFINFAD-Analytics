@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Prediction - COFINFAD Analytics – COFINFAD Analytics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<header id="title-block-header">
+
+
+</header>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#f97415",
+          "background-light": "#080808",
+          "background-dark": "#080808",
+          "card-dark": "#121212",
+        },
+        fontFamily: {
+          "display": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.add('dark');
+  });
+</script>
+<style>
+  /* Remove all Quarto default styles */
+  #title-block-header { display: none !important; }
+  .quarto-title { display: none !important; }
+  header#title-block-header { display: none !important; }
+  header { display: none !important; }
+  #quarto-content { margin: 0 !important; padding: 0 !important; }
+  .page-columns { display: block !important; }
+  body > div.container-fluid, body > .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  main.content { margin: 0 !important; padding: 0 !important; max-width: 100% !important; }
+  body { background-color: #080808 !important; color: #e2e8f0 !important; font-family: 'Inter', sans-serif !important; margin: 0 !important; }
+  html { background-color: #080808 !important; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  /* Reset Quarto table styles */
+  table { border: none !important; }
+  th, td { border: none !important; }
+  tr.odd, tr.even { background: transparent !important; }
+  tr.header { background: transparent !important; }
+  .lang-cn { display: none; }
+  body.cn .lang-cn { display: inline; }
+  body.cn .lang-en { display: none; }
+  body.cn .lang-cn-block { display: block; }
+  body.cn .lang-en-block { display: none; }
+  .lang-cn-block { display: none; }
+</style>
+<script>
+function toggleLang() {
+  document.body.classList.toggle('cn');
+  const btn = document.getElementById('lang-btn');
+  btn.textContent = document.body.classList.contains('cn') ? 'EN' : '中文';
+  localStorage.setItem('lang', document.body.classList.contains('cn') ? 'cn' : 'en');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('lang') === 'cn') {
+    document.body.classList.add('cn');
+    var btn = document.getElementById('lang-btn');
+    if (btn) btn.textContent = 'EN';
+  }
+});
+</script>
+<div class="bg-[#080808] font-display text-slate-100 min-h-screen">
+<nav class="sticky top-0 z-50 w-full border-b border-[#1f1f1f] bg-[#080808]/90 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20 items-center">
+<a href="homepage.html" class="flex items-center gap-2 no-underline">
+<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
+</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="proposal.html"><span class="lang-en">Proposal</span><span class="lang-cn">项目提案</span></a>
+<div class="relative dropdown group">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+                        <span class="lang-en">Methodology</span><span class="lang-cn">方法论</span> <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="dropdown-menu hidden absolute left-0 mt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.html"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.html"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.html"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary text-primary font-semibold" href="prediction.html"><span class="lang-en">Prediction</span><span class="lang-cn">预测模型</span></a>
+</div>
+</div>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="meeting-minutes.html"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="../qmd/homepage.html#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
+</div>
+<div class="flex items-center gap-3">
+<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
+<button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
+<button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8"><header id="title-block-header" class="quarto-title-block"><h1 class="title">Prediction - COFINFAD Analytics</h1></header>
+<!-- Hero Section -->
+<section class="relative mb-16 rounded-2xl overflow-hidden bg-[#0d0d0d] p-12 md:p-24 flex flex-col items-center text-center border border-white/5">
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-500 via-transparent to-transparent"></div>
+<div class="relative z-10 max-w-3xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-green-500 text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">MODULE 3</span><span class="lang-cn">模块 3</span></span>
+<h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight"><span class="lang-en">Churn Prediction &amp; What-If Simulation</span><span class="lang-cn">流失预测与假设模拟</span></h1>
+<p class="text-xl md:text-2xl text-slate-300 font-medium mb-4"><span class="lang-en">Predicting what will happen with regularized regression models</span><span class="lang-cn">使用正则化回归模型预测未来走向</span></p>
+<p class="text-slate-500 text-base mt-6">Team 13</p>
+</div>
+</section>
+
+<div class="space-y-12">
+
+<!-- 01. Model Specification -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-green-400 font-bold text-sm mb-2 block">SECTION 01</span>
+<h3 class="text-3xl font-bold mb-6"><span class="lang-en">Model Specification</span><span class="lang-cn">模型规格</span></h3>
+
+<div class="mb-10">
+<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-green-400">target</span>
+<span class="lang-en">Dependent Variable</span><span class="lang-cn">因变量</span>
+</h4>
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<p class="text-slate-300 text-lg leading-relaxed">The target variable is <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">churn_probability</code>, a continuous value ranging from 0 to 1 that represents each customer's likelihood of leaving the platform. Because this is a continuous outcome rather than a binary label, we treat the prediction task as a <strong class="text-white">regression problem</strong> using regularized linear models. This approach preserves the granularity of the original probability values, allowing the model to distinguish between customers at 15% churn risk and those at 85% churn risk — a distinction that would be lost in a simple binary classification framework.</p>
+</div>
+</div>
+
+<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-green-400">input</span>
+<span class="lang-en">Independent Variables</span><span class="lang-cn">自变量</span>
+</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Transactional -->
+<div class="p-6 bg-[#0d0d0d] border border-green-400/30 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">receipt_long</span>
+</div>
+<h5 class="font-bold text-green-400">Transactional</h5>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">Behavioral metrics derived from the transaction log that capture how frequently and how much each customer transacts on the platform.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">tx_count</span>
+<span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">avg_tx_value</span>
+<span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">total_tx_volume</span>
+<span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">monthly_transaction_count</span>
+<span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">transaction_frequency</span>
+<span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">weekend_transaction_ratio</span>
+<span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">avg_daily_transactions</span>
+</div>
+</div>
+<!-- Demographic -->
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 shrink-0 rounded-xl bg-slate-500/10 text-slate-400 flex items-center justify-center border border-slate-500/20">
+<span class="material-symbols-outlined text-xl">group</span>
+</div>
+<h5 class="font-bold text-slate-300">Demographic</h5>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">Customer profile attributes that describe who the customer is, including personal characteristics and their relationship tenure with the platform.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-slate-500/10 text-slate-300 rounded-lg text-xs border border-slate-500/20">age</span>
+<span class="px-3 py-1.5 bg-slate-500/10 text-slate-300 rounded-lg text-xs border border-slate-500/20">household_size</span>
+<span class="px-3 py-1.5 bg-slate-500/10 text-slate-300 rounded-lg text-xs border border-slate-500/20">income_bracket (dummy-encoded)</span>
+<span class="px-3 py-1.5 bg-slate-500/10 text-slate-300 rounded-lg text-xs border border-slate-500/20">customer_tenure</span>
+</div>
+</div>
+<!-- Engagement -->
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 shrink-0 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center border border-purple-500/20">
+<span class="material-symbols-outlined text-xl">touch_app</span>
+</div>
+<h5 class="font-bold text-purple-300">Engagement</h5>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">Indicators of how deeply each customer interacts with the platform's products, digital tools, and support channels.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">active_products</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">app_logins_frequency</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">feature_usage_diversity</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">credit_utilization_ratio</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">satisfaction_score</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">nps_score</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">support_tickets_count</span>
+<span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">resolved_tickets_ratio</span>
+</div>
+</div>
+</div>
+
+<p class="text-slate-500 text-sm mt-6 leading-relaxed">In total, the model considers <strong class="text-slate-300">19 independent variables</strong> spanning transactional behavior, demographics, and engagement metrics. The <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">income_bracket</code> variable (Low, Medium, High, Very High) is dummy-encoded into 3 indicator columns, bringing the actual feature matrix to 21 columns before regularization.</p>
+</div>
+
+<!-- 02. Regularization Methods -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-green-400 font-bold text-sm mb-2 block">SECTION 02</span>
+<h3 class="text-3xl font-bold mb-6"><span class="lang-en">Regularization Methods</span><span class="lang-cn">正则化方法</span></h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-10">With 21 features in the model matrix, ordinary least squares (OLS) regression risks overfitting — fitting noise in the training data that does not generalize to new customers. Regularization addresses this by adding a penalty term to the loss function that discourages large coefficients. We use the <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">glmnet</code> package in R, which efficiently fits both Lasso and Ridge regression via coordinate descent and selects the optimal penalty strength through <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">cv.glmnet()</code> with 10-fold cross-validation.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+<!-- Lasso -->
+<div class="p-8 bg-[#0d0d0d] border border-green-500/20 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-12 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-2xl">filter_alt</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-green-400">Lasso (L1 Regularization)</h4>
+<p class="text-slate-500 text-xs mt-1">Primary model for feature importance</p>
+</div>
+</div>
+<div class="space-y-4 text-slate-400 leading-relaxed">
+<p>Lasso adds the sum of <strong class="text-white">absolute values</strong> of coefficients as a penalty term: λ × Σ|β<sub>j</sub>|. This creates a powerful effect — as λ increases, coefficients of less important variables are shrunk to <strong class="text-white">exactly zero</strong>, effectively removing them from the model.</p>
+<p>This property makes Lasso our <strong class="text-white">primary model for feature selection</strong>. By examining which variables survive at different λ values, we can identify the minimal set of customer attributes that drive churn prediction. Analysts can use the λ slider in the Shiny app to visually observe how the model progressively simplifies.</p>
+<ul class="space-y-2 text-sm">
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">•</span><span>Automatic variable selection via coefficient zeroing</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">•</span><span>Sparse, interpretable models at higher λ</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">•</span><span>Ideal for answering: "Which features matter most?"</span></li>
+</ul>
+</div>
+</div>
+<!-- Ridge -->
+<div class="p-8 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-12 shrink-0 rounded-xl bg-slate-500/10 text-slate-400 flex items-center justify-center border border-slate-500/20">
+<span class="material-symbols-outlined text-2xl">compress</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-slate-300">Ridge (L2 Regularization)</h4>
+<p class="text-slate-500 text-xs mt-1">Validation model for comparison</p>
+</div>
+</div>
+<div class="space-y-4 text-slate-400 leading-relaxed">
+<p>Ridge adds the sum of <strong class="text-white">squared values</strong> of coefficients as a penalty: λ × Σβ<sub>j</sub>². Unlike Lasso, Ridge <strong class="text-white">never shrinks coefficients to exactly zero</strong> — instead, it pulls all coefficients proportionally toward zero, retaining every variable in the model.</p>
+<p>We use Ridge as a <strong class="text-white">validation model</strong> to cross-check the Lasso results. If the Ridge model achieves similar predictive accuracy while retaining all variables, it confirms that the features Lasso selected are indeed the most important ones. If Ridge significantly outperforms Lasso, it suggests that many small-contribution features collectively improve prediction.</p>
+<ul class="space-y-2 text-sm">
+<li class="flex gap-3"><span class="text-slate-400 mt-0.5">•</span><span>Retains all variables with proportional shrinkage</span></li>
+<li class="flex gap-3"><span class="text-slate-400 mt-0.5">•</span><span>Better when many features contribute modestly</span></li>
+<li class="flex gap-3"><span class="text-slate-400 mt-0.5">•</span><span>Serves as benchmark to validate Lasso feature selection</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Lambda explanation -->
+<div class="p-6 bg-[#0d0d0d] border border-green-500/10 rounded-xl">
+<h5 class="font-bold text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-400">tune</span>
+The λ Parameter: Controlling Model Complexity
+</h5>
+<p class="text-slate-400 leading-relaxed mb-4">The regularization parameter λ (lambda) is the single most important hyperparameter in both Lasso and Ridge regression. It controls the trade-off between fitting the training data closely and keeping the model simple:</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-4 bg-[#080808] rounded-lg border border-white/5">
+<p class="text-green-400 font-bold text-sm mb-2">λ = 0 (No regularization)</p>
+<p class="text-slate-500 text-xs">Equivalent to ordinary least squares. All features retained with full coefficients. Risk of overfitting.</p>
+</div>
+<div class="p-4 bg-[#080808] rounded-lg border border-green-500/20">
+<p class="text-green-400 font-bold text-sm mb-2">λ = λ.min (Optimal)</p>
+<p class="text-slate-500 text-xs">Selected by 10-fold CV. Minimizes prediction error. Balances bias and variance for best generalization.</p>
+</div>
+<div class="p-4 bg-[#080808] rounded-lg border border-white/5">
+<p class="text-green-400 font-bold text-sm mb-2">λ → ∞ (Maximum)</p>
+<p class="text-slate-500 text-xs">Lasso: all coefficients zero (null model). Ridge: all coefficients near zero. Maximum bias, minimum variance.</p>
+</div>
+</div>
+<p class="text-slate-500 text-sm mt-4">We use <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">cv.glmnet()</code> with 10-fold cross-validation to identify two key λ values: <strong class="text-slate-300">λ.min</strong> (the λ that minimizes mean cross-validated error) and <strong class="text-slate-300">λ.1se</strong> (the largest λ within one standard error of the minimum, yielding a more parsimonious model). Both models are pre-trained offline, saved as <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">.rds</code> files, and loaded at Shiny startup for instant predictions.</p>
+</div>
+</div>
+
+<!-- 03. Feature Engineering -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-green-400 font-bold text-sm mb-2 block">SECTION 03</span>
+<h3 class="text-3xl font-bold mb-6"><span class="lang-en">Feature Engineering</span><span class="lang-cn">特征工程</span></h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-10">Beyond the raw independent variables, we engineer three derived features that capture higher-order customer behavior patterns. These features are computed during data preparation and added to the model matrix alongside the original variables. Each encodes a specific business hypothesis about what drives churn.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-green-400">category</span>
+<code class="text-green-400 text-lg font-bold">product_diversity_ratio</code>
+</div>
+<div class="p-4 bg-[#080808] rounded-lg border border-white/5 mb-4">
+<p class="text-slate-300 text-sm font-mono text-center">active_products / 5</p>
+<p class="text-slate-600 text-xs text-center mt-1">(max possible products = 5)</p>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed">Normalizes the number of active products to a 0–1 scale. A customer with only 1 of 5 products (ratio = 0.20) is less embedded in the platform ecosystem than one using all 5 (ratio = 1.0). Higher product diversity implies higher switching costs, which should reduce churn risk. This feature captures the "stickiness" dimension that raw product count alone does not convey at a normalized scale.</p>
+</div>
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-green-400">support_agent</span>
+<code class="text-green-400 text-lg font-bold">ticket_resolution_gap</code>
+</div>
+<div class="p-4 bg-[#080808] rounded-lg border border-white/5 mb-4">
+<p class="text-slate-300 text-sm font-mono text-center">support_tickets_count × (1 − resolved_tickets_ratio)</p>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed">Measures the absolute number of <strong class="text-white">unresolved support tickets</strong>. A customer with 10 tickets and 50% resolution has a gap of 5 unresolved tickets, while one with 2 tickets and 50% resolution has a gap of only 1. This interaction term captures the frustration dimension: it is not just about having tickets, but about having tickets that remain unsolved. Higher values signal service delivery failures that may push customers to churn.</p>
+</div>
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-green-400">sentiment_dissatisfied</span>
+<code class="text-green-400 text-lg font-bold">satisfaction_gap</code>
+</div>
+<div class="p-4 bg-[#080808] rounded-lg border border-white/5 mb-4">
+<p class="text-slate-300 text-sm font-mono text-center">base_satisfaction − satisfaction_score</p>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed">Computes the difference between the customer's baseline (initial) satisfaction and their current satisfaction score. A positive gap indicates that the customer's satisfaction has <strong class="text-white">declined</strong> over time, which is a stronger churn signal than low absolute satisfaction alone. A customer who dropped from 9 to 5 is more at risk than one who was always at 5 — the trajectory of dissatisfaction matters as much as the level.</p>
+</div>
+</div>
+</div>
+
+<!-- 04. Variable Importance -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-green-400 font-bold text-sm mb-2 block">SECTION 04</span>
+<h3 class="text-3xl font-bold mb-6"><span class="lang-en">Variable Importance</span><span class="lang-cn">变量重要性</span></h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-10">The variable importance plot is the central analytical output of Module 3. It displays the absolute values of Lasso regression coefficients at the user-selected λ value as a horizontal bar chart, providing a direct answer to the question: <em class="text-white">"Which customer attributes most strongly predict churn?"</em></p>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+<!-- Chart description -->
+<div>
+<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-400">bar_chart</span>
+<span class="lang-en">Coefficient Bar Chart</span><span class="lang-cn">系数条形图</span>
+</h4>
+<p class="text-slate-400 leading-relaxed mb-6">The bar chart ranks features by the absolute magnitude of their Lasso coefficients. Each bar is color-coded to indicate the <strong class="text-white">direction of effect</strong>:</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 bg-[#0d0d0d] rounded-lg border border-white/5">
+<div class="w-6 h-6 rounded bg-red-400/80 shrink-0"></div>
+<div>
+<p class="text-white font-semibold text-sm">Positive coefficients (increases churn)</p>
+<p class="text-slate-500 text-xs">Features like support_tickets_count or satisfaction_gap that, when increased, push predicted churn probability higher.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-[#0d0d0d] rounded-lg border border-white/5">
+<div class="w-6 h-6 rounded bg-purple-400/80 shrink-0"></div>
+<div>
+<p class="text-white font-semibold text-sm">Negative coefficients (decreases churn)</p>
+<p class="text-slate-500 text-xs">Features like active_products or satisfaction_score that, when increased, reduce predicted churn probability.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Lambda slider interaction -->
+<div>
+<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-400">linear_scale</span>
+Interactive λ Slider
+</h4>
+<p class="text-slate-400 leading-relaxed mb-6">Users adjust the λ slider to observe how the model simplifies in real time. This interaction teaches the bias-variance tradeoff visually:</p>
+<div class="space-y-3">
+<div class="p-4 bg-[#0d0d0d] rounded-lg border border-white/5">
+<p class="text-green-400 font-bold text-sm mb-1">Low λ → Complex model</p>
+<p class="text-slate-500 text-xs">Most features have non-zero coefficients. The chart shows many bars of varying lengths. The model fits training data closely but may overfit.</p>
+</div>
+<div class="p-4 bg-[#0d0d0d] rounded-lg border border-green-500/20">
+<p class="text-green-400 font-bold text-sm mb-1">Optimal λ (λ.min) → Best predictive model</p>
+<p class="text-slate-500 text-xs">The cross-validated optimum. A balanced set of features remain. This is the recommended setting for predictions.</p>
+</div>
+<div class="p-4 bg-[#0d0d0d] rounded-lg border border-white/5">
+<p class="text-green-400 font-bold text-sm mb-1">High λ → Sparse model</p>
+<p class="text-slate-500 text-xs">Only the strongest predictors survive. The chart shows just a few bars. Simple and interpretable, but may sacrifice accuracy.</p>
+</div>
+</div>
+<p class="text-slate-500 text-sm mt-4">As the user drags the slider from low to high λ, they can watch variables "disappear" one by one — the last features standing are the ones the model considers most essential for predicting churn.</p>
+</div>
+</div>
+
+<!-- Observation 7 -->
+<div class="border-l-2 border-green-500/30 pl-6 py-4 bg-[#0d0d0d] rounded-r-xl">
+<h5 class="font-bold text-white mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-400 text-xl">lightbulb</span>
+Observation 7 — A small set of features dominates churn prediction
+</h5>
+<p class="text-slate-400 leading-relaxed">Using a pre-trained Lasso regression model with L1 regularization, the variable importance plot reveals that a relatively small subset of customer attributes accounts for the vast majority of predictive power. As λ increases beyond the optimal value, features like <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">satisfaction_score</code>, <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">ticket_resolution_gap</code>, <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code>, and <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">product_diversity_ratio</code> are the last to be shrunk to zero, indicating that engagement and service quality metrics are more predictive of churn than raw transactional volume or demographic attributes. This insight suggests that retention strategies should focus on the customer experience rather than simply encouraging more transactions.</p>
+</div>
+</div>
+
+<!-- 05. What-If Simulator -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-green-400 font-bold text-sm mb-2 block">SECTION 05</span>
+<h3 class="text-3xl font-bold mb-6"><span class="lang-en">What-If Simulator</span><span class="lang-cn">假设模拟器</span></h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-10">The What-If Simulator is the flagship interactive component of Module 3. It transforms the pre-trained glmnet model from a static analytical artifact into a live decision-support tool. Business users can build hypothetical customer profiles, see the predicted churn probability update in real time, and explore which interventions most effectively reduce churn risk — all without writing a single line of code.</p>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+<!-- Slider Panel -->
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">sliders</span>
+</div>
+<h4 class="font-bold text-white"><span class="lang-en">Input Panel</span><span class="lang-cn">输入面板</span></h4>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">Each customer attribute has its own dedicated slider or input control, organized into logical groups (Transactional, Demographic, Engagement). Users build a hypothetical customer profile by adjusting individual values:</p>
+<ul class="space-y-2 text-slate-500 text-sm">
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">tx_count</strong>: 0–500 (step 10)</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">avg_tx_value</strong>: 0–5,000,000 COP</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">customer_tenure</strong>: 0–120 months</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">active_products</strong>: 1–5</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">credit_utilization_ratio</strong>: 0.0–1.0</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">satisfaction_score</strong>: 1–10</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">nps_score</strong>: 0–10</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">support_tickets_count</strong>: 0–20</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">resolved_tickets_ratio</strong>: 0.0–1.0</span></li>
+</ul>
+<p class="text-slate-500 text-xs mt-4">Engineered features (product_diversity_ratio, ticket_resolution_gap, satisfaction_gap) are computed automatically from the slider values.</p>
+</div>
+<!-- Gauge / KPI -->
+<div class="p-6 bg-[#0d0d0d] border border-green-500/20 rounded-xl">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">speed</span>
+</div>
+<h4 class="font-bold text-white"><span class="lang-en">Prediction Output</span><span class="lang-cn">预测输出</span></h4>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">The predicted churn probability is displayed as a large, real-time gauge visualization that updates instantly as the user adjusts any slider. The gauge uses color-coding to convey risk severity at a glance:</p>
+<div class="space-y-3">
+<div class="p-3 bg-[#080808] rounded-lg border border-green-500/20">
+<div class="flex items-center justify-between">
+<span class="text-green-400 font-bold text-sm">Low Risk</span>
+<span class="text-green-400 font-mono text-sm">0% – 30%</span>
+</div>
+<p class="text-slate-600 text-xs mt-1">Customer is likely to remain active. No immediate intervention needed.</p>
+</div>
+<div class="p-3 bg-[#080808] rounded-lg border border-yellow-500/20">
+<div class="flex items-center justify-between">
+<span class="text-yellow-400 font-bold text-sm">Medium Risk</span>
+<span class="text-yellow-400 font-mono text-sm">30% – 60%</span>
+</div>
+<p class="text-slate-600 text-xs mt-1">Customer is wavering. Proactive engagement recommended.</p>
+</div>
+<div class="p-3 bg-[#080808] rounded-lg border border-red-500/20">
+<div class="flex items-center justify-between">
+<span class="text-red-400 font-bold text-sm">High Risk</span>
+<span class="text-red-400 font-mono text-sm">60% – 100%</span>
+</div>
+<p class="text-slate-600 text-xs mt-1">Customer is highly likely to churn. Immediate retention action required.</p>
+</div>
+</div>
+<p class="text-slate-500 text-xs mt-4">The prediction is computed by calling <code class="text-green-400 bg-green-500/10 px-1 py-0.5 rounded text-xs">predict()</code> on the pre-trained glmnet model object loaded from the .rds file at startup. Response is near-instantaneous since no model fitting occurs at runtime.</p>
+</div>
+<!-- Comparison & Recommendations -->
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">compare_arrows</span>
+</div>
+<h4 class="font-bold text-white"><span class="lang-en">Comparison &amp; Recommendations</span><span class="lang-cn">比较与建议</span></h4>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">A comparison table displays the current (baseline) customer values alongside the hypothetical What-If values, with the change direction highlighted:</p>
+<div class="overflow-x-auto mb-6">
+
+<table class="w-full text-left border-collapse text-xs caption-top">
+<thead>
+<tr class="border-b border-white/10 header">
+<th class="py-2 px-3 text-slate-400 font-semibold" data-quarto-table-cell-role="th">Attribute</th>
+<th class="py-2 px-3 text-slate-400 font-semibold" data-quarto-table-cell-role="th">Current</th>
+<th class="py-2 px-3 text-slate-400 font-semibold" data-quarto-table-cell-role="th">What-If</th>
+<th class="py-2 px-3 text-slate-400 font-semibold" data-quarto-table-cell-role="th">Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-white/5 odd">
+<td class="py-2 px-3 text-slate-300">active_products</td>
+<td class="py-2 px-3 text-slate-500">1</td>
+<td class="py-2 px-3 text-green-400">3</td>
+<td class="py-2 px-3 text-green-400">↓ churn</td>
+</tr>
+<tr class="border-b border-white/5 even">
+<td class="py-2 px-3 text-slate-300">support_tickets</td>
+<td class="py-2 px-3 text-slate-500">2</td>
+<td class="py-2 px-3 text-red-400">8</td>
+<td class="py-2 px-3 text-red-400">↑ churn</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">Based on the predicted risk level, the system generates <strong class="text-white">risk-based recommendations</strong>:</p>
+<ul class="space-y-2 text-slate-500 text-xs">
+<li class="flex gap-2"><span class="text-red-400 font-bold">High:</span> Escalate to retention team, offer loyalty incentives, resolve open tickets immediately</li>
+<li class="flex gap-2"><span class="text-yellow-400 font-bold">Medium:</span> Schedule proactive check-in, suggest product upgrades, monitor engagement trends</li>
+<li class="flex gap-2"><span class="text-green-400 font-bold">Low:</span> Maintain current service quality, consider upsell opportunities</li>
+</ul>
+</div>
+</div>
+
+<!-- Observation 8 -->
+<div class="border-l-2 border-green-500/30 pl-6 py-4 bg-[#0d0d0d] rounded-r-xl">
+<h5 class="font-bold text-white mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-400 text-xl">lightbulb</span>
+Observation 8 — Changing specific customer attributes meaningfully shifts predicted churn risk
+</h5>
+<p class="text-slate-400 leading-relaxed">The What-If Simulator demonstrates that churn probability is not a fixed fate — it responds meaningfully to changes in specific, actionable customer attributes. For example, increasing a customer's <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">active_products</code> from 1 to 3 may reduce predicted churn probability by 15–20 percentage points, while resolving outstanding support tickets (improving <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">resolved_tickets_ratio</code> from 0.4 to 0.9) can reduce churn risk by a similar magnitude. These simulations translate the statistical model into concrete, <strong class="text-white">actionable business strategies</strong>: product cross-selling, support queue prioritization, and satisfaction recovery programs each have quantifiable expected impacts on retention.</p>
+</div>
+</div>
+
+<!-- 06. Model Performance -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<span class="text-green-400 font-bold text-sm mb-2 block">SECTION 06</span>
+<h3 class="text-3xl font-bold mb-6"><span class="lang-en">Model Performance</span><span class="lang-cn">模型性能</span></h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-10">Before trusting the model's predictions, we validate its performance using standard regression diagnostics. These visualizations and metrics are displayed in the Shiny app to give users confidence in the prediction quality and transparency into the model's limitations.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+<!-- CV Performance -->
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">monitoring</span>
+</div>
+<h4 class="font-bold text-white"><span class="lang-en">Cross-Validation Performance</span><span class="lang-cn">交叉验证性能</span></h4>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">The CV performance plot displays <strong class="text-white">λ vs. Mean Squared Error (MSE)</strong> across the 10-fold cross-validation. Two critical λ values are marked with vertical dashed lines:</p>
+<ul class="space-y-2 text-slate-500 text-sm">
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">λ.min</strong> — The λ that achieves the lowest cross-validated MSE. This is the model with the best predictive accuracy.</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">λ.1se</strong> — The largest λ within one standard error of the minimum. This yields a sparser, more parsimonious model with slightly higher error but better interpretability.</span></li>
+</ul>
+<p class="text-slate-500 text-xs mt-4">The curve typically shows a U-shape: error decreases as λ increases from zero (reducing overfitting), hits a minimum, then rises again (underfitting). The flat region between λ.min and λ.1se indicates that the model is robust to the exact λ choice within this range.</p>
+</div>
+<!-- Predicted vs Actual -->
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">scatter_plot</span>
+</div>
+<h4 class="font-bold text-white"><span class="lang-en">Predicted vs. Actual (Calibration)</span><span class="lang-cn">预测值与实际值（校准）</span></h4>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">The calibration scatter plot compares the model's predicted churn probabilities (x-axis) against the actual observed churn probabilities (y-axis) for each customer. A well-calibrated model produces points that cluster tightly around the <strong class="text-white">45-degree diagonal line</strong>.</p>
+<ul class="space-y-2 text-slate-500 text-sm">
+<li class="flex gap-2"><span class="text-green-400">•</span><span>Points above the line indicate <strong class="text-slate-300">underestimation</strong> — the model predicts lower churn than actual.</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span>Points below the line indicate <strong class="text-slate-300">overestimation</strong> — the model predicts higher churn than actual.</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span>Systematic deviations at the extremes (very low or very high churn) reveal calibration issues that may require model refinement.</span></li>
+</ul>
+</div>
+<!-- Residual Distribution -->
+<div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">equalizer</span>
+</div>
+<h4 class="font-bold text-white"><span class="lang-en">Residual Distribution</span><span class="lang-cn">残差分布</span></h4>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">A histogram of residuals (actual − predicted) assesses whether the model's errors are well-behaved. For a good regression model, residuals should be:</p>
+<ul class="space-y-2 text-slate-500 text-sm">
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">Centered at zero</strong> — The model does not systematically over- or under-predict.</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">Approximately normal</strong> — Most errors are small, with few large errors in either direction.</span></li>
+<li class="flex gap-2"><span class="text-green-400">•</span><span><strong class="text-slate-300">Symmetric</strong> — Errors are equally distributed above and below zero, with no heavy tails.</span></li>
+</ul>
+<p class="text-slate-500 text-xs mt-4">Skewed or heavy-tailed residuals would suggest that the linear model assumption is violated and alternative approaches (e.g., quantile regression or non-linear models) should be considered.</p>
+</div>
+<!-- Key Metrics -->
+<div class="p-6 bg-[#0d0d0d] border border-green-500/20 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
+<span class="material-symbols-outlined text-xl">analytics</span>
+</div>
+<h4 class="font-bold text-white"><span class="lang-en">Key Performance Metrics</span><span class="lang-cn">关键性能指标</span></h4>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Two summary metrics quantify overall model quality:</p>
+<div class="space-y-4">
+<div class="p-4 bg-[#080808] rounded-lg border border-white/5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-green-400 font-bold text-lg">R²</span>
+<span class="text-slate-500 text-xs">Coefficient of Determination</span>
+</div>
+<p class="text-slate-500 text-xs leading-relaxed">Proportion of variance in churn_probability explained by the model. An R² of 0.75 means the model captures 75% of the variation, leaving 25% unexplained. Higher is better, but values above 0.95 on real-world data may suggest data leakage.</p>
+</div>
+<div class="p-4 bg-[#080808] rounded-lg border border-white/5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-green-400 font-bold text-lg">RMSE</span>
+<span class="text-slate-500 text-xs">Root Mean Squared Error</span>
+</div>
+<p class="text-slate-500 text-xs leading-relaxed">Average prediction error in the same units as churn_probability (0–1 scale). An RMSE of 0.08 means predictions are off by about 8 percentage points on average. Lower is better. Compared against the standard deviation of churn_probability as a baseline.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-white/5 py-16 bg-[#0c0c0c]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-10">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="size-6" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="font-bold text-xl">COFINFAD Analytics</span>
+</div>
+
+<p class="text-sm text-slate-600">© 2026 COFINFAD Analytics. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+
+
+
+
+
+
+</body></html>

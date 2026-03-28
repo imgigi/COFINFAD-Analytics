@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Meeting Minutes - COFINFAD Analytics – COFINFAD Analytics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<header id="title-block-header">
+
+
+</header>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#f97415",
+          "background-light": "#080808",
+          "background-dark": "#080808",
+          "card-dark": "#121212",
+        },
+        fontFamily: {
+          "display": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.add('dark');
+  });
+</script>
+<style>
+  /* Remove all Quarto default styles */
+  #title-block-header { display: none !important; }
+  .quarto-title { display: none !important; }
+  header#title-block-header { display: none !important; }
+  header { display: none !important; }
+  #quarto-content { margin: 0 !important; padding: 0 !important; }
+  .page-columns { display: block !important; }
+  body > div.container-fluid, body > .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  main.content { margin: 0 !important; padding: 0 !important; max-width: 100% !important; }
+  body { background-color: #080808 !important; color: #e2e8f0 !important; font-family: 'Inter', sans-serif !important; margin: 0 !important; }
+  html { background-color: #080808 !important; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  /* Reset Quarto table styles */
+  table { border: none !important; }
+  th, td { border: none !important; }
+  tr.odd, tr.even { background: transparent !important; }
+  tr.header { background: transparent !important; }
+  .lang-cn { display: none; }
+  body.cn .lang-cn { display: inline; }
+  body.cn .lang-en { display: none; }
+  body.cn .lang-cn-block { display: block; }
+  body.cn .lang-en-block { display: none; }
+  .lang-cn-block { display: none; }
+</style>
+<script>
+function toggleLang() {
+  document.body.classList.toggle('cn');
+  const btn = document.getElementById('lang-btn');
+  btn.textContent = document.body.classList.contains('cn') ? 'EN' : '中文';
+  localStorage.setItem('lang', document.body.classList.contains('cn') ? 'cn' : 'en');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('lang') === 'cn') {
+    document.body.classList.add('cn');
+    var btn = document.getElementById('lang-btn');
+    if (btn) btn.textContent = 'EN';
+  }
+});
+</script>
+<div class="bg-[#080808] font-display text-slate-100 min-h-screen">
+<!-- ==================== NAVBAR ==================== -->
+<nav class="sticky top-0 z-50 w-full border-b border-[#1f1f1f] bg-[#080808]/90 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20 items-center">
+<a href="homepage.html" class="flex items-center gap-2 no-underline">
+<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
+</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="proposal.html"><span class="lang-en">Proposal</span><span class="lang-cn">项目提案</span></a>
+<div class="relative dropdown group">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+<span class="lang-en">Methodology</span><span class="lang-cn">方法论</span> <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="dropdown-menu hidden absolute left-0 mt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.html"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.html"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.html"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="prediction.html"><span class="lang-en">Prediction</span><span class="lang-cn">预测模型</span></a>
+</div>
+</div>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
+<a class="text-sm font-medium text-primary transition-colors" href="meeting-minutes.html"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="../qmd/homepage.html#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
+</div>
+<div class="flex items-center gap-3">
+<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline">Shiny App</a>
+<button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8"><header id="title-block-header" class="quarto-title-block"><h1 class="title">Meeting Minutes - COFINFAD Analytics</h1></header>
+
+<!-- Hero Section -->
+<section class="relative mb-16 rounded-2xl overflow-hidden bg-[#0d0d0d] p-12 md:p-24 flex flex-col items-center text-center border border-white/5">
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+<div class="relative z-10 max-w-3xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">MEETING MINUTES</span><span class="lang-cn">会议记录</span></span>
+<h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-6"><span class="lang-en">Team Meeting Minutes</span><span class="lang-cn">团队会议记录</span></h1>
+<p class="text-lg text-slate-400 leading-relaxed mb-8"><span class="lang-en">Documenting our team collaboration, key decisions, and project progress throughout the COFINFAD Analytics project lifecycle.</span><span class="lang-cn">记录我们团队在 COFINFAD Analytics 项目生命周期中的协作、关键决策和项目进展。</span></p>
+<p class="text-sm text-slate-500 font-medium"><span class="lang-en">Team 13</span><span class="lang-cn">第13组</span></p>
+</div>
+</section>
+
+<!-- ==================== MEETING 4 ==================== -->
+<section class="mb-6">
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<div class="flex flex-wrap items-center gap-4 mb-6">
+<span class="text-primary font-bold text-sm"><span class="lang-en">17 March 2026</span><span class="lang-cn">2026年3月17日</span></span>
+<span class="text-slate-500 text-sm">·</span>
+<span class="text-slate-400 text-sm font-medium"><span class="lang-en">Meeting #4</span><span class="lang-cn">第4次会议</span></span>
+<span class="text-slate-500 text-sm">·</span>
+<span class="text-slate-400 text-sm"><span class="lang-en">Week 7</span><span class="lang-cn">第7周</span></span>
+</div>
+<h3 class="text-2xl font-bold mb-8"><span class="lang-en">Shiny App Progress &amp; Website Development</span><span class="lang-cn">Shiny 应用进展与网站开发</span></h3>
+
+<!-- Attendees -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">people</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Attendees</span><span class="lang-cn">参会人员</span></h4>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Ji Guofang</span>
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Lin Yan</span>
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Nguyen Trong Nhan</span>
+</div>
+</div>
+
+<!-- Agenda -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">format_list_numbered</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Agenda</span><span class="lang-cn">议程</span></h4>
+</div>
+<div class="space-y-2 pl-1">
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">1.</span><span class="lang-en">Shiny app progress review</span><span class="lang-cn">Shiny 应用进展回顾</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">2.</span><span class="lang-en">Website development status</span><span class="lang-cn">网站开发状态</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">3.</span><span class="lang-en">Integration testing</span><span class="lang-cn">集成测试</span></p>
+</div>
+</div>
+
+<!-- Discussion -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">chat</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Discussion</span><span class="lang-cn">讨论内容</span></h4>
+</div>
+<div class="space-y-2 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Reviewed Shiny app modules — all three analytical modules (EDA, Clustering, Prediction) are functional with basic interactivity</span><span class="lang-cn">审查了 Shiny 应用模块 — 三个分析模块（EDA、聚类、预测）均已具备基本交互功能</span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Tested clustering pre-computation pipeline — confirmed that pre-computed results load correctly and reduce app startup time significantly</span><span class="lang-cn">测试了聚类预计算管道 — 确认预计算结果加载正确，显著减少了应用启动时间</span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Discussed website design — agreed on dark theme with Tailwind CSS, consistent navigation, and responsive layout across all pages</span><span class="lang-cn">讨论了网站设计 — 确定使用 Tailwind CSS 暗色主题、统一导航和所有页面的响应式布局</span></p>
+</div>
+</div>
+</div>
+
+<!-- Action Items -->
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl">assignment</span>
+<h4 class="text-sm font-bold text-primary uppercase tracking-wider"><span class="lang-en">Action Items</span><span class="lang-cn">行动计划</span></h4>
+</div>
+<div class="space-y-3 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">All</strong> — <span class="lang-en">Complete Shiny app improvements and polish UI</span><span class="lang-cn">完成 Shiny 应用改进并优化界面</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Mar 22)</span><span class="lang-cn">(截止3月22日)</span></span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">JG</strong> — <span class="lang-en">Deploy website with all methodology pages</span><span class="lang-cn">部署包含所有方法论页面的网站</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Mar 22)</span><span class="lang-cn">(截止3月22日)</span></span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">NN</strong> — <span class="lang-en">Finalize prediction module and deploy Shiny app</span><span class="lang-cn">完成预测模块并部署 Shiny 应用</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Mar 22)</span><span class="lang-cn">(截止3月22日)</span></span></p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ==================== MEETING 3 ==================== -->
+<section class="mb-6">
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<div class="flex flex-wrap items-center gap-4 mb-6">
+<span class="text-primary font-bold text-sm"><span class="lang-en">3 March 2026</span><span class="lang-cn">2026年3月3日</span></span>
+<span class="text-slate-500 text-sm">·</span>
+<span class="text-slate-400 text-sm font-medium"><span class="lang-en">Meeting #3</span><span class="lang-cn">第3次会议</span></span>
+<span class="text-slate-500 text-sm">·</span>
+<span class="text-slate-400 text-sm"><span class="lang-en">Week 5</span><span class="lang-cn">第5周</span></span>
+</div>
+<h3 class="text-2xl font-bold mb-8"><span class="lang-en">Proposal Review &amp; Data Preparation Pipeline</span><span class="lang-cn">提案审查与数据准备管道</span></h3>
+
+<!-- Attendees -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">people</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Attendees</span><span class="lang-cn">参会人员</span></h4>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Ji Guofang</span>
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Lin Yan</span>
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Nguyen Trong Nhan</span>
+</div>
+</div>
+
+<!-- Agenda -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">format_list_numbered</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Agenda</span><span class="lang-cn">议程</span></h4>
+</div>
+<div class="space-y-2 pl-1">
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">1.</span><span class="lang-en">Proposal review and feedback</span><span class="lang-cn">提案审查与反馈</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">2.</span><span class="lang-en">Data preparation pipeline design</span><span class="lang-cn">数据准备管道设计</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">3.</span><span class="lang-en">Pre-computation approach for clustering</span><span class="lang-cn">聚类预计算方案</span></p>
+</div>
+</div>
+
+<!-- Discussion -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">chat</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Discussion</span><span class="lang-cn">讨论内容</span></h4>
+</div>
+<div class="space-y-2 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Reviewed proposal draft — overall structure is solid, minor revisions needed for methodology section to better justify algorithm choices</span><span class="lang-cn">审查了提案草稿 — 整体结构良好，方法论部分需要小幅修改以更好地论证算法选择</span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Discussed data cleaning strategy for <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code> — agreed on median imputation grouped by income bracket to handle missing values</span><span class="lang-cn">讨论了 <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code> 的数据清洗策略 — 确定按收入等级分组进行中位数插补以处理缺失值</span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Agreed on pre-computation approach for clustering — store results for k=2 to 8 across multiple algorithms to enable fast switching in the Shiny app</span><span class="lang-cn">确定了聚类预计算方案 — 存储 k=2 到 8 的多种算法结果，以便在 Shiny 应用中快速切换</span></p>
+</div>
+</div>
+</div>
+
+<!-- Action Items -->
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl">assignment</span>
+<h4 class="text-sm font-bold text-primary uppercase tracking-wider"><span class="lang-en">Action Items</span><span class="lang-cn">行动计划</span></h4>
+</div>
+<div class="space-y-3 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">All</strong> — <span class="lang-en">Finalize proposal and submit</span><span class="lang-cn">完成提案并提交</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Mar 7)</span><span class="lang-cn">(截止3月7日)</span></span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">JG</strong> — <span class="lang-en">Begin Shiny app development with clustering module</span><span class="lang-cn">开始 Shiny 应用开发，先完成聚类模块</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Mar 10)</span><span class="lang-cn">(截止3月10日)</span></span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">LY</strong> — <span class="lang-en">Implement data cleaning pipeline and export .rds files</span><span class="lang-cn">实现数据清洗管道并导出 .rds 文件</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Mar 10)</span><span class="lang-cn">(截止3月10日)</span></span></p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ==================== MEETING 2 ==================== -->
+<section class="mb-6">
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<div class="flex flex-wrap items-center gap-4 mb-6">
+<span class="text-primary font-bold text-sm"><span class="lang-en">17 February 2026</span><span class="lang-cn">2026年2月17日</span></span>
+<span class="text-slate-500 text-sm">·</span>
+<span class="text-slate-400 text-sm font-medium"><span class="lang-en">Meeting #2</span><span class="lang-cn">第2次会议</span></span>
+<span class="text-slate-500 text-sm">·</span>
+<span class="text-slate-400 text-sm"><span class="lang-en">Week 3</span><span class="lang-cn">第3周</span></span>
+</div>
+<h3 class="text-2xl font-bold mb-8"><span class="lang-en">Proposal Drafting &amp; Methodology Discussion</span><span class="lang-cn">提案起草与方法论讨论</span></h3>
+
+<!-- Attendees -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">people</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Attendees</span><span class="lang-cn">参会人员</span></h4>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Ji Guofang</span>
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Lin Yan</span>
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Nguyen Trong Nhan</span>
+</div>
+</div>
+
+<!-- Agenda -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">format_list_numbered</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Agenda</span><span class="lang-cn">议程</span></h4>
+</div>
+<div class="space-y-2 pl-1">
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">1.</span><span class="lang-en">Proposal drafting plan</span><span class="lang-cn">提案起草计划</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">2.</span><span class="lang-en">Methodology discussion</span><span class="lang-cn">方法论讨论</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">3.</span><span class="lang-en">Shiny app architecture review</span><span class="lang-cn">Shiny 应用架构审查</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">4.</span><span class="lang-en">Literature review findings</span><span class="lang-cn">文献综述发现</span></p>
+</div>
+</div>
+
+<!-- Discussion -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">chat</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Discussion</span><span class="lang-cn">讨论内容</span></h4>
+</div>
+<div class="space-y-2 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Finalized three-module approach: Module 1 (EDA &amp; Confirmatory Data Analysis), Module 2 (Clustering), Module 3 (Prediction)</span><span class="lang-cn">确定了三模块方案：模块1（EDA 与验证性数据分析）、模块2（聚类）、模块3（预测）</span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Discussed Shiny app architecture — agreed on modular design with <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">bslib::page_navbar()</code> as the app shell and separate server logic per module</span><span class="lang-cn">讨论了 Shiny 应用架构 — 确定采用模块化设计，以 <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">bslib::page_navbar()</code> 作为应用外壳，每个模块独立的服务器逻辑</span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Reviewed relevant literature on customer segmentation and fintech analytics to inform methodology choices</span><span class="lang-cn">审阅了客户细分和金融科技分析的相关文献，为方法论选择提供依据</span></p>
+</div>
+</div>
+</div>
+
+<!-- Action Items -->
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl">assignment</span>
+<h4 class="text-sm font-bold text-primary uppercase tracking-wider"><span class="lang-en">Action Items</span><span class="lang-cn">行动计划</span></h4>
+</div>
+<div class="space-y-3 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">All</strong> — <span class="lang-en">Draft assigned proposal sections</span><span class="lang-cn">起草分配的提案章节</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Feb 24)</span><span class="lang-cn">(截止2月24日)</span></span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">JG</strong> — <span class="lang-en">Create wireframes for Shiny app layout</span><span class="lang-cn">创建 Shiny 应用布局线框图</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Feb 24)</span><span class="lang-cn">(截止2月24日)</span></span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">NN</strong> — <span class="lang-en">Research prediction models and draft methodology section</span><span class="lang-cn">研究预测模型并起草方法论章节</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Feb 24)</span><span class="lang-cn">(截止2月24日)</span></span></p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ==================== MEETING 1 ==================== -->
+<section class="mb-6">
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+<div class="flex flex-wrap items-center gap-4 mb-6">
+<span class="text-primary font-bold text-sm"><span class="lang-en">3 February 2026</span><span class="lang-cn">2026年2月3日</span></span>
+<span class="text-slate-500 text-sm">·</span>
+<span class="text-slate-400 text-sm font-medium"><span class="lang-en">Meeting #1</span><span class="lang-cn">第1次会议</span></span>
+<span class="text-slate-500 text-sm">·</span>
+<span class="text-slate-400 text-sm"><span class="lang-en">Week 1</span><span class="lang-cn">第1周</span></span>
+</div>
+<h3 class="text-2xl font-bold mb-8"><span class="lang-en">Project Kickoff</span><span class="lang-cn">项目启动</span></h3>
+
+<!-- Attendees -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">people</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Attendees</span><span class="lang-cn">参会人员</span></h4>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Ji Guofang</span>
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Lin Yan</span>
+<span class="text-sm text-slate-300 bg-white/5 px-3 py-1 rounded-full">Nguyen Trong Nhan</span>
+</div>
+</div>
+
+<!-- Agenda -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">format_list_numbered</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Agenda</span><span class="lang-cn">议程</span></h4>
+</div>
+<div class="space-y-2 pl-1">
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">1.</span><span class="lang-en">Project kickoff and introductions</span><span class="lang-cn">项目启动与成员介绍</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">2.</span><span class="lang-en">Dataset exploration</span><span class="lang-cn">数据集探索</span></p>
+<p class="text-sm text-slate-300"><span class="text-primary font-bold mr-2">3.</span><span class="lang-en">Role assignment</span><span class="lang-cn">角色分配</span></p>
+</div>
+</div>
+
+<!-- Discussion -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-slate-400 text-xl">chat</span>
+<h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider"><span class="lang-en">Discussion</span><span class="lang-cn">讨论内容</span></h4>
+</div>
+<div class="space-y-2 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Reviewed COFINFAD dataset structure — 6,000+ customer records with demographic, financial, and behavioral features across multiple tables</span><span class="lang-cn">审查了 COFINFAD 数据集结构 — 6,000+ 条客户记录，包含跨多个表的人口统计、财务和行为特征</span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Discussed project scope — agreed to focus on exploratory analysis, customer segmentation via clustering, and default prediction</span><span class="lang-cn">讨论了项目范围 — 确定聚焦于探索性分析、通过聚类进行客户细分以及违约预测</span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500/60 text-base mt-0.5">subdirectory_arrow_right</span>
+<p class="text-sm text-slate-300"><span class="lang-en">Assigned initial responsibilities — each member will take ownership of one analytical module while contributing to shared components</span><span class="lang-cn">分配了初始职责 — 每位成员负责一个分析模块，同时参与共享组件的开发</span></p>
+</div>
+</div>
+</div>
+
+<!-- Action Items -->
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl">assignment</span>
+<h4 class="text-sm font-bold text-primary uppercase tracking-wider"><span class="lang-en">Action Items</span><span class="lang-cn">行动计划</span></h4>
+</div>
+<div class="space-y-3 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">All</strong> — <span class="lang-en">Each member explores the COFINFAD dataset independently</span><span class="lang-cn">每位成员独立探索 COFINFAD 数据集</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Feb 10)</span><span class="lang-cn">(截止2月10日)</span></span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">All</strong> — <span class="lang-en">Prepare initial exploratory data analysis findings</span><span class="lang-cn">准备初步探索性数据分析成果</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Feb 10)</span><span class="lang-cn">(截止2月10日)</span></span></p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/60 text-base mt-0.5">arrow_right</span>
+<p class="text-sm text-slate-300"><strong class="text-primary">JG</strong> — <span class="lang-en">Set up GitHub repository and project scaffolding</span><span class="lang-cn">搭建 GitHub 仓库和项目脚手架</span> <span class="text-slate-500 text-xs"><span class="lang-en">(by Feb 7)</span><span class="lang-cn">(截止2月7日)</span></span></p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="mt-20 border-t border-white/5 py-16 bg-[#0c0c0c]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-10">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="size-6" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="font-bold text-xl">COFINFAD Analytics</span>
+</div>
+<p class="text-sm text-slate-600">© 2026 COFINFAD Analytics. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+
+
+
+
+
+
+</body></html>

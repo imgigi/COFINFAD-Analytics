@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Poster - COFINFAD Analytics – COFINFAD Analytics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<header id="title-block-header">
+
+
+</header>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#f97415",
+          "background-light": "#080808",
+          "background-dark": "#080808",
+          "card-dark": "#121212",
+        },
+        fontFamily: {
+          "display": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.add('dark');
+  });
+</script>
+<style>
+  /* Remove all Quarto default styles */
+  #title-block-header { display: none !important; }
+  .quarto-title { display: none !important; }
+  header#title-block-header { display: none !important; }
+  header { display: none !important; }
+  #quarto-content { margin: 0 !important; padding: 0 !important; }
+  .page-columns { display: block !important; }
+  body > div.container-fluid, body > .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  main.content { margin: 0 !important; padding: 0 !important; max-width: 100% !important; }
+  body { background-color: #080808 !important; color: #e2e8f0 !important; font-family: 'Inter', sans-serif !important; margin: 0 !important; }
+  html { background-color: #080808 !important; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .lang-cn { display: none; }
+  body.cn .lang-cn { display: inline; }
+  body.cn .lang-en { display: none; }
+  body.cn .lang-cn-block { display: block; }
+  body.cn .lang-en-block { display: none; }
+  .lang-cn-block { display: none; }
+</style>
+<script>
+function toggleLang() {
+  document.body.classList.toggle('cn');
+  const btn = document.getElementById('lang-btn');
+  btn.textContent = document.body.classList.contains('cn') ? 'EN' : '中文';
+  localStorage.setItem('lang', document.body.classList.contains('cn') ? 'cn' : 'en');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('lang') === 'cn') {
+    document.body.classList.add('cn');
+    var btn = document.getElementById('lang-btn');
+    if (btn) btn.textContent = 'EN';
+  }
+});
+</script>
+<div class="bg-[#080808] font-display text-slate-100 min-h-screen">
+<nav class="sticky top-0 z-50 w-full border-b border-[#1f1f1f] bg-[#080808]/90 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20 items-center">
+<a href="homepage.html" class="flex items-center gap-2 no-underline">
+<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
+</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="proposal.html"><span class="lang-en">Proposal</span><span class="lang-cn">项目提案</span></a>
+<div class="relative dropdown group">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+                        <span class="lang-en">Methodology</span><span class="lang-cn">方法论</span> <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="dropdown-menu hidden absolute left-0 mt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.html"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.html"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.html"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="prediction.html"><span class="lang-en">Prediction</span><span class="lang-cn">预测模型</span></a>
+</div>
+</div>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
+<a class="text-sm font-medium text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="meeting-minutes.html"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="../qmd/homepage.html#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
+</div>
+<div class="flex items-center gap-3">
+<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
+<button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
+<button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8"><header id="title-block-header" class="quarto-title-block"><h1 class="title">Poster - COFINFAD Analytics</h1></header>
+<!-- Hero Section -->
+<section class="relative mb-16 rounded-2xl overflow-hidden bg-[#0d0d0d] p-12 md:p-24 flex flex-col items-center text-center border border-white/5">
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+<div class="relative z-10 max-w-3xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">PROJECT POSTER</span><span class="lang-cn">项目海报</span></span>
+<h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight"><span class="lang-en">COFINFAD Analytics Poster</span><span class="lang-cn">COFINFAD 分析项目海报</span></h1>
+<p class="text-xl md:text-2xl text-slate-300 font-medium mb-4"><span class="lang-en">Visual summary of our fintech analytics project</span><span class="lang-cn">金融科技分析项目的可视化摘要</span></p>
+<p class="text-slate-500 text-base mt-6"><span class="lang-en">Team 13</span><span class="lang-cn">第13组</span></p>
+</div>
+</section>
+
+<div class="space-y-12">
+
+<!-- Poster Card -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
+
+<!-- Poster Placeholder -->
+<div class="flex flex-col items-center">
+<div class="w-full max-w-2xl mx-auto" style="aspect-ratio: 3/4;">
+<div class="w-full h-full bg-[#0d0d0d] rounded-xl border border-white/10 flex flex-col items-center justify-center gap-4">
+<span class="material-symbols-outlined text-slate-600 text-7xl">image</span>
+<p class="text-slate-500 text-lg font-medium"><span class="lang-en">Poster will be uploaded soon</span><span class="lang-cn">海报即将上传</span></p>
+</div>
+</div>
+<p class="text-slate-600 text-sm mt-4"><span class="lang-en">Recommended poster dimensions: A1 (594 × 841 mm) • Format: PDF / PNG</span><span class="lang-cn">建议海报尺寸：A1 (594 × 841 mm) • 格式：PDF / PNG</span></p>
+</div>
+
+<!-- Poster Overview -->
+<div class="mt-12 pt-10 border-t border-white/5">
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">OVERVIEW</span><span class="lang-cn">概述</span></span>
+<h3 class="text-3xl font-bold mb-6"><span class="lang-en">What the Poster Covers</span><span class="lang-cn">海报涵盖内容</span></h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-8"><span class="lang-en">Our poster provides a concise visual summary of the COFINFAD Analytics project, distilling key insights into a single-page format for presentation and review.</span><span class="lang-cn">我们的海报以简洁的可视化形式总结了 COFINFAD 分析项目，将关键洞察浓缩为单页格式，便于展示和评审。</span></p>
+<ul class="space-y-4 text-slate-400 text-lg">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
+<span><span class="lang-en">Background &amp; motivation</span><span class="lang-cn">背景与动机</span></span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
+<span><span class="lang-en">Data &amp; methodology overview</span><span class="lang-cn">数据与方法论概述</span></span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
+<span><span class="lang-en">Key findings from all 3 modules</span><span class="lang-cn">三个模块的关键发现</span></span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
+<span><span class="lang-en">Business recommendations</span><span class="lang-cn">商业建议</span></span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
+<span><span class="lang-en">Future directions</span><span class="lang-cn">未来方向</span></span>
+</li>
+</ul>
+</div>
+
+<!-- Download Buttons -->
+<div class="flex flex-wrap justify-center gap-4 mt-12 pt-10 border-t border-white/5">
+<a href="#" download="" class="flex items-center gap-4 px-12 py-5 bg-primary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
+<span class="material-symbols-outlined">download</span>
+<span class="lang-en">DOWNLOAD POSTER (PDF)</span><span class="lang-cn">下载海报 (PDF)</span>
+</a>
+<a href="#" class="flex items-center gap-4 px-12 py-5 border-2 border-white/10 text-slate-300 rounded-2xl font-bold text-lg hover:border-primary/50 hover:text-primary hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
+<span class="material-symbols-outlined">open_in_full</span>
+<span class="lang-en">VIEW FULL SIZE</span><span class="lang-cn">查看原图</span>
+</a>
+</div>
+
+</div>
+
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-white/5 py-16 bg-[#0c0c0c]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-10">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="size-6" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="font-bold text-xl">COFINFAD Analytics</span>
+</div>
+
+<p class="text-sm text-slate-600"><span class="lang-en">© 2026 COFINFAD Analytics. All rights reserved.</span><span class="lang-cn">© 2026 COFINFAD Analytics. 保留所有权利。</span></p>
+</div>
+</div>
+</footer>
+</div>
+
+
+
+
+
+
+</body></html>
