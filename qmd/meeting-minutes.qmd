@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.qmd#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
-<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline">Shiny App</a>
+<a href="https://guofang1028.shinyapps.io/ShinyApp/" target="_blank" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
 <button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
 </div>
 </div>

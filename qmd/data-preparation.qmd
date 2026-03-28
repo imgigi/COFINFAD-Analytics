@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.qmd#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
-<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
+<a href="https://guofang1028.shinyapps.io/ShinyApp/" target="_blank" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
 <button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
 </div>
 </div>
@@ -150,13 +150,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-4 px-4 font-medium text-white"><span class="lang-en">Customer Demographics</span><span class="lang-cn">客户人口统计</span></td>
 <td class="py-4 px-4 text-slate-300">48,723</td>
 <td class="py-4 px-4 text-slate-300">54</td>
-<td class="py-4 px-4 text-slate-400">age, gender, location (15 departments), income_bracket, occupation, customer_segment, churn_probability, CLV, satisfaction scores, product holdings</td>
+<td class="py-4 px-4 text-slate-400"><span class="lang-en">age, gender, location (15 departments), income_bracket, occupation, customer_segment, churn_probability, CLV, satisfaction scores, product holdings</span><span class="lang-cn">age、gender、location（15个省份）、income_bracket、occupation、customer_segment、churn_probability、CLV、满意度评分、产品持有</span></td>
 </tr>
 <tr>
 <td class="py-4 px-4 font-medium text-white"><span class="lang-en">Transaction Log</span><span class="lang-cn">交易日志</span></td>
 <td class="py-4 px-4 text-slate-300">3,159,157</td>
 <td class="py-4 px-4 text-slate-300">4</td>
-<td class="py-4 px-4 text-slate-400">customer_id, date (2023-01 to 2023-12), amount (COP), type (Transfer, Withdrawal, Payment, Deposit)</td>
+<td class="py-4 px-4 text-slate-400"><span class="lang-en">customer_id, date (2023-01 to 2023-12), amount (COP), type (Transfer, Withdrawal, Payment, Deposit)</span><span class="lang-cn">customer_id、date（2023-01至2023-12）、amount（COP）、type（Transfer、Withdrawal、Payment、Deposit）</span></td>
 </tr>
 </tbody>
 </table>
@@ -177,19 +177,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="material-symbols-outlined text-primary">healing</span>
 <h4 class="text-lg font-bold"><span class="lang-en">Missing Value Treatment</span><span class="lang-cn">缺失值处理</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">The <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code> column contained the only meaningful missingness in the dataset:</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">The <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code> column contained the only meaningful missingness in the dataset:</span><span class="lang-cn"><code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code> 列是数据集中唯一存在有意义缺失的字段：</span></p>
 <div class="bg-[#080808] rounded-lg p-4 mb-4">
 <div class="flex justify-between items-center mb-2">
-<span class="text-sm text-slate-300">Missing values</span>
+<span class="text-sm text-slate-300"><span class="lang-en">Missing values</span><span class="lang-cn">缺失值</span></span>
 <span class="text-sm font-bold text-primary">37.5%</span>
 </div>
 <div class="w-full bg-white/5 rounded-full h-2">
 <div class="bg-primary rounded-full h-2" style="width: 37.5%"></div>
 </div>
-<p class="text-xs text-slate-500 mt-2">18,263 of 48,723 records</p>
+<p class="text-xs text-slate-500 mt-2"><span class="lang-en">18,263 of 48,723 records</span><span class="lang-cn">48,723条记录中有18,263条</span></p>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-2"><span class="text-white font-semibold">Strategy:</span> Median imputation grouped by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">income_bracket</code></p>
-<p class="text-slate-500 text-sm leading-relaxed"><span class="text-white font-semibold">Why not mean?</span> The mean is sensitive to extreme values prevalent in financial data. Grouped median preserves the distributional shape within each income tier without being pulled by outliers.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-2"><span class="lang-en"><span class="text-white font-semibold">Strategy:</span> Median imputation grouped by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">income_bracket</code></span><span class="lang-cn"><span class="text-white font-semibold">策略：</span>按 <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">income_bracket</code> 分组进行中位数填补</span></p>
+<p class="text-slate-500 text-sm leading-relaxed"><span class="lang-en"><span class="text-white font-semibold">Why not mean?</span> The mean is sensitive to extreme values prevalent in financial data. Grouped median preserves the distributional shape within each income tier without being pulled by outliers.</span><span class="lang-cn"><span class="text-white font-semibold">为何不用均值？</span>均值对金融数据中常见的极端值敏感。分组中位数可以在每个收入层级内保持分布形状，而不会被异常值拉偏。</span></p>
 </div>
 
 <!-- Outlier Detection -->
@@ -198,24 +198,24 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="material-symbols-outlined text-primary">search_insights</span>
 <h4 class="text-lg font-bold"><span class="lang-en">Outlier Detection</span><span class="lang-cn">异常值检测</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">Transaction amounts exhibit heavy right-skew with extreme high-value entries that can distort distance-based algorithms.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">Transaction amounts exhibit heavy right-skew with extreme high-value entries that can distort distance-based algorithms.</span><span class="lang-cn">交易金额呈明显右偏分布，极端高值会扭曲基于距离的算法。</span></p>
 <div class="bg-[#080808] rounded-lg p-4 mb-4">
 <div class="flex items-center gap-3 mb-3">
 <span class="material-symbols-outlined text-yellow-500 text-lg">warning</span>
-<span class="text-sm text-slate-300">Extreme values detected in transaction amounts</span>
+<span class="text-sm text-slate-300"><span class="lang-en">Extreme values detected in transaction amounts</span><span class="lang-cn">在交易金额中检测到极端值</span></span>
 </div>
 <div class="space-y-2">
 <div class="flex justify-between text-sm">
-<span class="text-slate-400">Strategy</span>
-<span class="text-slate-200">Winsorization at 1st / 99th percentile</span>
+<span class="text-slate-400"><span class="lang-en">Strategy</span><span class="lang-cn">策略</span></span>
+<span class="text-slate-200"><span class="lang-en">Winsorization at 1st / 99th percentile</span><span class="lang-cn">在第1/第99百分位进行缩尾处理</span></span>
 </div>
 <div class="flex justify-between text-sm">
-<span class="text-slate-400">Applied to</span>
-<span class="text-slate-200">Clustering features only</span>
+<span class="text-slate-400"><span class="lang-en">Applied to</span><span class="lang-cn">应用于</span></span>
+<span class="text-slate-200"><span class="lang-en">Clustering features only</span><span class="lang-cn">仅聚类特征</span></span>
 </div>
 </div>
 </div>
-<p class="text-slate-500 text-sm leading-relaxed"><span class="text-white font-semibold">Note:</span> Raw values are retained for EDA so that box plots and histograms reflect the actual distribution. Winsorized values are used exclusively in the clustering pipeline where Euclidean distance would otherwise be dominated by outliers.</p>
+<p class="text-slate-500 text-sm leading-relaxed"><span class="lang-en"><span class="text-white font-semibold">Note:</span> Raw values are retained for EDA so that box plots and histograms reflect the actual distribution. Winsorized values are used exclusively in the clustering pipeline where Euclidean distance would otherwise be dominated by outliers.</span><span class="lang-cn"><span class="text-white font-semibold">注意：</span>原始值保留用于探索性数据分析，以便箱线图和直方图反映实际分布。缩尾值仅用于聚类流程，否则欧氏距离将被异常值主导。</span></p>
 </div>
 </div>
 
@@ -228,15 +228,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="grid md:grid-cols-3 gap-4">
 <div class="bg-[#080808] rounded-lg p-4">
 <h5 class="text-sm font-bold text-white mb-2"><span class="lang-en">Date Parsing</span><span class="lang-cn">日期解析</span></h5>
-<p class="text-slate-400 text-xs leading-relaxed">Transaction dates parsed using <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">lubridate::ymd()</code> to extract month, day-of-week, and weekend indicators for downstream aggregation.</p>
+<p class="text-slate-400 text-xs leading-relaxed"><span class="lang-en">Transaction dates parsed using <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">lubridate::ymd()</code> to extract month, day-of-week, and weekend indicators for downstream aggregation.</span><span class="lang-cn">使用 <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">lubridate::ymd()</code> 解析交易日期，提取月份、星期几和周末指标，用于下游汇总。</span></p>
 </div>
 <div class="bg-[#080808] rounded-lg p-4">
 <h5 class="text-sm font-bold text-white mb-2"><span class="lang-en">Categorical Factoring</span><span class="lang-cn">分类变量因子化</span></h5>
-<p class="text-slate-400 text-xs leading-relaxed">Categorical variables converted to ordered factors with meaningful level sequences (e.g., income_bracket from Low to Very High) to support ordinal comparisons and proper plotting.</p>
+<p class="text-slate-400 text-xs leading-relaxed"><span class="lang-en">Categorical variables converted to ordered factors with meaningful level sequences (e.g., income_bracket from Low to Very High) to support ordinal comparisons and proper plotting.</span><span class="lang-cn">将分类变量转换为有意义顺序的有序因子（如 income_bracket 从 Low 到 Very High），以支持序数比较和正确绘图。</span></p>
 </div>
 <div class="bg-[#080808] rounded-lg p-4">
 <h5 class="text-sm font-bold text-white mb-2"><span class="lang-en">Numeric Standardization</span><span class="lang-cn">数值标准化</span></h5>
-<p class="text-slate-400 text-xs leading-relaxed">Z-score normalization (<code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">scale()</code>) applied to all numeric clustering features so that no single variable dominates distance calculations.</p>
+<p class="text-slate-400 text-xs leading-relaxed"><span class="lang-en">Z-score normalization (<code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">scale()</code>) applied to all numeric clustering features so that no single variable dominates distance calculations.</span><span class="lang-cn">对所有数值型聚类特征应用Z-score标准化（<code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">scale()</code>），确保没有单一变量主导距离计算。</span></p>
 </div>
 </div>
 </div>
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="material-symbols-outlined text-primary">calendar_month</span>
 <h4 class="text-lg font-bold"><span class="lang-en">Monthly Summary Table</span><span class="lang-cn">月度汇总表</span></h4>
 </div>
-<p class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-3">For Module 1 — Exploratory Data Analysis</p>
+<p class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-3"><span class="lang-en">For Module 1 — Exploratory Data Analysis</span><span class="lang-cn">用于模块1 — 探索性数据分析</span></p>
 <div class="bg-[#080808] rounded-lg p-4 mb-4 font-mono text-sm text-slate-300">
 <span class="text-primary">group_by</span>(month, type) <span class="text-slate-500">%&gt;%</span><br>
 <span class="text-primary">&nbsp;&nbsp;summarise</span>(total_amount, tx_count, avg_amount)
@@ -265,12 +265,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="flex items-center gap-4">
 <div class="text-center">
 <p class="text-2xl font-black text-white">3.15M</p>
-<p class="text-xs text-slate-500">raw rows</p>
+<p class="text-xs text-slate-500"><span class="lang-en">raw rows</span><span class="lang-cn">原始行数</span></p>
 </div>
 <span class="material-symbols-outlined text-primary text-2xl">arrow_forward</span>
 <div class="text-center">
 <p class="text-2xl font-black text-primary">48</p>
-<p class="text-xs text-slate-500">rows (12 months &times; 4 types)</p>
+<p class="text-xs text-slate-500"><span class="lang-en">rows (12 months &times; 4 types)</span><span class="lang-cn">行（12个月 &times; 4种类型）</span></p>
 </div>
 </div>
 </div>
@@ -281,16 +281,16 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="material-symbols-outlined text-primary">person_search</span>
 <h4 class="text-lg font-bold"><span class="lang-en">Customer-Level Features</span><span class="lang-cn">客户级特征</span></h4>
 </div>
-<p class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-3">For Module 2 — Customer Segmentation (Clustering)</p>
+<p class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-3"><span class="lang-en">For Module 2 — Customer Segmentation (Clustering)</span><span class="lang-cn">用于模块2 — 客户细分（聚类）</span></p>
 <div class="bg-[#080808] rounded-lg p-4 mb-4 font-mono text-sm text-slate-300">
 <span class="text-primary">group_by</span>(customer_id) <span class="text-slate-500">%&gt;%</span><br>
 <span class="text-primary">&nbsp;&nbsp;pivot_wider</span>(names_from = type, values_from = amount)
 </div>
 <div class="space-y-2 text-sm">
-<p class="text-slate-400"><span class="text-white font-semibold">8</span> per-type features (total &amp; count for each of Transfer, Withdrawal, Payment, Deposit)</p>
-<p class="text-slate-400"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">spending_volatility</code> — coefficient of variation of monthly spend</p>
-<p class="text-slate-400"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">weekend_ratio</code> — share of transactions on weekends</p>
-<p class="text-slate-400"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">recency</code> — days since last transaction</p>
+<p class="text-slate-400"><span class="lang-en"><span class="text-white font-semibold">8</span> per-type features (total &amp; count for each of Transfer, Withdrawal, Payment, Deposit)</span><span class="lang-cn"><span class="text-white font-semibold">8</span> 个按类型的特征（Transfer、Withdrawal、Payment、Deposit各自的总额和次数）</span></p>
+<p class="text-slate-400"><span class="lang-en"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">spending_volatility</code> — coefficient of variation of monthly spend</span><span class="lang-cn"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">spending_volatility</code> — 月度支出变异系数</span></p>
+<p class="text-slate-400"><span class="lang-en"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">weekend_ratio</code> — share of transactions on weekends</span><span class="lang-cn"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">weekend_ratio</code> — 周末交易占比</span></p>
+<p class="text-slate-400"><span class="lang-en"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">recency</code> — days since last transaction</span><span class="lang-cn"><span class="text-white font-semibold">+</span> <code class="text-primary bg-primary/10 px-1 py-0.5 rounded text-xs">recency</code> — 距最后一次交易的天数</span></p>
 </div>
 </div>
 </div>
@@ -301,26 +301,26 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="flex items-center justify-center gap-0 flex-wrap">
 <div class="bg-[#080808] border border-white/10 rounded-lg px-6 py-3 text-center">
 <span class="material-symbols-outlined text-slate-400 text-lg block mb-1">database</span>
-<p class="text-sm font-bold text-white">Raw Data</p>
-<p class="text-xs text-slate-500">CSV files</p>
+<p class="text-sm font-bold text-white"><span class="lang-en">Raw Data</span><span class="lang-cn">原始数据</span></p>
+<p class="text-xs text-slate-500"><span class="lang-en">CSV files</span><span class="lang-cn">CSV 文件</span></p>
 </div>
 <span class="material-symbols-outlined text-primary text-2xl mx-3">trending_flat</span>
 <div class="bg-[#080808] border border-white/10 rounded-lg px-6 py-3 text-center">
 <span class="material-symbols-outlined text-slate-400 text-lg block mb-1">cleaning_services</span>
-<p class="text-sm font-bold text-white">Cleaning</p>
-<p class="text-xs text-slate-500">Impute &amp; type-fix</p>
+<p class="text-sm font-bold text-white"><span class="lang-en">Cleaning</span><span class="lang-cn">清洗</span></p>
+<p class="text-xs text-slate-500"><span class="lang-en">Impute &amp; type-fix</span><span class="lang-cn">填补与类型修正</span></p>
 </div>
 <span class="material-symbols-outlined text-primary text-2xl mx-3">trending_flat</span>
 <div class="bg-[#080808] border border-white/10 rounded-lg px-6 py-3 text-center">
 <span class="material-symbols-outlined text-slate-400 text-lg block mb-1">merge_type</span>
-<p class="text-sm font-bold text-white">Aggregation</p>
-<p class="text-xs text-slate-500">Group &amp; pivot</p>
+<p class="text-sm font-bold text-white"><span class="lang-en">Aggregation</span><span class="lang-cn">汇总</span></p>
+<p class="text-xs text-slate-500"><span class="lang-en">Group &amp; pivot</span><span class="lang-cn">分组与透视</span></p>
 </div>
 <span class="material-symbols-outlined text-primary text-2xl mx-3">trending_flat</span>
 <div class="bg-primary/20 border border-primary/30 rounded-lg px-6 py-3 text-center">
 <span class="material-symbols-outlined text-primary text-lg block mb-1">save</span>
-<p class="text-sm font-bold text-primary">.rds Output</p>
-<p class="text-xs text-slate-400">Analysis-ready</p>
+<p class="text-sm font-bold text-primary"><span class="lang-en">.rds Output</span><span class="lang-cn">.rds 输出</span></p>
+<p class="text-xs text-slate-400"><span class="lang-en">Analysis-ready</span><span class="lang-cn">可供分析</span></p>
 </div>
 </div>
 </div>
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="bg-[#080808] rounded-lg p-3 mb-3 font-mono text-sm text-center">
 <span class="text-primary">active_products</span> <span class="text-slate-500">/</span> <span class="text-white">5</span>
 </div>
-<p class="text-slate-400 text-xs leading-relaxed">Measures how broadly a customer uses the bank's product portfolio (savings, credit card, loan, insurance, investment). A ratio of 1.0 indicates full adoption; lower values flag single-product customers at higher churn risk.</p>
+<p class="text-slate-400 text-xs leading-relaxed"><span class="lang-en">Measures how broadly a customer uses the bank's product portfolio (savings, credit card, loan, insurance, investment). A ratio of 1.0 indicates full adoption; lower values flag single-product customers at higher churn risk.</span><span class="lang-cn">衡量客户使用银行产品组合的广度（储蓄、信用卡、贷款、保险、投资）。比率为1.0表示完全采用；较低值标记出流失风险较高的单产品客户。</span></p>
 </div>
 
 <!-- ticket_resolution_gap -->
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="bg-[#080808] rounded-lg p-3 mb-3 font-mono text-sm text-center">
 <span class="text-primary">support_tickets</span> <span class="text-slate-500">&times;</span> <span class="text-white">(1 &minus; resolved_ratio)</span>
 </div>
-<p class="text-slate-400 text-xs leading-relaxed">Quantifies unresolved service burden. A customer with many tickets and a low resolution rate has a high gap — a strong signal of dissatisfaction and potential churn.</p>
+<p class="text-slate-400 text-xs leading-relaxed"><span class="lang-en">Quantifies unresolved service burden. A customer with many tickets and a low resolution rate has a high gap — a strong signal of dissatisfaction and potential churn.</span><span class="lang-cn">量化未解决的服务负担。工单多且解决率低的客户差距值高——这是不满和潜在流失的强烈信号。</span></p>
 </div>
 
 <!-- satisfaction_gap -->
@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="bg-[#080808] rounded-lg p-3 mb-3 font-mono text-sm text-center">
 <span class="text-primary">base_satisfaction</span> <span class="text-slate-500">&minus;</span> <span class="text-white">satisfaction_score</span>
 </div>
-<p class="text-slate-400 text-xs leading-relaxed">Captures the delta between a customer's baseline satisfaction (e.g., at onboarding) and their current score. A positive gap signals deteriorating sentiment over time.</p>
+<p class="text-slate-400 text-xs leading-relaxed"><span class="lang-en">Captures the delta between a customer's baseline satisfaction (e.g., at onboarding) and their current score. A positive gap signals deteriorating sentiment over time.</span><span class="lang-cn">捕获客户基线满意度（如入网时）与当前评分之间的差值。正向差距表明情绪随时间推移而恶化。</span></p>
 </div>
 
 <!-- spending_volatility -->
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="bg-[#080808] rounded-lg p-3 mb-3 font-mono text-sm text-center">
 <span class="text-primary">sd</span>(monthly) <span class="text-slate-500">/</span> <span class="text-primary">mean</span>(monthly)
 </div>
-<p class="text-slate-400 text-xs leading-relaxed">The coefficient of variation of monthly transaction totals. High volatility indicates irregular spending patterns — potentially seasonal workers or customers with unstable financial behaviour.</p>
+<p class="text-slate-400 text-xs leading-relaxed"><span class="lang-en">The coefficient of variation of monthly transaction totals. High volatility indicates irregular spending patterns — potentially seasonal workers or customers with unstable financial behaviour.</span><span class="lang-cn">月度交易总额的变异系数。高波动性表明支出模式不规律——可能是季节性工人或财务行为不稳定的客户。</span></p>
 </div>
 
 <!-- weekend_transaction_ratio -->
@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="bg-[#080808] rounded-lg p-3 mb-3 font-mono text-sm text-center">
 <span class="text-primary">weekend_tx</span> <span class="text-slate-500">/</span> <span class="text-primary">total_tx</span>
 </div>
-<p class="text-slate-400 text-xs leading-relaxed">Proportion of transactions occurring on Saturday or Sunday. This behavioural timing feature distinguishes personal-use customers (higher weekend activity) from business-oriented ones.</p>
+<p class="text-slate-400 text-xs leading-relaxed"><span class="lang-en">Proportion of transactions occurring on Saturday or Sunday. This behavioural timing feature distinguishes personal-use customers (higher weekend activity) from business-oriented ones.</span><span class="lang-cn">在周六或周日发生的交易比例。此行为时间特征区分了个人使用客户（周末活动较多）和商业导向客户。</span></p>
 </div>
 </div>
 
@@ -416,9 +416,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="bg-[#080808] rounded-lg p-6 mb-4 text-center">
 <p class="font-mono text-xl text-white">z = (x &minus; &mu;) / &sigma;</p>
-<p class="text-xs text-slate-500 mt-2">Each value is centred at zero with unit variance</p>
+<p class="text-xs text-slate-500 mt-2"><span class="lang-en">Each value is centred at zero with unit variance</span><span class="lang-cn">每个值以零为中心，单位方差</span></p>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed">Implemented via R's <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">scale()</code> function. This ensures every feature contributes equally to Euclidean and Manhattan distance calculations during cluster assignment.</p>
+<p class="text-slate-400 text-sm leading-relaxed"><span class="lang-en">Implemented via R's <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">scale()</code> function. This ensures every feature contributes equally to Euclidean and Manhattan distance calculations during cluster assignment.</span><span class="lang-cn">通过R的 <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">scale()</code> 函数实现。确保每个特征在聚类分配的欧氏距离和曼哈顿距离计算中贡献相等。</span></p>
 </div>
 
 <!-- Variables standardized -->
@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="space-y-2">
 <div class="flex items-center gap-2 text-sm">
 <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
-<span class="text-slate-300">Total &amp; count for each transaction type (8 features)</span>
+<span class="text-slate-300"><span class="lang-en">Total &amp; count for each transaction type (8 features)</span><span class="lang-cn">每种交易类型的总额和次数（8个特征）</span></span>
 </div>
 <div class="flex items-center gap-2 text-sm">
 <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
@@ -442,7 +442,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="flex items-center gap-2 text-sm">
 <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
-<span class="text-slate-300">recency (days since last transaction)</span>
+<span class="text-slate-300"><span class="lang-en">recency (days since last transaction)</span><span class="lang-cn">recency（距最后一次交易的天数）</span></span>
 </div>
 <div class="flex items-center gap-2 text-sm">
 <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="flex items-center gap-2 text-sm">
 <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
-<span class="text-slate-300">CLV, churn_probability, satisfaction scores</span>
+<span class="text-slate-300"><span class="lang-en">CLV, churn_probability, satisfaction scores</span><span class="lang-cn">CLV、churn_probability、满意度评分</span></span>
 </div>
 </div>
 </div>
@@ -493,31 +493,31 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-4 px-4 font-mono text-primary text-sm">customers.rds</td>
 <td class="py-4 px-4 text-slate-300">48,723</td>
 <td class="py-4 px-4 text-slate-300">54+</td>
-<td class="py-4 px-4 text-slate-400">Core customer demographics — used across all modules</td>
+<td class="py-4 px-4 text-slate-400"><span class="lang-en">Core customer demographics — used across all modules</span><span class="lang-cn">核心客户人口统计——所有模块通用</span></td>
 </tr>
 <tr class="border-b border-white/5">
 <td class="py-4 px-4 font-mono text-primary text-sm">monthly_summary.rds</td>
 <td class="py-4 px-4 text-slate-300">48</td>
 <td class="py-4 px-4 text-slate-300">4</td>
-<td class="py-4 px-4 text-slate-400">Module 1 — Monthly time-series aggregations for trend analysis</td>
+<td class="py-4 px-4 text-slate-400"><span class="lang-en">Module 1 — Monthly time-series aggregations for trend analysis</span><span class="lang-cn">模块1 — 用于趋势分析的月度时间序列汇总</span></td>
 </tr>
 <tr class="border-b border-white/5">
 <td class="py-4 px-4 font-mono text-primary text-sm">analytics_data.rds</td>
 <td class="py-4 px-4 text-slate-300">48,723</td>
 <td class="py-4 px-4 text-slate-300">60+</td>
-<td class="py-4 px-4 text-slate-400">Module 1 — Enriched dataset with engineered features for EDA</td>
+<td class="py-4 px-4 text-slate-400"><span class="lang-en">Module 1 — Enriched dataset with engineered features for EDA</span><span class="lang-cn">模块1 — 包含工程特征的增强数据集，用于探索性数据分析</span></td>
 </tr>
 <tr class="border-b border-white/5">
 <td class="py-4 px-4 font-mono text-primary text-sm">cluster_precomputed.rds</td>
 <td class="py-4 px-4 text-slate-300">&mdash;</td>
 <td class="py-4 px-4 text-slate-300">&mdash;</td>
-<td class="py-4 px-4 text-slate-400">Module 2 — Pre-computed cluster assignments and silhouette metrics</td>
+<td class="py-4 px-4 text-slate-400"><span class="lang-en">Module 2 — Pre-computed cluster assignments and silhouette metrics</span><span class="lang-cn">模块2 — 预计算的聚类分配和轮廓指标</span></td>
 </tr>
 <tr>
 <td class="py-4 px-4 font-mono text-primary text-sm">model_precomputed.rds</td>
 <td class="py-4 px-4 text-slate-300">&mdash;</td>
 <td class="py-4 px-4 text-slate-300">&mdash;</td>
-<td class="py-4 px-4 text-slate-400">Module 3 — Pre-trained glmnet model object for churn prediction</td>
+<td class="py-4 px-4 text-slate-400"><span class="lang-en">Module 3 — Pre-trained glmnet model object for churn prediction</span><span class="lang-cn">模块3 — 用于流失预测的预训练 glmnet 模型对象</span></td>
 </tr>
 </tbody>
 </table>

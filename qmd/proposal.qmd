@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="flex items-center gap-3">
 <button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
-<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
+<a href="https://guofang1028.shinyapps.io/ShinyApp/" target="_blank" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
 <button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
 </button>
@@ -244,24 +244,24 @@ document.addEventListener('DOMContentLoaded', function() {
 <table class="w-full text-left border-collapse">
 <thead>
 <tr class="border-b border-white/10">
-<th class="py-4 px-6 text-sm font-bold text-white">Table</th>
-<th class="py-4 px-6 text-sm font-bold text-white">Records</th>
-<th class="py-4 px-6 text-sm font-bold text-white">Variables</th>
-<th class="py-4 px-6 text-sm font-bold text-white">Key Fields</th>
+<th class="py-4 px-6 text-sm font-bold text-white"><span class="lang-en">Table</span><span class="lang-cn">数据表</span></th>
+<th class="py-4 px-6 text-sm font-bold text-white"><span class="lang-en">Records</span><span class="lang-cn">记录数</span></th>
+<th class="py-4 px-6 text-sm font-bold text-white"><span class="lang-en">Variables</span><span class="lang-cn">变量数</span></th>
+<th class="py-4 px-6 text-sm font-bold text-white"><span class="lang-en">Key Fields</span><span class="lang-cn">关键字段</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="border-b border-white/5">
-<td class="py-4 px-6 text-primary font-medium">Customer Demographics</td>
+<td class="py-4 px-6 text-primary font-medium"><span class="lang-en">Customer Demographics</span><span class="lang-cn">客户人口统计</span></td>
 <td class="py-4 px-6 text-slate-300">48,723</td>
 <td class="py-4 px-6 text-slate-300">54</td>
-<td class="py-4 px-6 text-slate-400 text-sm">age, gender, location (15 departments), income_bracket (Low/Medium/High/Very High), occupation (35 types), customer_segment, churn_probability, customer_lifetime_value, satisfaction scores, product holdings</td>
+<td class="py-4 px-6 text-slate-400 text-sm"><span class="lang-en">age, gender, location (15 departments), income_bracket (Low/Medium/High/Very High), occupation (35 types), customer_segment, churn_probability, customer_lifetime_value, satisfaction scores, product holdings</span><span class="lang-cn">年龄、性别、地区（15个省份）、收入等级（低/中/高/非常高）、职业（35种）、客户细分、流失概率、客户终身价值、满意度评分、产品持有</span></td>
 </tr>
 <tr>
-<td class="py-4 px-6 text-primary font-medium">Transaction Log</td>
+<td class="py-4 px-6 text-primary font-medium"><span class="lang-en">Transaction Log</span><span class="lang-cn">交易日志</span></td>
 <td class="py-4 px-6 text-slate-300">3,159,157</td>
 <td class="py-4 px-6 text-slate-300">4</td>
-<td class="py-4 px-6 text-slate-400 text-sm">customer_id, date (2023-01 to 2023-12), amount (COP), type (Transfer, Withdrawal, Payment, Deposit)</td>
+<td class="py-4 px-6 text-slate-400 text-sm"><span class="lang-en">customer_id, date (2023-01 to 2023-12), amount (COP), type (Transfer, Withdrawal, Payment, Deposit)</span><span class="lang-cn">customer_id、日期（2023-01至2023-12）、金额（COP）、类型（转账、取款、支付、存款）</span></td>
 </tr>
 </tbody>
 </table>
@@ -277,18 +277,18 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-primary">calendar_month</span>
-<h5 class="font-bold text-white">Aggregation 1: Monthly Summary</h5>
+<h5 class="font-bold text-white"><span class="lang-en">Aggregation 1: Monthly Summary</span><span class="lang-cn">聚合1：月度汇总</span></h5>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-3">For Module 1 (Temporal EDA). Group by month and transaction type, computing total_amount, tx_count, and avg_amount.</p>
-<p class="text-slate-500 text-sm">Collapses <strong class="text-slate-300">3.15M rows &rarr; 48 rows</strong> (12 months &times; 4 types), enabling instant rendering of time-series charts.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-3"><span class="lang-en">For Module 1 (Temporal EDA). Group by month and transaction type, computing total_amount, tx_count, and avg_amount.</span><span class="lang-cn">用于模块1（时间序列EDA）。按月份和交易类型分组，计算 total_amount、tx_count 和 avg_amount。</span></p>
+<p class="text-slate-500 text-sm"><span class="lang-en">Collapses <strong class="text-slate-300">3.15M rows &rarr; 48 rows</strong> (12 months &times; 4 types), enabling instant rendering of time-series charts.</span><span class="lang-cn">将<strong class="text-slate-300">315万行压缩为48行</strong>（12个月 &times; 4种类型），实现时间序列图表的即时渲染。</span></p>
 </div>
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-primary">person</span>
-<h5 class="font-bold text-white">Aggregation 2: Customer-Level Features</h5>
+<h5 class="font-bold text-white"><span class="lang-en">Aggregation 2: Customer-Level Features</span><span class="lang-cn">聚合2：客户级特征</span></h5>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-3">For Module 2 (Clustering). Group by customer_id and pivot transaction types wider, computing: total amount and count for each of the 4 types (8 features), spending_volatility, weekend ratio, and recency.</p>
-<p class="text-slate-500 text-sm">Most features already exist in customer_data.csv; this aggregation validates and adds per-type breakdowns.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-3"><span class="lang-en">For Module 2 (Clustering). Group by customer_id and pivot transaction types wider, computing: total amount and count for each of the 4 types (8 features), spending_volatility, weekend ratio, and recency.</span><span class="lang-cn">用于模块2（聚类分析）。按 customer_id 分组并将交易类型透视展开，计算：4种类型各自的总金额和笔数（8个特征）、消费波动性、周末比率和近度。</span></p>
+<p class="text-slate-500 text-sm"><span class="lang-en">Most features already exist in customer_data.csv; this aggregation validates and adds per-type breakdowns.</span><span class="lang-cn">大多数特征已存在于 customer_data.csv 中；此聚合用于验证并添加按类型的细分数据。</span></p>
 </div>
 </div>
 
@@ -318,20 +318,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
 <div>
-<h5 class="font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">show_chart</span> Visualizations</h5>
+<h5 class="font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">show_chart</span> <span class="lang-en">Visualizations</span><span class="lang-cn">可视化</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-3 text-slate-400">
 <li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">Time-series line chart:</strong> Monthly total transaction amount, filterable by transaction type. Built with ggplot2 + plotly for hover tooltips and zoom.</span></li>
 <li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">Choropleth map:</strong> Customer count, average churn probability, or average CLV by Colombian department. Built with tmap for interactive spatial exploration.</span></li>
 <li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">Distribution plots:</strong> Histograms and box plots of avg_tx_value, tx_count, and customer_tenure, grouped by user-selected categorical variable.</span></li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-3 text-slate-400">
+<li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">时间序列折线图：</strong>按交易类型可筛选的月度交易总额。使用 ggplot2 + plotly 构建，支持悬停提示和缩放。</span></li>
+<li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">分级统计地图：</strong>按哥伦比亚省份显示客户数量、平均流失概率或平均CLV。使用 tmap 构建，支持交互式空间探索。</span></li>
+<li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">分布图：</strong>按用户选择的分类变量分组的 avg_tx_value、tx_count 和 customer_tenure 的直方图和箱线图。</span></li>
+</ul>
+</div>
+</div>
 <div>
-<h5 class="font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">calculate</span> Statistical Tests</h5>
+<h5 class="font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">calculate</span> <span class="lang-en">Statistical Tests</span><span class="lang-cn">统计检验</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-3 text-slate-400">
 <li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">ANOVA:</strong> To test whether mean transaction values differ across income brackets (4 groups) or occupations.</span></li>
 <li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">Welch's T-test:</strong> For pairwise comparisons between two selected groups (e.g., Organic vs. Referral acquisition channels).</span></li>
 <li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span>Test results (F-statistic, p-value, effect size) will be displayed in a summary panel beside the corresponding plot.</span></li>
 </ul>
+</div>
+<div class="lang-cn-block">
+<ul class="space-y-3 text-slate-400">
+<li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">ANOVA：</strong>检验不同收入等级（4组）或职业间的平均交易值是否存在差异。</span></li>
+<li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span><strong class="text-slate-300">Welch T检验：</strong>用于两个选定组之间的成对比较（例如自然获客与推荐获客渠道）。</span></li>
+<li class="flex gap-3"><span class="text-primary mt-1">&bull;</span><span>检验结果（F统计量、p值、效应量）将显示在对应图表旁的摘要面板中。</span></li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -343,33 +361,42 @@ document.addEventListener('DOMContentLoaded', function() {
 </h4>
 
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl mb-8">
-<h5 class="font-bold text-white mb-3">Why Not Run K-Means Live in Shiny?</h5>
-<p class="text-slate-400 leading-relaxed mb-4">Running K-Means clustering on 48,723 records with multiple features on every user interaction is computationally expensive. Interactions should respond in under one second.</p>
-<h5 class="font-bold text-white mb-3">Our Approach: Pre-compute + Visual Exploration</h5>
+<h5 class="font-bold text-white mb-3"><span class="lang-en">Why Not Run K-Means Live in Shiny?</span><span class="lang-cn">为什么不在 Shiny 中实时运行 K-Means？</span></h5>
+<p class="text-slate-400 leading-relaxed mb-4"><span class="lang-en">Running K-Means clustering on 48,723 records with multiple features on every user interaction is computationally expensive. Interactions should respond in under one second.</span><span class="lang-cn">每次用户交互时对 48,723 条记录和多个特征运行 K-Means 聚类计算量很大。交互应在一秒内响应。</span></p>
+<h5 class="font-bold text-white mb-3"><span class="lang-en">Our Approach: Pre-compute + Visual Exploration</span><span class="lang-cn">我们的方法：预计算 + 可视化探索</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-2 text-slate-400 text-sm">
 <li class="flex gap-3"><span class="text-primary mt-0.5">&bull;</span><span><strong class="text-slate-300">Pre-compute clusters offline:</strong> Run clustering for k = 2 to 8 on standardized features, store labels as columns (cluster_k2, cluster_k3, &hellip;, cluster_k8).</span></li>
 <li class="flex gap-3"><span class="text-primary mt-0.5">&bull;</span><span><strong class="text-slate-300">User selects k via slider:</strong> The app reads pre-computed labels instantly &mdash; no re-computation needed.</span></li>
 <li class="flex gap-3"><span class="text-primary mt-0.5">&bull;</span><span><strong class="text-slate-300">User selects PCA axes:</strong> PCA is also pre-computed. The scatter plot re-renders instantly.</span></li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-2 text-slate-400 text-sm">
+<li class="flex gap-3"><span class="text-primary mt-0.5">&bull;</span><span><strong class="text-slate-300">离线预计算聚类：</strong>对标准化特征运行 k = 2 到 8 的聚类，将标签存储为列（cluster_k2、cluster_k3、&hellip;、cluster_k8）。</span></li>
+<li class="flex gap-3"><span class="text-primary mt-0.5">&bull;</span><span><strong class="text-slate-300">用户通过滑块选择 k：</strong>应用即时读取预计算标签——无需重新计算。</span></li>
+<li class="flex gap-3"><span class="text-primary mt-0.5">&bull;</span><span><strong class="text-slate-300">用户选择 PCA 轴：</strong>PCA 也已预计算。散点图即时重新渲染。</span></li>
+</ul>
+</div>
+</div>
 
-<h5 class="font-bold text-white mb-4">Clustering Methods</h5>
+<h5 class="font-bold text-white mb-4"><span class="lang-en">Clustering Methods</span><span class="lang-cn">聚类方法</span></h5>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
 <h6 class="font-bold text-purple-400 mb-2">K-Means</h6>
-<p class="text-slate-400 text-sm leading-relaxed">Fast, well-suited for roughly spherical clusters. Hartigan-Wong algorithm via R's stats::kmeans(). Diagnostic: elbow plot and silhouette scores.</p>
+<p class="text-slate-400 text-sm leading-relaxed"><span class="lang-en">Fast, well-suited for roughly spherical clusters. Hartigan-Wong algorithm via R's stats::kmeans(). Diagnostic: elbow plot and silhouette scores.</span><span class="lang-cn">速度快，适合近似球形的聚类。通过 R 的 stats::kmeans() 使用 Hartigan-Wong 算法。诊断：肘部图和轮廓系数。</span></p>
 </div>
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
-<h6 class="font-bold text-purple-400 mb-2">Hierarchical (Ward's)</h6>
-<p class="text-slate-400 text-sm leading-relaxed">Produces a dendrogram revealing nested cluster structure. hclust() with method = "ward.D2", cut at different k values.</p>
+<h6 class="font-bold text-purple-400 mb-2"><span class="lang-en">Hierarchical (Ward's)</span><span class="lang-cn">层次聚类（Ward法）</span></h6>
+<p class="text-slate-400 text-sm leading-relaxed"><span class="lang-en">Produces a dendrogram revealing nested cluster structure. hclust() with method = "ward.D2", cut at different k values.</span><span class="lang-cn">生成树状图揭示嵌套聚类结构。使用 hclust() 配合 method = "ward.D2"，在不同 k 值处切割。</span></p>
 </div>
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
-<h6 class="font-bold text-purple-400 mb-2">PAM (Medoids)</h6>
-<p class="text-slate-400 text-sm leading-relaxed">More robust to outliers than K-Means. Uses actual data points as cluster centers. Particularly relevant for financial data with extreme transaction amounts.</p>
+<h6 class="font-bold text-purple-400 mb-2">PAM<span class="lang-en"> (Medoids)</span><span class="lang-cn">（中心点法）</span></h6>
+<p class="text-slate-400 text-sm leading-relaxed"><span class="lang-en">More robust to outliers than K-Means. Uses actual data points as cluster centers. Particularly relevant for financial data with extreme transaction amounts.</span><span class="lang-cn">比 K-Means 对异常值更稳健。使用实际数据点作为聚类中心。特别适用于存在极端交易金额的金融数据。</span></p>
 </div>
 </div>
 
-<h5 class="font-bold text-white mb-4">Feature Selection for Clustering</h5>
+<h5 class="font-bold text-white mb-4"><span class="lang-en">Feature Selection for Clustering</span><span class="lang-cn">聚类特征选择</span></h5>
 <div class="flex flex-wrap gap-3 mb-4">
 <span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">tx_count</span>
 <span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">avg_tx_value</span>
@@ -378,7 +405,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">credit_utilization_ratio</span>
 <span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm border border-purple-500/20">active_products</span>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed">The UI presents named presets (&ldquo;RFM Features&rdquo;, &ldquo;Full Behavioral Features&rdquo;, &ldquo;Engagement Features&rdquo;) alongside a custom option that triggers a brief re-computation with a loading spinner.</p>
+<p class="text-slate-400 text-sm leading-relaxed"><span class="lang-en">The UI presents named presets (&ldquo;RFM Features&rdquo;, &ldquo;Full Behavioral Features&rdquo;, &ldquo;Engagement Features&rdquo;) alongside a custom option that triggers a brief re-computation with a loading spinner.</span><span class="lang-cn">界面提供命名预设（"RFM特征"、"全行为特征"、"互动特征"）以及触发短暂重新计算并显示加载动画的自定义选项。</span></p>
 </div>
 
 <!-- 4.3 Module 3 -->
@@ -389,48 +416,74 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
 <div>
-<h5 class="font-bold text-white mb-4">Model Specification</h5>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">Dependent variable: <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">churn_probability</code> (continuous, 0 to 1). Treated as a regression problem using regularized linear models.</p>
-<h6 class="font-semibold text-slate-300 mb-2 text-sm">Independent Variables:</h6>
+<h5 class="font-bold text-white mb-4"><span class="lang-en">Model Specification</span><span class="lang-cn">模型设定</span></h5>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">Dependent variable: <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">churn_probability</code> (continuous, 0 to 1). Treated as a regression problem using regularized linear models.</span><span class="lang-cn">因变量：<code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">churn_probability</code>（连续变量，0到1）。作为回归问题使用正则化线性模型处理。</span></p>
+<h6 class="font-semibold text-slate-300 mb-2 text-sm"><span class="lang-en">Independent Variables:</span><span class="lang-cn">自变量：</span></h6>
+<div class="lang-en-block">
 <ul class="space-y-2 text-slate-400 text-sm">
 <li><strong class="text-slate-300">Transactional:</strong> tx_count, avg_tx_value, total_tx_volume, monthly_transaction_count, transaction_frequency, weekend_transaction_ratio, avg_daily_transactions</li>
 <li><strong class="text-slate-300">Demographic:</strong> age, household_size, income_bracket (dummy-encoded), customer_tenure</li>
 <li><strong class="text-slate-300">Engagement:</strong> active_products, app_logins_frequency, feature_usage_diversity, credit_utilization_ratio, satisfaction_score, nps_score, support_tickets_count, resolved_tickets_ratio</li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-2 text-slate-400 text-sm">
+<li><strong class="text-slate-300">交易类：</strong>tx_count、avg_tx_value、total_tx_volume、monthly_transaction_count、transaction_frequency、weekend_transaction_ratio、avg_daily_transactions</li>
+<li><strong class="text-slate-300">人口统计类：</strong>age、household_size、income_bracket（虚拟编码）、customer_tenure</li>
+<li><strong class="text-slate-300">互动类：</strong>active_products、app_logins_frequency、feature_usage_diversity、credit_utilization_ratio、satisfaction_score、nps_score、support_tickets_count、resolved_tickets_ratio</li>
+</ul>
+</div>
+</div>
 <div>
-<h5 class="font-bold text-white mb-4">Modeling Approach</h5>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">We use <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">glmnet</code> in R to fit regularized regression models:</p>
+<h5 class="font-bold text-white mb-4"><span class="lang-en">Modeling Approach</span><span class="lang-cn">建模方法</span></h5>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">We use <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">glmnet</code> in R to fit regularized regression models:</span><span class="lang-cn">我们使用 R 中的 <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">glmnet</code> 拟合正则化回归模型：</span></p>
+<div class="lang-en-block">
 <ul class="space-y-3 text-slate-400 text-sm">
 <li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span><strong class="text-slate-300">Lasso (L1):</strong> Performs automatic variable selection by shrinking less important coefficients to exactly zero. Primary model for feature importance.</span></li>
 <li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span><strong class="text-slate-300">Ridge (L2):</strong> Retains all variables but shrinks coefficients proportionally. Comparison model to validate Lasso selections.</span></li>
 </ul>
-<p class="text-slate-400 text-sm leading-relaxed mt-4">Pre-trained offline using cv.glmnet() with 10-fold cross-validation. Saved as .rds file loaded at Shiny startup.</p>
+</div>
+<div class="lang-cn-block">
+<ul class="space-y-3 text-slate-400 text-sm">
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span><strong class="text-slate-300">Lasso (L1)：</strong>通过将不重要的系数收缩到零来自动选择变量。用于特征重要性的主要模型。</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span><strong class="text-slate-300">Ridge (L2)：</strong>保留所有变量但按比例收缩系数。作为验证 Lasso 选择结果的对比模型。</span></li>
+</ul>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mt-4"><span class="lang-en">Pre-trained offline using cv.glmnet() with 10-fold cross-validation. Saved as .rds file loaded at Shiny startup.</span><span class="lang-cn">使用 cv.glmnet() 和 10 折交叉验证离线预训练。保存为 .rds 文件，在 Shiny 启动时加载。</span></p>
 </div>
 </div>
 
-<h5 class="font-bold text-white mb-4">Feature Engineering</h5>
+<h5 class="font-bold text-white mb-4"><span class="lang-en">Feature Engineering</span><span class="lang-cn">特征工程</span></h5>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
 <div class="p-4 bg-[#0d0d0d] border border-white/5 rounded-lg">
 <code class="text-green-400 text-sm">product_diversity_ratio</code>
-<p class="text-slate-500 text-xs mt-2">active_products / 5 (max possible products)</p>
+<p class="text-slate-500 text-xs mt-2"><span class="lang-en">active_products / 5 (max possible products)</span><span class="lang-cn">active_products / 5（最大可能产品数）</span></p>
 </div>
 <div class="p-4 bg-[#0d0d0d] border border-white/5 rounded-lg">
 <code class="text-green-400 text-sm">ticket_resolution_gap</code>
-<p class="text-slate-500 text-xs mt-2">support_tickets_count &times; (1 &minus; resolved_tickets_ratio)</p>
+<p class="text-slate-500 text-xs mt-2"><span class="lang-en">support_tickets_count &times; (1 &minus; resolved_tickets_ratio)</span><span class="lang-cn">support_tickets_count &times; (1 &minus; resolved_tickets_ratio)（未解决工单数）</span></p>
 </div>
 <div class="p-4 bg-[#0d0d0d] border border-white/5 rounded-lg">
 <code class="text-green-400 text-sm">satisfaction_gap</code>
-<p class="text-slate-500 text-xs mt-2">base_satisfaction &minus; satisfaction_score</p>
+<p class="text-slate-500 text-xs mt-2"><span class="lang-en">base_satisfaction &minus; satisfaction_score</span><span class="lang-cn">base_satisfaction &minus; satisfaction_score（满意度差距）</span></p>
 </div>
 </div>
 
-<h5 class="font-bold text-white mb-4">Shiny Interactivity</h5>
+<h5 class="font-bold text-white mb-4"><span class="lang-en">Shiny Interactivity</span><span class="lang-cn">Shiny 交互功能</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-3 text-slate-400">
 <li class="flex gap-3"><span class="text-green-400 mt-1">&bull;</span><span><strong class="text-slate-300">Variable importance plot:</strong> Horizontal bar chart of absolute Lasso coefficients at user-selected &lambda;.</span></li>
 <li class="flex gap-3"><span class="text-green-400 mt-1">&bull;</span><span><strong class="text-slate-300">&lambda; slider:</strong> Users adjust the regularization penalty to see how the model simplifies &mdash; teaching the bias-variance tradeoff visually.</span></li>
 <li class="flex gap-3"><span class="text-green-400 mt-1">&bull;</span><span><strong class="text-slate-300">What-If panel:</strong> Users input feature values via sliders and dropdowns. The app calls predict() on the pre-trained glmnet model and displays predicted churn probability as a gauge chart in real time.</span></li>
 </ul>
+</div>
+<div class="lang-cn-block">
+<ul class="space-y-3 text-slate-400">
+<li class="flex gap-3"><span class="text-green-400 mt-1">&bull;</span><span><strong class="text-slate-300">变量重要性图：</strong>用户选定 &lambda; 值下 Lasso 系数绝对值的水平柱状图。</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-1">&bull;</span><span><strong class="text-slate-300">&lambda; 滑块：</strong>用户调整正则化惩罚以观察模型如何简化——以可视化方式教授偏差-方差权衡。</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-1">&bull;</span><span><strong class="text-slate-300">What-If 面板：</strong>用户通过滑块和下拉菜单输入特征值。应用对预训练的 glmnet 模型调用 predict()，实时以仪表图显示预测的流失概率。</span></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -451,15 +504,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Layout Architecture -->
 <div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
-<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide">Layout Architecture</h5>
+<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Layout Architecture</span><span class="lang-cn">布局架构</span></h5>
+<div class="lang-en-block">
 <p class="text-slate-400 text-sm leading-relaxed mb-3">The outermost shell of the application is <code class="text-primary">bslib::page_navbar()</code>, which renders a fixed top navigation bar with the COFINFAD brand title on the left and three clickable tabs — <em>EDA &amp; CDA</em>, <em>Clustering</em>, and <em>Prediction</em> — on the right. The <code class="text-primary">theme</code> argument is set to <code class="text-primary">bs_theme(bootswatch = "darkly")</code> to apply a dark colour scheme across all panels.</p>
 <p class="text-slate-400 text-sm leading-relaxed mb-3">Each tab is created with <code class="text-primary">bslib::nav_panel()</code>. Inside every <code class="text-primary">nav_panel()</code>, a <code class="text-primary">bslib::layout_sidebar()</code> splits the view into a <strong class="text-white">left sidebar</strong> (approximately 300 px wide) that holds all analytics calibration controls, and a <strong class="text-white">main content area</strong> on the right that displays the output panels.</p>
 <p class="text-slate-400 text-sm leading-relaxed">Within the main content area, <code class="text-primary">bslib::layout_columns()</code> with <code class="text-primary">col_widths = c(6, 6)</code> arranges output panels into a responsive two-column grid. Each individual panel (chart, table, or statistics card) is wrapped in a <code class="text-primary">bslib::card()</code> with a <code class="text-primary">card_header()</code> that labels the visualization (e.g., "Monthly Transaction Volume", "PCA Scatter Plot", "Churn Probability Gauge").</p>
 </div>
+<div class="lang-cn-block">
+<p class="text-slate-400 text-sm leading-relaxed mb-3">应用的最外层是 <code class="text-primary">bslib::page_navbar()</code>，渲染一个固定的顶部导航栏，左侧显示 COFINFAD 品牌标题，右侧显示三个可点击的标签页——<em>EDA与CDA</em>、<em>聚类</em>和<em>预测</em>。<code class="text-primary">theme</code> 参数设置为 <code class="text-primary">bs_theme(bootswatch = "darkly")</code> 以在所有面板上应用深色配色方案。</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-3">每个标签页通过 <code class="text-primary">bslib::nav_panel()</code> 创建。每个 <code class="text-primary">nav_panel()</code> 内部，<code class="text-primary">bslib::layout_sidebar()</code> 将视图分为<strong class="text-white">左侧边栏</strong>（约300像素宽）容纳所有分析校准控件，以及右侧的<strong class="text-white">主内容区域</strong>显示输出面板。</p>
+<p class="text-slate-400 text-sm leading-relaxed">在主内容区域内，<code class="text-primary">bslib::layout_columns()</code> 配合 <code class="text-primary">col_widths = c(6, 6)</code> 将输出面板排列为响应式双列网格。每个独立面板（图表、表格或统计卡片）包裹在 <code class="text-primary">bslib::card()</code> 中，带有标注可视化名称的 <code class="text-primary">card_header()</code>（如"月度交易量"、"PCA散点图"、"流失概率仪表"）。</p>
+</div>
+</div>
 
 <!-- Calibration Input Components -->
 <div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
-<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide">Calibration Input Components</h5>
+<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Calibration Input Components</span><span class="lang-cn">校准输入组件</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-3 text-slate-400 text-sm">
 <li><code class="text-primary">dateRangeInput()</code> — placed in the Module 1 sidebar; allows users to select a start and end month to filter the time-series line chart of monthly transaction volume, so that seasonal or trend patterns can be examined at different time windows.</li>
 <li><code class="text-primary">shinyWidgets::pickerInput()</code> — used for multi-select dropdowns throughout all three modules. In Module 1, it filters customers by income bracket and segment. In Module 2, it selects which behavioural features to include in the clustering algorithm. The <code class="text-primary">multiple = TRUE</code> and <code class="text-primary">live-search</code> options let users search and select from long feature lists.</li>
@@ -469,16 +530,37 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><code class="text-primary">radioButtons()</code> — in Module 2, switches between K-Means, Hierarchical, and PAM algorithms. In Module 3, toggles between Lasso and Ridge regularization models. Each selection triggers a reactive recalculation of the corresponding output panels.</li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><code class="text-primary">dateRangeInput()</code> — 放置在模块1侧边栏；允许用户选择起止月份以筛选月度交易量时间序列折线图，从而在不同时间窗口中检查季节性或趋势模式。</li>
+<li><code class="text-primary">shinyWidgets::pickerInput()</code> — 用于三个模块中的多选下拉菜单。在模块1中按收入等级和客户细分筛选客户。在模块2中选择聚类算法中包含的行为特征。<code class="text-primary">multiple = TRUE</code> 和 <code class="text-primary">live-search</code> 选项让用户从长特征列表中搜索和选择。</li>
+<li><code class="text-primary">checkboxGroupInput()</code> — 放置在模块1中，切换EDA图表和统计检验中包含的交易类型（转账、取款、支付、存款）。</li>
+<li><code class="text-primary">selectInput()</code> — 用于模块1中选择分组变量（如 income_bracket、customer_segment）和因变量（如 avg_tx_value、tx_count），输入ANOVA/T检验以及分级统计地图指标。</li>
+<li><code class="text-primary">sliderInput()</code> — 在模块2中控制聚类数 <em>k</em>（范围2–8）以实时重新计算聚类。在模块3中控制 Lasso/Ridge 的正则化惩罚 &lambda;，同时驱动 What-If 场景面板，其中每个客户属性（tx_count、avg_tx_value、customer_tenure、credit_utilization_ratio、satisfaction_score 等）都有独立滑块，用户可模拟假设客户画像并即时查看预测的流失概率更新。</li>
+<li><code class="text-primary">radioButtons()</code> — 在模块2中切换 K-Means、层次聚类和 PAM 算法。在模块3中切换 Lasso 和 Ridge 正则化模型。每次选择都会触发相应输出面板的响应式重新计算。</li>
+</ul>
+</div>
+</div>
 
 <!-- Output Components -->
 <div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
-<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide">Output Components</h5>
+<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Output Components</span><span class="lang-cn">输出组件</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-3 text-slate-400 text-sm">
 <li><code class="text-primary">plotly::plotlyOutput()</code> — renders the interactive time-series line chart (Module 1), PCA scatter plot colour-coded by cluster (Module 2), elbow and silhouette diagnostic plots (Module 2), variable importance bar chart, and cross-validation &lambda;-vs-MSE curve (Module 3). Plotly provides hover tooltips, zoom, and brush selection across all charts.</li>
 <li><code class="text-primary">leaflet::leafletOutput()</code> — renders the choropleth map of Colombian departments in Module 1, coloured by the user-selected metric (customer count, average churn probability, or average CLV). Users can zoom, pan, and click on departments to see detailed tooltips.</li>
 <li><code class="text-primary">DT::DTOutput()</code> — displays the cluster summary statistics table in Module 2 (mean of each feature per cluster) and the current-vs-hypothetical comparison table in Module 3. Both tables are sortable, searchable, and paginated.</li>
 <li><code class="text-primary">uiOutput()</code> — used for the statistical test result panel in Module 1 (dynamically renders test statistic, p-value, effect size, and interpretation) and the churn probability gauge in Module 3 (a reactive HTML gauge that updates as What-If sliders change).</li>
 </ul>
+</div>
+<div class="lang-cn-block">
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><code class="text-primary">plotly::plotlyOutput()</code> — 渲染交互式时间序列折线图（模块1）、按聚类颜色编码的PCA散点图（模块2）、肘部图和轮廓诊断图（模块2）、变量重要性柱状图和交叉验证 &lambda; vs MSE 曲线（模块3）。Plotly 在所有图表中提供悬停提示、缩放和刷选功能。</li>
+<li><code class="text-primary">leaflet::leafletOutput()</code> — 渲染模块1中的哥伦比亚省份分级统计地图，按用户选择的指标（客户数量、平均流失概率或平均CLV）着色。用户可以缩放、平移和点击省份查看详细提示。</li>
+<li><code class="text-primary">DT::DTOutput()</code> — 显示模块2中的聚类汇总统计表（每个聚类各特征的均值）和模块3中的当前与假设对比表。两个表格均支持排序、搜索和分页。</li>
+<li><code class="text-primary">uiOutput()</code> — 用于模块1中的统计检验结果面板（动态渲染检验统计量、p值、效应量和解释）和模块3中的流失概率仪表（随 What-If 滑块变化而更新的响应式HTML仪表）。</li>
+</ul>
+</div>
 </div>
 
 </div>
@@ -490,12 +572,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Module 1 Wireframe -->
 <div class="my-8">
-<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide">Module 1: EDA &amp; Confirmatory Data Analysis</h5>
+<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 1: EDA &amp; Confirmatory Data Analysis</span><span class="lang-cn">模块1：EDA与验证性数据分析</span></h5>
 <div class="flex justify-center mb-4">
 <img src="../images/eda_wireframe.png" alt="Module 1 Wireframe — EDA & CDA tab showing sidebar with date range, income bracket filter, transaction type checkboxes, statistical test selector, grouping and dependent variable dropdowns; main panel with time-series line chart, choropleth map, box plot, and statistical test result card" class="rounded-xl border border-white/10 max-w-full" style="max-height: 600px;">
 </div>
 <div class="p-5 bg-[#0d0d0d] border border-blue-500/10 rounded-xl text-sm text-slate-400 leading-relaxed">
-<p class="font-bold text-blue-400 mb-2">How the user interacts with this tab:</p>
+<p class="font-bold text-blue-400 mb-2"><span class="lang-en">How the user interacts with this tab:</span><span class="lang-cn">用户如何与此标签页交互：</span></p>
+<div class="lang-en-block">
 <ol class="list-decimal list-inside space-y-1.5">
 <li>The user opens the app and lands on the <strong class="text-white">EDA &amp; CDA</strong> tab. The sidebar on the left presents all filtering and analysis controls.</li>
 <li>Using the <strong class="text-white">date range picker</strong>, the user narrows the time window (e.g., 2023-01 to 2023-06) — the time-series line chart on the right immediately updates to show monthly transaction volume for that period only.</li>
@@ -505,16 +588,28 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>On the choropleth map, the user switches the <strong class="text-white">map metric</strong> dropdown (e.g., from "customer count" to "avg churn probability") to explore geographic patterns across Colombian departments.</li>
 </ol>
 </div>
+<div class="lang-cn-block">
+<ol class="list-decimal list-inside space-y-1.5">
+<li>用户打开应用，进入<strong class="text-white">EDA与CDA</strong>标签页。左侧边栏展示所有筛选和分析控件。</li>
+<li>使用<strong class="text-white">日期范围选择器</strong>，用户缩小时间窗口（例如2023-01至2023-06）——右侧时间序列折线图立即更新，仅显示该时段的月度交易量。</li>
+<li>接着用户使用<strong class="text-white">收入等级</strong>和<strong class="text-white">客户细分</strong>多选下拉菜单筛选数据集（例如仅选择"高收入"和"活跃"客户）。四个输出面板均响应式刷新以反映筛选后的子集。</li>
+<li>要检查哪些交易类型重要，用户切换<strong class="text-white">交易类型复选框</strong>（例如取消勾选"存款"以关注支出类交易）。</li>
+<li>进行验证性分析时，用户选择<strong class="text-white">统计检验</strong>（ANOVA或T检验），选取<strong class="text-white">分组变量</strong>（如 income_bracket）和<strong class="text-white">因变量</strong>（如 avg_tx_value）。统计结果卡片即时显示检验统计量、p值、效应量和通俗解释。</li>
+<li>在分级统计地图上，用户切换<strong class="text-white">地图指标</strong>下拉菜单（例如从"客户数量"切换到"平均流失概率"）以探索哥伦比亚各省份的地理模式。</li>
+</ol>
+</div>
+</div>
 </div>
 
 <!-- Module 2 Wireframe -->
 <div class="my-8">
-<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide">Module 2: Customer Segmentation (Clustering)</h5>
+<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 2: Customer Segmentation (Clustering)</span><span class="lang-cn">模块2：客户细分（聚类分析）</span></h5>
 <div class="flex justify-center mb-4">
 <img src="../images/segmentation_wireframe.png" alt="Module 2 Wireframe — Clustering tab showing sidebar with k slider, algorithm radio buttons, feature preset dropdown, PCA axis selectors; main panel with PCA scatter plot, elbow plot, silhouette plot, and cluster summary table" class="rounded-xl border border-white/10 max-w-full" style="max-height: 600px;">
 </div>
 <div class="p-5 bg-[#0d0d0d] border border-purple-500/10 rounded-xl text-sm text-slate-400 leading-relaxed">
-<p class="font-bold text-purple-400 mb-2">How the user interacts with this tab:</p>
+<p class="font-bold text-purple-400 mb-2"><span class="lang-en">How the user interacts with this tab:</span><span class="lang-cn">用户如何与此标签页交互：</span></p>
+<div class="lang-en-block">
 <ol class="list-decimal list-inside space-y-1.5">
 <li>The user navigates to the <strong class="text-white">Clustering</strong> tab. The sidebar presents controls for calibrating the segmentation analysis.</li>
 <li>First, the user selects a <strong class="text-white">feature preset</strong> from the dropdown (e.g., "RFM Features" for recency-frequency-monetary, or "Full Behavioral" for all features). This determines which customer attributes are fed into the clustering algorithm.</li>
@@ -524,16 +619,28 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>The <strong class="text-white">cluster summary table</strong> at the bottom shows the mean of each feature per cluster, helping the user interpret and label each segment (e.g., "high-value loyal customers" vs. "at-risk low-engagement customers").</li>
 </ol>
 </div>
+<div class="lang-cn-block">
+<ol class="list-decimal list-inside space-y-1.5">
+<li>用户导航到<strong class="text-white">聚类</strong>标签页。侧边栏展示校准细分分析的控件。</li>
+<li>首先，用户从下拉菜单选择<strong class="text-white">特征预设</strong>（例如"RFM特征"代表近度-频率-货币价值，或"全行为特征"包含所有特征）。这决定哪些客户属性输入聚类算法。</li>
+<li>然后用户通过单选按钮选择<strong class="text-white">聚类算法</strong>——K-Means、层次聚类或PAM。肘部图、轮廓图和PCA散点图全部响应式重新计算以显示所选方法的结果。</li>
+<li>使用<strong class="text-white">k滑块</strong>（范围2–8），用户尝试不同的聚类数量。随着滑块移动，PCA散点图重新着色数据点，轮廓图更新显示聚类凝聚度，汇总表刷新为新的各聚类均值——让用户直观比较哪个k产生最有意义的细分。</li>
+<li>用户调整<strong class="text-white">PCA轴选择器</strong>（例如从PC1 vs PC2切换到PC1 vs PC3）以从降维空间的不同角度查看聚类。</li>
+<li>底部的<strong class="text-white">聚类汇总表</strong>显示每个聚类各特征的均值，帮助用户解释和标注每个细分（例如"高价值忠诚客户"vs."高风险低互动客户"）。</li>
+</ol>
+</div>
+</div>
 </div>
 
 <!-- Module 3 Wireframe -->
 <div class="my-8">
-<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide">Module 3: Churn Prediction (What-If)</h5>
+<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 3: Churn Prediction (What-If)</span><span class="lang-cn">模块3：流失预测（What-If）</span></h5>
 <div class="flex justify-center mb-4">
 <img src="../images/screen.png" alt="Module 3 Wireframe — Prediction tab showing sidebar with lambda slider, model type toggle, What-If sliders for tx_count, avg_tx_value, tenure, etc.; main panel with variable importance bar chart, CV performance plot, churn probability gauge, and comparison table" class="rounded-xl border border-white/10 max-w-full" style="max-height: 600px;">
 </div>
 <div class="p-5 bg-[#0d0d0d] border border-green-500/10 rounded-xl text-sm text-slate-400 leading-relaxed">
-<p class="font-bold text-green-400 mb-2">How the user interacts with this tab:</p>
+<p class="font-bold text-green-400 mb-2"><span class="lang-en">How the user interacts with this tab:</span><span class="lang-cn">用户如何与此标签页交互：</span></p>
+<div class="lang-en-block">
 <ol class="list-decimal list-inside space-y-1.5">
 <li>The user navigates to the <strong class="text-white">Prediction</strong> tab. The sidebar is split into two sections: model calibration at the top and the What-If scenario panel below.</li>
 <li>In the model calibration section, the user selects a <strong class="text-white">model type</strong> (Lasso or Ridge) via radio buttons. The variable importance bar chart and cross-validation plot update to show results for the chosen regularization method.</li>
@@ -542,6 +649,17 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>As the user moves any slider, the <strong class="text-white">churn probability gauge</strong> on the right updates in real time — for example, increasing support_calls from 2 to 8 might push the predicted churn probability from 24% to 67%, showing the user exactly which factors drive churn risk.</li>
 <li>The <strong class="text-white">comparison table</strong> at the bottom displays the current slider values side-by-side with the baseline customer profile, making it easy to see what was changed and how it affects the prediction.</li>
 </ol>
+</div>
+<div class="lang-cn-block">
+<ol class="list-decimal list-inside space-y-1.5">
+<li>用户导航到<strong class="text-white">预测</strong>标签页。侧边栏分为两部分：顶部为模型校准，底部为 What-If 场景面板。</li>
+<li>在模型校准部分，用户通过单选按钮选择<strong class="text-white">模型类型</strong>（Lasso或Ridge）。变量重要性柱状图和交叉验证图更新以显示所选正则化方法的结果。</li>
+<li>用户拖动<strong class="text-white">&lambda; 滑块</strong>调整正则化惩罚。CV性能图（显示 &lambda; vs MSE）高亮当前 &lambda; 位置，变量重要性图更新以反映在该惩罚水平下哪些客户特征仍然显著——帮助用户理解偏差-方差权衡。</li>
+<li>在<strong class="text-white">What-If 场景面板</strong>中，用户通过调整各个滑块构建假设客户画像：tx_count、avg_tx_value、customer_tenure、active_products、credit_utilization_ratio、satisfaction_score、nps_score等。每个滑块代表一个客户属性。</li>
+<li>当用户移动任何滑块时，右侧的<strong class="text-white">流失概率仪表</strong>实时更新——例如，将 support_calls 从2增加到8可能将预测流失概率从24%推高到67%，让用户准确看到哪些因素驱动流失风险。</li>
+<li>底部的<strong class="text-white">对比表</strong>将当前滑块值与基准客户画像并排显示，便于查看改变了什么以及如何影响预测。</li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -552,15 +670,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="space-y-6">
 <div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
-<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide">Global Sidebar</h5>
+<h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Global Sidebar</span><span class="lang-cn">全局侧边栏</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-1.5 text-slate-400 text-sm">
 <li>&bull; Date range selector (filtering monthly summary for Module 1)</li>
 <li>&bull; Income bracket multi-select filter</li>
 <li>&bull; Customer segment filter (inactive, occasional, regular, power)</li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>&bull; 日期范围选择器（筛选模块1的月度汇总）</li>
+<li>&bull; 收入等级多选筛选器</li>
+<li>&bull; 客户细分筛选器（不活跃、偶尔、常规、活跃）</li>
+</ul>
+</div>
+</div>
 <div class="p-5 bg-[#0d0d0d] border border-blue-500/10 rounded-xl">
-<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide">Module 1: EDA &amp; CDA Tab</h5>
+<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 1: EDA &amp; CDA Tab</span><span class="lang-cn">模块1：EDA与CDA标签页</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-1.5 text-slate-400 text-sm">
 <li>&bull; Transaction type checkboxes (Transfer, Withdrawal, Payment, Deposit)</li>
 <li>&bull; Statistical test selector (ANOVA / T-test)</li>
@@ -569,8 +697,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>&bull; Choropleth map metric selector (customer count, avg churn probability, avg CLV)</li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>&bull; 交易类型复选框（转账、取款、支付、存款）</li>
+<li>&bull; 统计检验选择器（ANOVA / T检验）</li>
+<li>&bull; 分组变量下拉菜单（income_bracket、acquisition_channel、customer_segment、clv_segment）</li>
+<li>&bull; 因变量下拉菜单（avg_tx_value、tx_count、customer_tenure）</li>
+<li>&bull; 分级统计地图指标选择器（客户数量、平均流失概率、平均CLV）</li>
+</ul>
+</div>
+</div>
 <div class="p-5 bg-[#0d0d0d] border border-purple-500/10 rounded-xl">
-<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide">Module 2: Clustering Tab</h5>
+<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 2: Clustering Tab</span><span class="lang-cn">模块2：聚类标签页</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-1.5 text-slate-400 text-sm">
 <li>&bull; Number of clusters (k) slider: 2 to 8</li>
 <li>&bull; Algorithm radio buttons: K-Means / Hierarchical / PAM</li>
@@ -578,13 +717,31 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>&bull; PCA axis selectors (PC1 vs PC2, PC1 vs PC3, etc.)</li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>&bull; 聚类数（k）滑块：2至8</li>
+<li>&bull; 算法单选按钮：K-Means / 层次聚类 / PAM</li>
+<li>&bull; 特征预设下拉菜单：RFM特征 / 全行为特征 / 互动特征 / 自定义</li>
+<li>&bull; PCA轴选择器（PC1 vs PC2、PC1 vs PC3等）</li>
+</ul>
+</div>
+</div>
 <div class="p-5 bg-[#0d0d0d] border border-green-500/10 rounded-xl">
-<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide">Module 3: Prediction Tab</h5>
+<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 3: Prediction Tab</span><span class="lang-cn">模块3：预测标签页</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-1.5 text-slate-400 text-sm">
 <li>&bull; &lambda; (regularization penalty) slider</li>
 <li>&bull; Model type toggle: Lasso / Ridge</li>
 <li>&bull; What-If input panel: sliders for tx_count, avg_tx_value, customer_tenure, active_products, credit_utilization_ratio, satisfaction_score, nps_score, etc.</li>
 </ul>
+</div>
+<div class="lang-cn-block">
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>&bull; &lambda;（正则化惩罚）滑块</li>
+<li>&bull; 模型类型切换：Lasso / Ridge</li>
+<li>&bull; What-If 输入面板：tx_count、avg_tx_value、customer_tenure、active_products、credit_utilization_ratio、satisfaction_score、nps_score等的滑块</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -595,7 +752,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="space-y-6">
 <div class="p-5 bg-[#0d0d0d] border border-blue-500/10 rounded-xl">
-<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide">Module 1</h5>
+<h5 class="font-bold text-blue-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 1</span><span class="lang-cn">模块1</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-1.5 text-slate-400 text-sm">
 <li>&bull; Interactive time-series line chart (plotly)</li>
 <li>&bull; Choropleth map of Colombian departments (tmap)</li>
@@ -603,8 +761,18 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>&bull; Statistical test result panel (test statistic, p-value, effect size, interpretation)</li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>&bull; 交互式时间序列折线图（plotly）</li>
+<li>&bull; 哥伦比亚省份分级统计地图（tmap）</li>
+<li>&bull; 所选变量的箱线图/直方图</li>
+<li>&bull; 统计检验结果面板（检验统计量、p值、效应量、解释）</li>
+</ul>
+</div>
+</div>
 <div class="p-5 bg-[#0d0d0d] border border-purple-500/10 rounded-xl">
-<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide">Module 2</h5>
+<h5 class="font-bold text-purple-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 2</span><span class="lang-cn">模块2</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-1.5 text-slate-400 text-sm">
 <li>&bull; PCA scatter plot color-coded by cluster (plotly)</li>
 <li>&bull; Elbow plot and silhouette plot for cluster diagnostics</li>
@@ -612,14 +780,33 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>&bull; Cluster summary statistics table (mean of each feature per cluster)</li>
 </ul>
 </div>
+<div class="lang-cn-block">
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>&bull; 按聚类颜色编码的PCA散点图（plotly）</li>
+<li>&bull; 聚类诊断的肘部图和轮廓图</li>
+<li>&bull; 聚类人口统计构成的关联柱状图</li>
+<li>&bull; 聚类汇总统计表（每个聚类各特征的均值）</li>
+</ul>
+</div>
+</div>
 <div class="p-5 bg-[#0d0d0d] border border-green-500/10 rounded-xl">
-<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide">Module 3</h5>
+<h5 class="font-bold text-green-400 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Module 3</span><span class="lang-cn">模块3</span></h5>
+<div class="lang-en-block">
 <ul class="space-y-1.5 text-slate-400 text-sm">
 <li>&bull; Variable importance horizontal bar chart</li>
 <li>&bull; Cross-validation performance plot (&lambda; vs. MSE)</li>
 <li>&bull; What-If predicted churn probability gauge</li>
 <li>&bull; Comparison table: current vs. hypothetical customer profile</li>
 </ul>
+</div>
+<div class="lang-cn-block">
+<ul class="space-y-1.5 text-slate-400 text-sm">
+<li>&bull; 变量重要性水平柱状图</li>
+<li>&bull; 交叉验证性能图（&lambda; vs MSE）</li>
+<li>&bull; What-If 预测流失概率仪表</li>
+<li>&bull; 对比表：当前与假设客户画像</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -635,46 +822,46 @@ document.addEventListener('DOMContentLoaded', function() {
 <table class="w-full text-left border-collapse">
 <thead>
 <tr class="border-b border-white/10">
-<th class="py-4 px-6 text-sm font-bold text-white">Category</th>
-<th class="py-4 px-6 text-sm font-bold text-white">Package</th>
-<th class="py-4 px-6 text-sm font-bold text-white">Purpose</th>
+<th class="py-4 px-6 text-sm font-bold text-white"><span class="lang-en">Category</span><span class="lang-cn">类别</span></th>
+<th class="py-4 px-6 text-sm font-bold text-white"><span class="lang-en">Package</span><span class="lang-cn">R包</span></th>
+<th class="py-4 px-6 text-sm font-bold text-white"><span class="lang-en">Purpose</span><span class="lang-cn">用途</span></th>
 </tr>
 </thead>
 <tbody class="text-sm">
 <tr class="border-b border-white/5">
-<td class="py-3 px-6 text-slate-300">Data Wrangling</td>
+<td class="py-3 px-6 text-slate-300"><span class="lang-en">Data Wrangling</span><span class="lang-cn">数据整理</span></td>
 <td class="py-3 px-6"><code class="text-primary">tidyverse, lubridate</code></td>
-<td class="py-3 px-6 text-slate-400">Data manipulation, pivoting, date parsing</td>
+<td class="py-3 px-6 text-slate-400"><span class="lang-en">Data manipulation, pivoting, date parsing</span><span class="lang-cn">数据操作、透视、日期解析</span></td>
 </tr>
 <tr class="border-b border-white/5">
-<td class="py-3 px-6 text-slate-300">Shiny Framework</td>
+<td class="py-3 px-6 text-slate-300"><span class="lang-en">Shiny Framework</span><span class="lang-cn">Shiny 框架</span></td>
 <td class="py-3 px-6"><code class="text-primary">shiny, bslib, shinyWidgets</code></td>
-<td class="py-3 px-6 text-slate-400">App framework, modern UI layout, extended input widgets</td>
+<td class="py-3 px-6 text-slate-400"><span class="lang-en">App framework, modern UI layout, extended input widgets</span><span class="lang-cn">应用框架、现代UI布局、扩展输入组件</span></td>
 </tr>
 <tr class="border-b border-white/5">
-<td class="py-3 px-6 text-slate-300">Visualization</td>
+<td class="py-3 px-6 text-slate-300"><span class="lang-en">Visualization</span><span class="lang-cn">可视化</span></td>
 <td class="py-3 px-6"><code class="text-primary">ggplot2, plotly, tmap</code></td>
-<td class="py-3 px-6 text-slate-400">Static plots, interactive charts, choropleth maps</td>
+<td class="py-3 px-6 text-slate-400"><span class="lang-en">Static plots, interactive charts, choropleth maps</span><span class="lang-cn">静态图表、交互式图表、分级统计地图</span></td>
 </tr>
 <tr class="border-b border-white/5">
-<td class="py-3 px-6 text-slate-300">Clustering</td>
+<td class="py-3 px-6 text-slate-300"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></td>
 <td class="py-3 px-6"><code class="text-primary">cluster, factoextra</code></td>
-<td class="py-3 px-6 text-slate-400">PAM algorithm, cluster visualization, silhouette/elbow plots</td>
+<td class="py-3 px-6 text-slate-400"><span class="lang-en">PAM algorithm, cluster visualization, silhouette/elbow plots</span><span class="lang-cn">PAM算法、聚类可视化、轮廓图/肘部图</span></td>
 </tr>
 <tr class="border-b border-white/5">
-<td class="py-3 px-6 text-slate-300">Dimensionality Reduction</td>
+<td class="py-3 px-6 text-slate-300"><span class="lang-en">Dimensionality Reduction</span><span class="lang-cn">降维</span></td>
 <td class="py-3 px-6"><code class="text-primary">stats (prcomp)</code></td>
-<td class="py-3 px-6 text-slate-400">PCA for scatter plot visualization of clusters</td>
+<td class="py-3 px-6 text-slate-400"><span class="lang-en">PCA for scatter plot visualization of clusters</span><span class="lang-cn">PCA用于聚类散点图可视化</span></td>
 </tr>
 <tr class="border-b border-white/5">
-<td class="py-3 px-6 text-slate-300">Modeling</td>
+<td class="py-3 px-6 text-slate-300"><span class="lang-en">Modeling</span><span class="lang-cn">建模</span></td>
 <td class="py-3 px-6"><code class="text-primary">glmnet</code></td>
-<td class="py-3 px-6 text-slate-400">Lasso and Ridge regularization for churn prediction</td>
+<td class="py-3 px-6 text-slate-400"><span class="lang-en">Lasso and Ridge regularization for churn prediction</span><span class="lang-cn">用于流失预测的 Lasso 和 Ridge 正则化</span></td>
 </tr>
 <tr>
-<td class="py-3 px-6 text-slate-300">Statistical Tests</td>
+<td class="py-3 px-6 text-slate-300"><span class="lang-en">Statistical Tests</span><span class="lang-cn">统计检验</span></td>
 <td class="py-3 px-6"><code class="text-primary">stats (base R), rstatix</code></td>
-<td class="py-3 px-6 text-slate-400">ANOVA, T-tests, effect sizes</td>
+<td class="py-3 px-6 text-slate-400"><span class="lang-en">ANOVA, T-tests, effect sizes</span><span class="lang-cn">ANOVA、T检验、效应量</span></td>
 </tr>
 </tbody>
 </table>
@@ -695,66 +882,66 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-primary ring-4 ring-[#121212]"></div>
 <div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
 <span class="text-xs font-black text-primary uppercase tracking-widest">Phase 1 &mdash; 08 March 2026</span>
-<span class="text-xs text-slate-600">All members</span>
+<span class="text-xs text-slate-600"><span class="lang-en">All members</span><span class="lang-cn">全体成员</span></span>
 </div>
-<h4 class="text-xl font-bold text-white mb-2">Data Preparation</h4>
-<p class="text-slate-400">Aggregate transaction log, clean customer data, engineer features, pre-compute clusters, train glmnet model.</p>
-<p class="text-slate-500 text-sm mt-1">Deliverable: Prepared .rds files</p>
+<h4 class="text-xl font-bold text-white mb-2"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></h4>
+<p class="text-slate-400"><span class="lang-en">Aggregate transaction log, clean customer data, engineer features, pre-compute clusters, train glmnet model.</span><span class="lang-cn">聚合交易日志、清洗客户数据、特征工程、预计算聚类、训练 glmnet 模型。</span></p>
+<p class="text-slate-500 text-sm mt-1"><span class="lang-en">Deliverable: Prepared .rds files</span><span class="lang-cn">交付物：准备好的 .rds 文件</span></p>
 </div>
 <!-- Phase 2 -->
 <div class="relative pl-12">
 <div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-primary/80 ring-4 ring-[#121212]"></div>
 <div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
 <span class="text-xs font-black text-primary uppercase tracking-widest">Phase 2 &mdash; 15 March 2026</span>
-<span class="text-xs text-slate-600">Individual</span>
+<span class="text-xs text-slate-600"><span class="lang-en">Individual</span><span class="lang-cn">个人</span></span>
 </div>
-<h4 class="text-xl font-bold text-white mb-2">Take-home Exercise 2</h4>
-<p class="text-slate-400">Each member prototypes one module (EDA, Clustering, Modeling) as a standalone Quarto report with UI storyboard.</p>
-<p class="text-slate-500 text-sm mt-1">Deliverable: 3 Quarto reports</p>
+<h4 class="text-xl font-bold text-white mb-2"><span class="lang-en">Take-home Exercise 2</span><span class="lang-cn">课后练习2</span></h4>
+<p class="text-slate-400"><span class="lang-en">Each member prototypes one module (EDA, Clustering, Modeling) as a standalone Quarto report with UI storyboard.</span><span class="lang-cn">每位成员将一个模块（EDA、聚类、建模）原型化为独立的 Quarto 报告，附UI故事板。</span></p>
+<p class="text-slate-500 text-sm mt-1"><span class="lang-en">Deliverable: 3 Quarto reports</span><span class="lang-cn">交付物：3份 Quarto 报告</span></p>
 </div>
 <!-- Phase 3 -->
 <div class="relative pl-12">
 <div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-primary/60 ring-4 ring-[#121212]"></div>
 <div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
 <span class="text-xs font-black text-primary uppercase tracking-widest">Phase 3 &mdash; 22 March 2026</span>
-<span class="text-xs text-slate-600">All members</span>
+<span class="text-xs text-slate-600"><span class="lang-en">All members</span><span class="lang-cn">全体成员</span></span>
 </div>
-<h4 class="text-xl font-bold text-white mb-2">Shiny App Integration</h4>
-<p class="text-slate-400">Combine modules into unified Shiny app: establish global reactive values, shared sidebar, cross-module linking, UI/UX polish.</p>
-<p class="text-slate-500 text-sm mt-1">Deliverable: Working Shiny app</p>
+<h4 class="text-xl font-bold text-white mb-2"><span class="lang-en">Shiny App Integration</span><span class="lang-cn">Shiny 应用整合</span></h4>
+<p class="text-slate-400"><span class="lang-en">Combine modules into unified Shiny app: establish global reactive values, shared sidebar, cross-module linking, UI/UX polish.</span><span class="lang-cn">将模块整合到统一的 Shiny 应用：建立全局响应式值、共享侧边栏、跨模块链接、UI/UX优化。</span></p>
+<p class="text-slate-500 text-sm mt-1"><span class="lang-en">Deliverable: Working Shiny app</span><span class="lang-cn">交付物：可运行的 Shiny 应用</span></p>
 </div>
 <!-- Phase 4 -->
 <div class="relative pl-12">
 <div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-slate-600 ring-4 ring-[#121212]"></div>
 <div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
 <span class="text-xs font-black text-slate-500 uppercase tracking-widest">Phase 4 &mdash; 29 March 2026</span>
-<span class="text-xs text-slate-600">All members</span>
+<span class="text-xs text-slate-600"><span class="lang-en">All members</span><span class="lang-cn">全体成员</span></span>
 </div>
-<h4 class="text-xl font-bold text-white mb-2">Project Poster &amp; Report</h4>
-<p class="text-slate-400">Draft project poster; synthesize the 8 key observations into the final report using cross-referenced visual evidence.</p>
-<p class="text-slate-500 text-sm mt-1">Deliverable: Poster + report draft</p>
+<h4 class="text-xl font-bold text-white mb-2"><span class="lang-en">Project Poster &amp; Report</span><span class="lang-cn">项目海报与报告</span></h4>
+<p class="text-slate-400"><span class="lang-en">Draft project poster; synthesize the 8 key observations into the final report using cross-referenced visual evidence.</span><span class="lang-cn">起草项目海报；将8个关键观察综合到最终报告中，使用交叉引用的可视化证据。</span></p>
+<p class="text-slate-500 text-sm mt-1"><span class="lang-en">Deliverable: Poster + report draft</span><span class="lang-cn">交付物：海报 + 报告草稿</span></p>
 </div>
 <!-- Phase 5 -->
 <div class="relative pl-12">
 <div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-slate-700 ring-4 ring-[#121212]"></div>
 <div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
 <span class="text-xs font-black text-slate-600 uppercase tracking-widest">Phase 5 &mdash; 02 April 2026</span>
-<span class="text-xs text-slate-600">All members</span>
+<span class="text-xs text-slate-600"><span class="lang-en">All members</span><span class="lang-cn">全体成员</span></span>
 </div>
-<h4 class="text-xl font-bold text-white mb-2">Practice Poster Presentation</h4>
-<p class="text-slate-400">Rehearse and refine poster presentation.</p>
-<p class="text-slate-500 text-sm mt-1">Deliverable: Poster presentation</p>
+<h4 class="text-xl font-bold text-white mb-2"><span class="lang-en">Practice Poster Presentation</span><span class="lang-cn">海报展示排练</span></h4>
+<p class="text-slate-400"><span class="lang-en">Rehearse and refine poster presentation.</span><span class="lang-cn">排练和完善海报展示。</span></p>
+<p class="text-slate-500 text-sm mt-1"><span class="lang-en">Deliverable: Poster presentation</span><span class="lang-cn">交付物：海报展示</span></p>
 </div>
 <!-- Phase 6 -->
 <div class="relative pl-12">
 <div class="absolute -left-[6px] top-1.5 size-3 rounded-full bg-slate-800 ring-4 ring-[#121212]"></div>
 <div class="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
 <span class="text-xs font-black text-slate-700 uppercase tracking-widest">Phase 6 &mdash; 05 April 2026</span>
-<span class="text-xs text-slate-600">All members</span>
+<span class="text-xs text-slate-600"><span class="lang-en">All members</span><span class="lang-cn">全体成员</span></span>
 </div>
-<h4 class="text-xl font-bold text-white mb-2">Final Deployment</h4>
-<p class="text-slate-400">Final deployment to shinyapps.io, stress testing, ZIP submission.</p>
-<p class="text-slate-500 text-sm mt-1">Deliverable: Deployed app + ZIP</p>
+<h4 class="text-xl font-bold text-white mb-2"><span class="lang-en">Final Deployment</span><span class="lang-cn">最终部署</span></h4>
+<p class="text-slate-400"><span class="lang-en">Final deployment to shinyapps.io, stress testing, ZIP submission.</span><span class="lang-cn">部署到 shinyapps.io、压力测试、ZIP提交。</span></p>
+<p class="text-slate-500 text-sm mt-1"><span class="lang-en">Deliverable: Deployed app + ZIP</span><span class="lang-cn">交付物：已部署的应用 + ZIP</span></p>
 </div>
 </div>
 <!-- Gantt Chart -->
@@ -764,8 +951,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <table class="w-full text-sm">
 <thead>
 <tr>
-<th class="text-left py-3 px-4 text-slate-400 font-semibold w-48">Task</th>
-<th class="text-left py-3 px-4 text-slate-400 font-semibold w-24">Owner</th>
+<th class="text-left py-3 px-4 text-slate-400 font-semibold w-48"><span class="lang-en">Task</span><span class="lang-cn">任务</span></th>
+<th class="text-left py-3 px-4 text-slate-400 font-semibold w-24"><span class="lang-en">Owner</span><span class="lang-cn">负责人</span></th>
 <th class="text-center py-2 px-1 text-slate-500 text-xs w-16">W1<br/>2-8 Mar</th>
 <th class="text-center py-2 px-1 text-slate-500 text-xs w-16">W2<br/>9-15 Mar</th>
 <th class="text-center py-2 px-1 text-slate-500 text-xs w-16">W3<br/>16-22 Mar</th>
@@ -775,8 +962,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </thead>
 <tbody>
 <tr class="border-t border-white/5">
-<td class="py-3 px-4 text-white font-medium">Data Preparation</td>
-<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-4 text-white font-medium"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></td>
+<td class="py-3 px-4 text-slate-400"><span class="lang-en">All</span><span class="lang-cn">全员</span></td>
 <td class="py-3 px-1"><div class="h-6 rounded-md bg-primary"></div></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"></td>
@@ -784,7 +971,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-3 px-1"></td>
 </tr>
 <tr class="border-t border-white/5">
-<td class="py-3 px-4 text-white font-medium">Module 1: EDA Module</td>
+<td class="py-3 px-4 text-white font-medium"><span class="lang-en">Module 1: EDA Module</span><span class="lang-cn">模块1：EDA模块</span></td>
 <td class="py-3 px-4 text-slate-400">Lin Yan</td>
 <td class="py-3 px-1"><div class="h-6 rounded-l-md bg-blue-500"></div></td>
 <td class="py-3 px-1"><div class="h-6 rounded-r-md bg-blue-500"></div></td>
@@ -793,7 +980,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-3 px-1"></td>
 </tr>
 <tr class="border-t border-white/5">
-<td class="py-3 px-4 text-white font-medium">Module 2: Clustering Module</td>
+<td class="py-3 px-4 text-white font-medium"><span class="lang-en">Module 2: Clustering Module</span><span class="lang-cn">模块2：聚类模块</span></td>
 <td class="py-3 px-4 text-slate-400">Ji Guofang</td>
 <td class="py-3 px-1"><div class="h-6 rounded-l-md bg-purple-500"></div></td>
 <td class="py-3 px-1"><div class="h-6 rounded-r-md bg-purple-500"></div></td>
@@ -802,7 +989,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-3 px-1"></td>
 </tr>
 <tr class="border-t border-white/5">
-<td class="py-3 px-4 text-white font-medium">Module 3: Prediction Module</td>
+<td class="py-3 px-4 text-white font-medium"><span class="lang-en">Module 3: Prediction Module</span><span class="lang-cn">模块3：预测模块</span></td>
 <td class="py-3 px-4 text-slate-400">Nguyen Trong Nhan</td>
 <td class="py-3 px-1"><div class="h-6 rounded-l-md bg-pink-500"></div></td>
 <td class="py-3 px-1"><div class="h-6 rounded-r-md bg-pink-500"></div></td>
@@ -811,8 +998,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-3 px-1"></td>
 </tr>
 <tr class="border-t border-white/5">
-<td class="py-3 px-4 text-white font-medium">Shiny App Integration</td>
-<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-4 text-white font-medium"><span class="lang-en">Shiny App Integration</span><span class="lang-cn">Shiny 应用整合</span></td>
+<td class="py-3 px-4 text-slate-400"><span class="lang-en">All</span><span class="lang-cn">全员</span></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"><div class="h-6 rounded-md bg-primary"></div></td>
@@ -820,8 +1007,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-3 px-1"></td>
 </tr>
 <tr class="border-t border-white/5">
-<td class="py-3 px-4 text-white font-medium">Project Poster & Report</td>
-<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-4 text-white font-medium"><span class="lang-en">Project Poster &amp; Report</span><span class="lang-cn">项目海报与报告</span></td>
+<td class="py-3 px-4 text-slate-400"><span class="lang-en">All</span><span class="lang-cn">全员</span></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"></td>
@@ -829,8 +1016,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-3 px-1"></td>
 </tr>
 <tr class="border-t border-white/5">
-<td class="py-3 px-4 text-white font-medium">Practice Presentation</td>
-<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-4 text-white font-medium"><span class="lang-en">Practice Presentation</span><span class="lang-cn">展示排练</span></td>
+<td class="py-3 px-4 text-slate-400"><span class="lang-en">All</span><span class="lang-cn">全员</span></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"></td>
@@ -838,8 +1025,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="py-3 px-1"><div class="h-6 rounded-l-md bg-slate-500"></div></td>
 </tr>
 <tr class="border-t border-white/5">
-<td class="py-3 px-4 text-white font-medium">Final Deployment</td>
-<td class="py-3 px-4 text-slate-400">All</td>
+<td class="py-3 px-4 text-white font-medium"><span class="lang-en">Final Deployment</span><span class="lang-cn">最终部署</span></td>
+<td class="py-3 px-4 text-slate-400"><span class="lang-en">All</span><span class="lang-cn">全员</span></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"></td>
 <td class="py-3 px-1"></td>
@@ -851,11 +1038,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <!-- Legend -->
 <div class="flex flex-wrap gap-6 mt-6">
-<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-primary"></div><span class="text-xs text-slate-400">All members</span></div>
-<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-blue-500"></div><span class="text-xs text-slate-400">Lin Yan (EDA)</span></div>
-<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-purple-500"></div><span class="text-xs text-slate-400">Ji Guofang (Clustering)</span></div>
-<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-pink-500"></div><span class="text-xs text-slate-400">Nguyen Trong Nhan (Prediction)</span></div>
-<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-slate-500"></div><span class="text-xs text-slate-400">Final phase</span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-primary"></div><span class="text-xs text-slate-400"><span class="lang-en">All members</span><span class="lang-cn">全体成员</span></span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-blue-500"></div><span class="text-xs text-slate-400"><span class="lang-en">Lin Yan (EDA)</span><span class="lang-cn">Lin Yan（EDA）</span></span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-purple-500"></div><span class="text-xs text-slate-400"><span class="lang-en">Ji Guofang (Clustering)</span><span class="lang-cn">Ji Guofang（聚类）</span></span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-pink-500"></div><span class="text-xs text-slate-400"><span class="lang-en">Nguyen Trong Nhan (Prediction)</span><span class="lang-cn">Nguyen Trong Nhan（预测）</span></span></div>
+<div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-slate-500"></div><span class="text-xs text-slate-400"><span class="lang-en">Final phase</span><span class="lang-cn">最终阶段</span></span></div>
 </div>
 </div>
 </div>

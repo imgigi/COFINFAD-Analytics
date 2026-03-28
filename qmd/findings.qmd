@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.qmd#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
-<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
+<a href="https://guofang1028.shinyapps.io/ShinyApp/" target="_blank" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
 <button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
 <button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -124,14 +124,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">FINDINGS</span><span class="lang-cn">研究发现</span></span>
 <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight"><span class="lang-en">Key Findings &amp; Insights</span><span class="lang-cn">关键发现与洞察</span></h1>
 <p class="text-xl md:text-2xl text-slate-300 font-medium mb-4"><span class="lang-en">Synthesizing insights across all three analytical modules&mdash;Exploratory Data Analysis, Customer Segmentation, and Churn Prediction&mdash;to deliver an integrated understanding of Colombia&rsquo;s fintech landscape.</span><span class="lang-cn">综合三个分析模块——探索性数据分析、客户细分和流失预测——的洞察，提供对哥伦比亚金融科技格局的整合理解。</span></p>
-<p class="text-slate-500 text-base mt-6">Team 13</p>
+<p class="text-slate-500 text-base mt-6"><span class="lang-en">Team 13</span><span class="lang-cn">第13组</span></p>
 </div>
 </section>
 
 <!-- Work-in-Progress Banner -->
 <div class="mb-12 rounded-xl border border-primary/30 bg-primary/5 p-6 flex items-start gap-4">
 <span class="material-symbols-outlined text-primary text-2xl mt-0.5 flex-shrink-0">construction</span>
-<p class="text-slate-300 text-base leading-relaxed">This page will be updated with detailed findings as the analysis progresses. The sections below outline the analytical framework and expected insights.</p>
+<p class="text-slate-300 text-base leading-relaxed"><span class="lang-en">This page will be updated with detailed findings as the analysis progresses. The sections below outline the analytical framework and expected insights.</span><span class="lang-cn">本页将随着分析的推进持续更新详细发现。以下各部分概述了分析框架和预期洞察。</span></p>
 </div>
 
 <div class="space-y-12">
@@ -148,27 +148,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="border-l-2 border-blue-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Geographic Patterns Across Departments</span><span class="lang-cn">各省份的地理模式</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Spatial analysis of customer distribution and transaction behavior across Colombia&rsquo;s 15 departments reveals significant geographic heterogeneity. Urbanized departments such as Bogot&aacute; and Antioquia concentrate the majority of fintech users and aggregate transaction volume, while rural and peripheral regions exhibit distinct behavioral profiles characterized by lower engagement and higher churn propensity. These geographic patterns reflect the broader urban-rural digital divide and carry direct implications for region-specific product design and service delivery strategies.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Spatial analysis of customer distribution and transaction behavior across Colombia&rsquo;s 15 departments reveals significant geographic heterogeneity. Urbanized departments such as Bogot&aacute; and Antioquia concentrate the majority of fintech users and aggregate transaction volume, while rural and peripheral regions exhibit distinct behavioral profiles characterized by lower engagement and higher churn propensity. These geographic patterns reflect the broader urban-rural digital divide and carry direct implications for region-specific product design and service delivery strategies.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">对哥伦比亚15个省份的客户分布和交易行为进行空间分析，揭示了显著的地理异质性。波哥大和安蒂奥基亚等城市化省份集中了大多数金融科技用户和总交易量，而农村和边缘地区则表现出以较低参与度和较高流失倾向为特征的独特行为特征。这些地理模式反映了更广泛的城乡数字鸿沟，对区域特定的产品设计和服务交付策略具有直接启示。</p></div>
 </div>
 
 <div class="border-l-2 border-blue-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Income Bracket Differences in Transaction Behavior</span><span class="lang-cn">不同收入层级的交易行为差异</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Disaggregating transaction metrics by income bracket uncovers meaningful differences in how customers across the economic spectrum interact with fintech products. Higher-income customers tend toward greater transaction frequency, higher average values, and broader product adoption, while lower-income segments show more concentrated usage patterns with fewer active products. However, the relationship between income and behavior is not strictly linear&mdash;middle-income brackets often display the highest variability, suggesting that factors beyond income alone shape transactional engagement.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Disaggregating transaction metrics by income bracket uncovers meaningful differences in how customers across the economic spectrum interact with fintech products. Higher-income customers tend toward greater transaction frequency, higher average values, and broader product adoption, while lower-income segments show more concentrated usage patterns with fewer active products. However, the relationship between income and behavior is not strictly linear&mdash;middle-income brackets often display the highest variability, suggesting that factors beyond income alone shape transactional engagement.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">按收入等级分解交易指标，揭示了不同经济水平的客户与金融科技产品交互方式的显著差异。高收入客户倾向于更高的交易频率、更高的平均交易金额和更广泛的产品采用，而低收入群体则表现出更集中的使用模式，活跃产品较少。然而，收入与行为之间的关系并非严格线性——中等收入群体通常表现出最高的变异性，表明除收入之外的其他因素也在影响交易参与度。</p></div>
 </div>
 
 <div class="border-l-2 border-blue-500/30 pl-6">
-<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Temporal Trends in Monthly Transaction Volumes</span><span class="lang-cn">月度交��量的时间趋势</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Temporal decomposition of the 12-month observation window reveals pronounced seasonality in transaction volumes. Transfer volumes spike at year-end&mdash;driven by holiday remittances, end-of-year bonuses, and fiscal settlement cycles characteristic of Colombian payroll calendars. Payment volumes follow a distinct mid-year peak coinciding with the &ldquo;prima de servicios&rdquo; period and back-to-school spending. Deposit volumes remain comparatively stable, suggesting habitual savings behavior. These patterns have direct implications for infrastructure capacity planning, fraud detection thresholds, and customer support staffing.</p>
+<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Temporal Trends in Monthly Transaction Volumes</span><span class="lang-cn">月度交易量的时间趋势</span></h4>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Temporal decomposition of the 12-month observation window reveals pronounced seasonality in transaction volumes. Transfer volumes spike at year-end&mdash;driven by holiday remittances, end-of-year bonuses, and fiscal settlement cycles characteristic of Colombian payroll calendars. Payment volumes follow a distinct mid-year peak coinciding with the &ldquo;prima de servicios&rdquo; period and back-to-school spending. Deposit volumes remain comparatively stable, suggesting habitual savings behavior. These patterns have direct implications for infrastructure capacity planning, fraud detection thresholds, and customer support staffing.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">对12个月观察期的时间分解揭示了交易量中显著的季节性特征。转账量在年末激增——受假日汇款、年终奖金和哥伦比亚薪资日历特有的财政结算周期驱动。支付量在年中达到高峰，与"服务奖金"期和开学消费时间吻合。存款量相对稳定，表明存在习惯性储蓄行为。这些模式对基础设施容量规划、欺诈检测阈值和客户支持人员配置具有直接影响。</p></div>
 </div>
 
 <div class="border-l-2 border-blue-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Correlation Patterns Between Demographic and Behavioral Variables</span><span class="lang-cn">人口统计与行为变量之间的相关性模式</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Correlation analysis between demographic attributes (age, income bracket, department, tenure) and behavioral features (transaction volumes, product usage, engagement scores) identifies both expected and non-obvious associations. Tenure and active product count show a moderate positive correlation, while satisfaction scores correlate more strongly with engagement frequency than with raw transaction volume. These inter-variable relationships inform feature selection for downstream clustering and prediction models and highlight which demographic proxies carry genuine behavioral signal.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Correlation analysis between demographic attributes (age, income bracket, department, tenure) and behavioral features (transaction volumes, product usage, engagement scores) identifies both expected and non-obvious associations. Tenure and active product count show a moderate positive correlation, while satisfaction scores correlate more strongly with engagement frequency than with raw transaction volume. These inter-variable relationships inform feature selection for downstream clustering and prediction models and highlight which demographic proxies carry genuine behavioral signal.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">人口统计属性（年龄、收入等级、省份、客户期限）与行为特征（交易量、产品使用、参与度评分）之间的相关性分析识别出了预期的和非显而易见的关联。客户期限与活跃产品数量呈中度正相关，而满意度评分与参与频率的相关性强于与原始交易量的相关性。这些变量间关系为下游聚类和预测模型的特征选择提供了依据，并突出了哪些人口统计代理变量承载了真正的行为信号。</p></div>
 </div>
 
 <div class="border-l-2 border-blue-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Statistical Test Results</span><span class="lang-cn">统计检验结果</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">One-way ANOVA confirms that average transaction values differ significantly across income brackets (p &lt; 0.001), though the corresponding effect size (&eta;&sup2;) is small&mdash;a direct consequence of the large sample size (n = 48,723) where even trivially small differences achieve statistical significance. Independent samples T-tests further reveal significant differences in satisfaction scores between churned and retained customers. These results underscore a critical methodological point: statistical significance does not equate to practical significance, and business decisions must weigh effect sizes alongside p-values.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">One-way ANOVA confirms that average transaction values differ significantly across income brackets (p &lt; 0.001), though the corresponding effect size (&eta;&sup2;) is small&mdash;a direct consequence of the large sample size (n = 48,723) where even trivially small differences achieve statistical significance. Independent samples T-tests further reveal significant differences in satisfaction scores between churned and retained customers. These results underscore a critical methodological point: statistical significance does not equate to practical significance, and business decisions must weigh effect sizes alongside p-values.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">单因素方差分析确认不同收入等级的平均交易金额存在显著差异（p &lt; 0.001），但相应的效应量（&eta;&sup2;）较小——这是大样本量（n = 48,723）的直接结果，在大样本下即使微不足道的差异也能达到统计显著性。独立样本T检验进一步揭示流失客户与留存客户之间满意度评分的显著差异。这些结果强调了一个关键的方法论要点：统计显著性不等于实际显著性，商业决策必须同时权衡效应量和p值。</p></div>
 </div>
 
 </div>
@@ -186,17 +191,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="border-l-2 border-purple-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Optimal k Selection</span><span class="lang-cn">最优k值选择</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Determining the optimal number of clusters employs three complementary validation methods. The elbow plot of within-cluster sum of squares (WSS) identifies the inflection point where additional clusters yield diminishing returns in inertia reduction. Silhouette analysis measures how well each observation fits its assigned cluster versus the nearest neighboring cluster, with the highest average silhouette width indicating the best-separated solution. NbClust aggregates votes across 30 indices to provide a consensus recommendation. The convergence of all three methods on the same k value provides strong evidence that the selected cluster count balances interpretability with fidelity to the underlying data structure.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Determining the optimal number of clusters employs three complementary validation methods. The elbow plot of within-cluster sum of squares (WSS) identifies the inflection point where additional clusters yield diminishing returns in inertia reduction. Silhouette analysis measures how well each observation fits its assigned cluster versus the nearest neighboring cluster, with the highest average silhouette width indicating the best-separated solution. NbClust aggregates votes across 30 indices to provide a consensus recommendation. The convergence of all three methods on the same k value provides strong evidence that the selected cluster count balances interpretability with fidelity to the underlying data structure.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">确定最优聚类数量采用三种互补的验证方法。组内平方和（WSS）的肘部图识别出额外聚类带来递减收益的拐点。轮廓分析衡量每个观察值与其所属聚类的匹配程度与最近邻聚类的比较，最高平均轮廓宽度表示最佳分离方案。NbClust汇总30个指标的投票以提供共识推荐。三种方法在同一k值上的收敛为所选聚类数量在可解释性与对底层数据结构的忠实度之间取得平衡提供了有力证据。</p></div>
 </div>
 
 <div class="border-l-2 border-purple-500/30 pl-6">
-<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Algorithm Comparison: K-Means, Hierarchical, PAM</span><span class="lang-cn">算法比较��K-Means、层次聚类、PAM</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Applying multiple clustering algorithms to the same standardized feature space allows for a robust comparison of segmentation stability. K-Means optimizes for spherical, equal-variance clusters and performs well when segments are roughly balanced in size. Hierarchical clustering (Ward&rsquo;s method) builds a dendrogram that reveals nested structure and is less sensitive to initialization. PAM (Partitioning Around Medoids) uses actual data points as cluster centers, making it more robust to outliers than K-Means. Comparing the resulting partitions across algorithms&mdash;via metrics such as adjusted Rand index and cluster membership overlap&mdash;reveals which segments are algorithmically stable and which are artifacts of a specific method&rsquo;s assumptions.</p>
+<h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Algorithm Comparison: K-Means, Hierarchical, PAM</span><span class="lang-cn">算法比较：K-Means、层次聚类、PAM</span></h4>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Applying multiple clustering algorithms to the same standardized feature space allows for a robust comparison of segmentation stability. K-Means optimizes for spherical, equal-variance clusters and performs well when segments are roughly balanced in size. Hierarchical clustering (Ward&rsquo;s method) builds a dendrogram that reveals nested structure and is less sensitive to initialization. PAM (Partitioning Around Medoids) uses actual data points as cluster centers, making it more robust to outliers than K-Means. Comparing the resulting partitions across algorithms&mdash;via metrics such as adjusted Rand index and cluster membership overlap&mdash;reveals which segments are algorithmically stable and which are artifacts of a specific method&rsquo;s assumptions.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">将多种聚类算法应用于相同的标准化特征空间，可以对分割稳定性进行稳健比较。K-Means针对球形、等方差聚类进行优化，当各群体规模大致均衡时表现良好。层次聚类（Ward法）构建树状图，揭示嵌套结构，对初始化不太敏感。PAM（围绕中心点划分）使用实际数据点作为聚类中心，比K-Means对离群值更具鲁棒性。通过调整兰德指数和聚类成员重叠度等指标比较各算法的分区结果，可以揭示哪些分割是算法稳定的，哪些是特定方法假设的产物。</p></div>
 </div>
 
 <div class="border-l-2 border-purple-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Customer Segment Profiles Discovered</span><span class="lang-cn">发现的客户细分画像</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed mb-4">Clustering reveals distinct customer archetypes within the COFINFAD population, each characterized by a unique combination of transactional behavior, product engagement, and attitudinal metrics:</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed mb-4">Clustering reveals distinct customer archetypes within the COFINFAD population, each characterized by a unique combination of transactional behavior, product engagement, and attitudinal metrics:</p>
 <ul class="text-slate-400 text-lg leading-relaxed space-y-3 list-none pl-0">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-purple-400 text-lg mt-1 flex-shrink-0">bolt</span>
@@ -214,17 +221,38 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="material-symbols-outlined text-green-400 text-lg mt-1 flex-shrink-0">trending_up</span>
 <span><strong class="text-white">New Adopters</strong> &mdash; Short tenure, moderate activity, and middling satisfaction. This cohort is in the critical early lifecycle phase where onboarding quality determines long-term retention.</span>
 </li>
-</ul>
+</ul></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed mb-4">聚类揭示了COFINFAD客户群体中不同的客户原型，每种原型以交易行为、产品参与度和态度指标的独特组合为特征：</p>
+<ul class="text-slate-400 text-lg leading-relaxed space-y-3 list-none pl-0">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-purple-400 text-lg mt-1 flex-shrink-0">bolt</span>
+<span><strong class="text-white">高活跃用户</strong> &mdash; 高交易频率、广泛的产品采用、较高的满意度和最低的流失概率。这些客户构成了收入的支柱。</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-pink-400 text-lg mt-1 flex-shrink-0">warning</span>
+<span><strong class="text-white">高风险用户</strong> &mdash; 曾经的高价值客户，表现出满意度下降和近期参与度降低。该群体是最紧迫的干预目标。</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-slate-500 text-lg mt-1 flex-shrink-0">bedtime</span>
+<span><strong class="text-white">沉睡用户</strong> &mdash; 所有指标的活动度较低，长时间不活跃，产品使用极少。许多用户可能已经实质性流失。</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-400 text-lg mt-1 flex-shrink-0">trending_up</span>
+<span><strong class="text-white">新采用者</strong> &mdash; 客户期限短、活动度适中、满意度一般。该群体处于关键的早期生命周期阶段，引导质量决定了长期留存率。</span>
+</li>
+</ul></div>
 </div>
 
 <div class="border-l-2 border-purple-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Key Differentiating Features Between Segments</span><span class="lang-cn">细分群体之间的关键区分特征</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Radar chart and heatmap profiling of cluster centroids identifies the features that most sharply distinguish one segment from another. Active product count, satisfaction score, and engagement frequency emerge as the primary discriminators, while raw transaction volume and demographic attributes contribute less to inter-cluster separation. This feature importance ranking from clustering aligns with and reinforces the variable selection performed independently by the Lasso prediction model, providing cross-module validation of which customer attributes carry the most analytical signal.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Radar chart and heatmap profiling of cluster centroids identifies the features that most sharply distinguish one segment from another. Active product count, satisfaction score, and engagement frequency emerge as the primary discriminators, while raw transaction volume and demographic attributes contribute less to inter-cluster separation. This feature importance ranking from clustering aligns with and reinforces the variable selection performed independently by the Lasso prediction model, providing cross-module validation of which customer attributes carry the most analytical signal.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">雷达图和聚类中心热力图分析识别出最能区分不同群体的特征。活跃产品数量、满意度评分和参与频率是主要的区分因素，而原始交易量和人口统计属性对聚类间分离的贡献较小。聚类得出的特征重要性排名与Lasso预测模型独立执行的变量选择一致且相互加强，提供了对哪些客户属性承载最多分析信号的跨模块验证。</p></div>
 </div>
 
 <div class="border-l-2 border-purple-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Business Implications of Each Segment</span><span class="lang-cn">每个细分群体的商业影响</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Each segment demands a differentiated business strategy. Power Users warrant loyalty programs and proactive satisfaction monitoring to prevent value erosion. At-Risk customers require targeted re-engagement campaigns combining personalized outreach with product bundling incentives. Dormant users may respond to reactivation offers emphasizing product discovery and simplified onboarding. New Adopters need guided lifecycle management&mdash;structured onboarding sequences, early cross-sell prompts, and satisfaction check-ins&mdash;to accelerate their progression toward multi-product adoption and long-term retention.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Each segment demands a differentiated business strategy. Power Users warrant loyalty programs and proactive satisfaction monitoring to prevent value erosion. At-Risk customers require targeted re-engagement campaigns combining personalized outreach with product bundling incentives. Dormant users may respond to reactivation offers emphasizing product discovery and simplified onboarding. New Adopters need guided lifecycle management&mdash;structured onboarding sequences, early cross-sell prompts, and satisfaction check-ins&mdash;to accelerate their progression toward multi-product adoption and long-term retention.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">每个细分群体需要差异化的商业策略。高活跃用户需要忠诚度计划和主动的满意度监控以防止价值流失。高风险客户需要结合个性化推广和产品捆绑激励的定向再参与营销活动。沉睡用户可能对强调产品发现和简化引导的激活优惠有所回应。新采用者需要引导式生命周期管理——结构化的引导流程、早期交叉销售提示和满意度回访——以加速其向多产品采用和长期留存的转变。</p></div>
 </div>
 
 </div>
@@ -242,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="border-l-2 border-green-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Top Churn Predictors Identified by Lasso</span><span class="lang-cn">Lasso识别的主要流失预测因子</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed mb-4">Lasso (L1-regularized) logistic regression performs automatic variable selection by shrinking uninformative coefficients to exactly zero. The surviving predictors with non-zero coefficients identify the key drivers of customer attrition:</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed mb-4">Lasso (L1-regularized) logistic regression performs automatic variable selection by shrinking uninformative coefficients to exactly zero. The surviving predictors with non-zero coefficients identify the key drivers of customer attrition:</p>
 <ul class="text-slate-400 text-lg leading-relaxed space-y-3 list-none pl-0">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-green-400 text-lg mt-1 flex-shrink-0">sentiment_satisfied</span>
@@ -261,43 +289,67 @@ document.addEventListener('DOMContentLoaded', function() {
 <span><strong class="text-white">support_tickets_count</strong> &mdash; High support ticket volumes signal unresolved friction and are associated with incremental increases in churn probability.</span>
 </li>
 </ul>
-<p class="text-slate-400 text-lg leading-relaxed mt-4">Notably, raw transactional volume features (total transfers, deposits, payments) are largely zeroed out by the Lasso penalty, indicating that how much a customer transacts is less predictive of churn than how they feel about the service and how broadly they use the product suite.</p>
+<p class="text-slate-400 text-lg leading-relaxed mt-4">Notably, raw transactional volume features (total transfers, deposits, payments) are largely zeroed out by the Lasso penalty, indicating that how much a customer transacts is less predictive of churn than how they feel about the service and how broadly they use the product suite.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed mb-4">Lasso（L1正则化）逻辑回归通过将无信息系数压缩至零来执行自动变量选择。具有非零系数的存活预测变量识别出客户流失的关键驱动因素：</p>
+<ul class="text-slate-400 text-lg leading-relaxed space-y-3 list-none pl-0">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-400 text-lg mt-1 flex-shrink-0">sentiment_satisfied</span>
+<span><strong class="text-white">satisfaction_score</strong> &mdash; 最具影响力的单一预测因子。低满意度是即将流失的最强信号。</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-400 text-lg mt-1 flex-shrink-0">thumb_up</span>
+<span><strong class="text-white">nps_score</strong> &mdash; 净推荐值作为补充性态度信号。贬损者表现出明显更高的流失率。</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-400 text-lg mt-1 flex-shrink-0">inventory_2</span>
+<span><strong class="text-white">active_products</strong> &mdash; 产品广度创造了转换成本。使用三种或更多产品的客户显著不太可能离开。</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-400 text-lg mt-1 flex-shrink-0">support_agent</span>
+<span><strong class="text-white">support_tickets_count</strong> &mdash; 高工单量表明未解决的摩擦，与流失概率的递增相关。</span>
+</li>
+</ul>
+<p class="text-slate-400 text-lg leading-relaxed mt-4">值得注意的是，原始交易量特征（总转账、存款、支付）在Lasso惩罚下基本被压缩为零，表明客户交易量的多少不如他们对服务的感受和产品使用广度更能预测流失。</p></div>
 </div>
 
 <div class="border-l-2 border-green-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Lasso vs Ridge Model Comparison</span><span class="lang-cn">Lasso与Ridge模型比较</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Comparing Lasso (L1) and Ridge (L2) regularized logistic regression reveals complementary strengths. Lasso produces a sparse model by eliminating irrelevant predictors entirely, yielding superior interpretability and identifying the minimal set of features that drive churn. Ridge retains all predictors with shrunken but non-zero coefficients, often achieving marginally better predictive accuracy when features are correlated. In the COFINFAD context, both models converge on the same top predictors (satisfaction, NPS, active products, support tickets), but Lasso&rsquo;s explicit variable selection makes it the preferred choice for business communication and actionable insight generation.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Comparing Lasso (L1) and Ridge (L2) regularized logistic regression reveals complementary strengths. Lasso produces a sparse model by eliminating irrelevant predictors entirely, yielding superior interpretability and identifying the minimal set of features that drive churn. Ridge retains all predictors with shrunken but non-zero coefficients, often achieving marginally better predictive accuracy when features are correlated. In the COFINFAD context, both models converge on the same top predictors (satisfaction, NPS, active products, support tickets), but Lasso&rsquo;s explicit variable selection makes it the preferred choice for business communication and actionable insight generation.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">比较Lasso（L1）和Ridge（L2）正则化逻辑回归揭示了互补优势。Lasso通过完全消除不相关的预测变量产生稀疏模型，具有卓越的可解释性，并识别出驱动流失的最小特征集。Ridge保留所有预测变量但系数缩减为非零值，在特征相关时通常能实现略好的预测准确性。在COFINFAD背景下，两种模型在相同的顶级预测变量（满意度、NPS、活跃产品、工单）上趋于一致，但Lasso显式的变量选择使其成为商业沟通和可操作洞察生成的首选。</p></div>
 </div>
 
 <div class="border-l-2 border-green-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Key Drivers of Churn Probability</span><span class="lang-cn">流失概率的关键驱动因素</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Coefficient analysis from the regularized models reveals a clear hierarchy of churn drivers. Satisfaction score and NPS operate as attitudinal indicators&mdash;they capture how the customer feels about the service. Active product count and engagement frequency represent behavioral indicators&mdash;they reflect how deeply the customer is embedded in the platform ecosystem. Support ticket count serves as a friction indicator&mdash;it signals unresolved pain points. The interplay of these three dimensions (attitude, behavior, friction) provides a comprehensive framework for understanding and intervening on churn risk at the individual customer level.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Coefficient analysis from the regularized models reveals a clear hierarchy of churn drivers. Satisfaction score and NPS operate as attitudinal indicators&mdash;they capture how the customer feels about the service. Active product count and engagement frequency represent behavioral indicators&mdash;they reflect how deeply the customer is embedded in the platform ecosystem. Support ticket count serves as a friction indicator&mdash;it signals unresolved pain points. The interplay of these three dimensions (attitude, behavior, friction) provides a comprehensive framework for understanding and intervening on churn risk at the individual customer level.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">正则化模型的系数分析揭示了流失驱动因素的清晰层次。满意度评分和NPS作为态度指标——捕捉客户对服务的感受。活跃产品数量和参与频率代表行为指标——反映客户在平台生态系统中的嵌入深度。工单数量作为摩擦指标——信号未解决的痛点。这三个维度（态度、行为、摩擦）的相互作用提供了在个体客户层面理解和干预流失风险的综合框架。</p></div>
 </div>
 
 <div class="border-l-2 border-green-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">What-If Scenario Findings</span><span class="lang-cn">假设场景分析发现</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed mb-4">The Shiny application&rsquo;s What-If module enables business users to manipulate individual feature values and observe resulting changes in predicted churn probability. Key scenarios include:</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed mb-4">The Shiny application&rsquo;s What-If module enables business users to manipulate individual feature values and observe resulting changes in predicted churn probability. Key scenarios include:</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed mb-4">Shiny应用的假设模拟模块使业务用户能够操控单个特征值并观察预测流失概率的变化。关键场景包括：</p></div>
 <div class="grid md:grid-cols-2 gap-6 mt-6">
 <div class="bg-[#0d0d0d] rounded-xl border border-green-500/10 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-green-400">add_shopping_cart</span>
 <h5 class="text-white font-semibold text-lg"><span class="lang-en">Product Expansion</span><span class="lang-cn">产品扩展</span></h5>
 </div>
-<p class="text-slate-400 text-base leading-relaxed">Increasing active_products from 1 to 3 reduces predicted churn probability by approximately <strong class="text-green-400">15 percentage points</strong>, quantifying the retention value of cross-sell and bundling strategies.</p>
+<p class="text-slate-400 text-base leading-relaxed"><span class="lang-en">Increasing active_products from 1 to 3 reduces predicted churn probability by approximately <strong class="text-green-400">15 percentage points</strong>, quantifying the retention value of cross-sell and bundling strategies.</span><span class="lang-cn">将active_products从1增加到3可将预测流失概率降低约<strong class="text-green-400">15个百分点</strong>，量化了交叉销售和捆绑策略的留存价值。</span></p>
 </div>
 <div class="bg-[#0d0d0d] rounded-xl border border-green-500/10 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-green-400">mood</span>
 <h5 class="text-white font-semibold text-lg"><span class="lang-en">Satisfaction Improvement</span><span class="lang-cn">满意度提升</span></h5>
 </div>
-<p class="text-slate-400 text-base leading-relaxed">Improving satisfaction score from 3 to 7 yields a comparable reduction of roughly <strong class="text-green-400">15 percentage points</strong>, demonstrating that service quality investments have directly measurable impact on retention.</p>
+<p class="text-slate-400 text-base leading-relaxed"><span class="lang-en">Improving satisfaction score from 3 to 7 yields a comparable reduction of roughly <strong class="text-green-400">15 percentage points</strong>, demonstrating that service quality investments have directly measurable impact on retention.</span><span class="lang-cn">将满意度评分从3提高到7可带来约<strong class="text-green-400">15个百分点</strong>的类似降幅，表明服务质量投资对留存有直接可衡量的影响。</span></p>
 </div>
 </div>
 </div>
 
 <div class="border-l-2 border-green-500/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Actionable Retention Strategies Based on Model</span><span class="lang-cn">基于模型的可操作留存策略</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">The prediction model translates directly into actionable retention strategies. For customers flagged as high churn risk, the model coefficients prescribe specific interventions ranked by expected impact: (1) address satisfaction gaps through proactive outreach and service recovery, (2) increase product breadth through targeted cross-sell campaigns, (3) resolve friction by expediting open support tickets, and (4) implement NPS-triggered escalation workflows. Each intervention can be cost-justified using the What-If simulator to estimate the expected churn reduction per dollar invested.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">The prediction model translates directly into actionable retention strategies. For customers flagged as high churn risk, the model coefficients prescribe specific interventions ranked by expected impact: (1) address satisfaction gaps through proactive outreach and service recovery, (2) increase product breadth through targeted cross-sell campaigns, (3) resolve friction by expediting open support tickets, and (4) implement NPS-triggered escalation workflows. Each intervention can be cost-justified using the What-If simulator to estimate the expected churn reduction per dollar invested.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">预测模型可以直接转化为可操作的留存策略。对于被标记为高流失风险的客户，模型系数按预期影响排序规定了具体干预措施：（1）通过主动推广和服务恢复解决满意度差距，（2）通过定向交叉销售活动增加产品广度，（3）通过加快处理未结工单解决摩擦，（4）实施NPS触发的升级工作流程。每项干预措施都可以使用假设模拟器来估算每投入一美元的预期流失降低量，从而进行成本效益论证。</p></div>
 </div>
 
 </div>
@@ -312,23 +364,26 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3 class="text-3xl font-bold mb-10"><span class="lang-en">Cross-Module Synthesis</span><span class="lang-cn">跨模块综合分析</span></h3>
 
 <div class="text-slate-400 text-lg leading-relaxed space-y-6">
-<p>The true analytical value of the COFINFAD project emerges not from any single module in isolation but from the convergence of findings across all three. Each module validates, enriches, and extends the others in a reinforcing analytical loop.</p>
+<p><span class="lang-en">The true analytical value of the COFINFAD project emerges not from any single module in isolation but from the convergence of findings across all three. Each module validates, enriches, and extends the others in a reinforcing analytical loop.</span><span class="lang-cn">COFINFAD项目的真正分析价值并非来自任何单一模块，而是源于三个模块发现的汇聚。每个模块在相互强化的分析循环中验证、丰富和扩展其他模块。</span></p>
 
 <div class="space-y-8 mt-8">
 
 <div class="border-l-2 border-primary/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">How Clustering Segments Relate to Churn Risk</span><span class="lang-cn">聚类细分与流失风险的关系</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Overlaying churn prediction scores onto the behavioral clusters reveals a clear risk gradient. Power Users exhibit the lowest average churn probability, confirming that deep engagement is protective. The At-Risk segment shows the highest predicted churn rates, validating the clustering algorithm&rsquo;s ability to identify behaviorally deteriorating customers even before they formally churn. Dormant users present moderate-to-high churn risk but lower expected recovery value, while New Adopters occupy a pivotal middle ground where early intervention can shift their trajectory toward retention or attrition.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Overlaying churn prediction scores onto the behavioral clusters reveals a clear risk gradient. Power Users exhibit the lowest average churn probability, confirming that deep engagement is protective. The At-Risk segment shows the highest predicted churn rates, validating the clustering algorithm&rsquo;s ability to identify behaviorally deteriorating customers even before they formally churn. Dormant users present moderate-to-high churn risk but lower expected recovery value, while New Adopters occupy a pivotal middle ground where early intervention can shift their trajectory toward retention or attrition.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">将流失预测分数叠加到行为聚类上揭示了清晰的风险梯度。高活跃用户表现出最低的平均流失概率，证实深度参与具有保护作用。高风险群体显示最高的预测流失率，验证了聚类算法在客户正式流失之前识别行为恶化客户的能力。沉睡用户呈现中高流失风险但预期恢复价值较低，而新采用者处于关键的中间地带，早期干预可以改变其留存或流失的轨迹。</p></div>
 </div>
 
 <div class="border-l-2 border-primary/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Geographic and Demographic Patterns Across Modules</span><span class="lang-cn">跨模块的地理与人口统计模式</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">The geographic concentration of churn risk identified in exploratory analysis aligns precisely with the spatial distribution of the At-Risk and Dormant clusters. Rural departments with higher average churn probabilities are the same regions where these high-risk segments are overrepresented. Demographic cross-tabulation further reveals that income bracket associations with cluster membership mirror the income-churn correlations detected by the prediction model, providing multi-method triangulation of the same underlying phenomena.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">The geographic concentration of churn risk identified in exploratory analysis aligns precisely with the spatial distribution of the At-Risk and Dormant clusters. Rural departments with higher average churn probabilities are the same regions where these high-risk segments are overrepresented. Demographic cross-tabulation further reveals that income bracket associations with cluster membership mirror the income-churn correlations detected by the prediction model, providing multi-method triangulation of the same underlying phenomena.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">探索性分析中识别的流失风险地理集中度与高风险和沉睡聚类的空间分布精确吻合。平均流失概率较高的农村省份恰好是这些高风险群体过度集中的地区。人口统计交叉列联进一步揭示，收入等级与聚类成员的关联反映了预测模型检测到的收入-流失相关性，提供了对同一底层现象的多方法三角验证。</p></div>
 </div>
 
 <div class="border-l-2 border-primary/30 pl-6">
 <h4 class="text-xl font-semibold text-white mb-4"><span class="lang-en">Integrated Customer Understanding</span><span class="lang-cn">整合的客户理解</span></h4>
-<p class="text-slate-400 text-lg leading-relaxed">Combining EDA insights, cluster profiles, and prediction model outputs produces a 360-degree view of each customer. EDA provides the macro context&mdash;seasonal patterns, geographic distributions, and population-level trends. Clustering assigns each customer to a behavioral archetype with associated business meaning. Prediction quantifies individual-level churn risk and identifies the specific levers available for intervention. Together, these three layers enable a progression from understanding (EDA) to segmentation (clustering) to action (prediction), forming a complete analytical pipeline for customer lifecycle management.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed">Combining EDA insights, cluster profiles, and prediction model outputs produces a 360-degree view of each customer. EDA provides the macro context&mdash;seasonal patterns, geographic distributions, and population-level trends. Clustering assigns each customer to a behavioral archetype with associated business meaning. Prediction quantifies individual-level churn risk and identifies the specific levers available for intervention. Together, these three layers enable a progression from understanding (EDA) to segmentation (clustering) to action (prediction), forming a complete analytical pipeline for customer lifecycle management.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed">将EDA洞察、聚类画像和预测模型输出相结合，产生了每位客户的360度全景视图。EDA提供宏观背景——季节性模式、地理分布和人群层面趋势。聚类将每位客户分配到具有相关商业含义的行为原型。预测量化个体层面的流失风险并识别可用于干预的具体杠杆。这三个层次共同实现了从理解（EDA）到分割（聚类）再到行动（预测）的递进，形成了客户生命周期管理的完整分析管道。</p></div>
 </div>
 
 <div class="border-l-2 border-primary/30 pl-6">
@@ -339,28 +394,28 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="material-symbols-outlined text-purple-400">shield</span>
 <h5 class="text-white font-semibold text-lg"><span class="lang-en">Retain High-Value Customers</span><span class="lang-cn">留住高价值客户</span></h5>
 </div>
-<p class="text-slate-400 text-base leading-relaxed">Deploy loyalty programs and early warning triggers for Power Users. Monitor satisfaction score and NPS in real time, with automated escalation when metrics dip below threshold values.</p>
+<p class="text-slate-400 text-base leading-relaxed"><span class="lang-en">Deploy loyalty programs and early warning triggers for Power Users. Monitor satisfaction score and NPS in real time, with automated escalation when metrics dip below threshold values.</span><span class="lang-cn">为高活跃用户部署忠诚度计划和预警触发机制。实时监控满意度评分和NPS，当指标低于阈值时自动升级处理。</span></p>
 </div>
 <div class="bg-[#0d0d0d] rounded-xl border border-white/5 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-pink-400">priority_high</span>
 <h5 class="text-white font-semibold text-lg"><span class="lang-en">Intervene on At-Risk Segment</span><span class="lang-cn">干预高风险群体</span></h5>
 </div>
-<p class="text-slate-400 text-base leading-relaxed">Prioritize personalized outreach and product bundling for the At-Risk cluster. The What-If model quantifies that increasing active products from 1 to 3 reduces churn by ~15 percentage points.</p>
+<p class="text-slate-400 text-base leading-relaxed"><span class="lang-en">Prioritize personalized outreach and product bundling for the At-Risk cluster. The What-If model quantifies that increasing active products from 1 to 3 reduces churn by ~15 percentage points.</span><span class="lang-cn">优先对高风险聚类进行个性化推广和产品捆绑。假设模拟模型量化表明，将活跃产品从1增加到3可降低约15个百分点的流失率。</span></p>
 </div>
 <div class="bg-[#0d0d0d] rounded-xl border border-white/5 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-primary">map</span>
 <h5 class="text-white font-semibold text-lg"><span class="lang-en">Expand Underserved Regions</span><span class="lang-cn">拓展服务不足的地区</span></h5>
 </div>
-<p class="text-slate-400 text-base leading-relaxed">Design region-specific campaigns for rural departments where churn risk is highest. Address infrastructure gaps and digital literacy barriers through local agent partnerships and simplified product offerings.</p>
+<p class="text-slate-400 text-base leading-relaxed"><span class="lang-en">Design region-specific campaigns for rural departments where churn risk is highest. Address infrastructure gaps and digital literacy barriers through local agent partnerships and simplified product offerings.</span><span class="lang-cn">为流失风险最高的农村省份设计区域特定活动。通过本地代理合作和简化产品供应解决基础设施差距和数字素养障碍。</span></p>
 </div>
 <div class="bg-[#0d0d0d] rounded-xl border border-white/5 p-6">
 <div class="flex items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-green-400">trending_up</span>
 <h5 class="text-white font-semibold text-lg"><span class="lang-en">Optimize New Adopter Onboarding</span><span class="lang-cn">优化新用户引导</span></h5>
 </div>
-<p class="text-slate-400 text-base leading-relaxed">Invest in structured onboarding sequences for New Adopters to accelerate multi-product adoption. Early cross-sell prompts and satisfaction check-ins during the first 90 days are critical for long-term retention.</p>
+<p class="text-slate-400 text-base leading-relaxed"><span class="lang-en">Invest in structured onboarding sequences for New Adopters to accelerate multi-product adoption. Early cross-sell prompts and satisfaction check-ins during the first 90 days are critical for long-term retention.</span><span class="lang-cn">投资结构化的新用户引导流程以加速多产品采用。前90天内的早期交叉销售提示和满意度回访对长期留存至关重要。</span></p>
 </div>
 </div>
 </div>

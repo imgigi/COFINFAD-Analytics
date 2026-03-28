@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.qmd#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
-<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
+<a href="https://guofang1028.shinyapps.io/ShinyApp/" target="_blank" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
 <button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
 <button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="inline-block px-4 py-1.5 rounded-full bg-green-500 text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">MODULE 3</span><span class="lang-cn">模块 3</span></span>
 <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight"><span class="lang-en">Churn Prediction &amp; What-If Simulation</span><span class="lang-cn">流失预测与假设模拟</span></h1>
 <p class="text-xl md:text-2xl text-slate-300 font-medium mb-4"><span class="lang-en">Predicting what will happen with regularized regression models</span><span class="lang-cn">使用正则化回归模型预测未来走向</span></p>
-<p class="text-slate-500 text-base mt-6">Team 13</p>
+<p class="text-slate-500 text-base mt-6"><span class="lang-en">Team 13</span><span class="lang-cn">第13组</span></p>
 </div>
 </section>
 
@@ -140,7 +140,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <span class="lang-en">Dependent Variable</span><span class="lang-cn">因变量</span>
 </h4>
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
-<p class="text-slate-300 text-lg leading-relaxed">The target variable is <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">churn_probability</code>, a continuous value ranging from 0 to 1 that represents each customer's likelihood of leaving the platform. Because this is a continuous outcome rather than a binary label, we treat the prediction task as a <strong class="text-white">regression problem</strong> using regularized linear models. This approach preserves the granularity of the original probability values, allowing the model to distinguish between customers at 15% churn risk and those at 85% churn risk &mdash; a distinction that would be lost in a simple binary classification framework.</p>
+<div class="lang-en-block"><p class="text-slate-300 text-lg leading-relaxed">The target variable is <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">churn_probability</code>, a continuous value ranging from 0 to 1 that represents each customer's likelihood of leaving the platform. Because this is a continuous outcome rather than a binary label, we treat the prediction task as a <strong class="text-white">regression problem</strong> using regularized linear models. This approach preserves the granularity of the original probability values, allowing the model to distinguish between customers at 15% churn risk and those at 85% churn risk &mdash; a distinction that would be lost in a simple binary classification framework.</p></div>
+<div class="lang-cn-block"><p class="text-slate-300 text-lg leading-relaxed">目标变量为 <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">churn_probability</code>，一个范围在0到1之间的连续值，代表每位客户离开平台的可能性。由于这是连续结果而非二元标签，我们将预测任务视为使用正则化线性模型的<strong class="text-white">回归问题</strong>。这种方法保留了原始概率值的粒度，使模型能够区分15%流失风险和85%流失风险的客户——这种区分在简单的二元分类框架中会丢失。</p></div>
 </div>
 </div>
 
@@ -155,9 +156,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
 <span class="material-symbols-outlined text-xl">receipt_long</span>
 </div>
-<h5 class="font-bold text-green-400">Transactional</h5>
+<h5 class="font-bold text-green-400"><span class="lang-en">Transactional</span><span class="lang-cn">交易类</span></h5>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">Behavioral metrics derived from the transaction log that capture how frequently and how much each customer transacts on the platform.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">Behavioral metrics derived from the transaction log that capture how frequently and how much each customer transacts on the platform.</span><span class="lang-cn">从交易日志中提取的行为指标，捕捉每位客户在平台上的交易频率和金额。</span></p>
 <div class="flex flex-wrap gap-2">
 <span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">tx_count</span>
 <span class="px-3 py-1.5 bg-green-500/10 text-green-300 rounded-lg text-xs border border-green-500/20">avg_tx_value</span>
@@ -174,9 +175,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="size-10 shrink-0 rounded-xl bg-slate-500/10 text-slate-400 flex items-center justify-center border border-slate-500/20">
 <span class="material-symbols-outlined text-xl">group</span>
 </div>
-<h5 class="font-bold text-slate-300">Demographic</h5>
+<h5 class="font-bold text-slate-300"><span class="lang-en">Demographic</span><span class="lang-cn">人口统计类</span></h5>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">Customer profile attributes that describe who the customer is, including personal characteristics and their relationship tenure with the platform.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">Customer profile attributes that describe who the customer is, including personal characteristics and their relationship tenure with the platform.</span><span class="lang-cn">描述客户身份的客户画像属性，包括个人特征及其与平台的关系期限。</span></p>
 <div class="flex flex-wrap gap-2">
 <span class="px-3 py-1.5 bg-slate-500/10 text-slate-300 rounded-lg text-xs border border-slate-500/20">age</span>
 <span class="px-3 py-1.5 bg-slate-500/10 text-slate-300 rounded-lg text-xs border border-slate-500/20">household_size</span>
@@ -190,9 +191,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="size-10 shrink-0 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center border border-purple-500/20">
 <span class="material-symbols-outlined text-xl">touch_app</span>
 </div>
-<h5 class="font-bold text-purple-300">Engagement</h5>
+<h5 class="font-bold text-purple-300"><span class="lang-en">Engagement</span><span class="lang-cn">参与度类</span></h5>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">Indicators of how deeply each customer interacts with the platform's products, digital tools, and support channels.</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">Indicators of how deeply each customer interacts with the platform's products, digital tools, and support channels.</span><span class="lang-cn">衡量每位客户与平台产品、数字工具和支持渠道交互深度的指标。</span></p>
 <div class="flex flex-wrap gap-2">
 <span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">active_products</span>
 <span class="px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-xs border border-purple-500/20">app_logins_frequency</span>
@@ -206,14 +207,15 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 
-<p class="text-slate-500 text-sm mt-6 leading-relaxed">In total, the model considers <strong class="text-slate-300">19 independent variables</strong> spanning transactional behavior, demographics, and engagement metrics. The <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">income_bracket</code> variable (Low, Medium, High, Very High) is dummy-encoded into 3 indicator columns, bringing the actual feature matrix to 21 columns before regularization.</p>
+<p class="text-slate-500 text-sm mt-6 leading-relaxed"><span class="lang-en">In total, the model considers <strong class="text-slate-300">19 independent variables</strong> spanning transactional behavior, demographics, and engagement metrics. The <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">income_bracket</code> variable (Low, Medium, High, Very High) is dummy-encoded into 3 indicator columns, bringing the actual feature matrix to 21 columns before regularization.</span><span class="lang-cn">模型总共考虑了<strong class="text-slate-300">19个自变量</strong>，涵盖交易行为、人口统计和参与度指标。<code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">income_bracket</code>变量（低、中、高、极高）被虚拟编码为3个指示列，使正则化前的实际特征矩阵达到21列。</span></p>
 </div>
 
 <!-- 02. Regularization Methods -->
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
 <span class="text-green-400 font-bold text-sm mb-2 block">SECTION 02</span>
 <h3 class="text-3xl font-bold mb-6"><span class="lang-en">Regularization Methods</span><span class="lang-cn">正则化方法</span></h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-10">With 21 features in the model matrix, ordinary least squares (OLS) regression risks overfitting &mdash; fitting noise in the training data that does not generalize to new customers. Regularization addresses this by adding a penalty term to the loss function that discourages large coefficients. We use the <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">glmnet</code> package in R, which efficiently fits both Lasso and Ridge regression via coordinate descent and selects the optimal penalty strength through <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">cv.glmnet()</code> with 10-fold cross-validation.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-lg leading-relaxed mb-10">With 21 features in the model matrix, ordinary least squares (OLS) regression risks overfitting &mdash; fitting noise in the training data that does not generalize to new customers. Regularization addresses this by adding a penalty term to the loss function that discourages large coefficients. We use the <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">glmnet</code> package in R, which efficiently fits both Lasso and Ridge regression via coordinate descent and selects the optimal penalty strength through <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">cv.glmnet()</code> with 10-fold cross-validation.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-lg leading-relaxed mb-10">在模型矩阵中有21个特征的情况下，普通最小二乘法（OLS）回归存在过拟合风险——即拟合训练数据中无法推广到新客户的噪声。正则化通过向损失函数添加惩罚项来抑制过大的系数。我们使用R中的 <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">glmnet</code> 包，通过坐标下降法高效拟合Lasso和Ridge回归，并通过 <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-sm">cv.glmnet()</code> 的10折交叉验证选择最优惩罚强度。</p></div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
 <!-- Lasso -->
@@ -224,17 +226,24 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div>
 <h4 class="text-xl font-bold text-green-400">Lasso (L1 Regularization)</h4>
-<p class="text-slate-500 text-xs mt-1">Primary model for feature importance</p>
+<p class="text-slate-500 text-xs mt-1"><span class="lang-en">Primary model for feature importance</span><span class="lang-cn">特征重要性主模型</span></p>
 </div>
 </div>
 <div class="space-y-4 text-slate-400 leading-relaxed">
-<p>Lasso adds the sum of <strong class="text-white">absolute values</strong> of coefficients as a penalty term: &lambda; &times; &Sigma;|&beta;<sub>j</sub>|. This creates a powerful effect &mdash; as &lambda; increases, coefficients of less important variables are shrunk to <strong class="text-white">exactly zero</strong>, effectively removing them from the model.</p>
+<div class="lang-en-block"><p>Lasso adds the sum of <strong class="text-white">absolute values</strong> of coefficients as a penalty term: &lambda; &times; &Sigma;|&beta;<sub>j</sub>|. This creates a powerful effect &mdash; as &lambda; increases, coefficients of less important variables are shrunk to <strong class="text-white">exactly zero</strong>, effectively removing them from the model.</p>
 <p>This property makes Lasso our <strong class="text-white">primary model for feature selection</strong>. By examining which variables survive at different &lambda; values, we can identify the minimal set of customer attributes that drive churn prediction. Analysts can use the &lambda; slider in the Shiny app to visually observe how the model progressively simplifies.</p>
 <ul class="space-y-2 text-sm">
 <li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span>Automatic variable selection via coefficient zeroing</span></li>
 <li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span>Sparse, interpretable models at higher &lambda;</span></li>
 <li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span>Ideal for answering: "Which features matter most?"</span></li>
-</ul>
+</ul></div>
+<div class="lang-cn-block"><p>Lasso将系数的<strong class="text-white">绝对值</strong>之和作为惩罚项：&lambda; &times; &Sigma;|&beta;<sub>j</sub>|。这产生了强大的效果——随着&lambda;增大，不重要变量的系数被压缩至<strong class="text-white">恰好为零</strong>，有效地将其从模型中移除。</p>
+<p>这一特性使Lasso成为我们<strong class="text-white">特征选择的主模型</strong>。通过检查在不同&lambda;值下哪些变量存活，我们可以识别驱动流失预测的最小客户属性集。分析师可以使用Shiny应用中的&lambda;滑块直观地观察模型如何逐步简化。</p>
+<ul class="space-y-2 text-sm">
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span>通过系数归零实现自动变量选择</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span>在更高&lambda;下产生稀疏、可解释的模型</span></li>
+<li class="flex gap-3"><span class="text-green-400 mt-0.5">&bull;</span><span>适合回答："哪些特征最重要？"</span></li>
+</ul></div>
 </div>
 </div>
 <!-- Ridge -->
@@ -245,17 +254,24 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div>
 <h4 class="text-xl font-bold text-slate-300">Ridge (L2 Regularization)</h4>
-<p class="text-slate-500 text-xs mt-1">Validation model for comparison</p>
+<p class="text-slate-500 text-xs mt-1"><span class="lang-en">Validation model for comparison</span><span class="lang-cn">用于比较的验证模型</span></p>
 </div>
 </div>
 <div class="space-y-4 text-slate-400 leading-relaxed">
-<p>Ridge adds the sum of <strong class="text-white">squared values</strong> of coefficients as a penalty: &lambda; &times; &Sigma;&beta;<sub>j</sub>&sup2;. Unlike Lasso, Ridge <strong class="text-white">never shrinks coefficients to exactly zero</strong> &mdash; instead, it pulls all coefficients proportionally toward zero, retaining every variable in the model.</p>
+<div class="lang-en-block"><p>Ridge adds the sum of <strong class="text-white">squared values</strong> of coefficients as a penalty: &lambda; &times; &Sigma;&beta;<sub>j</sub>&sup2;. Unlike Lasso, Ridge <strong class="text-white">never shrinks coefficients to exactly zero</strong> &mdash; instead, it pulls all coefficients proportionally toward zero, retaining every variable in the model.</p>
 <p>We use Ridge as a <strong class="text-white">validation model</strong> to cross-check the Lasso results. If the Ridge model achieves similar predictive accuracy while retaining all variables, it confirms that the features Lasso selected are indeed the most important ones. If Ridge significantly outperforms Lasso, it suggests that many small-contribution features collectively improve prediction.</p>
 <ul class="space-y-2 text-sm">
 <li class="flex gap-3"><span class="text-slate-400 mt-0.5">&bull;</span><span>Retains all variables with proportional shrinkage</span></li>
 <li class="flex gap-3"><span class="text-slate-400 mt-0.5">&bull;</span><span>Better when many features contribute modestly</span></li>
 <li class="flex gap-3"><span class="text-slate-400 mt-0.5">&bull;</span><span>Serves as benchmark to validate Lasso feature selection</span></li>
-</ul>
+</ul></div>
+<div class="lang-cn-block"><p>Ridge将系数的<strong class="text-white">平方值</strong>之和作为惩罚：&lambda; &times; &Sigma;&beta;<sub>j</sub>&sup2;。与Lasso不同，Ridge<strong class="text-white">从不将系数压缩至恰好为零</strong>——而是将所有系数按比例向零拉近，保留模型中的每个变量。</p>
+<p>我们使用Ridge作为<strong class="text-white">验证模型</strong>来交叉检查Lasso结果。如果Ridge模型在保留所有变量的同时达到类似的预测精度，则确认Lasso选择的特征确实是最重要的。如果Ridge显著优于Lasso，则表明许多小贡献特征共同提升了预测效果。</p>
+<ul class="space-y-2 text-sm">
+<li class="flex gap-3"><span class="text-slate-400 mt-0.5">&bull;</span><span>保留所有变量并进行比例缩减</span></li>
+<li class="flex gap-3"><span class="text-slate-400 mt-0.5">&bull;</span><span>当多个特征有适度贡献时表现更佳</span></li>
+<li class="flex gap-3"><span class="text-slate-400 mt-0.5">&bull;</span><span>作为基准来验证Lasso的特征选择</span></li>
+</ul></div>
 </div>
 </div>
 </div>
@@ -264,24 +280,24 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="p-6 bg-[#0d0d0d] border border-green-500/10 rounded-xl">
 <h5 class="font-bold text-white mb-4 flex items-center gap-2">
 <span class="material-symbols-outlined text-green-400">tune</span>
-The &lambda; Parameter: Controlling Model Complexity
+<span class="lang-en">The &lambda; Parameter: Controlling Model Complexity</span><span class="lang-cn">&lambda; 参数：控制模型复杂度</span>
 </h5>
-<p class="text-slate-400 leading-relaxed mb-4">The regularization parameter &lambda; (lambda) is the single most important hyperparameter in both Lasso and Ridge regression. It controls the trade-off between fitting the training data closely and keeping the model simple:</p>
+<p class="text-slate-400 leading-relaxed mb-4"><span class="lang-en">The regularization parameter &lambda; (lambda) is the single most important hyperparameter in both Lasso and Ridge regression. It controls the trade-off between fitting the training data closely and keeping the model simple:</span><span class="lang-cn">正则化参数&lambda;（lambda）是Lasso和Ridge回归中最重要的超参数。它控制着紧密拟合训练数据与保持模型简洁之间的权衡：</span></p>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 <div class="p-4 bg-[#080808] rounded-lg border border-white/5">
-<p class="text-green-400 font-bold text-sm mb-2">&lambda; = 0 (No regularization)</p>
-<p class="text-slate-500 text-xs">Equivalent to ordinary least squares. All features retained with full coefficients. Risk of overfitting.</p>
+<p class="text-green-400 font-bold text-sm mb-2"><span class="lang-en">&lambda; = 0 (No regularization)</span><span class="lang-cn">&lambda; = 0（无正则化）</span></p>
+<p class="text-slate-500 text-xs"><span class="lang-en">Equivalent to ordinary least squares. All features retained with full coefficients. Risk of overfitting.</span><span class="lang-cn">等同于普通最小二乘法。所有特征以完整系数保留。存在过拟合风险。</span></p>
 </div>
 <div class="p-4 bg-[#080808] rounded-lg border border-green-500/20">
-<p class="text-green-400 font-bold text-sm mb-2">&lambda; = &lambda;.min (Optimal)</p>
-<p class="text-slate-500 text-xs">Selected by 10-fold CV. Minimizes prediction error. Balances bias and variance for best generalization.</p>
+<p class="text-green-400 font-bold text-sm mb-2"><span class="lang-en">&lambda; = &lambda;.min (Optimal)</span><span class="lang-cn">&lambda; = &lambda;.min（最优）</span></p>
+<p class="text-slate-500 text-xs"><span class="lang-en">Selected by 10-fold CV. Minimizes prediction error. Balances bias and variance for best generalization.</span><span class="lang-cn">通过10折交叉验证选出。最小化预测误差。平衡偏差与方差以获得最佳泛化能力。</span></p>
 </div>
 <div class="p-4 bg-[#080808] rounded-lg border border-white/5">
-<p class="text-green-400 font-bold text-sm mb-2">&lambda; &rarr; &infin; (Maximum)</p>
-<p class="text-slate-500 text-xs">Lasso: all coefficients zero (null model). Ridge: all coefficients near zero. Maximum bias, minimum variance.</p>
+<p class="text-green-400 font-bold text-sm mb-2"><span class="lang-en">&lambda; &rarr; &infin; (Maximum)</span><span class="lang-cn">&lambda; &rarr; &infin;（最大值）</span></p>
+<p class="text-slate-500 text-xs"><span class="lang-en">Lasso: all coefficients zero (null model). Ridge: all coefficients near zero. Maximum bias, minimum variance.</span><span class="lang-cn">Lasso：所有系数为零（空模型）。Ridge：所有系数接近零。最大偏差，最小方差。</span></p>
 </div>
 </div>
-<p class="text-slate-500 text-sm mt-4">We use <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">cv.glmnet()</code> with 10-fold cross-validation to identify two key &lambda; values: <strong class="text-slate-300">&lambda;.min</strong> (the &lambda; that minimizes mean cross-validated error) and <strong class="text-slate-300">&lambda;.1se</strong> (the largest &lambda; within one standard error of the minimum, yielding a more parsimonious model). Both models are pre-trained offline, saved as <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">.rds</code> files, and loaded at Shiny startup for instant predictions.</p>
+<p class="text-slate-500 text-sm mt-4"><span class="lang-en">We use <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">cv.glmnet()</code> with 10-fold cross-validation to identify two key &lambda; values: <strong class="text-slate-300">&lambda;.min</strong> (the &lambda; that minimizes mean cross-validated error) and <strong class="text-slate-300">&lambda;.1se</strong> (the largest &lambda; within one standard error of the minimum, yielding a more parsimonious model). Both models are pre-trained offline, saved as <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">.rds</code> files, and loaded at Shiny startup for instant predictions.</span><span class="lang-cn">我们使用 <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">cv.glmnet()</code> 的10折交叉验证来识别两个关键&lambda;值：<strong class="text-slate-300">&lambda;.min</strong>（使平均交叉验证误差最小化的&lambda;）和 <strong class="text-slate-300">&lambda;.1se</strong>（在最小值一个标准误差范围内的最大&lambda;，产生更简约的模型）。两个模型均离线预训练，保存为 <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">.rds</code> 文件，在Shiny启动时加载以实现即时预测。</span></p>
 </div>
 </div>
 
@@ -289,7 +305,7 @@ The &lambda; Parameter: Controlling Model Complexity
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
 <span class="text-green-400 font-bold text-sm mb-2 block">SECTION 03</span>
 <h3 class="text-3xl font-bold mb-6"><span class="lang-en">Feature Engineering</span><span class="lang-cn">特征工程</span></h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-10">Beyond the raw independent variables, we engineer three derived features that capture higher-order customer behavior patterns. These features are computed during data preparation and added to the model matrix alongside the original variables. Each encodes a specific business hypothesis about what drives churn.</p>
+<p class="text-slate-400 text-lg leading-relaxed mb-10"><span class="lang-en">Beyond the raw independent variables, we engineer three derived features that capture higher-order customer behavior patterns. These features are computed during data preparation and added to the model matrix alongside the original variables. Each encodes a specific business hypothesis about what drives churn.</span><span class="lang-cn">除原始自变量外，我们还构造了三个衍生特征以捕捉更高层次的客户行为模式。这些特征在数据准备阶段计算并与原始变量一起添加到模型矩阵中。每个特征编码了关于流失驱动因素的特定商业假设。</span></p>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
@@ -301,7 +317,7 @@ The &lambda; Parameter: Controlling Model Complexity
 <p class="text-slate-300 text-sm font-mono text-center">active_products / 5</p>
 <p class="text-slate-600 text-xs text-center mt-1">(max possible products = 5)</p>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed">Normalizes the number of active products to a 0&ndash;1 scale. A customer with only 1 of 5 products (ratio = 0.20) is less embedded in the platform ecosystem than one using all 5 (ratio = 1.0). Higher product diversity implies higher switching costs, which should reduce churn risk. This feature captures the "stickiness" dimension that raw product count alone does not convey at a normalized scale.</p>
+<p class="text-slate-400 text-sm leading-relaxed"><span class="lang-en">Normalizes the number of active products to a 0&ndash;1 scale. A customer with only 1 of 5 products (ratio = 0.20) is less embedded in the platform ecosystem than one using all 5 (ratio = 1.0). Higher product diversity implies higher switching costs, which should reduce churn risk. This feature captures the "stickiness" dimension that raw product count alone does not convey at a normalized scale.</span><span class="lang-cn">将活跃产品数量归一化到0&ndash;1的范围。仅使用5种产品中1种的客户（比率=0.20）在平台生态系统中的嵌入度低于使用全部5种的客户（比率=1.0）。更高的产品多样性意味着更高的转换成本，应能降低流失风险。该特征捕捉了原始产品计数在归一化后无法传达的"粘性"维度。</span></p>
 </div>
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
 <div class="flex items-center gap-3 mb-4">
@@ -311,7 +327,7 @@ The &lambda; Parameter: Controlling Model Complexity
 <div class="p-4 bg-[#080808] rounded-lg border border-white/5 mb-4">
 <p class="text-slate-300 text-sm font-mono text-center">support_tickets_count &times; (1 &minus; resolved_tickets_ratio)</p>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed">Measures the absolute number of <strong class="text-white">unresolved support tickets</strong>. A customer with 10 tickets and 50% resolution has a gap of 5 unresolved tickets, while one with 2 tickets and 50% resolution has a gap of only 1. This interaction term captures the frustration dimension: it is not just about having tickets, but about having tickets that remain unsolved. Higher values signal service delivery failures that may push customers to churn.</p>
+<p class="text-slate-400 text-sm leading-relaxed"><span class="lang-en">Measures the absolute number of <strong class="text-white">unresolved support tickets</strong>. A customer with 10 tickets and 50% resolution has a gap of 5 unresolved tickets, while one with 2 tickets and 50% resolution has a gap of only 1. This interaction term captures the frustration dimension: it is not just about having tickets, but about having tickets that remain unsolved. Higher values signal service delivery failures that may push customers to churn.</span><span class="lang-cn">衡量<strong class="text-white">未解决工单</strong>的绝对数量。拥有10张工单且50%解决率的客户有5张未解决工单，而拥有2张工单且50%解决率的客户仅有1张。这个交互项捕捉了挫败感维度：重点不在于是否有工单，而在于工单是否悬而未决。较高的值表明服务交付失败，可能推动客户流失。</span></p>
 </div>
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
 <div class="flex items-center gap-3 mb-4">
@@ -321,7 +337,7 @@ The &lambda; Parameter: Controlling Model Complexity
 <div class="p-4 bg-[#080808] rounded-lg border border-white/5 mb-4">
 <p class="text-slate-300 text-sm font-mono text-center">base_satisfaction &minus; satisfaction_score</p>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed">Computes the difference between the customer's baseline (initial) satisfaction and their current satisfaction score. A positive gap indicates that the customer's satisfaction has <strong class="text-white">declined</strong> over time, which is a stronger churn signal than low absolute satisfaction alone. A customer who dropped from 9 to 5 is more at risk than one who was always at 5 &mdash; the trajectory of dissatisfaction matters as much as the level.</p>
+<p class="text-slate-400 text-sm leading-relaxed"><span class="lang-en">Computes the difference between the customer's baseline (initial) satisfaction and their current satisfaction score. A positive gap indicates that the customer's satisfaction has <strong class="text-white">declined</strong> over time, which is a stronger churn signal than low absolute satisfaction alone. A customer who dropped from 9 to 5 is more at risk than one who was always at 5 &mdash; the trajectory of dissatisfaction matters as much as the level.</span><span class="lang-cn">计算客户基线（初始）满意度与当前满意度评分之间的差值。正差值表明客户的满意度随时间<strong class="text-white">下降</strong>，这比单纯的低绝对满意度是更强的流失信号。从9分降至5分的客户比一直是5分的客户面临更高风险——不满意的轨迹与水平同样重要。</span></p>
 </div>
 </div>
 </div>
@@ -330,7 +346,7 @@ The &lambda; Parameter: Controlling Model Complexity
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
 <span class="text-green-400 font-bold text-sm mb-2 block">SECTION 04</span>
 <h3 class="text-3xl font-bold mb-6"><span class="lang-en">Variable Importance</span><span class="lang-cn">变量重要性</span></h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-10">The variable importance plot is the central analytical output of Module 3. It displays the absolute values of Lasso regression coefficients at the user-selected &lambda; value as a horizontal bar chart, providing a direct answer to the question: <em class="text-white">"Which customer attributes most strongly predict churn?"</em></p>
+<p class="text-slate-400 text-lg leading-relaxed mb-10"><span class="lang-en">The variable importance plot is the central analytical output of Module 3. It displays the absolute values of Lasso regression coefficients at the user-selected &lambda; value as a horizontal bar chart, providing a direct answer to the question: <em class="text-white">"Which customer attributes most strongly predict churn?"</em></span><span class="lang-cn">变量重要性图是模块3的核心分析输出。它将用户选定的&lambda;值下Lasso回归系数的绝对值显示为水平条形图，直接回答了这个问题：<em class="text-white">"哪些客户属性最能预测流失？"</em></span></p>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
 <!-- Chart description -->
@@ -339,20 +355,20 @@ The &lambda; Parameter: Controlling Model Complexity
 <span class="material-symbols-outlined text-green-400">bar_chart</span>
 <span class="lang-en">Coefficient Bar Chart</span><span class="lang-cn">系数条形图</span>
 </h4>
-<p class="text-slate-400 leading-relaxed mb-6">The bar chart ranks features by the absolute magnitude of their Lasso coefficients. Each bar is color-coded to indicate the <strong class="text-white">direction of effect</strong>:</p>
+<p class="text-slate-400 leading-relaxed mb-6"><span class="lang-en">The bar chart ranks features by the absolute magnitude of their Lasso coefficients. Each bar is color-coded to indicate the <strong class="text-white">direction of effect</strong>:</span><span class="lang-cn">条形图按Lasso系数的绝对值大小对特征进行排名。每个条形的颜色编码表示<strong class="text-white">效应方向</strong>：</span></p>
 <div class="space-y-4">
 <div class="flex items-center gap-4 p-4 bg-[#0d0d0d] rounded-lg border border-white/5">
 <div class="w-6 h-6 rounded bg-red-400/80 shrink-0"></div>
 <div>
-<p class="text-white font-semibold text-sm">Positive coefficients (increases churn)</p>
-<p class="text-slate-500 text-xs">Features like support_tickets_count or satisfaction_gap that, when increased, push predicted churn probability higher.</p>
+<p class="text-white font-semibold text-sm"><span class="lang-en">Positive coefficients (increases churn)</span><span class="lang-cn">正系数（增加流失）</span></p>
+<p class="text-slate-500 text-xs"><span class="lang-en">Features like support_tickets_count or satisfaction_gap that, when increased, push predicted churn probability higher.</span><span class="lang-cn">如support_tickets_count或satisfaction_gap等特征，增大时会推高预测流失概率。</span></p>
 </div>
 </div>
 <div class="flex items-center gap-4 p-4 bg-[#0d0d0d] rounded-lg border border-white/5">
 <div class="w-6 h-6 rounded bg-purple-400/80 shrink-0"></div>
 <div>
-<p class="text-white font-semibold text-sm">Negative coefficients (decreases churn)</p>
-<p class="text-slate-500 text-xs">Features like active_products or satisfaction_score that, when increased, reduce predicted churn probability.</p>
+<p class="text-white font-semibold text-sm"><span class="lang-en">Negative coefficients (decreases churn)</span><span class="lang-cn">负系数（降低流失）</span></p>
+<p class="text-slate-500 text-xs"><span class="lang-en">Features like active_products or satisfaction_score that, when increased, reduce predicted churn probability.</span><span class="lang-cn">如active_products或satisfaction_score等特征，增大时会降低预测流失概率。</span></p>
 </div>
 </div>
 </div>
@@ -361,24 +377,24 @@ The &lambda; Parameter: Controlling Model Complexity
 <div>
 <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
 <span class="material-symbols-outlined text-green-400">linear_scale</span>
-Interactive &lambda; Slider
+<span class="lang-en">Interactive &lambda; Slider</span><span class="lang-cn">交互式 &lambda; 滑块</span>
 </h4>
-<p class="text-slate-400 leading-relaxed mb-6">Users adjust the &lambda; slider to observe how the model simplifies in real time. This interaction teaches the bias-variance tradeoff visually:</p>
+<p class="text-slate-400 leading-relaxed mb-6"><span class="lang-en">Users adjust the &lambda; slider to observe how the model simplifies in real time. This interaction teaches the bias-variance tradeoff visually:</span><span class="lang-cn">用户调整&lambda;滑块以实时观察模型如何简化。此交互以可视化方式展示偏差-方差权衡：</span></p>
 <div class="space-y-3">
 <div class="p-4 bg-[#0d0d0d] rounded-lg border border-white/5">
-<p class="text-green-400 font-bold text-sm mb-1">Low &lambda; &rarr; Complex model</p>
-<p class="text-slate-500 text-xs">Most features have non-zero coefficients. The chart shows many bars of varying lengths. The model fits training data closely but may overfit.</p>
+<p class="text-green-400 font-bold text-sm mb-1"><span class="lang-en">Low &lambda; &rarr; Complex model</span><span class="lang-cn">低 &lambda; &rarr; 复杂模型</span></p>
+<p class="text-slate-500 text-xs"><span class="lang-en">Most features have non-zero coefficients. The chart shows many bars of varying lengths. The model fits training data closely but may overfit.</span><span class="lang-cn">大多数特征具有非零系数。图表显示许多不同长度的条形。模型紧密拟合训练数据但可能过拟合。</span></p>
 </div>
 <div class="p-4 bg-[#0d0d0d] rounded-lg border border-green-500/20">
-<p class="text-green-400 font-bold text-sm mb-1">Optimal &lambda; (&lambda;.min) &rarr; Best predictive model</p>
-<p class="text-slate-500 text-xs">The cross-validated optimum. A balanced set of features remain. This is the recommended setting for predictions.</p>
+<p class="text-green-400 font-bold text-sm mb-1"><span class="lang-en">Optimal &lambda; (&lambda;.min) &rarr; Best predictive model</span><span class="lang-cn">最优 &lambda;（&lambda;.min）&rarr; 最佳预测模型</span></p>
+<p class="text-slate-500 text-xs"><span class="lang-en">The cross-validated optimum. A balanced set of features remain. This is the recommended setting for predictions.</span><span class="lang-cn">交叉验证最优值。保留均衡的特征集。这是推荐的预测设置。</span></p>
 </div>
 <div class="p-4 bg-[#0d0d0d] rounded-lg border border-white/5">
-<p class="text-green-400 font-bold text-sm mb-1">High &lambda; &rarr; Sparse model</p>
-<p class="text-slate-500 text-xs">Only the strongest predictors survive. The chart shows just a few bars. Simple and interpretable, but may sacrifice accuracy.</p>
+<p class="text-green-400 font-bold text-sm mb-1"><span class="lang-en">High &lambda; &rarr; Sparse model</span><span class="lang-cn">高 &lambda; &rarr; 稀疏模型</span></p>
+<p class="text-slate-500 text-xs"><span class="lang-en">Only the strongest predictors survive. The chart shows just a few bars. Simple and interpretable, but may sacrifice accuracy.</span><span class="lang-cn">仅最强的预测因子存活。图表仅显示少量条形。简单且可解释，但可能牺牲准确性。</span></p>
 </div>
 </div>
-<p class="text-slate-500 text-sm mt-4">As the user drags the slider from low to high &lambda;, they can watch variables "disappear" one by one &mdash; the last features standing are the ones the model considers most essential for predicting churn.</p>
+<p class="text-slate-500 text-sm mt-4"><span class="lang-en">As the user drags the slider from low to high &lambda;, they can watch variables "disappear" one by one &mdash; the last features standing are the ones the model considers most essential for predicting churn.</span><span class="lang-cn">当用户将滑块从低&lambda;拖向高&lambda;时，可以观察变量逐个"消失"——最后留下的特征就是模型认为对预测流失最重要的特征。</span></p>
 </div>
 </div>
 
@@ -386,9 +402,10 @@ Interactive &lambda; Slider
 <div class="border-l-2 border-green-500/30 pl-6 py-4 bg-[#0d0d0d] rounded-r-xl">
 <h5 class="font-bold text-white mb-3 flex items-center gap-2">
 <span class="material-symbols-outlined text-green-400 text-xl">lightbulb</span>
-Observation 7 &mdash; A small set of features dominates churn prediction
+<span class="lang-en">Observation 7 &mdash; A small set of features dominates churn prediction</span><span class="lang-cn">观察7 &mdash; 少量特征主导流失预测</span>
 </h5>
-<p class="text-slate-400 leading-relaxed">Using a pre-trained Lasso regression model with L1 regularization, the variable importance plot reveals that a relatively small subset of customer attributes accounts for the vast majority of predictive power. As &lambda; increases beyond the optimal value, features like <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">satisfaction_score</code>, <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">ticket_resolution_gap</code>, <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code>, and <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">product_diversity_ratio</code> are the last to be shrunk to zero, indicating that engagement and service quality metrics are more predictive of churn than raw transactional volume or demographic attributes. This insight suggests that retention strategies should focus on the customer experience rather than simply encouraging more transactions.</p>
+<div class="lang-en-block"><p class="text-slate-400 leading-relaxed">Using a pre-trained Lasso regression model with L1 regularization, the variable importance plot reveals that a relatively small subset of customer attributes accounts for the vast majority of predictive power. As &lambda; increases beyond the optimal value, features like <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">satisfaction_score</code>, <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">ticket_resolution_gap</code>, <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code>, and <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">product_diversity_ratio</code> are the last to be shrunk to zero, indicating that engagement and service quality metrics are more predictive of churn than raw transactional volume or demographic attributes. This insight suggests that retention strategies should focus on the customer experience rather than simply encouraging more transactions.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 leading-relaxed">使用带L1正则化的预训练Lasso回归模型，变量重要性图揭示了相对少量的客户属性子集占据了绝大部分预测能力。当&lambda;超过最优值时，<code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">satisfaction_score</code>、<code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">ticket_resolution_gap</code>、<code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">credit_utilization_ratio</code> 和 <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">product_diversity_ratio</code> 是最后被压缩为零的特征，表明参与度和服务质量指标比原始交易量或人口统计属性更能预测流失。这一洞察表明留存策略应聚焦于客户体验而非简单地鼓励更多交易。</p></div>
 </div>
 </div>
 
@@ -396,7 +413,7 @@ Observation 7 &mdash; A small set of features dominates churn prediction
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
 <span class="text-green-400 font-bold text-sm mb-2 block">SECTION 05</span>
 <h3 class="text-3xl font-bold mb-6"><span class="lang-en">What-If Simulator</span><span class="lang-cn">假设模拟器</span></h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-10">The What-If Simulator is the flagship interactive component of Module 3. It transforms the pre-trained glmnet model from a static analytical artifact into a live decision-support tool. Business users can build hypothetical customer profiles, see the predicted churn probability update in real time, and explore which interventions most effectively reduce churn risk &mdash; all without writing a single line of code.</p>
+<p class="text-slate-400 text-lg leading-relaxed mb-10"><span class="lang-en">The What-If Simulator is the flagship interactive component of Module 3. It transforms the pre-trained glmnet model from a static analytical artifact into a live decision-support tool. Business users can build hypothetical customer profiles, see the predicted churn probability update in real time, and explore which interventions most effectively reduce churn risk &mdash; all without writing a single line of code.</span><span class="lang-cn">假设模拟器是模块3的旗舰交互组件。它将预训练的glmnet模型从静态分析产物转化为实时决策支持工具。业务用户可以构建假设的客户画像，实时查看预测流失概率的更新，并探索哪些干预措施最有效地降低流失风险——无需编写任何代码。</span></p>
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
 <!-- Slider Panel -->
@@ -407,7 +424,7 @@ Observation 7 &mdash; A small set of features dominates churn prediction
 </div>
 <h4 class="font-bold text-white"><span class="lang-en">Input Panel</span><span class="lang-cn">输入面板</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">Each customer attribute has its own dedicated slider or input control, organized into logical groups (Transactional, Demographic, Engagement). Users build a hypothetical customer profile by adjusting individual values:</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">Each customer attribute has its own dedicated slider or input control, organized into logical groups (Transactional, Demographic, Engagement). Users build a hypothetical customer profile by adjusting individual values:</span><span class="lang-cn">每个客户属性都有专用的滑块或输入控件，按逻辑分组（交易类、人口统计类、参与度类）。用户通过调整各项数值构建假设的客户画像：</span></p>
 <ul class="space-y-2 text-slate-500 text-sm">
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">tx_count</strong>: 0&ndash;500 (step 10)</span></li>
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">avg_tx_value</strong>: 0&ndash;5,000,000 COP</span></li>
@@ -419,7 +436,7 @@ Observation 7 &mdash; A small set of features dominates churn prediction
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">support_tickets_count</strong>: 0&ndash;20</span></li>
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">resolved_tickets_ratio</strong>: 0.0&ndash;1.0</span></li>
 </ul>
-<p class="text-slate-500 text-xs mt-4">Engineered features (product_diversity_ratio, ticket_resolution_gap, satisfaction_gap) are computed automatically from the slider values.</p>
+<p class="text-slate-500 text-xs mt-4"><span class="lang-en">Engineered features (product_diversity_ratio, ticket_resolution_gap, satisfaction_gap) are computed automatically from the slider values.</span><span class="lang-cn">工程特征（product_diversity_ratio、ticket_resolution_gap、satisfaction_gap）从滑块值自动计算。</span></p>
 </div>
 <!-- Gauge / KPI -->
 <div class="p-6 bg-[#0d0d0d] border border-green-500/20 rounded-xl">
@@ -429,31 +446,31 @@ Observation 7 &mdash; A small set of features dominates churn prediction
 </div>
 <h4 class="font-bold text-white"><span class="lang-en">Prediction Output</span><span class="lang-cn">预测输出</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-6">The predicted churn probability is displayed as a large, real-time gauge visualization that updates instantly as the user adjusts any slider. The gauge uses color-coding to convey risk severity at a glance:</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-6"><span class="lang-en">The predicted churn probability is displayed as a large, real-time gauge visualization that updates instantly as the user adjusts any slider. The gauge uses color-coding to convey risk severity at a glance:</span><span class="lang-cn">预测流失概率以大型实时仪表盘可视化方式显示，用户调整任何滑块时即时更新。仪表盘使用颜色编码一目了然地传达风险严重程度：</span></p>
 <div class="space-y-3">
 <div class="p-3 bg-[#080808] rounded-lg border border-green-500/20">
 <div class="flex items-center justify-between">
-<span class="text-green-400 font-bold text-sm">Low Risk</span>
+<span class="text-green-400 font-bold text-sm"><span class="lang-en">Low Risk</span><span class="lang-cn">低风险</span></span>
 <span class="text-green-400 font-mono text-sm">0% &ndash; 30%</span>
 </div>
-<p class="text-slate-600 text-xs mt-1">Customer is likely to remain active. No immediate intervention needed.</p>
+<p class="text-slate-600 text-xs mt-1"><span class="lang-en">Customer is likely to remain active. No immediate intervention needed.</span><span class="lang-cn">客户可能保持活跃。无需立即干预。</span></p>
 </div>
 <div class="p-3 bg-[#080808] rounded-lg border border-yellow-500/20">
 <div class="flex items-center justify-between">
-<span class="text-yellow-400 font-bold text-sm">Medium Risk</span>
+<span class="text-yellow-400 font-bold text-sm"><span class="lang-en">Medium Risk</span><span class="lang-cn">中风险</span></span>
 <span class="text-yellow-400 font-mono text-sm">30% &ndash; 60%</span>
 </div>
-<p class="text-slate-600 text-xs mt-1">Customer is wavering. Proactive engagement recommended.</p>
+<p class="text-slate-600 text-xs mt-1"><span class="lang-en">Customer is wavering. Proactive engagement recommended.</span><span class="lang-cn">客户正在犹豫。建议主动互动。</span></p>
 </div>
 <div class="p-3 bg-[#080808] rounded-lg border border-red-500/20">
 <div class="flex items-center justify-between">
-<span class="text-red-400 font-bold text-sm">High Risk</span>
+<span class="text-red-400 font-bold text-sm"><span class="lang-en">High Risk</span><span class="lang-cn">高风险</span></span>
 <span class="text-red-400 font-mono text-sm">60% &ndash; 100%</span>
 </div>
-<p class="text-slate-600 text-xs mt-1">Customer is highly likely to churn. Immediate retention action required.</p>
+<p class="text-slate-600 text-xs mt-1"><span class="lang-en">Customer is highly likely to churn. Immediate retention action required.</span><span class="lang-cn">客户极有可能流失。需要立即采取留存措施。</span></p>
 </div>
 </div>
-<p class="text-slate-500 text-xs mt-4">The prediction is computed by calling <code class="text-green-400 bg-green-500/10 px-1 py-0.5 rounded text-xs">predict()</code> on the pre-trained glmnet model object loaded from the .rds file at startup. Response is near-instantaneous since no model fitting occurs at runtime.</p>
+<p class="text-slate-500 text-xs mt-4"><span class="lang-en">The prediction is computed by calling <code class="text-green-400 bg-green-500/10 px-1 py-0.5 rounded text-xs">predict()</code> on the pre-trained glmnet model object loaded from the .rds file at startup. Response is near-instantaneous since no model fitting occurs at runtime.</span><span class="lang-cn">预测通过对启动时从.rds文件加载的预训练glmnet模型对象调用 <code class="text-green-400 bg-green-500/10 px-1 py-0.5 rounded text-xs">predict()</code> 计算。由于运行时不进行模型拟合，响应近乎即时。</span></p>
 </div>
 <!-- Comparison & Recommendations -->
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
@@ -463,15 +480,15 @@ Observation 7 &mdash; A small set of features dominates churn prediction
 </div>
 <h4 class="font-bold text-white"><span class="lang-en">Comparison &amp; Recommendations</span><span class="lang-cn">比较与建议</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">A comparison table displays the current (baseline) customer values alongside the hypothetical What-If values, with the change direction highlighted:</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">A comparison table displays the current (baseline) customer values alongside the hypothetical What-If values, with the change direction highlighted:</span><span class="lang-cn">对比表将当前（基线）客户值与假设的What-If值并列显示，并突出显示变化方向：</span></p>
 <div class="overflow-x-auto mb-6">
 <table class="w-full text-left border-collapse text-xs">
 <thead>
 <tr class="border-b border-white/10">
-<th class="py-2 px-3 text-slate-400 font-semibold">Attribute</th>
-<th class="py-2 px-3 text-slate-400 font-semibold">Current</th>
-<th class="py-2 px-3 text-slate-400 font-semibold">What-If</th>
-<th class="py-2 px-3 text-slate-400 font-semibold">Effect</th>
+<th class="py-2 px-3 text-slate-400 font-semibold"><span class="lang-en">Attribute</span><span class="lang-cn">属性</span></th>
+<th class="py-2 px-3 text-slate-400 font-semibold"><span class="lang-en">Current</span><span class="lang-cn">当前值</span></th>
+<th class="py-2 px-3 text-slate-400 font-semibold"><span class="lang-en">What-If</span><span class="lang-cn">假设值</span></th>
+<th class="py-2 px-3 text-slate-400 font-semibold"><span class="lang-en">Effect</span><span class="lang-cn">效果</span></th>
 </tr>
 </thead>
 <tbody>
@@ -490,11 +507,11 @@ Observation 7 &mdash; A small set of features dominates churn prediction
 </tbody>
 </table>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">Based on the predicted risk level, the system generates <strong class="text-white">risk-based recommendations</strong>:</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-4"><span class="lang-en">Based on the predicted risk level, the system generates <strong class="text-white">risk-based recommendations</strong>:</span><span class="lang-cn">根据预测风险等级，系统生成<strong class="text-white">基于风险的建议</strong>：</span></p>
 <ul class="space-y-2 text-slate-500 text-xs">
-<li class="flex gap-2"><span class="text-red-400 font-bold">High:</span> Escalate to retention team, offer loyalty incentives, resolve open tickets immediately</li>
-<li class="flex gap-2"><span class="text-yellow-400 font-bold">Medium:</span> Schedule proactive check-in, suggest product upgrades, monitor engagement trends</li>
-<li class="flex gap-2"><span class="text-green-400 font-bold">Low:</span> Maintain current service quality, consider upsell opportunities</li>
+<li class="flex gap-2"><span class="text-red-400 font-bold"><span class="lang-en">High:</span><span class="lang-cn">高：</span></span> <span class="lang-en">Escalate to retention team, offer loyalty incentives, resolve open tickets immediately</span><span class="lang-cn">升级至留存团队，提供忠诚度激励，立即解决未结工单</span></li>
+<li class="flex gap-2"><span class="text-yellow-400 font-bold"><span class="lang-en">Medium:</span><span class="lang-cn">中：</span></span> <span class="lang-en">Schedule proactive check-in, suggest product upgrades, monitor engagement trends</span><span class="lang-cn">安排主动回访，建议产品升级，监控参与趋势</span></li>
+<li class="flex gap-2"><span class="text-green-400 font-bold"><span class="lang-en">Low:</span><span class="lang-cn">低：</span></span> <span class="lang-en">Maintain current service quality, consider upsell opportunities</span><span class="lang-cn">保持当前服务质量，考虑追加销售机会</span></li>
 </ul>
 </div>
 </div>
@@ -503,9 +520,10 @@ Observation 7 &mdash; A small set of features dominates churn prediction
 <div class="border-l-2 border-green-500/30 pl-6 py-4 bg-[#0d0d0d] rounded-r-xl">
 <h5 class="font-bold text-white mb-3 flex items-center gap-2">
 <span class="material-symbols-outlined text-green-400 text-xl">lightbulb</span>
-Observation 8 &mdash; Changing specific customer attributes meaningfully shifts predicted churn risk
+<span class="lang-en">Observation 8 &mdash; Changing specific customer attributes meaningfully shifts predicted churn risk</span><span class="lang-cn">观察8 &mdash; 改变特定客户属性可显著改变预测流失风险</span>
 </h5>
-<p class="text-slate-400 leading-relaxed">The What-If Simulator demonstrates that churn probability is not a fixed fate &mdash; it responds meaningfully to changes in specific, actionable customer attributes. For example, increasing a customer's <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">active_products</code> from 1 to 3 may reduce predicted churn probability by 15&ndash;20 percentage points, while resolving outstanding support tickets (improving <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">resolved_tickets_ratio</code> from 0.4 to 0.9) can reduce churn risk by a similar magnitude. These simulations translate the statistical model into concrete, <strong class="text-white">actionable business strategies</strong>: product cross-selling, support queue prioritization, and satisfaction recovery programs each have quantifiable expected impacts on retention.</p>
+<div class="lang-en-block"><p class="text-slate-400 leading-relaxed">The What-If Simulator demonstrates that churn probability is not a fixed fate &mdash; it responds meaningfully to changes in specific, actionable customer attributes. For example, increasing a customer's <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">active_products</code> from 1 to 3 may reduce predicted churn probability by 15&ndash;20 percentage points, while resolving outstanding support tickets (improving <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">resolved_tickets_ratio</code> from 0.4 to 0.9) can reduce churn risk by a similar magnitude. These simulations translate the statistical model into concrete, <strong class="text-white">actionable business strategies</strong>: product cross-selling, support queue prioritization, and satisfaction recovery programs each have quantifiable expected impacts on retention.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 leading-relaxed">假设模拟器表明流失概率并非固定命运——它对特定可操作客户属性的变化会产生有意义的响应。例如，将客户的 <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">active_products</code> 从1增加到3可能将预测流失概率降低15&ndash;20个百分点，而解决未处理的工单（将 <code class="text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded text-xs">resolved_tickets_ratio</code> 从0.4提高到0.9）可以降低类似幅度的流失风险。这些模拟将统计模型转化为具体的<strong class="text-white">可操作商业策略</strong>：产品交叉销售、工单队列优先级排序和满意度恢复计划均对留存具有可量化的预期影响。</p></div>
 </div>
 </div>
 
@@ -513,7 +531,7 @@ Observation 8 &mdash; Changing specific customer attributes meaningfully shifts 
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
 <span class="text-green-400 font-bold text-sm mb-2 block">SECTION 06</span>
 <h3 class="text-3xl font-bold mb-6"><span class="lang-en">Model Performance</span><span class="lang-cn">模型性能</span></h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-10">Before trusting the model's predictions, we validate its performance using standard regression diagnostics. These visualizations and metrics are displayed in the Shiny app to give users confidence in the prediction quality and transparency into the model's limitations.</p>
+<p class="text-slate-400 text-lg leading-relaxed mb-10"><span class="lang-en">Before trusting the model's predictions, we validate its performance using standard regression diagnostics. These visualizations and metrics are displayed in the Shiny app to give users confidence in the prediction quality and transparency into the model's limitations.</span><span class="lang-cn">在信任模型预测之前，我们使用标准回归诊断验证其性能。这些可视化和指标显示在Shiny应用中，让用户对预测质量充满信心并了解模型的局限性。</span></p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
 <!-- CV Performance -->
@@ -524,12 +542,18 @@ Observation 8 &mdash; Changing specific customer attributes meaningfully shifts 
 </div>
 <h4 class="font-bold text-white"><span class="lang-en">Cross-Validation Performance</span><span class="lang-cn">交叉验证性能</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">The CV performance plot displays <strong class="text-white">&lambda; vs. Mean Squared Error (MSE)</strong> across the 10-fold cross-validation. Two critical &lambda; values are marked with vertical dashed lines:</p>
+<div class="lang-en-block"><p class="text-slate-400 text-sm leading-relaxed mb-4">The CV performance plot displays <strong class="text-white">&lambda; vs. Mean Squared Error (MSE)</strong> across the 10-fold cross-validation. Two critical &lambda; values are marked with vertical dashed lines:</p>
 <ul class="space-y-2 text-slate-500 text-sm">
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">&lambda;.min</strong> &mdash; The &lambda; that achieves the lowest cross-validated MSE. This is the model with the best predictive accuracy.</span></li>
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">&lambda;.1se</strong> &mdash; The largest &lambda; within one standard error of the minimum. This yields a sparser, more parsimonious model with slightly higher error but better interpretability.</span></li>
 </ul>
-<p class="text-slate-500 text-xs mt-4">The curve typically shows a U-shape: error decreases as &lambda; increases from zero (reducing overfitting), hits a minimum, then rises again (underfitting). The flat region between &lambda;.min and &lambda;.1se indicates that the model is robust to the exact &lambda; choice within this range.</p>
+<p class="text-slate-500 text-xs mt-4">The curve typically shows a U-shape: error decreases as &lambda; increases from zero (reducing overfitting), hits a minimum, then rises again (underfitting). The flat region between &lambda;.min and &lambda;.1se indicates that the model is robust to the exact &lambda; choice within this range.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-sm leading-relaxed mb-4">交叉验证性能图显示10折交叉验证中的<strong class="text-white">&lambda;与均方误差（MSE）</strong>关系。两个关键&lambda;值用垂直虚线标记：</p>
+<ul class="space-y-2 text-slate-500 text-sm">
+<li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">&lambda;.min</strong> &mdash; 达到最低交叉验证MSE的&lambda;。这是预测精度最佳的模型。</span></li>
+<li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">&lambda;.1se</strong> &mdash; 在最小值一个标准误差范围内的最大&lambda;。产生更稀疏、更简约的模型，误差略高但可解释性更好。</span></li>
+</ul>
+<p class="text-slate-500 text-xs mt-4">曲线通常呈U形：随着&lambda;从零增大误差先减小（减少过拟合），达到最小值后再上升（欠拟合）。&lambda;.min和&lambda;.1se之间的平坦区域表明模型对该范围内的确切&lambda;选择具有鲁棒性。</p></div>
 </div>
 <!-- Predicted vs Actual -->
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
@@ -539,12 +563,18 @@ Observation 8 &mdash; Changing specific customer attributes meaningfully shifts 
 </div>
 <h4 class="font-bold text-white"><span class="lang-en">Predicted vs. Actual (Calibration)</span><span class="lang-cn">预测值与实际值（校准）</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">The calibration scatter plot compares the model's predicted churn probabilities (x-axis) against the actual observed churn probabilities (y-axis) for each customer. A well-calibrated model produces points that cluster tightly around the <strong class="text-white">45-degree diagonal line</strong>.</p>
+<div class="lang-en-block"><p class="text-slate-400 text-sm leading-relaxed mb-4">The calibration scatter plot compares the model's predicted churn probabilities (x-axis) against the actual observed churn probabilities (y-axis) for each customer. A well-calibrated model produces points that cluster tightly around the <strong class="text-white">45-degree diagonal line</strong>.</p>
 <ul class="space-y-2 text-slate-500 text-sm">
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span>Points above the line indicate <strong class="text-slate-300">underestimation</strong> &mdash; the model predicts lower churn than actual.</span></li>
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span>Points below the line indicate <strong class="text-slate-300">overestimation</strong> &mdash; the model predicts higher churn than actual.</span></li>
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span>Systematic deviations at the extremes (very low or very high churn) reveal calibration issues that may require model refinement.</span></li>
-</ul>
+</ul></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-sm leading-relaxed mb-4">校准散点图比较模型的预测流失概率（x轴）与每位客户的实际观察流失概率（y轴）。校准良好的模型产生紧密聚集在<strong class="text-white">45度对角线</strong>周围的点。</p>
+<ul class="space-y-2 text-slate-500 text-sm">
+<li class="flex gap-2"><span class="text-green-400">&bull;</span><span>线上方的点表示<strong class="text-slate-300">低估</strong>——模型预测的流失率低于实际。</span></li>
+<li class="flex gap-2"><span class="text-green-400">&bull;</span><span>线下方的点表示<strong class="text-slate-300">高估</strong>——模型预测的流失率高于实际。</span></li>
+<li class="flex gap-2"><span class="text-green-400">&bull;</span><span>在极端值（极低或极高流失率）处的系统性偏差揭示可能需要模型优化的校准问题。</span></li>
+</ul></div>
 </div>
 <!-- Residual Distribution -->
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
@@ -554,13 +584,20 @@ Observation 8 &mdash; Changing specific customer attributes meaningfully shifts 
 </div>
 <h4 class="font-bold text-white"><span class="lang-en">Residual Distribution</span><span class="lang-cn">残差分布</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-4">A histogram of residuals (actual &minus; predicted) assesses whether the model's errors are well-behaved. For a good regression model, residuals should be:</p>
+<div class="lang-en-block"><p class="text-slate-400 text-sm leading-relaxed mb-4">A histogram of residuals (actual &minus; predicted) assesses whether the model's errors are well-behaved. For a good regression model, residuals should be:</p>
 <ul class="space-y-2 text-slate-500 text-sm">
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">Centered at zero</strong> &mdash; The model does not systematically over- or under-predict.</span></li>
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">Approximately normal</strong> &mdash; Most errors are small, with few large errors in either direction.</span></li>
 <li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">Symmetric</strong> &mdash; Errors are equally distributed above and below zero, with no heavy tails.</span></li>
 </ul>
-<p class="text-slate-500 text-xs mt-4">Skewed or heavy-tailed residuals would suggest that the linear model assumption is violated and alternative approaches (e.g., quantile regression or non-linear models) should be considered.</p>
+<p class="text-slate-500 text-xs mt-4">Skewed or heavy-tailed residuals would suggest that the linear model assumption is violated and alternative approaches (e.g., quantile regression or non-linear models) should be considered.</p></div>
+<div class="lang-cn-block"><p class="text-slate-400 text-sm leading-relaxed mb-4">残差（实际值 &minus; 预测值）直方图评估模型误差是否表现良好。对于一个好的回归模型，残差应该：</p>
+<ul class="space-y-2 text-slate-500 text-sm">
+<li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">以零为中心</strong> &mdash; 模型不会系统性地高估或低估。</span></li>
+<li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">近似正态</strong> &mdash; 大多数误差较小，两个方向的大误差很少。</span></li>
+<li class="flex gap-2"><span class="text-green-400">&bull;</span><span><strong class="text-slate-300">对称</strong> &mdash; 误差均匀分布在零的上下两侧，无重尾。</span></li>
+</ul>
+<p class="text-slate-500 text-xs mt-4">偏斜或重尾残差表明线性模型假设被违反，应考虑替代方法（如分位数回归或非线性模型）。</p></div>
 </div>
 <!-- Key Metrics -->
 <div class="p-6 bg-[#0d0d0d] border border-green-500/20 rounded-xl">
@@ -570,21 +607,21 @@ Observation 8 &mdash; Changing specific customer attributes meaningfully shifts 
 </div>
 <h4 class="font-bold text-white"><span class="lang-en">Key Performance Metrics</span><span class="lang-cn">关键性能指标</span></h4>
 </div>
-<p class="text-slate-400 text-sm leading-relaxed mb-6">Two summary metrics quantify overall model quality:</p>
+<p class="text-slate-400 text-sm leading-relaxed mb-6"><span class="lang-en">Two summary metrics quantify overall model quality:</span><span class="lang-cn">两个汇总指标量化整体模型质量：</span></p>
 <div class="space-y-4">
 <div class="p-4 bg-[#080808] rounded-lg border border-white/5">
 <div class="flex items-center justify-between mb-2">
 <span class="text-green-400 font-bold text-lg">R&sup2;</span>
-<span class="text-slate-500 text-xs">Coefficient of Determination</span>
+<span class="text-slate-500 text-xs"><span class="lang-en">Coefficient of Determination</span><span class="lang-cn">判定系数</span></span>
 </div>
-<p class="text-slate-500 text-xs leading-relaxed">Proportion of variance in churn_probability explained by the model. An R&sup2; of 0.75 means the model captures 75% of the variation, leaving 25% unexplained. Higher is better, but values above 0.95 on real-world data may suggest data leakage.</p>
+<p class="text-slate-500 text-xs leading-relaxed"><span class="lang-en">Proportion of variance in churn_probability explained by the model. An R&sup2; of 0.75 means the model captures 75% of the variation, leaving 25% unexplained. Higher is better, but values above 0.95 on real-world data may suggest data leakage.</span><span class="lang-cn">模型解释的churn_probability方差比例。R&sup2;为0.75意味着模型捕获了75%的变异，25%未解释。越高越好，但在真实数据上超过0.95可能暗示数据泄漏。</span></p>
 </div>
 <div class="p-4 bg-[#080808] rounded-lg border border-white/5">
 <div class="flex items-center justify-between mb-2">
 <span class="text-green-400 font-bold text-lg">RMSE</span>
-<span class="text-slate-500 text-xs">Root Mean Squared Error</span>
+<span class="text-slate-500 text-xs"><span class="lang-en">Root Mean Squared Error</span><span class="lang-cn">均方根误差</span></span>
 </div>
-<p class="text-slate-500 text-xs leading-relaxed">Average prediction error in the same units as churn_probability (0&ndash;1 scale). An RMSE of 0.08 means predictions are off by about 8 percentage points on average. Lower is better. Compared against the standard deviation of churn_probability as a baseline.</p>
+<p class="text-slate-500 text-xs leading-relaxed"><span class="lang-en">Average prediction error in the same units as churn_probability (0&ndash;1 scale). An RMSE of 0.08 means predictions are off by about 8 percentage points on average. Lower is better. Compared against the standard deviation of churn_probability as a baseline.</span><span class="lang-cn">与churn_probability相同单位（0&ndash;1范围）的平均预测误差。RMSE为0.08意味着预测平均偏差约8个百分点。越低越好。以churn_probability的标准差作为基线进行比较。</span></p>
 </div>
 </div>
 </div>
