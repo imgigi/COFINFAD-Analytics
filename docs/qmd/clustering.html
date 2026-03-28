@@ -119,11 +119,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
 <span class="lang-en">Methodology</span><span class="lang-cn">方法论</span> <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
-<div class="dropdown-menu hidden absolute left-0 mt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
+<div class="dropdown-menu hidden absolute left-0 top-full pt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
 <a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.html"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
 <a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.html"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
 <a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.html"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
 <a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="prediction.html"><span class="lang-en">Prediction</span><span class="lang-cn">预测模型</span></a>
+</div>
 </div>
 </div>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
@@ -136,8 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
 </div>
 </div>
-</div>
-</nav>
+</nav></div>
+
 
 <!-- ==================== MAIN CONTENT ==================== -->
 <main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8"><header id="title-block-header" class="quarto-title-block"><h1 class="title">Clustering - COFINFAD Analytics</h1></header>
@@ -790,7 +791,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 </footer>
-</div>
+
 
 
 
