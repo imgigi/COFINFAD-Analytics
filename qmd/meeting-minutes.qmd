@@ -83,26 +83,26 @@ document.addEventListener('DOMContentLoaded', function() {
 <nav class="sticky top-0 z-50 w-full border-b border-[#1f1f1f] bg-[#080808]/90 backdrop-blur-md">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between h-20 items-center">
-<a href="homepage.qmd" class="flex items-center gap-2 no-underline">
+<a href="homepage.html" class="flex items-center gap-2 no-underline">
 <span class="material-symbols-outlined text-primary text-3xl">analytics</span>
 <span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
 </a>
 <div class="hidden md:flex items-center gap-6">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="proposal.qmd"><span class="lang-en">Proposal</span><span class="lang-cn">项目提案</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="proposal.html"><span class="lang-en">Proposal</span><span class="lang-cn">项目提案</span></a>
 <div class="relative dropdown group">
 <button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
 <span class="lang-en">Methodology</span><span class="lang-cn">方法论</span> <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
 <div class="dropdown-menu hidden absolute left-0 mt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
-<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.qmd"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
-<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.qmd"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
-<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.qmd"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
-<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="prediction.qmd"><span class="lang-en">Prediction</span><span class="lang-cn">预测模型</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.html"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.html"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.html"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="prediction.html"><span class="lang-en">Prediction</span><span class="lang-cn">预测模型</span></a>
 </div>
 </div>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="findings.qmd"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.qmd"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
-<a class="text-sm font-medium text-primary transition-colors" href="meeting-minutes.qmd"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
+<a class="text-sm font-medium text-primary transition-colors" href="meeting-minutes.html"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.qmd#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
