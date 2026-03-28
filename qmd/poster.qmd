@@ -116,8 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="relative z-10 max-w-3xl">
 <span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">PROJECT POSTER</span><span class="lang-cn">项目海报</span></span>
 <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight"><span class="lang-en">COFINFAD Analytics Poster</span><span class="lang-cn">COFINFAD 分析项目海报</span></h1>
-<p class="text-xl md:text-2xl text-slate-300 font-medium mb-4">Visual summary of our fintech analytics project</p>
-<p class="text-slate-500 text-base mt-6">Team 13</p>
+<p class="text-xl md:text-2xl text-slate-300 font-medium mb-4"><span class="lang-en">Visual summary of our fintech analytics project</span><span class="lang-cn">金融科技分析项目的可视化摘要</span></p>
+<p class="text-slate-500 text-base mt-6"><span class="lang-en">Team 13</span><span class="lang-cn">第13组</span></p>
 </div>
 </section>
 
@@ -131,37 +131,37 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="w-full max-w-2xl mx-auto" style="aspect-ratio: 3/4;">
 <div class="w-full h-full bg-[#0d0d0d] rounded-xl border border-white/10 flex flex-col items-center justify-center gap-4">
 <span class="material-symbols-outlined text-slate-600 text-7xl">image</span>
-<p class="text-slate-500 text-lg font-medium">Poster will be uploaded soon</p>
+<p class="text-slate-500 text-lg font-medium"><span class="lang-en">Poster will be uploaded soon</span><span class="lang-cn">海报即将上传</span></p>
 </div>
 </div>
-<p class="text-slate-600 text-sm mt-4">Recommended poster dimensions: A1 (594 &times; 841 mm) &bull; Format: PDF / PNG</p>
+<p class="text-slate-600 text-sm mt-4"><span class="lang-en">Recommended poster dimensions: A1 (594 &times; 841 mm) &bull; Format: PDF / PNG</span><span class="lang-cn">建议海报尺寸：A1 (594 &times; 841 mm) &bull; 格式：PDF / PNG</span></p>
 </div>
 
 <!-- Poster Overview -->
 <div class="mt-12 pt-10 border-t border-white/5">
-<span class="text-primary font-bold text-sm mb-2 block">OVERVIEW</span>
-<h3 class="text-3xl font-bold mb-6">What the Poster Covers</h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-8">Our poster provides a concise visual summary of the COFINFAD Analytics project, distilling key insights into a single-page format for presentation and review.</p>
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">OVERVIEW</span><span class="lang-cn">概述</span></span>
+<h3 class="text-3xl font-bold mb-6"><span class="lang-en">What the Poster Covers</span><span class="lang-cn">海报涵盖内容</span></h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-8"><span class="lang-en">Our poster provides a concise visual summary of the COFINFAD Analytics project, distilling key insights into a single-page format for presentation and review.</span><span class="lang-cn">我们的海报以简洁的可视化形式总结了 COFINFAD 分析项目，将关键洞察浓缩为单页格式，便于展示和评审。</span></p>
 <ul class="space-y-4 text-slate-400 text-lg">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span>Background &amp; motivation</span>
+<span><span class="lang-en">Background &amp; motivation</span><span class="lang-cn">背景与动机</span></span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span>Data &amp; methodology overview</span>
+<span><span class="lang-en">Data &amp; methodology overview</span><span class="lang-cn">数据与方法论概述</span></span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span>Key findings from all 3 modules</span>
+<span><span class="lang-en">Key findings from all 3 modules</span><span class="lang-cn">三个模块的关键发现</span></span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span>Business recommendations</span>
+<span><span class="lang-en">Business recommendations</span><span class="lang-cn">商业建议</span></span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span>Future directions</span>
+<span><span class="lang-en">Future directions</span><span class="lang-cn">未来方向</span></span>
 </li>
 </ul>
 </div>
@@ -170,11 +170,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="flex flex-wrap justify-center gap-4 mt-12 pt-10 border-t border-white/5">
 <a href="#" download class="flex items-center gap-4 px-12 py-5 bg-primary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
 <span class="material-symbols-outlined">download</span>
-DOWNLOAD POSTER (PDF)
+<span class="lang-en">DOWNLOAD POSTER (PDF)</span><span class="lang-cn">下载海报 (PDF)</span>
 </a>
 <a href="#" class="flex items-center gap-4 px-12 py-5 border-2 border-white/10 text-slate-300 rounded-2xl font-bold text-lg hover:border-primary/50 hover:text-primary hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
 <span class="material-symbols-outlined">open_in_full</span>
-VIEW FULL SIZE
+<span class="lang-en">VIEW FULL SIZE</span><span class="lang-cn">查看原图</span>
 </a>
 </div>
 
@@ -195,7 +195,7 @@ VIEW FULL SIZE
 <span class="font-bold text-xl">COFINFAD Analytics</span>
 </div>
 
-<p class="text-sm text-slate-600">&copy; 2026 COFINFAD Analytics. All rights reserved.</p>
+<p class="text-sm text-slate-600"><span class="lang-en">&copy; 2026 COFINFAD Analytics. All rights reserved.</span><span class="lang-cn">&copy; 2026 COFINFAD Analytics. 保留所有权利。</span></p>
 </div>
 </div>
 </footer>
