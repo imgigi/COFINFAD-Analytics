@@ -56,7 +56,28 @@ format:
   th, td { border: none !important; }
   tr.odd, tr.even { background: transparent !important; }
   tr.header { background: transparent !important; }
+  .lang-cn { display: none; }
+  body.cn .lang-cn { display: inline; }
+  body.cn .lang-en { display: none; }
+  body.cn .lang-cn-block { display: block; }
+  body.cn .lang-en-block { display: none; }
+  .lang-cn-block { display: none; }
 </style>
+<script>
+function toggleLang() {
+  document.body.classList.toggle('cn');
+  const btn = document.getElementById('lang-btn');
+  btn.textContent = document.body.classList.contains('cn') ? 'EN' : '中文';
+  localStorage.setItem('lang', document.body.classList.contains('cn') ? 'cn' : 'en');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('lang') === 'cn') {
+    document.body.classList.add('cn');
+    var btn = document.getElementById('lang-btn');
+    if (btn) btn.textContent = 'EN';
+  }
+});
+</script>
 <div class="bg-[#080808] font-display text-slate-100 min-h-screen">
 <nav class="sticky top-0 z-50 w-full border-b border-[#1f1f1f] bg-[#080808]/90 backdrop-blur-md">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,25 +87,26 @@ format:
 <span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
 </a>
 <div class="hidden md:flex items-center gap-6">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="proposal.qmd">Proposal</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="proposal.qmd"><span class="lang-en">Proposal</span><span class="lang-cn">项目提案</span></a>
 <div class="relative dropdown group">
 <button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
-                        Methodology <span class="material-symbols-outlined text-sm">expand_more</span>
+                        <span class="lang-en">Methodology</span><span class="lang-cn">方法论</span> <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
 <div class="dropdown-menu hidden absolute left-0 mt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
-<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Data Preparation</a>
-<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Exploratory Analysis</a>
-<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Clustering</a>
-<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="#">Prediction</a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.qmd"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.qmd"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.qmd"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="prediction.qmd"><span class="lang-en">Prediction</span><span class="lang-cn">预测模型</span></a>
 </div>
 </div>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Findings</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Poster</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Meeting Minutes</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Team</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="findings.qmd"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.qmd"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="meeting-minutes.qmd"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.qmd#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
-<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline">Shiny App</a>
+<button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
+<a href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
 <button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
 </button>
@@ -97,10 +119,12 @@ format:
 <section class="relative mb-16 rounded-2xl overflow-hidden bg-[#0d0d0d] p-12 md:p-24 flex flex-col items-center text-center border border-white/5">
 <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
 <div class="relative z-10 max-w-3xl">
-<span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8">PROJECT PROPOSAL</span>
-<h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight">Democratizing Fintech Analytics</h1>
-<p class="text-xl md:text-2xl text-slate-300 font-medium mb-4">A Visual Analytics Approach to Customer Lifecycle and Transactional Behavior in Colombia</p>
-<p class="text-slate-500 text-base mt-6">Team 13 &mdash; Ji Guofang &nbsp;|&nbsp; Lin Yan &nbsp;|&nbsp; Nguyen Trong Nhan</p>
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">PROJECT PROPOSAL</span><span class="lang-cn">项目提案</span></span>
+<h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight lang-en-block">Democratizing Fintech Analytics</h1>
+<h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight lang-cn-block">普惠金融科技分析</h1>
+<p class="text-xl md:text-2xl text-slate-300 font-medium mb-4 lang-en-block">A Visual Analytics Approach to Customer Lifecycle and Transactional Behavior in Colombia</p>
+<p class="text-xl md:text-2xl text-slate-300 font-medium mb-4 lang-cn-block">基于可视化分析的哥伦比亚客户生命周期与交易行为研究</p>
+<p class="text-slate-500 text-base mt-6"><span class="lang-en">Team 13</span><span class="lang-cn">第13组</span> &mdash; Ji Guofang &nbsp;|&nbsp; Lin Yan &nbsp;|&nbsp; Nguyen Trong Nhan</p>
 </div>
 </section>
 
@@ -108,19 +132,26 @@ format:
 
 <!-- 01. Motivation -->
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
-<span class="text-primary font-bold text-sm mb-2 block">SECTION 01</span>
-<h3 class="text-3xl font-bold mb-8">Motivation</h3>
-<div class="space-y-6 text-slate-400 text-lg leading-relaxed ">
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">SECTION 01</span><span class="lang-cn">第一节</span></span>
+<h3 class="text-3xl font-bold mb-8 lang-en-block">Motivation</h3>
+<h3 class="text-3xl font-bold mb-8 lang-cn-block">研究动机</h3>
+<div class="space-y-6 text-slate-400 text-lg leading-relaxed lang-en-block">
 <p>Colombia's fintech sector has grown rapidly, with digital financial services expanding across diverse demographic segments and regions with varying levels of financial inclusion. For fintech operators, the ability to understand who their customers are, how they transact, and when they are likely to leave is critical for sustaining growth. Yet for many non-technical business users, the analytical tools to answer these questions remain locked behind programming expertise and complex statistical software.</p>
 <p>This project addresses that gap. Using the Colombian Fintech Financial Analytics Dataset (COFINFAD), we will build an interactive R Shiny application that transforms raw financial data into accessible, visual business intelligence. The application is designed around a single analytical thread: understanding what drives customer churn by examining transactional behavior, identifying behavioral segments, and modeling churn risk &mdash; all within a unified, interactive environment that requires no coding from the end user.</p>
+</div>
+<div class="space-y-6 text-slate-400 text-lg leading-relaxed lang-cn-block">
+<p>哥伦比亚的金融科技行业发展迅速，数字金融服务正在不同人口群体和金融包容性程度各异的地区快速扩展。对于金融科技运营商而言，了解客户是谁、如何交易以及何时可能流失，对维持增长至关重要。然而，对于许多非技术型业务用户来说，回答这些问题的分析工具仍然被编程专业知识和复杂的统计软件所限制。</p>
+<p>本项目旨在解决这一问题。我们将使用哥伦比亚金融科技金融分析数据集（COFINFAD），构建一个交互式R Shiny应用程序，将原始金融数据转化为直观、可视化的商业智能。该应用程序围绕一条统一的分析主线设计：通过检查交易行为、识别行为细分以及建模流失风险来理解驱动客户流失的因素——所有这些都在一个统一的交互式环境中完成，终端用户无需编写任何代码。</p>
 </div>
 </div>
 
 <!-- 02. Objectives -->
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
-<span class="text-primary font-bold text-sm mb-2 block">SECTION 02</span>
-<h3 class="text-3xl font-bold mb-6">Objectives</h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-10">The project follows a coherent analytical narrative: we first explore <strong class="text-white">what</strong> is happening in the data (Module 1: EDA &amp; CDA), then ask <strong class="text-white">why</strong> by grouping customers into behavioral segments (Module 2: Clustering), and finally predict <strong class="text-white">what will happen</strong> by modeling churn probability (Module 3: Predictive Modeling). The eight key observations below are deliberately sequenced along this narrative arc.</p>
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">SECTION 02</span><span class="lang-cn">第二节</span></span>
+<h3 class="text-3xl font-bold mb-6 lang-en-block">Objectives</h3>
+<h3 class="text-3xl font-bold mb-6 lang-cn-block">研究目标</h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-10 lang-en-block">The project follows a coherent analytical narrative: we first explore <strong class="text-white">what</strong> is happening in the data (Module 1: EDA &amp; CDA), then ask <strong class="text-white">why</strong> by grouping customers into behavioral segments (Module 2: Clustering), and finally predict <strong class="text-white">what will happen</strong> by modeling churn probability (Module 3: Predictive Modeling). The eight key observations below are deliberately sequenced along this narrative arc.</p>
+<p class="text-slate-400 text-lg leading-relaxed mb-10 lang-cn-block">本项目遵循连贯的分析叙事：我们首先探索数据中<strong class="text-white">正在发生什么</strong>（模块1：探索性与验证性数据分析），然后通过将客户分组为行为细分来追问<strong class="text-white">为什么</strong>（模块2：聚类分析），最后通过建模流失概率来预测<strong class="text-white">将会发生什么</strong>（模块3：预测建模）。以下八个关键观察按照此叙事弧线刻意排列。</p>
 
 <!-- Module 1 -->
 <div class="mb-10">
@@ -128,20 +159,23 @@ format:
 <div class="size-10 shrink-0 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
 <span class="material-symbols-outlined text-xl">query_stats</span>
 </div>
-<h4 class="text-xl font-bold text-white">Module 1: Exploratory &amp; Confirmatory Data Analysis</h4>
+<h4 class="text-xl font-bold text-white"><span class="lang-en">Module 1: Exploratory &amp; Confirmatory Data Analysis</span><span class="lang-cn">模块1：探索性与验证性数据分析</span></h4>
 </div>
 <div class="space-y-6 pl-[52px]">
 <div class="border-l-2 border-blue-500/30 pl-6">
-<h5 class="font-bold text-white mb-2">Observation 1 &mdash; Seasonal transaction volume patterns differ by transaction type</h5>
-<p class="text-slate-400 leading-relaxed">By plotting monthly total transaction amounts as interactive line charts, faceted or color-coded by type (Transfer, Withdrawal, Payment, Deposit), we expect to uncover distinct seasonal peaks. For example, Transfers may spike at year-end while Deposits may be steadier. This gives analysts a first look at when financial activity concentrates and which channels drive volume.</p>
+<h5 class="font-bold text-white mb-2"><span class="lang-en">Observation 1 &mdash; Seasonal transaction volume patterns differ by transaction type</span><span class="lang-cn">观察1 &mdash; 季节性交易量模式因交易类型而异</span></h5>
+<p class="text-slate-400 leading-relaxed lang-en-block">By plotting monthly total transaction amounts as interactive line charts, faceted or color-coded by type (Transfer, Withdrawal, Payment, Deposit), we expect to uncover distinct seasonal peaks. For example, Transfers may spike at year-end while Deposits may be steadier. This gives analysts a first look at when financial activity concentrates and which channels drive volume.</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block">通过绘制按类型（转账、取款、支付、存款）分面或颜色编码的月度交易总额交互式折线图，我们预计将发现不同的季节性峰值。例如，转账可能在年末激增，而存款可能更为稳定。这为分析师提供了金融活动集中时间和驱动交易量渠道的初步视角。</p>
 </div>
 <div class="border-l-2 border-blue-500/30 pl-6">
-<h5 class="font-bold text-white mb-2">Observation 2 &mdash; Transaction behavior varies significantly across income brackets and acquisition channels</h5>
-<p class="text-slate-400 leading-relaxed">Using ANOVA and Welch's T-tests on the mean transaction value (avg_tx_value) grouped by income_bracket (Low, Medium, High, Very High) and acquisition_channel (Organic, Referral, Paid Ad, Partnership), we will test whether observed differences are statistically significant. The Shiny app will display interactive box plots alongside p-value summaries, enabling users to select any grouping variable and dependent variable for confirmatory testing.</p>
+<h5 class="font-bold text-white mb-2"><span class="lang-en">Observation 2 &mdash; Transaction behavior varies significantly across income brackets and acquisition channels</span><span class="lang-cn">观察2 &mdash; 交易行为在不同收入等级和获客渠道间存在显著差异</span></h5>
+<p class="text-slate-400 leading-relaxed lang-en-block">Using ANOVA and Welch's T-tests on the mean transaction value (avg_tx_value) grouped by income_bracket (Low, Medium, High, Very High) and acquisition_channel (Organic, Referral, Paid Ad, Partnership), we will test whether observed differences are statistically significant. The Shiny app will display interactive box plots alongside p-value summaries, enabling users to select any grouping variable and dependent variable for confirmatory testing.</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block">使用ANOVA和Welch t检验对按收入等级（低、中、高、非常高）和获客渠道（自然、推荐、付费广告、合作伙伴）分组的平均交易值（avg_tx_value）进行检验，我们将测试观察到的差异是否具有统计学显著性。Shiny应用将显示交互式箱线图和p值摘要，用户可选择任意分组变量和因变量进行验证性检验。</p>
 </div>
 <div class="border-l-2 border-blue-500/30 pl-6">
-<h5 class="font-bold text-white mb-2">Observation 3 &mdash; Customer demographics cluster geographically across Colombian regions</h5>
-<p class="text-slate-400 leading-relaxed">A choropleth map of the 15 Colombian departments in the dataset will visualize spatial distributions of customer counts, average income bracket, and average churn probability. This helps analysts identify regions where the fintech service is over- or under-penetrated and where churn risk is geographically concentrated.</p>
+<h5 class="font-bold text-white mb-2"><span class="lang-en">Observation 3 &mdash; Customer demographics cluster geographically across Colombian regions</span><span class="lang-cn">观察3 &mdash; 客户人口统计特征在哥伦比亚各地区呈地理聚集</span></h5>
+<p class="text-slate-400 leading-relaxed lang-en-block">A choropleth map of the 15 Colombian departments in the dataset will visualize spatial distributions of customer counts, average income bracket, and average churn probability. This helps analysts identify regions where the fintech service is over- or under-penetrated and where churn risk is geographically concentrated.</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block">数据集中15个哥伦比亚省份的分级统计地图将可视化客户数量、平均收入等级和平均流失概率的空间分布。这有助于分析师识别金融科技服务渗透过度或不足的地区，以及流失风险在地理上集中的区域。</p>
 </div>
 </div>
 </div>
@@ -152,20 +186,23 @@ format:
 <div class="size-10 shrink-0 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center border border-purple-500/20">
 <span class="material-symbols-outlined text-xl">hub</span>
 </div>
-<h4 class="text-xl font-bold text-white">Module 2: Customer Behavior Clustering</h4>
+<h4 class="text-xl font-bold text-white"><span class="lang-en">Module 2: Customer Behavior Clustering</span><span class="lang-cn">模块2：客户行为聚类分析</span></h4>
 </div>
 <div class="space-y-6 pl-[52px]">
 <div class="border-l-2 border-purple-500/30 pl-6">
-<h5 class="font-bold text-white mb-2">Observation 4 &mdash; Customers form distinct behavioral segments based on transactional metrics</h5>
-<p class="text-slate-400 leading-relaxed">Using pre-computed customer-level features (tx_count, avg_tx_value, total_tx_volume, weekend_transaction_ratio, customer_tenure, credit_utilization_ratio), we will perform cluster analysis to segment the 48,723 customers. The key segmentation variables are chosen to capture the Recency-Frequency-Monetary (RFM) dimensions plus behavioral volatility.</p>
+<h5 class="font-bold text-white mb-2"><span class="lang-en">Observation 4 &mdash; Customers form distinct behavioral segments based on transactional metrics</span><span class="lang-cn">观察4 &mdash; 客户基于交易指标形成不同的行为细分</span></h5>
+<p class="text-slate-400 leading-relaxed lang-en-block">Using pre-computed customer-level features (tx_count, avg_tx_value, total_tx_volume, weekend_transaction_ratio, customer_tenure, credit_utilization_ratio), we will perform cluster analysis to segment the 48,723 customers. The key segmentation variables are chosen to capture the Recency-Frequency-Monetary (RFM) dimensions plus behavioral volatility.</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block">使用预计算的客户级特征（tx_count、avg_tx_value、total_tx_volume、weekend_transaction_ratio、customer_tenure、credit_utilization_ratio），我们将对48,723名客户进行聚类分析。关键的细分变量被选择以捕获近度-频率-货币价值（RFM）维度以及行为波动性。</p>
 </div>
 <div class="border-l-2 border-purple-500/30 pl-6">
-<h5 class="font-bold text-white mb-2">Observation 5 &mdash; The optimal number of clusters can be determined visually</h5>
-<p class="text-slate-400 leading-relaxed">The Shiny app will display an elbow plot (within-cluster sum of squares vs. k) and a silhouette plot to help users select the appropriate number of clusters. These diagnostic plots will update dynamically as users adjust the feature inputs.</p>
+<h5 class="font-bold text-white mb-2"><span class="lang-en">Observation 5 &mdash; The optimal number of clusters can be determined visually</span><span class="lang-cn">观察5 &mdash; 最佳聚类数可通过可视化确定</span></h5>
+<p class="text-slate-400 leading-relaxed lang-en-block">The Shiny app will display an elbow plot (within-cluster sum of squares vs. k) and a silhouette plot to help users select the appropriate number of clusters. These diagnostic plots will update dynamically as users adjust the feature inputs.</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block">Shiny应用将显示肘部图（簇内平方和与k的关系）和轮廓图，帮助用户选择合适的聚类数量。这些诊断图将随着用户调整特征输入而动态更新。</p>
 </div>
 <div class="border-l-2 border-purple-500/30 pl-6">
-<h5 class="font-bold text-white mb-2">Observation 6 &mdash; Cluster membership correlates with demographic and product characteristics</h5>
-<p class="text-slate-400 leading-relaxed">Once clusters are formed, linked bar charts will show the demographic composition (income_bracket, acquisition_channel, clv_segment) of each cluster. PCA scatter plots color-coded by cluster will reveal separation in the reduced feature space. This cross-referencing allows analysts to build intuitive profiles: for example, &ldquo;Cluster 2 is dominated by high-income, low-frequency users acquired through partnerships.&rdquo;</p>
+<h5 class="font-bold text-white mb-2"><span class="lang-en">Observation 6 &mdash; Cluster membership correlates with demographic and product characteristics</span><span class="lang-cn">观察6 &mdash; 聚类成员与人口统计和产品特征相关</span></h5>
+<p class="text-slate-400 leading-relaxed lang-en-block">Once clusters are formed, linked bar charts will show the demographic composition (income_bracket, acquisition_channel, clv_segment) of each cluster. PCA scatter plots color-coded by cluster will reveal separation in the reduced feature space. This cross-referencing allows analysts to build intuitive profiles: for example, &ldquo;Cluster 2 is dominated by high-income, low-frequency users acquired through partnerships.&rdquo;</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block">聚类形成后，关联柱状图将展示每个聚类的人口统计构成（income_bracket、acquisition_channel、clv_segment）。按聚类颜色编码的PCA散点图将揭示降维特征空间中的分离情况。这种交叉引用使分析师能够建立直观的画像：例如，"聚类2以通过合作伙伴获取的高收入、低频率用户为主"。</p>
 </div>
 </div>
 </div>
@@ -176,16 +213,18 @@ format:
 <div class="size-10 shrink-0 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20">
 <span class="material-symbols-outlined text-xl">psychology</span>
 </div>
-<h4 class="text-xl font-bold text-white">Module 3: Churn Prediction &amp; What-If Simulation</h4>
+<h4 class="text-xl font-bold text-white"><span class="lang-en">Module 3: Churn Prediction &amp; What-If Simulation</span><span class="lang-cn">模块3：流失预测与假设模拟</span></h4>
 </div>
 <div class="space-y-6 pl-[52px]">
 <div class="border-l-2 border-green-500/30 pl-6">
-<h5 class="font-bold text-white mb-2">Observation 7 &mdash; A small set of features dominates churn prediction</h5>
-<p class="text-slate-400 leading-relaxed">Using a pre-trained logistic regression model with Lasso (L1) regularization, the app will display a variable importance plot showing which features most strongly predict churn_probability. Users can adjust the regularization penalty (&lambda;) via a slider to see how the model progressively drops less important variables, providing an intuitive understanding of feature relevance.</p>
+<h5 class="font-bold text-white mb-2"><span class="lang-en">Observation 7 &mdash; A small set of features dominates churn prediction</span><span class="lang-cn">观察7 &mdash; 少数特征主导流失预测</span></h5>
+<p class="text-slate-400 leading-relaxed lang-en-block">Using a pre-trained logistic regression model with Lasso (L1) regularization, the app will display a variable importance plot showing which features most strongly predict churn_probability. Users can adjust the regularization penalty (&lambda;) via a slider to see how the model progressively drops less important variables, providing an intuitive understanding of feature relevance.</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block">使用带有Lasso（L1）正则化的预训练逻辑回归模型，应用将显示变量重要性图，展示哪些特征最强烈地预测churn_probability。用户可以通过滑块调整正则化惩罚（&lambda;）来观察模型如何逐步丢弃不太重要的变量，从而直观地理解特征相关性。</p>
 </div>
 <div class="border-l-2 border-green-500/30 pl-6">
-<h5 class="font-bold text-white mb-2">Observation 8 &mdash; Changing specific customer attributes meaningfully shifts predicted churn risk</h5>
-<p class="text-slate-400 leading-relaxed">A What-If simulator panel will allow users to input hypothetical customer profiles (e.g., adjusting tx_count, avg_tx_value, customer_tenure, credit_utilization_ratio) and see the predicted churn probability update in real time. This enables business users to answer questions like: &ldquo;If we increase a customer's active_products from 1 to 3, how much does their churn risk drop?&rdquo;</p>
+<h5 class="font-bold text-white mb-2"><span class="lang-en">Observation 8 &mdash; Changing specific customer attributes meaningfully shifts predicted churn risk</span><span class="lang-cn">观察8 &mdash; 改变特定客户属性会显著影响预测的流失风险</span></h5>
+<p class="text-slate-400 leading-relaxed lang-en-block">A What-If simulator panel will allow users to input hypothetical customer profiles (e.g., adjusting tx_count, avg_tx_value, customer_tenure, credit_utilization_ratio) and see the predicted churn probability update in real time. This enables business users to answer questions like: &ldquo;If we increase a customer's active_products from 1 to 3, how much does their churn risk drop?&rdquo;</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block">假设模拟面板将允许用户输入假设的客户画像（例如调整tx_count、avg_tx_value、customer_tenure、credit_utilization_ratio），并实时查看预测的流失概率更新。这使业务用户能够回答诸如"如果我们将客户的active_products从1增加到3，他们的流失风险会下降多少？"之类的问题。</p>
 </div>
 </div>
 </div>
@@ -193,9 +232,11 @@ format:
 
 <!-- 03. Data -->
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
-<span class="text-primary font-bold text-sm mb-2 block">SECTION 03</span>
-<h3 class="text-3xl font-bold mb-8">Data</h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-8">The project uses the Colombian Fintech Financial Analytics Dataset (COFINFAD), consisting of two relational tables linked by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">customer_id</code>:</p>
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">SECTION 03</span><span class="lang-cn">第三节</span></span>
+<h3 class="text-3xl font-bold mb-8 lang-en-block">Data</h3>
+<h3 class="text-3xl font-bold mb-8 lang-cn-block">数据</h3>
+<p class="text-slate-400 text-lg leading-relaxed mb-8 lang-en-block">The project uses the Colombian Fintech Financial Analytics Dataset (COFINFAD), consisting of two relational tables linked by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">customer_id</code>:</p>
+<p class="text-slate-400 text-lg leading-relaxed mb-8 lang-cn-block">本项目使用哥伦比亚金融科技金融分析数据集（COFINFAD），由两个通过<code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">customer_id</code>关联的关系表组成：</p>
 
 <!-- Data Tables -->
 <div class="overflow-x-auto mb-10">
@@ -226,8 +267,10 @@ format:
 </div>
 
 <!-- 3.1 Aggregation -->
-<h4 class="text-xl font-bold text-white mb-4">3.1 Why the Transaction Log Needs Aggregation</h4>
-<p class="text-slate-400 leading-relaxed mb-6">The raw transaction log contains 3.15 million rows. Loading this directly into a Shiny application is not feasible for interactive use &mdash; every user interaction (filtering, plotting) would require processing millions of rows, resulting in response times of several seconds or more. Therefore, we aggregate the transaction log into two derived tables during data preparation:</p>
+<h4 class="text-xl font-bold text-white mb-4 lang-en-block">3.1 Why the Transaction Log Needs Aggregation</h4>
+<h4 class="text-xl font-bold text-white mb-4 lang-cn-block">3.1 为什么交易日志需要聚合</h4>
+<p class="text-slate-400 leading-relaxed mb-6 lang-en-block">The raw transaction log contains 3.15 million rows. Loading this directly into a Shiny application is not feasible for interactive use &mdash; every user interaction (filtering, plotting) would require processing millions of rows, resulting in response times of several seconds or more. Therefore, we aggregate the transaction log into two derived tables during data preparation:</p>
+<p class="text-slate-400 leading-relaxed mb-6 lang-cn-block">原始交易日志包含315万行数据。将其直接加载到Shiny应用程序中对于交互式使用是不可行的——每次用户交互（过滤、绘图）都需要处理数百万行，导致响应时间长达数秒或更多。因此，我们在数据准备过程中将交易日志聚合为两个衍生表：</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl">
@@ -249,14 +292,17 @@ format:
 </div>
 
 <!-- 3.2 Cleaning -->
-<h4 class="text-xl font-bold text-white mb-4">3.2 Data Cleaning and Imputation</h4>
-<p class="text-slate-400 leading-relaxed">The <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">credit_utilization_ratio</code> column has 37.5% missing values (18,263 of 48,723 records). We will handle this with median imputation grouped by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">income_bracket</code>, since credit utilization patterns likely differ across income levels. All cleaning steps will be documented on the project website with analytical rationale, not just code.</p>
+<h4 class="text-xl font-bold text-white mb-4 lang-en-block">3.2 Data Cleaning and Imputation</h4>
+<h4 class="text-xl font-bold text-white mb-4 lang-cn-block">3.2 数据清洗与插补</h4>
+<p class="text-slate-400 leading-relaxed lang-en-block">The <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">credit_utilization_ratio</code> column has 37.5% missing values (18,263 of 48,723 records). We will handle this with median imputation grouped by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">income_bracket</code>, since credit utilization patterns likely differ across income levels. All cleaning steps will be documented on the project website with analytical rationale, not just code.</p>
+<p class="text-slate-400 leading-relaxed lang-cn-block"><code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">credit_utilization_ratio</code>列有37.5%的缺失值（48,723条记录中有18,263条）。我们将使用按<code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">income_bracket</code>分组的中位数插补来处理，因为信用利用率模式可能因收入水平而异。所有清洗步骤将在项目网站上记录分析理由，而不仅仅是代码。</p>
 </div>
 
 <!-- 04. Methodology -->
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
-<span class="text-primary font-bold text-sm mb-2 block">SECTION 04</span>
-<h3 class="text-3xl font-bold mb-8">Methodology</h3>
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">SECTION 04</span><span class="lang-cn">第四节</span></span>
+<h3 class="text-3xl font-bold mb-8 lang-en-block">Methodology</h3>
+<h3 class="text-3xl font-bold mb-8 lang-cn-block">方法论</h3>
 
 <!-- Methodology Flowchart -->
 <div class="my-10 flex justify-center">
@@ -266,7 +312,7 @@ format:
 <!-- 4.1 Module 1 -->
 <div class="mb-12">
 <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-<span class="text-blue-400">4.1</span> Module 1: Exploratory &amp; Confirmatory Data Analysis
+<span class="text-blue-400">4.1</span> <span class="lang-en">Module 1: Exploratory &amp; Confirmatory Data Analysis</span><span class="lang-cn">模块1：探索性与验证性数据分析</span>
 </h4>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -292,7 +338,7 @@ format:
 <!-- 4.2 Module 2 -->
 <div class="mb-12">
 <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-<span class="text-purple-400">4.2</span> Module 2: Customer Behavior Clustering
+<span class="text-purple-400">4.2</span> <span class="lang-en">Module 2: Customer Behavior Clustering</span><span class="lang-cn">模块2：客户行为聚类分析</span>
 </h4>
 
 <div class="p-6 bg-[#0d0d0d] border border-white/5 rounded-xl mb-8">
@@ -337,7 +383,7 @@ format:
 <!-- 4.3 Module 3 -->
 <div>
 <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-<span class="text-green-400">4.3</span> Module 3: Churn Prediction &amp; What-If Simulation
+<span class="text-green-400">4.3</span> <span class="lang-en">Module 3: Churn Prediction &amp; What-If Simulation</span><span class="lang-cn">模块3：流失预测与假设模拟</span>
 </h4>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
@@ -389,14 +435,16 @@ format:
 
 <!-- 05. Prototype Sketches -->
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
-<span class="text-primary font-bold text-sm mb-2 block">SECTION 05</span>
-<h3 class="text-3xl font-bold mb-6">Prototype Sketches</h3>
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">SECTION 05</span><span class="lang-cn">第五节</span></span>
+<h3 class="text-3xl font-bold mb-6 lang-en-block">Prototype Sketches</h3>
+<h3 class="text-3xl font-bold mb-6 lang-cn-block">原型草图</h3>
 
 <!-- Application Architecture Overview -->
-<p class="text-slate-400 text-lg leading-relaxed mb-6">The COFINFAD Shiny application is built with a <strong class="text-white">navbar-based multi-page layout</strong> powered by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">bslib</code>. Each module occupies its own tab within a top-level navigation bar, and every tab follows a consistent <strong class="text-white">sidebar + main panel</strong> pattern — the sidebar provides analytics calibration controls (filters, sliders, dropdowns) while the main panel displays responsive output panels. All heavy computation is done offline; the app only loads pre-processed data and pre-trained models.</p>
+<p class="text-slate-400 text-lg leading-relaxed mb-6 lang-en-block">The COFINFAD Shiny application is built with a <strong class="text-white">navbar-based multi-page layout</strong> powered by <code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">bslib</code>. Each module occupies its own tab within a top-level navigation bar, and every tab follows a consistent <strong class="text-white">sidebar + main panel</strong> pattern — the sidebar provides analytics calibration controls (filters, sliders, dropdowns) while the main panel displays responsive output panels. All heavy computation is done offline; the app only loads pre-processed data and pre-trained models.</p>
+<p class="text-slate-400 text-lg leading-relaxed mb-6 lang-cn-block">COFINFAD Shiny应用程序采用由<code class="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-sm">bslib</code>驱动的<strong class="text-white">基于导航栏的多页面布局</strong>。每个模块占据顶级导航栏中的独立标签页，每个标签页遵循一致的<strong class="text-white">侧边栏 + 主面板</strong>模式——侧边栏提供分析校准控件（过滤器、滑块、下拉菜单），主面板显示响应式输出面板。所有繁重计算均离线完成；应用仅加载预处理数据和预训练模型。</p>
 
 <!-- Shiny Layouts & Components -->
-<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">dashboard</span> 5.1 Shiny Layouts &amp; Components</h4>
+<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">dashboard</span> <span class="lang-en">5.1 Shiny Layouts &amp; Components</span><span class="lang-cn">5.1 Shiny布局与组件</span></h4>
 
 <div class="space-y-8 mb-10">
 
@@ -435,8 +483,9 @@ format:
 </div>
 
 <!-- Wireframe Sketches -->
-<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">draw</span> 5.2 Wireframe Sketches</h4>
-<p class="text-slate-400 text-sm mb-6">Each wireframe shows the sidebar calibration controls on the left and the output panels on the right, illustrating how users interact with the analytics.</p>
+<h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">draw</span> <span class="lang-en">5.2 Wireframe Sketches</span><span class="lang-cn">5.2 线框草图</span></h4>
+<p class="text-slate-400 text-sm mb-6 lang-en-block">Each wireframe shows the sidebar calibration controls on the left and the output panels on the right, illustrating how users interact with the analytics.</p>
+<p class="text-slate-400 text-sm mb-6 lang-cn-block">每个线框图在左侧展示侧边栏校准控件，在右侧展示输出面板，说明用户如何与分析功能交互。</p>
 
 <!-- Module 1 Wireframe -->
 <div class="my-8">
@@ -498,7 +547,7 @@ format:
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 <!-- Inputs -->
 <div>
-<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">tune</span> 5.3 Inputs (Calibration Controls)</h4>
+<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">tune</span> <span class="lang-en">5.3 Inputs (Calibration Controls)</span><span class="lang-cn">5.3 输入（校准控件）</span></h4>
 
 <div class="space-y-6">
 <div class="p-5 bg-[#0d0d0d] border border-white/5 rounded-xl">
@@ -541,7 +590,7 @@ format:
 
 <!-- Outputs -->
 <div>
-<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">monitor</span> 5.4 Outputs</h4>
+<h4 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary">monitor</span> <span class="lang-en">5.4 Outputs</span><span class="lang-cn">5.4 输出</span></h4>
 
 <div class="space-y-6">
 <div class="p-5 bg-[#0d0d0d] border border-blue-500/10 rounded-xl">
@@ -578,8 +627,9 @@ format:
 
 <!-- 06. R Packages -->
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
-<span class="text-primary font-bold text-sm mb-2 block">SECTION 06</span>
-<h3 class="text-3xl font-bold mb-8">R Packages</h3>
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">SECTION 06</span><span class="lang-cn">第六节</span></span>
+<h3 class="text-3xl font-bold mb-8 lang-en-block">R Packages</h3>
+<h3 class="text-3xl font-bold mb-8 lang-cn-block">R语言包</h3>
 <div class="overflow-x-auto">
 <table class="w-full text-left border-collapse">
 <thead>
@@ -632,9 +682,11 @@ format:
 
 <!-- 07. Project Schedule -->
 <div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
-<span class="text-primary font-bold text-sm mb-2 block">SECTION 07</span>
-<h3 class="text-3xl font-bold mb-6">Project Schedule</h3>
-<p class="text-slate-400 leading-relaxed mb-10">Each team member is responsible for one module in Take-home Exercise 2, then all members collaborate to integrate the modules into the unified Shiny application. Minutes of meeting are documented within 24 hours of every session.</p>
+<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">SECTION 07</span><span class="lang-cn">第七节</span></span>
+<h3 class="text-3xl font-bold mb-6 lang-en-block">Project Schedule</h3>
+<h3 class="text-3xl font-bold mb-6 lang-cn-block">项目进度</h3>
+<p class="text-slate-400 leading-relaxed mb-10 lang-en-block">Each team member is responsible for one module in Take-home Exercise 2, then all members collaborate to integrate the modules into the unified Shiny application. Minutes of meeting are documented within 24 hours of every session.</p>
+<p class="text-slate-400 leading-relaxed mb-10 lang-cn-block">每位团队成员负责课后练习2中的一个模块，然后所有成员协作将各模块整合到统一的Shiny应用程序中。每次会议记录在会后24小时内完成。</p>
 
 <div class="relative border-l border-white/10 ml-6 space-y-10">
 <!-- Phase 1 -->
@@ -706,7 +758,7 @@ format:
 </div>
 <!-- Gantt Chart -->
 <div class="mt-16">
-<h4 class="text-xl font-bold text-white mb-8">Gantt Chart</h4>
+<h4 class="text-xl font-bold text-white mb-8"><span class="lang-en">Gantt Chart</span><span class="lang-cn">甘特图</span></h4>
 <div class="overflow-x-auto">
 <table class="w-full text-sm">
 <thead>
@@ -813,7 +865,7 @@ format:
 <div class="flex justify-center py-20">
 <a href="Project_Proposal_Team13_v2.docx" download class="flex items-center gap-4 px-12 py-5 bg-primary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
 <span class="material-symbols-outlined">download</span>
-DOWNLOAD FULL PROPOSAL (DOCX)
+<span class="lang-en">DOWNLOAD FULL PROPOSAL (DOCX)</span><span class="lang-cn">下载完整提案（DOCX）</span>
 </a>
 </div>
 
@@ -832,7 +884,7 @@ DOWNLOAD FULL PROPOSAL (DOCX)
 <span class="font-bold text-xl">COFINFAD Analytics</span>
 </div>
 
-<p class="text-sm text-slate-600">&copy; 2026 COFINFAD Analytics. All rights reserved.</p>
+<p class="text-sm text-slate-600"><span class="lang-en">&copy; 2026 COFINFAD Analytics. All rights reserved.</span><span class="lang-cn">&copy; 2026 COFINFAD Analytics. 版权所有。</span></p>
 </div>
 </div>
 </footer>

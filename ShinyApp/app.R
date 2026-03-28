@@ -601,6 +601,68 @@ ui <- page_navbar(
       )
     ),
 
+    # How to Use Guide
+    tags$div(
+      style = paste0(
+        "background:", BG_CARD, ";border:1px solid ", BORDER,
+        ";border-radius:14px;padding:28px 32px;margin-bottom:20px;"
+      ),
+      tags$div(
+        style = paste0("font-size:0.72rem;font-weight:700;",
+                       "letter-spacing:0.1em;text-transform:uppercase;",
+                       "color:", ACCENT4, ";margin-bottom:16px;"),
+        "HOW TO USE THIS APP"
+      ),
+      tags$div(
+        style = "display:flex;gap:24px;flex-wrap:wrap;",
+        lapply(
+          list(
+            list(num = "1", icon = "chart-line", col = ACCENT,
+                 title = "Explore",
+                 desc = paste0("Start with the Exploratory Analysis tab. ",
+                               "Filter by date range, transaction types, and ",
+                               "income brackets. Run ANOVA or T-tests to ",
+                               "validate patterns.")),
+            list(num = "2", icon = "object-group", col = ACCENT2,
+                 title = "Segment",
+                 desc = paste0("Move to Customer Segmentation. Choose a feature ",
+                               "preset and algorithm, then adjust k to discover ",
+                               "natural customer groups with PCA visualization.")),
+            list(num = "3", icon = "brain", col = ACCENT3,
+                 title = "Predict",
+                 desc = paste0("Use Churn Prediction to identify risk drivers. ",
+                               "Adjust the What-If sliders to simulate ",
+                               "interventions and see churn probability change ",
+                               "in real time."))
+          ),
+          function(item) {
+            tags$div(
+              style = "flex:1;min-width:200px;",
+              tags$div(
+                style = "display:flex;align-items:center;gap:10px;margin-bottom:10px;",
+                tags$div(
+                  style = paste0(
+                    "width:32px;height:32px;border-radius:8px;flex-shrink:0;",
+                    "background:", item$col, "18;border:1px solid ",
+                    item$col, "30;display:flex;align-items:center;",
+                    "justify-content:center;font-weight:800;font-size:0.85rem;",
+                    "color:", item$col, ";"),
+                  item$num),
+                tags$span(
+                  style = paste0("font-weight:700;font-size:0.95rem;color:",
+                                 TEXT_MAIN, ";"),
+                  item$title)
+              ),
+              tags$p(
+                style = paste0("color:", TEXT_DIM,
+                               ";font-size:0.82rem;line-height:1.7;margin:0;"),
+                item$desc)
+            )
+          }
+        )
+      )
+    ),
+
     # Module Cards
     layout_columns(
       col_widths = c(4, 4, 4),
@@ -1019,7 +1081,7 @@ ui <- page_navbar(
             type = 8, color = ACCENT))
         ),
         card(
-          card_header("Colombian Department Overview"),
+          card_header("Colombian Department Overview \u2014 All Data"),
           card_body(
             if (has_spatial) {
               withSpinner(leafletOutput("eda_map", height = "320px"),
@@ -1055,7 +1117,7 @@ ui <- page_navbar(
       layout_columns(
         col_widths = c(6, 6),
         card(
-          card_header("Correlation Matrix (Key Variables)"),
+          card_header("Correlation Matrix \u2014 All Data"),
           card_body(withSpinner(
             plotlyOutput("eda_corr", height = "420px"),
             type = 8, color = ACCENT))
@@ -1136,9 +1198,11 @@ ui <- page_navbar(
           card_body(
             navset_tab(
               nav_panel("Elbow",
-                        plotOutput("cl_elbow", height = "160px")),
+                        withSpinner(plotlyOutput("cl_elbow", height = "220px"),
+                                    type = 8, color = ACCENT)),
               nav_panel("Silhouette",
-                        plotOutput("cl_silhouette", height = "160px"))
+                        withSpinner(plotlyOutput("cl_silhouette", height = "220px"),
+                                    type = 8, color = ACCENT))
             )
           )
         )
@@ -1545,6 +1609,8 @@ server <- function(input, output, session) {
     } else {
       # Welch's T-test
       req(input$eda_group1, input$eda_group2)
+      validate(need(input$eda_group1 != input$eda_group2,
+                    "Please select two different groups for comparison."))
       g1 <- input$eda_group1
       g2 <- input$eda_group2
       d1 <- d$value[d$group == g1]
@@ -1626,8 +1692,6 @@ server <- function(input, output, session) {
       x = V1, y = V2, fill = r,
       text = paste0(V1, " vs ", V2, "\nr = ", round(r, 2)))) +
       geom_tile(color = BG_DARK, linewidth = 0.5) +
-      geom_text(aes(label = round(r, 2)), size = 2.3,
-                color = TEXT_MAIN) +
       scale_fill_gradient2(low = "#a855f7", mid = BG_CARD,
                            high = "#f97316",
                            midpoint = 0, limits = c(-1, 1)) +
@@ -1742,7 +1806,8 @@ server <- function(input, output, session) {
   # Custom cluster result (runs live on button click)
   cl_custom <- eventReactive(input$cluster_go, {
     vars <- input$cluster_vars
-    req(length(vars) >= 2)
+    validate(need(length(vars) >= 2,
+                  "Please select at least 2 features for clustering."))
 
     withProgress(message = "Running clustering...", value = 0.05, {
       raw  <- cluster_pre$raw_features
@@ -1876,42 +1941,49 @@ server <- function(input, output, session) {
     ggplotly(p, tooltip = c("text", "x", "y")) %>% plotly_dark()
   })
 
-  # Elbow plot
-  output$cl_elbow <- renderPlot({
+  # Elbow plot (ggplot2 + plotly)
+  output$cl_elbow <- renderPlotly({
     r <- cl_result(); req(r)
     actual_k <- length(unique(r$cm$cluster))
-    par(bg = "transparent", fg = TEXT_DIM, col.axis = TEXT_DIM,
-        col.lab = TEXT_MAIN, col.main = TEXT_MAIN,
-        mar = c(4, 4, 1, 1))
-    plot(2:8, r$wss, type = "b", pch = 19, col = ACCENT,
-         lwd = 2, cex = 1.1, xlab = "Number of Clusters (k)",
-         ylab = "Within-Cluster Sum of Squares")
-    abline(v = actual_k, col = ACCENT3, lty = 2, lwd = 2)
-    text(actual_k + 0.35, max(r$wss) * 0.93,
-         paste0("k = ", actual_k), col = ACCENT3, cex = 0.9, font = 2)
+    d <- data.frame(k = 2:8, wss = r$wss)
+    p <- ggplot(d, aes(x = k, y = wss)) +
+      geom_line(color = ACCENT, linewidth = 1.1) +
+      geom_point(color = ACCENT, size = 3) +
+      geom_vline(xintercept = actual_k, color = ACCENT3,
+                 linetype = "dashed", linewidth = 0.8) +
+      annotate("text", x = actual_k + 0.35, y = max(r$wss) * 0.93,
+               label = paste0("k = ", actual_k),
+               color = ACCENT3, size = 3.5, fontface = "bold") +
+      scale_x_continuous(breaks = 2:8) +
+      labs(x = "Number of Clusters (k)",
+           y = "Within-Cluster SS") +
+      theme_dark_dash(base_size = 11)
+    ggplotly(p, tooltip = c("x", "y")) %>% plotly_dark()
   })
 
-  # Silhouette plot
-  output$cl_silhouette <- renderPlot({
+  # Silhouette plot (ggplot2 + plotly)
+  output$cl_silhouette <- renderPlotly({
     r <- cl_result(); req(r)
     best_k <- which.max(r$sil) + 1
-    par(bg = "transparent", fg = TEXT_DIM, col.axis = TEXT_DIM,
-        col.lab = TEXT_MAIN, col.main = TEXT_MAIN,
-        mar = c(4, 4, 1, 1))
-    plot(2:8, r$sil, type = "b", pch = 19, col = ACCENT2,
-         lwd = 2, cex = 1.1, xlab = "k",
-         ylab = "Avg Silhouette Width",
-         ylim = c(0, max(r$sil) * 1.15))
     actual_k <- length(unique(r$cm$cluster))
-    abline(v = actual_k, col = ACCENT3, lty = 2, lwd = 2)
-    abline(v = best_k, col = ACCENT2, lty = 3, lwd = 1.5)
-    text(actual_k + 0.35, max(r$sil) * 1.05,
-         paste0("k = ", actual_k), col = ACCENT3,
-         cex = 0.85, font = 2)
-    legend("topright",
-           legend = paste0("Optimal: k=", best_k),
-           col = ACCENT2, lty = 3, lwd = 1.5, bty = "n",
-           cex = 0.8, text.col = ACCENT2)
+    d <- data.frame(k = 2:8, sil = r$sil)
+    p <- ggplot(d, aes(x = k, y = sil)) +
+      geom_line(color = ACCENT2, linewidth = 1.1) +
+      geom_point(color = ACCENT2, size = 3) +
+      geom_vline(xintercept = actual_k, color = ACCENT3,
+                 linetype = "dashed", linewidth = 0.8) +
+      geom_vline(xintercept = best_k, color = ACCENT2,
+                 linetype = "dotted", linewidth = 0.7) +
+      annotate("text", x = actual_k + 0.35, y = max(r$sil) * 1.05,
+               label = paste0("k = ", actual_k),
+               color = ACCENT3, size = 3.5, fontface = "bold") +
+      annotate("text", x = best_k - 0.35, y = min(r$sil) * 0.95,
+               label = paste0("Optimal: k=", best_k),
+               color = ACCENT2, size = 3, hjust = 1) +
+      scale_x_continuous(breaks = 2:8) +
+      labs(x = "k", y = "Avg Silhouette Width") +
+      theme_dark_dash(base_size = 11)
+    ggplotly(p, tooltip = c("x", "y")) %>% plotly_dark()
   })
 
   # Cluster profile bar chart
@@ -1928,6 +2000,7 @@ server <- function(input, output, session) {
     p <- ggplot(ml, aes(
       x = dn, y = sv, fill = cluster,
       text = paste0("Cluster ", cluster, " | ", dn,
+                    "\nRaw Mean: ", round(val, 2),
                     "\nNormalized: ", round(sv, 2)))) +
       geom_col(position = "dodge", alpha = 0.85, width = 0.7) +
       scale_fill_manual(values = cluster_pal) +
@@ -1966,8 +2039,23 @@ server <- function(input, output, session) {
     sizes <- r$cm$count
     total <- sum(sizes)
     small <- which(sizes < total * 0.02)
+    warnings <- tagList()
+
+    # Large-sample approximation notice for hierarchical clustering
+    if (input$cluster_method == "hclust" && total > 10000) {
+      warnings <- tagList(warnings, tags$div(
+        style = paste0("background:", ACCENT4, "22;border:1px solid ", ACCENT4,
+                       ";border-radius:6px;padding:8px 12px;margin-bottom:10px;",
+                       "font-size:0.82rem;color:", ACCENT4, ";"),
+        tags$strong("\u2139 Large Sample Mode: "),
+        paste0("Hierarchical clustering was run on a 10,000-row sample ",
+               "and remaining points were assigned via nearest centroid. ",
+               "Results are approximate.")
+      ))
+    }
+
     if (length(small) > 0) {
-      tags$div(
+      warnings <- tagList(warnings, tags$div(
         style = paste0("background:#fb718533;border:1px solid #fb7185;",
                        "border-radius:6px;padding:8px 12px;margin-bottom:10px;",
                        "font-size:0.82rem;color:#fb7185;"),
@@ -1977,8 +2065,9 @@ server <- function(input, output, session) {
                paste(sizes[small], collapse = ", "),
                "). Consider reducing k or using a different algorithm ",
                "for more balanced segmentation.")
-      )
+      ))
     }
+    if (length(warnings) > 0) warnings else NULL
   })
 
   # Cluster table
