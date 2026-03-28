@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
                         <span class="lang-en">Methodology</span><span class="lang-cn">方法论</span> <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
-<div class="dropdown-menu hidden absolute left-0 top-full pt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
+<div class="dropdown-menu hidden absolute left-0 top-full pt-2 w-56"><div class="bg-card-dark border border-border-dark rounded-lg shadow-xl overflow-hidden">
 <a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.html"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
 <a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.html"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
 <a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.html"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
 <a class="text-sm font-medium text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="meeting-minutes.html"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.qmd#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.html#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
 <a href="https://guofang1028.shinyapps.io/ShinyApp/" target="_blank" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
