@@ -1,0 +1,406 @@
+---
+format:
+  typst:
+    output-file: COFINFAD_Poster.pdf
+    template-partials:
+      - typst-show.typ
+      - typst-template.typ
+---
+
+```{=typst}
+#set page(
+  width: 841mm,
+  height: 594mm,
+  margin: (x: 20mm, y: 16mm),
+  fill: rgb("#0b1a33"),
+)
+#set text(font: "Arial", fill: rgb("#c8d6e5"), size: 11pt)
+#set par(leading: 0.6em)
+
+// Colors
+#let orange = rgb("#f97316")
+#let dark-bg = rgb("#0d1f3c")
+#let card-bg = rgb("#0f2240")
+#let card-border = rgb("#1a3355")
+#let light-text = rgb("#f0f4f8")
+#let dim-text = rgb("#7a9cc6")
+#let white = rgb("#ffffff")
+
+// Helpers
+#let section-title(title) = {
+  text(fill: orange, weight: "bold", size: 12pt, tracking: 1.5pt)[#upper(title)]
+  v(2pt)
+  line(length: 100%, stroke: 0.8pt + orange.lighten(60%))
+  v(6pt)
+}
+
+#let kpi-box(value, label) = {
+  rect(
+    fill: orange.lighten(85%).transparentize(70%),
+    stroke: 0.8pt + orange.lighten(60%).transparentize(50%),
+    radius: 6pt,
+    width: 100%,
+    inset: (x: 8pt, y: 6pt),
+  )[
+    #align(center)[
+      #text(fill: orange, weight: "black", size: 18pt)[#value]\
+      #text(fill: dim-text, size: 7pt, tracking: 0.5pt)[#upper(label)]
+    ]
+  ]
+}
+
+#let module-tag(num) = {
+  rect(fill: orange, radius: 3pt, inset: (x: 6pt, y: 2pt))[
+    #text(fill: white, weight: "bold", size: 7.5pt)[MODULE #num]
+  ]
+}
+
+#let finding-dot = {
+  place(dx: 0pt, dy: 3pt, circle(radius: 3pt, fill: orange))
+  h(12pt)
+}
+
+#let rec-num(n) = {
+  rect(fill: orange, radius: 3pt, inset: (x: 5pt, y: 1pt))[
+    #text(fill: white, weight: "bold", size: 7.5pt)[#n]
+  ]
+}
+
+#let segment-card(name, pct, desc, color) = {
+  rect(
+    fill: color.lighten(85%).transparentize(75%),
+    radius: 5pt,
+    width: 100%,
+    inset: (x: 10pt, y: 6pt),
+    stroke: (left: 3pt + color, rest: none),
+  )[
+    #grid(columns: (1fr, auto), gutter: 4pt,
+      text(fill: color, weight: "bold", size: 10pt)[#name],
+      text(fill: dim-text, size: 8pt)[#pct],
+    )
+    #v(2pt)
+    #text(size: 9pt)[#desc]
+  ]
+}
+
+#let tech-tag(name) = {
+  rect(
+    fill: orange.lighten(85%).transparentize(70%),
+    radius: 3pt,
+    inset: (x: 6pt, y: 2pt),
+  )[#text(fill: orange, weight: "bold", size: 8pt)[#name]]
+}
+
+#let step-item(num, title, desc) = {
+  grid(columns: (auto, auto, 1fr), gutter: 6pt, align: horizon,
+    rect(fill: orange, radius: 3pt, inset: (x: 5pt, y: 1pt))[
+      #text(fill: white, weight: "bold", size: 8pt)[#num]
+    ],
+    text(fill: light-text, weight: "bold", size: 10pt)[#title],
+    text(fill: dim-text, size: 9pt)[— #desc],
+  )
+}
+
+// ====== HEADER ======
+#rect(
+  fill: dark-bg,
+  width: 100%,
+  radius: (top: 8pt),
+  inset: (x: 24pt, y: 16pt),
+  stroke: (bottom: 3pt + orange, rest: 0.5pt + card-border),
+)[
+  #grid(columns: (auto, 1fr, auto), gutter: 16pt, align: horizon,
+    // Left: SMU
+    grid(columns: (auto, auto), gutter: 10pt, align: horizon,
+      rect(fill: white, radius: 4pt, inset: 6pt)[
+        #text(fill: rgb("#003D7C"), weight: "black", size: 16pt)[SMU]
+      ],
+      [
+        #text(fill: rgb("#003D7C"), size: 7pt, weight: "bold")[
+          #rect(fill: white, radius: 3pt, inset: (x: 6pt, y: 4pt))[
+            SINGAPORE MANAGEMENT\ UNIVERSITY
+          ]
+        ]
+        #v(2pt)
+        #text(fill: dim-text, size: 8pt)[
+          School of Computing & Information Systems\
+          ISSS608 Visual Analytics & Applications
+        ]
+      ],
+    ),
+    // Center: Title
+    align(center)[
+      #text(fill: white, weight: "black", size: 28pt, tracking: -0.5pt)[COFINFAD Analytics]
+      #v(2pt)
+      #text(fill: orange, weight: "bold", size: 13pt)[Customer Lifecycle & Transactional Behavior Analysis for Colombian Fintech]
+      #v(4pt)
+      #text(fill: dim-text, size: 10pt)[Ji Guofang #h(6pt) • #h(6pt) Lin Yan #h(6pt) • #h(6pt) Nguyen Trong Nhan #h(16pt) | #h(16pt) Team 13 #h(6pt) • #h(6pt) April 2026]
+    ],
+    // Right: Logo
+    align(right)[
+      #text(fill: orange, weight: "black", size: 18pt, tracking: -1pt)[COFINFAD]\
+      #text(fill: dim-text, size: 8pt)[Visual Analytics Platform]
+    ],
+  )
+]
+
+#v(10pt)
+
+// ====== ROW 1: Motivation | Dataset | Methodology ======
+#grid(columns: (1fr, 1fr, 1fr), gutter: 12pt,
+
+  // --- Motivation ---
+  rect(fill: card-bg, stroke: 0.5pt + card-border, radius: 8pt, inset: 14pt)[
+    #section-title("Motivation & Objectives")
+    Colombia's fintech sector is growing rapidly, yet many institutions lack accessible tools to analyze customer behavior and predict churn. This project aims to:
+    #v(4pt)
+    - #text(fill: light-text, weight: "bold")[Democratize analytics] — enable non-technical stakeholders to explore customer data through interactive visualizations
+    - #text(fill: light-text, weight: "bold")[Identify behavioral segments] — uncover distinct customer groups via unsupervised clustering on transactional features
+    - #text(fill: light-text, weight: "bold")[Predict churn risk] — build interpretable models that quantify churn probability and surface key drivers
+    - #text(fill: light-text, weight: "bold")[Enable what-if analysis] — let decision-makers simulate interventions and assess impact on retention
+    #v(6pt)
+    #rect(
+      fill: orange.lighten(90%).transparentize(80%),
+      radius: (right: 6pt),
+      inset: (x: 10pt, y: 8pt),
+      stroke: (left: 3pt + orange, rest: none),
+    )[
+      #text(fill: orange, weight: "bold", size: 9pt)[CORE QUESTION]\
+      #text(fill: light-text, style: "italic", size: 10pt)["How can interactive visual analytics help Colombian fintech institutions understand, segment, and retain their customers?"]
+    ]
+  ],
+
+  // --- Dataset ---
+  rect(fill: card-bg, stroke: 0.5pt + card-border, radius: 8pt, inset: 14pt)[
+    #section-title("Dataset Overview")
+    The #text(fill: light-text, weight: "bold")[COFINFAD] (Colombian Fintech Financial Analytics Dataset) contains comprehensive customer and transaction records:
+    #v(6pt)
+    #grid(columns: (1fr, 1fr, 1fr), gutter: 6pt,
+      kpi-box("48,723", "Customers"),
+      kpi-box("3.16M", "Transactions"),
+      kpi-box("54", "Variables"),
+    )
+    #v(4pt)
+    #grid(columns: (1fr, 1fr), gutter: 6pt,
+      kpi-box("15", "Departments"),
+      kpi-box("12 mo", "Time Span (2023)"),
+    )
+    #v(6pt)
+    #text(fill: light-text, weight: "bold")[Customer table:] demographics, income bracket, acquisition channel, churn probability, NPS, satisfaction score
+    #v(3pt)
+    #text(fill: light-text, weight: "bold")[Transaction log:] date, amount (COP), type (Transfer, Withdrawal, Payment, Deposit), behavioral metrics
+    #v(3pt)
+    #text(fill: light-text, weight: "bold")[Feature engineering:] 10 behavioral features — tx_count, avg_tx_value, total_tx_volume, weekend_ratio, tenure, credit_utilization, active_products, satisfaction, spending_volatility, recency_days
+  ],
+
+  // --- Methodology ---
+  rect(fill: card-bg, stroke: 0.5pt + card-border, radius: 8pt, inset: 14pt)[
+    #section-title("Methodology & Approach")
+    We follow a #text(fill: light-text, weight: "bold")[5-stage analytical framework] that progresses from exploration to actionable simulation:
+    #v(6pt)
+    #step-item("1", "EXPLORE", "EDA with interactive charts & maps")
+    #v(3pt)
+    #step-item("2", "CONFIRM", "Hypothesis testing via ggstatsplot")
+    #v(3pt)
+    #step-item("3", "SEGMENT", "K-Means, Hierarchical, PAM clustering")
+    #v(3pt)
+    #step-item("4", "CALIBRATE", "Lasso logistic regression for churn")
+    #v(3pt)
+    #step-item("5", "SIMULATE", "What-if analysis with real-time sliders")
+    #v(10pt)
+    #text(fill: light-text, weight: "bold")[Technology stack:]
+    #v(4pt)
+    #stack(dir: ltr, spacing: 4pt,
+      tech-tag("R Shiny"),
+      tech-tag("Plotly"),
+      tech-tag("ggplot2"),
+      tech-tag("ggstatsplot"),
+      tech-tag("Leaflet"),
+    )
+    #v(3pt)
+    #stack(dir: ltr, spacing: 4pt,
+      tech-tag("glmnet"),
+      tech-tag("cluster"),
+      tech-tag("factoextra"),
+      tech-tag("bslib"),
+      tech-tag("DT"),
+    )
+  ],
+)
+
+#v(10pt)
+
+// ====== ROW 2: Shiny App Modules ======
+#align(center)[
+  #text(fill: orange, weight: "bold", size: 14pt, tracking: 2pt)[INTERACTIVE SHINY APPLICATION — 5 ANALYTICAL MODULES]
+  #v(2pt)
+  #text(fill: dim-text, size: 9pt)[All modules are integrated into a single dark-themed R Shiny dashboard at #text(fill: orange)[guofang1028.shinyapps.io/ShinyApp]]
+]
+#v(8pt)
+
+#grid(columns: (1fr, 1fr, 1fr, 1fr, 1fr), gutter: 10pt,
+
+  // Module 1
+  rect(fill: orange.lighten(92%).transparentize(80%), stroke: 0.5pt + orange.lighten(70%).transparentize(50%), radius: 8pt, inset: 12pt)[
+    #module-tag("1")
+    #v(4pt)
+    #text(fill: light-text, weight: "bold", size: 11pt)[Exploratory Data Analysis]
+    #v(4pt)
+    #text(size: 9.5pt)[Interactive time-series charts, leaflet choropleth maps of regional distribution, and distribution plots by income bracket and transaction type.]
+    #v(6pt)
+    #rect(fill: rgb("#0a1525"), stroke: 1pt + orange.lighten(70%).transparentize(60%), radius: 6pt, width: 100%, height: 90pt, inset: 8pt)[
+      #align(center + horizon)[#text(fill: dim-text, size: 9pt, weight: "bold")[⟵ EDA Screenshot ⟶]]
+    ]
+  ],
+
+  // Module 2
+  rect(fill: orange.lighten(92%).transparentize(80%), stroke: 0.5pt + orange.lighten(70%).transparentize(50%), radius: 8pt, inset: 12pt)[
+    #module-tag("2")
+    #v(4pt)
+    #text(fill: light-text, weight: "bold", size: 11pt)[Confirmatory Analysis]
+    #v(4pt)
+    #text(size: 9.5pt)[Statistical hypothesis testing with ggbetweenstats (t-test, Welch, Mann-Whitney, Kruskal-Wallis) and hclust-reordered correlation matrices.]
+    #v(6pt)
+    #rect(fill: rgb("#0a1525"), stroke: 1pt + orange.lighten(70%).transparentize(60%), radius: 6pt, width: 100%, height: 90pt, inset: 8pt)[
+      #align(center + horizon)[#text(fill: dim-text, size: 9pt, weight: "bold")[⟵ CDA Screenshot ⟶]]
+    ]
+  ],
+
+  // Module 3
+  rect(fill: orange.lighten(92%).transparentize(80%), stroke: 0.5pt + orange.lighten(70%).transparentize(50%), radius: 8pt, inset: 12pt)[
+    #module-tag("3")
+    #v(4pt)
+    #text(fill: light-text, weight: "bold", size: 11pt)[Customer Clustering]
+    #v(4pt)
+    #text(size: 9.5pt)[Multi-algorithm segmentation (K-Means, Hierarchical, PAM) with PCA scatter plots, silhouette validation, and parallel coordinates.]
+    #v(6pt)
+    #rect(fill: rgb("#0a1525"), stroke: 1pt + orange.lighten(70%).transparentize(60%), radius: 6pt, width: 100%, height: 90pt, inset: 8pt)[
+      #align(center + horizon)[#text(fill: dim-text, size: 9pt, weight: "bold")[⟵ Clustering Screenshot ⟶]]
+    ]
+  ],
+
+  // Module 4
+  rect(fill: orange.lighten(92%).transparentize(80%), stroke: 0.5pt + orange.lighten(70%).transparentize(50%), radius: 8pt, inset: 12pt)[
+    #module-tag("4")
+    #v(4pt)
+    #text(fill: light-text, weight: "bold", size: 11pt)[Churn Prediction]
+    #v(4pt)
+    #text(size: 9.5pt)[Lasso (L1) logistic regression with cross-validation, variable importance ranking, and residual diagnostics.]
+    #v(6pt)
+    #rect(fill: rgb("#0a1525"), stroke: 1pt + orange.lighten(70%).transparentize(60%), radius: 6pt, width: 100%, height: 90pt, inset: 8pt)[
+      #align(center + horizon)[#text(fill: dim-text, size: 9pt, weight: "bold")[⟵ Prediction Screenshot ⟶]]
+    ]
+  ],
+
+  // Module 5
+  rect(fill: orange.lighten(92%).transparentize(80%), stroke: 0.5pt + orange.lighten(70%).transparentize(50%), radius: 8pt, inset: 12pt)[
+    #module-tag("5")
+    #v(4pt)
+    #text(fill: light-text, weight: "bold", size: 11pt)[What-If Simulator]
+    #v(4pt)
+    #text(size: 9.5pt)[Interactive sliders to adjust customer attributes and observe real-time churn probability changes with sensitivity analysis.]
+    #v(6pt)
+    #rect(fill: rgb("#0a1525"), stroke: 1pt + orange.lighten(70%).transparentize(60%), radius: 6pt, width: 100%, height: 90pt, inset: 8pt)[
+      #align(center + horizon)[#text(fill: dim-text, size: 9pt, weight: "bold")[⟵ What-If Screenshot ⟶]]
+    ]
+  ],
+)
+
+#v(10pt)
+
+// ====== ROW 3: Findings | Segments | Conclusion ======
+#grid(columns: (1fr, 1fr, 1fr), gutter: 12pt,
+
+  // --- Key Findings ---
+  rect(fill: card-bg, stroke: 0.5pt + card-border, radius: 8pt, inset: 14pt)[
+    #section-title("Key Findings")
+
+    #grid(columns: (auto, 1fr), gutter: 8pt,
+      circle(radius: 3.5pt, fill: orange),
+      [#text(fill: light-text, weight: "bold")[Seasonal patterns differ by transaction type] — Transfers peak mid-year while deposits show end-of-year spikes, confirmed by Kruskal-Wallis tests (p < 0.001).],
+
+      circle(radius: 3.5pt, fill: orange),
+      [#text(fill: light-text, weight: "bold")[Income brackets drive behavioral divergence] — High-income customers average 3.2× more transaction volume than low-income segments, with significantly different product usage.],
+
+      circle(radius: 3.5pt, fill: orange),
+      [#text(fill: light-text, weight: "bold")[Geographic clustering of churn risk] — Rural departments show 40% higher churn probability than urban centers like Bogotá and Medellín, linked to limited product access.],
+
+      circle(radius: 3.5pt, fill: orange),
+      [#text(fill: light-text, weight: "bold")[Satisfaction score is the \#1 churn predictor] — Lasso feature selection consistently ranks satisfaction_score as the strongest predictor, followed by tenure and active_products.],
+
+      circle(radius: 3.5pt, fill: orange),
+      [#text(fill: light-text, weight: "bold")[Product bundling reduces churn ~15%] — What-if simulations show increasing active_products from 1→3 cuts predicted churn from ~47% to ~32%.],
+    )
+  ],
+
+  // --- Customer Segments ---
+  rect(fill: card-bg, stroke: 0.5pt + card-border, radius: 8pt, inset: 14pt)[
+    #section-title("Discovered Customer Segments")
+    Optimal clustering (k=4) reveals four distinct behavioral profiles across 10 engineered features:
+    #v(6pt)
+    #segment-card("Power Users", "~18% of customers", "High frequency, high value, long tenure. Low churn risk. Cross-sell opportunities.", orange)
+    #v(4pt)
+    #segment-card("Regular Users", "~35% of customers", "Consistent activity, moderate values. Stable segment. Upsell potential via engagement.", rgb("#3b82f6"))
+    #v(4pt)
+    #segment-card("Occasional Users", "~28% of customers", "Sporadic engagement, low product count. Respond well to targeted campaigns.", rgb("#10b981"))
+    #v(4pt)
+    #segment-card("At-Risk / New Adopters", "~19% of customers", "Very low activity, short tenure, high churn probability. Priority for onboarding programs.", rgb("#ef4444"))
+    #v(6pt)
+    #rect(fill: rgb("#0a1525"), stroke: 1pt + orange.lighten(70%).transparentize(60%), radius: 6pt, width: 100%, height: 70pt, inset: 8pt)[
+      #align(center + horizon)[#text(fill: dim-text, size: 9pt, weight: "bold")[⟵ Cluster PCA / Heatmap Screenshot ⟶]]
+    ]
+  ],
+
+  // --- Conclusion ---
+  rect(fill: card-bg, stroke: 0.5pt + card-border, radius: 8pt, inset: 14pt)[
+    #section-title("Conclusion & Recommendations")
+    COFINFAD Analytics demonstrates that interactive visual analytics can transform raw fintech data into actionable business intelligence.
+    #v(6pt)
+    #grid(columns: (auto, 1fr), gutter: 6pt,
+      rec-num("1"), [#text(fill: light-text, weight: "bold")[Retain power users] — Deploy loyalty programs with real-time satisfaction monitoring dashboards],
+      rec-num("2"), [#text(fill: light-text, weight: "bold")[Intervene on at-risk segments] — Personalized outreach and product bundling within 90-day onboarding],
+      rec-num("3"), [#text(fill: light-text, weight: "bold")[Expand underserved regions] — Region-specific campaigns for rural Colombian departments with high churn],
+      rec-num("4"), [#text(fill: light-text, weight: "bold")[Leverage what-if simulations] — Use the simulator to quantify ROI of retention initiatives before deployment],
+    )
+
+    #v(8pt)
+    #section-title("Future Work")
+    - Integrate additional data sources (e.g., RFM scoring, external economic indicators)
+    - Develop methods to proactively identify network effects among customer clusters
+    - Expand prediction module with ensemble models (Random Forest, XGBoost)
+    - Add real-time data streaming for live dashboard monitoring
+    - Incorporate NLP analysis on support ticket text for deeper churn insights
+
+    #v(8pt)
+    #section-title("References")
+    #text(size: 8.5pt, fill: rgb("#5a7a9a"))[
+      \[1\] Kam, T.S. (2024). ISSS608 Visual Analytics & Applications. SMU.\
+      \[2\] Wickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis. Springer.\
+      \[3\] Patil, I. (2021). ggstatsplot: ggplot2 Based Plots with Statistical Details.\
+      \[4\] Friedman, J. et al. (2010). Regularization Paths for GLMs via Coordinate Descent. JSS.
+    ]
+  ],
+)
+
+#v(6pt)
+
+// ====== FOOTER ======
+#rect(
+  fill: dark-bg,
+  width: 100%,
+  radius: (bottom: 8pt),
+  inset: (x: 24pt, y: 10pt),
+  stroke: (top: 2pt + orange.lighten(50%).transparentize(40%), rest: 0.5pt + card-border),
+)[
+  #grid(columns: (1fr, 1fr), gutter: 12pt,
+    align(left + horizon)[
+      #text(fill: dim-text, size: 9pt)[Singapore Management University • ISSS608 Visual Analytics & Applications • Term 2, AY2025-26]
+    ],
+    align(right + horizon)[
+      #text(fill: dim-text, size: 9pt)[Team 13: Ji Guofang • Lin Yan • Nguyen Trong Nhan]
+      #h(8pt)
+      #text(fill: orange, weight: "black", size: 12pt)[COFINFAD]
+    ],
+  )
+]
+```

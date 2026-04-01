@@ -20,7 +20,7 @@ format:
     theme: {
       extend: {
         colors: {
-          "primary": "#f97415",
+          "primary": "#1A8FAA",
           "background-light": "#080808",
           "background-dark": "#080808",
           "card-dark": "#121212",
@@ -60,10 +60,161 @@ format:
   .shiny-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
   .shiny-modal.active { display: flex; flex-direction: column; }
   .shiny-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #121212; border-bottom: 1px solid #1f1f1f; }
-  .shiny-modal-header span { color: #f97415; font-weight: 700; font-size: 14px; }
+  .shiny-modal-header span { color: #1A8FAA; font-weight: 700; font-size: 14px; }
   .shiny-modal-close { background: none; border: 1px solid #333; color: #fff; padding: 6px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
-  .shiny-modal-close:hover { background: #f97415; border-color: #f97415; }
+  .shiny-modal-close:hover { background: #1A8FAA; border-color: #1A8FAA; }
   .shiny-modal iframe { flex: 1; width: 100%; border: none; }
+
+  /* Poster styles */
+  .poster {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 30%, #0a1628 70%, #091420 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(26, 143, 170, 0.08);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .poster-header {
+    background: linear-gradient(90deg, #0c1a30 0%, #132240 50%, #0c1a30 100%);
+    border-bottom: 3px solid #1A8FAA;
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .poster-body {
+    padding: 24px 36px 28px;
+  }
+  .poster h2 {
+    color: #1A8FAA;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 8px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid rgba(26,143,170,0.4);
+    display: inline-block;
+  }
+  .poster p, .poster li {
+    font-size: 11px;
+    line-height: 1.55;
+    color: #c8d6e5;
+    margin: 0;
+  }
+  .poster ul {
+    padding-left: 14px;
+    margin: 4px 0 0 0;
+  }
+  .poster li {
+    margin-bottom: 3px;
+  }
+  .poster .section-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .poster .kpi-box {
+    background: rgba(26,143,170,0.08);
+    border: 1px solid rgba(26,143,170,0.25);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+  .poster .kpi-box .kpi-val {
+    font-size: 20px;
+    font-weight: 900;
+    color: #1A8FAA;
+    line-height: 1.2;
+  }
+  .poster .kpi-box .kpi-label {
+    font-size: 9px;
+    color: #8aa3c8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  .poster .module-card {
+    background: rgba(26,143,170,0.04);
+    border: 1px solid rgba(26,143,170,0.18);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .poster .module-card .module-num {
+    display: inline-block;
+    background: #1A8FAA;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .poster .module-card h4 {
+    color: #f0f4f8;
+    font-size: 11.5px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+  }
+  .poster .viz-placeholder {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a6a8a;
+    font-size: 10px;
+    min-height: 80px;
+    margin-top: 8px;
+  }
+  .poster .finding-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .poster .finding-dot {
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
+    border-radius: 50%;
+    background: #1A8FAA;
+    margin-top: 5px;
+  }
+  .poster .tech-tag {
+    display: inline-block;
+    background: rgba(26,143,170,0.12);
+    color: #1A8FAA;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin: 2px 2px;
+  }
+  .poster .footer-bar {
+    background: linear-gradient(90deg, #0c1a30 0%, #132240 50%, #0c1a30 100%);
+    border-top: 2px solid rgba(26,143,170,0.4);
+    padding: 14px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Chart placeholders with SVG illustrations */
+  .poster .chart-timeseries {
+    position: relative;
+    overflow: hidden;
+  }
+  .poster .chart-timeseries svg { width: 100%; height: 60px; }
+  .poster .chart-cluster svg { width: 100%; height: 70px; }
+  .poster .chart-map { position: relative; }
+  .poster .chart-bar svg { width: 100%; height: 55px; }
 </style>
 <script>
 function toggleLang() {
@@ -99,7 +250,7 @@ function closeShinyApp() {
 <span><span class="lang-en">COFINFAD Shiny App</span><span class="lang-cn">COFINFAD Shiny 应用</span></span>
 <div style="display:flex;gap:8px;align-items:center;">
 <a href="https://guofang1028.shinyapps.io/ShinyApp/" target="_blank" style="color:#999;font-size:12px;text-decoration:none;"><span class="lang-en">Open in new tab</span><span class="lang-cn">新标签页打开</span></a>
-<button class="shiny-modal-close" onclick="closeShinyApp()">✕ <span class="lang-en">Close</span><span class="lang-cn">关闭</span></button>
+<button class="shiny-modal-close" onclick="closeShinyApp()">&#x2715; <span class="lang-en">Close</span><span class="lang-cn">关闭</span></button>
 </div>
 </div>
 <iframe></iframe>
@@ -148,70 +299,446 @@ function closeShinyApp() {
 <span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">PROJECT POSTER</span><span class="lang-cn">项目海报</span></span>
 <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight"><span class="lang-en">COFINFAD Analytics Poster</span><span class="lang-cn">COFINFAD 分析项目海报</span></h1>
 <p class="text-xl md:text-2xl text-slate-300 font-medium mb-4"><span class="lang-en">Visual summary of our fintech analytics project</span><span class="lang-cn">金融科技分析项目的可视化摘要</span></p>
-<p class="text-slate-500 text-base mt-6"><span class="lang-en">Team 13</span><span class="lang-cn">第13组</span></p>
+<p class="text-slate-500 text-base mt-6"><span class="lang-en">Team 13 &mdash; Ji Guofang &bull; Lin Yan &bull; Nguyen Trong Nhan</span><span class="lang-cn">第13组 &mdash; 纪国方 &bull; 林燕 &bull; Nguyen Trong Nhan</span></p>
 </div>
 </section>
 
-<div class="space-y-12">
+<!-- ========== EMBEDDED POSTER ========== -->
+<div class="poster" id="poster-content">
 
-<!-- Poster Card -->
-<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12">
-
-<!-- Poster Placeholder -->
-<div class="flex flex-col items-center">
-<div class="w-full max-w-2xl mx-auto" style="aspect-ratio: 3/4;">
-<div class="w-full h-full bg-[#0d0d0d] rounded-xl border border-white/10 flex flex-col items-center justify-center gap-4">
-<span class="material-symbols-outlined text-slate-600 text-7xl">image</span>
-<p class="text-slate-500 text-lg font-medium"><span class="lang-en">Poster will be uploaded soon</span><span class="lang-cn">海报即将上传</span></p>
+<!-- POSTER HEADER -->
+<div class="poster-header">
+<div style="display:flex;align-items:center;gap:14px;">
+<div style="background:#fff;border-radius:6px;padding:6px 10px;display:flex;align-items:center;gap:8px;">
+<svg width="28" height="28" viewBox="0 0 100 100"><rect width="100" height="100" rx="8" fill="#003D7C"/><text x="50" y="62" text-anchor="middle" font-family="Inter,Arial" font-weight="900" font-size="36" fill="#fff">SMU</text></svg>
+<div style="line-height:1.1;">
+<div style="font-size:8px;color:#003D7C;font-weight:700;letter-spacing:0.5px;">SINGAPORE MANAGEMENT</div>
+<div style="font-size:8px;color:#003D7C;font-weight:700;letter-spacing:0.5px;">UNIVERSITY</div>
 </div>
 </div>
-<p class="text-slate-600 text-sm mt-4"><span class="lang-en">Recommended poster dimensions: A1 (594 &times; 841 mm) &bull; Format: PDF / PNG</span><span class="lang-cn">建议海报尺寸：A1 (594 &times; 841 mm) &bull; 格式：PDF / PNG</span></p>
+<div style="font-size:9px;color:#8aa3c8;line-height:1.4;">
+<div>School of Computing &amp; Information Systems</div>
+<div>ISSS608 Visual Analytics &amp; Applications</div>
+</div>
+</div>
+<div style="text-align:center;flex:1;">
+<h1 style="font-size:26px;font-weight:900;color:#fff;margin:0;letter-spacing:-0.5px;line-height:1.15;">COFINFAD Analytics</h1>
+<p style="font-size:13px;color:#1A8FAA;font-weight:600;margin:4px 0 0 0;">Customer Lifecycle &amp; Transactional Behavior Analysis for Colombian Fintech</p>
+<p style="font-size:10px;color:#8aa3c8;margin:6px 0 0 0;">Ji Guofang &nbsp;&bull;&nbsp; Lin Yan &nbsp;&bull;&nbsp; Nguyen Trong Nhan &nbsp;&nbsp;|&nbsp;&nbsp; Team 13 &nbsp;&bull;&nbsp; April 2026</p>
+</div>
+<div style="display:flex;align-items:center;gap:10px;">
+<div style="text-align:right;">
+<span style="color:#1A8FAA;font-weight:900;font-size:18px;letter-spacing:-1px;">COFINFAD</span>
+<div style="font-size:8px;color:#8aa3c8;">Visual Analytics Platform</div>
+</div>
+<div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1A8FAA,#146E82);display:flex;align-items:center;justify-content:center;">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 4-6"/></svg>
+</div>
+</div>
 </div>
 
-<!-- Poster Overview -->
-<div class="mt-12 pt-10 border-t border-white/5">
-<span class="text-primary font-bold text-sm mb-2 block"><span class="lang-en">OVERVIEW</span><span class="lang-cn">概述</span></span>
-<h3 class="text-3xl font-bold mb-6"><span class="lang-en">What the Poster Covers</span><span class="lang-cn">海报涵盖内容</span></h3>
-<p class="text-slate-400 text-lg leading-relaxed mb-8"><span class="lang-en">Our poster provides a concise visual summary of the COFINFAD Analytics project, distilling key insights into a single-page format for presentation and review.</span><span class="lang-cn">我们的海报以简洁的可视化形式总结了 COFINFAD 分析项目，将关键洞察浓缩为单页格式，便于展示和评审。</span></p>
-<ul class="space-y-4 text-slate-400 text-lg">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span><span class="lang-en">Background &amp; motivation</span><span class="lang-cn">背景与动机</span></span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span><span class="lang-en">Data &amp; methodology overview</span><span class="lang-cn">数据与方法论概述</span></span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span><span class="lang-en">Key findings from all 3 modules</span><span class="lang-cn">三个模块的关键发现</span></span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span><span class="lang-en">Business recommendations</span><span class="lang-cn">商业建议</span></span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary mt-0.5">arrow_right</span>
-<span><span class="lang-en">Future directions</span><span class="lang-cn">未来方向</span></span>
-</li>
+<!-- POSTER BODY -->
+<div class="poster-body">
+
+<!-- ROW 1: Motivation | Dataset | Methodology -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;">
+
+<!-- Motivation & Objectives -->
+<div class="section-card">
+<h2>Motivation &amp; Objectives</h2>
+<p style="margin-bottom:8px;">Colombia's fintech sector is growing rapidly, yet many institutions lack accessible tools to analyze customer behavior and predict churn. This project aims to:</p>
+<ul>
+<li><strong style="color:#f0f4f8;">Democratize analytics</strong> &mdash; enable non-technical stakeholders to explore customer data through interactive visualizations</li>
+<li><strong style="color:#f0f4f8;">Identify behavioral segments</strong> &mdash; uncover distinct customer groups via unsupervised clustering on transactional features</li>
+<li><strong style="color:#f0f4f8;">Predict churn risk</strong> &mdash; build interpretable models that quantify churn probability and surface key drivers</li>
+<li><strong style="color:#f0f4f8;">Enable what-if analysis</strong> &mdash; let decision-makers simulate interventions and assess impact on retention</li>
 </ul>
+<div style="margin-top:10px;padding:8px 12px;background:rgba(26,143,170,0.06);border-left:3px solid #1A8FAA;border-radius:0 6px 6px 0;">
+<p style="font-size:10px;color:#1A8FAA;font-weight:700;margin-bottom:2px;">CORE QUESTION</p>
+<p style="font-style:italic;color:#e2e8f0;">"How can interactive visual analytics help Colombian fintech institutions understand, segment, and retain their customers?"</p>
+</div>
 </div>
 
-<!-- Download Buttons -->
-<div class="flex flex-wrap justify-center gap-4 mt-12 pt-10 border-t border-white/5">
-<a href="#" download class="flex items-center gap-4 px-12 py-5 bg-primary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
-<span class="material-symbols-outlined">download</span>
-<span class="lang-en">DOWNLOAD POSTER (PDF)</span><span class="lang-cn">下载海报 (PDF)</span>
+<!-- Dataset Overview -->
+<div class="section-card">
+<h2>Dataset Overview</h2>
+<p style="margin-bottom:10px;">The <strong style="color:#f0f4f8;">COFINFAD</strong> (Colombian Fintech Financial Analytics Dataset) contains comprehensive customer and transaction records:</p>
+<!-- KPI row -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px;">
+<div class="kpi-box">
+<div class="kpi-val">48,723</div>
+<div class="kpi-label">Customers</div>
+</div>
+<div class="kpi-box">
+<div class="kpi-val">3.16M</div>
+<div class="kpi-label">Transactions</div>
+</div>
+<div class="kpi-box">
+<div class="kpi-val">54</div>
+<div class="kpi-label">Variables</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+<div class="kpi-box">
+<div class="kpi-val">15</div>
+<div class="kpi-label">Departments</div>
+</div>
+<div class="kpi-box">
+<div class="kpi-val">12 mo</div>
+<div class="kpi-label">Time Span (2023)</div>
+</div>
+</div>
+<p style="margin-bottom:4px;"><strong style="color:#f0f4f8;">Customer table:</strong> demographics, income bracket, acquisition channel, churn probability, NPS, satisfaction score</p>
+<p><strong style="color:#f0f4f8;">Transaction log:</strong> date, amount (COP), type (Transfer, Withdrawal, Payment, Deposit), behavioral metrics</p>
+<!-- Mini chart: Colombia map placeholder -->
+<div class="viz-placeholder chart-map" style="min-height:70px;">
+<svg width="120" height="60" viewBox="0 0 120 60">
+<ellipse cx="60" cy="30" rx="35" ry="25" fill="none" stroke="#2a4a6a" stroke-width="1.5"/>
+<circle cx="52" cy="22" r="3" fill="#1A8FAA" opacity="0.7"/><circle cx="65" cy="28" r="4" fill="#1A8FAA" opacity="0.9"/>
+<circle cx="48" cy="35" r="2.5" fill="#1A8FAA" opacity="0.5"/><circle cx="70" cy="20" r="2" fill="#1A8FAA" opacity="0.4"/>
+<circle cx="58" cy="38" r="3.5" fill="#1A8FAA" opacity="0.6"/><circle cx="55" cy="26" r="1.8" fill="#1A8FAA" opacity="0.3"/>
+<text x="60" y="55" text-anchor="middle" font-size="7" fill="#4a6a8a">15 Colombian Departments</text>
+</svg>
+</div>
+</div>
+
+<!-- Methodology / Approach -->
+<div class="section-card">
+<h2>Methodology &amp; Approach</h2>
+<p style="margin-bottom:8px;">We follow a <strong style="color:#f0f4f8;">5-stage analytical framework</strong> that progresses from exploration to actionable simulation:</p>
+<!-- Flow diagram -->
+<div style="display:flex;flex-direction:column;gap:4px;margin-bottom:10px;">
+<div style="display:flex;align-items:center;gap:6px;">
+<span style="background:#1A8FAA;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;">1</span>
+<span style="font-size:10.5px;color:#e2e8f0;font-weight:600;">EXPLORE</span>
+<span style="color:#4a6a8a;font-size:10px;">&mdash; EDA with interactive charts &amp; maps</span>
+</div>
+<div style="margin-left:14px;border-left:2px solid rgba(26,143,170,0.3);height:6px;"></div>
+<div style="display:flex;align-items:center;gap:6px;">
+<span style="background:#1A8FAA;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;">2</span>
+<span style="font-size:10.5px;color:#e2e8f0;font-weight:600;">CONFIRM</span>
+<span style="color:#4a6a8a;font-size:10px;">&mdash; Hypothesis testing via ggstatsplot</span>
+</div>
+<div style="margin-left:14px;border-left:2px solid rgba(26,143,170,0.3);height:6px;"></div>
+<div style="display:flex;align-items:center;gap:6px;">
+<span style="background:#1A8FAA;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;">3</span>
+<span style="font-size:10.5px;color:#e2e8f0;font-weight:600;">SEGMENT</span>
+<span style="color:#4a6a8a;font-size:10px;">&mdash; K-Means, Hierarchical, PAM clustering</span>
+</div>
+<div style="margin-left:14px;border-left:2px solid rgba(26,143,170,0.3);height:6px;"></div>
+<div style="display:flex;align-items:center;gap:6px;">
+<span style="background:#1A8FAA;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;">4</span>
+<span style="font-size:10.5px;color:#e2e8f0;font-weight:600;">CALIBRATE</span>
+<span style="color:#4a6a8a;font-size:10px;">&mdash; Lasso logistic regression for churn</span>
+</div>
+<div style="margin-left:14px;border-left:2px solid rgba(26,143,170,0.3);height:6px;"></div>
+<div style="display:flex;align-items:center;gap:6px;">
+<span style="background:#1A8FAA;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;">5</span>
+<span style="font-size:10.5px;color:#e2e8f0;font-weight:600;">SIMULATE</span>
+<span style="color:#4a6a8a;font-size:10px;">&mdash; What-if analysis with real-time sliders</span>
+</div>
+</div>
+<p style="margin-top:6px;"><strong style="color:#f0f4f8;">Technology stack:</strong></p>
+<div style="margin-top:4px;">
+<span class="tech-tag">R Shiny</span>
+<span class="tech-tag">Plotly</span>
+<span class="tech-tag">ggplot2</span>
+<span class="tech-tag">ggstatsplot</span>
+<span class="tech-tag">Leaflet</span>
+<span class="tech-tag">glmnet</span>
+<span class="tech-tag">cluster</span>
+<span class="tech-tag">factoextra</span>
+<span class="tech-tag">bslib</span>
+<span class="tech-tag">DT</span>
+</div>
+</div>
+
+</div>
+
+<!-- ROW 2: Shiny Application - 5 Modules -->
+<div style="margin-bottom:16px;">
+<div style="text-align:center;margin-bottom:10px;">
+<h2 style="display:inline-block;font-size:14px;">Interactive Shiny Application &mdash; 5 Analytical Modules</h2>
+<p style="font-size:10px;color:#8aa3c8;">All modules are integrated into a single dark-themed R Shiny dashboard at <span style="color:#1A8FAA;">guofang1028.shinyapps.io/ShinyApp</span></p>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;">
+
+<!-- Module 1: EDA -->
+<div class="module-card">
+<span class="module-num">MODULE 1</span>
+<h4>Exploratory Data Analysis</h4>
+<p>Interactive time-series charts, leaflet choropleth maps of regional distribution, and distribution plots by income bracket and transaction type.</p>
+<div class="viz-placeholder chart-timeseries">
+<svg viewBox="0 0 150 60">
+<polyline points="5,50 20,42 35,45 50,30 65,35 80,20 95,25 110,15 125,18 140,10" fill="none" stroke="#1A8FAA" stroke-width="2" stroke-linecap="round"/>
+<polyline points="5,52 20,48 35,50 50,40 65,42 80,35 95,38 110,30 125,32 140,25" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4,3"/>
+<line x1="5" y1="55" x2="145" y2="55" stroke="#1e3a5f" stroke-width="0.5"/>
+<text x="75" y="59" text-anchor="middle" font-size="6" fill="#4a6a8a">Monthly Transaction Volume</text>
+</svg>
+</div>
+</div>
+
+<!-- Module 2: CDA -->
+<div class="module-card">
+<span class="module-num">MODULE 2</span>
+<h4>Confirmatory Analysis</h4>
+<p>Statistical hypothesis testing with ggbetweenstats (t-test, Welch, Mann-Whitney, Kruskal-Wallis) and correlation matrices.</p>
+<div class="viz-placeholder">
+<svg viewBox="0 0 150 60">
+<!-- Box plots -->
+<rect x="15" y="20" width="18" height="25" rx="2" fill="none" stroke="#1A8FAA" stroke-width="1.5"/>
+<line x1="24" y1="20" x2="24" y2="10" stroke="#1A8FAA" stroke-width="1"/><line x1="24" y1="45" x2="24" y2="52" stroke="#1A8FAA" stroke-width="1"/>
+<line x1="18" y1="30" x2="30" y2="30" stroke="#1A8FAA" stroke-width="2"/>
+<rect x="55" y="15" width="18" height="30" rx="2" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+<line x1="64" y1="15" x2="64" y2="8" stroke="#3b82f6" stroke-width="1"/><line x1="64" y1="45" x2="64" y2="50" stroke="#3b82f6" stroke-width="1"/>
+<line x1="58" y1="28" x2="70" y2="28" stroke="#3b82f6" stroke-width="2"/>
+<rect x="95" y="22" width="18" height="22" rx="2" fill="none" stroke="#10b981" stroke-width="1.5"/>
+<line x1="104" y1="22" x2="104" y2="14" stroke="#10b981" stroke-width="1"/><line x1="104" y1="44" x2="104" y2="50" stroke="#10b981" stroke-width="1"/>
+<line x1="98" y1="32" x2="110" y2="32" stroke="#10b981" stroke-width="2"/>
+<text x="24" y="59" text-anchor="middle" font-size="6" fill="#4a6a8a">Low</text>
+<text x="64" y="59" text-anchor="middle" font-size="6" fill="#4a6a8a">Mid</text>
+<text x="104" y="59" text-anchor="middle" font-size="6" fill="#4a6a8a">High</text>
+</svg>
+</div>
+</div>
+
+<!-- Module 3: Clustering -->
+<div class="module-card">
+<span class="module-num">MODULE 3</span>
+<h4>Customer Clustering</h4>
+<p>Multi-algorithm segmentation (K-Means, Hierarchical, PAM) with PCA scatter plots, silhouette validation, and heatmaps.</p>
+<div class="viz-placeholder chart-cluster">
+<svg viewBox="0 0 150 70">
+<!-- Scatter clusters -->
+<circle cx="35" cy="25" r="12" fill="#1A8FAA" opacity="0.1" stroke="#1A8FAA" stroke-width="0.5"/>
+<circle cx="30" cy="22" r="2.5" fill="#1A8FAA" opacity="0.8"/><circle cx="38" cy="28" r="2" fill="#1A8FAA" opacity="0.7"/>
+<circle cx="33" cy="20" r="1.8" fill="#1A8FAA" opacity="0.6"/><circle cx="40" cy="24" r="2.2" fill="#1A8FAA" opacity="0.7"/>
+<circle cx="100" cy="40" r="14" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="0.5"/>
+<circle cx="95" cy="38" r="2.5" fill="#3b82f6" opacity="0.8"/><circle cx="105" cy="42" r="2" fill="#3b82f6" opacity="0.7"/>
+<circle cx="98" cy="35" r="1.8" fill="#3b82f6" opacity="0.6"/><circle cx="102" cy="45" r="2.2" fill="#3b82f6" opacity="0.7"/>
+<circle cx="70" cy="50" r="10" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="0.5"/>
+<circle cx="67" cy="48" r="2" fill="#10b981" opacity="0.8"/><circle cx="73" cy="52" r="1.8" fill="#10b981" opacity="0.7"/>
+<circle cx="70" cy="46" r="2.2" fill="#10b981" opacity="0.6"/>
+<text x="75" y="66" text-anchor="middle" font-size="6" fill="#4a6a8a">PCA Cluster Projection</text>
+</svg>
+</div>
+</div>
+
+<!-- Module 4: Prediction -->
+<div class="module-card">
+<span class="module-num">MODULE 4</span>
+<h4>Churn Prediction</h4>
+<p>Lasso (L1) logistic regression with cross-validation, variable importance ranking, and residual diagnostics.</p>
+<div class="viz-placeholder chart-bar">
+<svg viewBox="0 0 150 55">
+<!-- Horizontal bar chart - feature importance -->
+<rect x="45" y="4" width="95" height="7" rx="2" fill="#1A8FAA" opacity="0.9"/>
+<text x="42" y="11" text-anchor="end" font-size="6" fill="#8aa3c8">satisfaction</text>
+<rect x="45" y="14" width="78" height="7" rx="2" fill="#1A8FAA" opacity="0.75"/>
+<text x="42" y="21" text-anchor="end" font-size="6" fill="#8aa3c8">tenure</text>
+<rect x="45" y="24" width="62" height="7" rx="2" fill="#1A8FAA" opacity="0.6"/>
+<text x="42" y="31" text-anchor="end" font-size="6" fill="#8aa3c8">active_prod</text>
+<rect x="45" y="34" width="48" height="7" rx="2" fill="#1A8FAA" opacity="0.5"/>
+<text x="42" y="41" text-anchor="end" font-size="6" fill="#8aa3c8">credit_util</text>
+<rect x="45" y="44" width="35" height="7" rx="2" fill="#1A8FAA" opacity="0.4"/>
+<text x="42" y="51" text-anchor="end" font-size="6" fill="#8aa3c8">support_tix</text>
+</svg>
+</div>
+</div>
+
+<!-- Module 5: What-If -->
+<div class="module-card">
+<span class="module-num">MODULE 5</span>
+<h4>What-If Simulator</h4>
+<p>Interactive sliders to adjust customer attributes and observe real-time churn probability changes with sensitivity analysis.</p>
+<div class="viz-placeholder">
+<svg viewBox="0 0 150 60">
+<!-- Gauge/dial -->
+<path d="M 40 50 A 35 35 0 0 1 110 50" fill="none" stroke="#1e3a5f" stroke-width="6" stroke-linecap="round"/>
+<path d="M 40 50 A 35 35 0 0 1 85 20" fill="none" stroke="#1A8FAA" stroke-width="6" stroke-linecap="round"/>
+<text x="75" y="45" text-anchor="middle" font-size="14" font-weight="900" fill="#1A8FAA">32%</text>
+<text x="75" y="54" text-anchor="middle" font-size="7" fill="#8aa3c8">Churn Probability</text>
+</svg>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ROW 3: Key Findings | Discovered Segments | Conclusion & Future -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+
+<!-- Key Findings -->
+<div class="section-card">
+<h2>Key Findings</h2>
+
+<div class="finding-item">
+<div class="finding-dot"></div>
+<p><strong style="color:#f0f4f8;">Seasonal patterns differ by transaction type</strong> &mdash; Transfers peak mid-year while deposits show end-of-year spikes, confirmed by Kruskal-Wallis tests (p &lt; 0.001).</p>
+</div>
+
+<div class="finding-item">
+<div class="finding-dot"></div>
+<p><strong style="color:#f0f4f8;">Income brackets drive behavioral divergence</strong> &mdash; High-income customers average 3.2x more transaction volume than low-income segments, with significantly different product usage profiles.</p>
+</div>
+
+<div class="finding-item">
+<div class="finding-dot"></div>
+<p><strong style="color:#f0f4f8;">Geographic clustering of churn risk</strong> &mdash; Rural departments show 40% higher churn probability than urban centers like Bogot&aacute; and Medell&iacute;n, linked to limited product access.</p>
+</div>
+
+<div class="finding-item">
+<div class="finding-dot"></div>
+<p><strong style="color:#f0f4f8;">Satisfaction score is the #1 churn predictor</strong> &mdash; Lasso feature selection consistently ranks satisfaction_score as the strongest predictor, followed by customer_tenure and active_products.</p>
+</div>
+
+<div class="finding-item">
+<div class="finding-dot"></div>
+<p><strong style="color:#f0f4f8;">Product bundling reduces churn ~15%</strong> &mdash; What-if simulations show increasing active_products from 1 to 3 cuts predicted churn probability from ~47% to ~32%.</p>
+</div>
+</div>
+
+<!-- Discovered Customer Segments -->
+<div class="section-card">
+<h2>Discovered Customer Segments</h2>
+<p style="margin-bottom:10px;">Optimal clustering (k=4) reveals four distinct behavioral profiles across 10 engineered features:</p>
+
+<div style="display:flex;flex-direction:column;gap:8px;">
+<!-- Segment 1 -->
+<div style="background:rgba(26,143,170,0.08);border-radius:6px;padding:8px 10px;border-left:3px solid #1A8FAA;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<span style="font-size:11px;font-weight:700;color:#1A8FAA;">Power Users</span>
+<span style="font-size:9px;color:#8aa3c8;">~18% of customers</span>
+</div>
+<p style="font-size:10px;margin-top:3px;">High frequency, high value, long tenure. Low churn risk. Cross-sell opportunities.</p>
+</div>
+<!-- Segment 2 -->
+<div style="background:rgba(59,130,246,0.08);border-radius:6px;padding:8px 10px;border-left:3px solid #3b82f6;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<span style="font-size:11px;font-weight:700;color:#3b82f6;">Regular Users</span>
+<span style="font-size:9px;color:#8aa3c8;">~35% of customers</span>
+</div>
+<p style="font-size:10px;margin-top:3px;">Consistent activity, moderate values. Stable segment. Upsell potential via engagement.</p>
+</div>
+<!-- Segment 3 -->
+<div style="background:rgba(16,185,129,0.08);border-radius:6px;padding:8px 10px;border-left:3px solid #10b981;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<span style="font-size:11px;font-weight:700;color:#10b981;">Occasional Users</span>
+<span style="font-size:9px;color:#8aa3c8;">~28% of customers</span>
+</div>
+<p style="font-size:10px;margin-top:3px;">Sporadic engagement, low product count. Respond well to targeted campaigns.</p>
+</div>
+<!-- Segment 4 -->
+<div style="background:rgba(239,68,68,0.08);border-radius:6px;padding:8px 10px;border-left:3px solid #ef4444;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<span style="font-size:11px;font-weight:700;color:#ef4444;">At-Risk / New Adopters</span>
+<span style="font-size:9px;color:#8aa3c8;">~19% of customers</span>
+</div>
+<p style="font-size:10px;margin-top:3px;">Very low activity, short tenure, high churn probability. Priority for onboarding programs.</p>
+</div>
+</div>
+
+<!-- Mini parallel coords -->
+<div class="viz-placeholder" style="min-height:50px;margin-top:8px;">
+<svg viewBox="0 0 160 45">
+<line x1="10" y1="5" x2="10" y2="38" stroke="#1e3a5f" stroke-width="0.5"/>
+<line x1="40" y1="5" x2="40" y2="38" stroke="#1e3a5f" stroke-width="0.5"/>
+<line x1="70" y1="5" x2="70" y2="38" stroke="#1e3a5f" stroke-width="0.5"/>
+<line x1="100" y1="5" x2="100" y2="38" stroke="#1e3a5f" stroke-width="0.5"/>
+<line x1="130" y1="5" x2="130" y2="38" stroke="#1e3a5f" stroke-width="0.5"/>
+<line x1="150" y1="5" x2="150" y2="38" stroke="#1e3a5f" stroke-width="0.5"/>
+<!-- Power users line -->
+<polyline points="10,8 40,10 70,12 100,8 130,30 150,10" fill="none" stroke="#1A8FAA" stroke-width="1.2" opacity="0.8"/>
+<!-- Regular line -->
+<polyline points="10,18 40,20 70,18 100,16 130,22 150,18" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.8"/>
+<!-- Occasional line -->
+<polyline points="10,28 40,30 70,25 100,28 130,15 150,28" fill="none" stroke="#10b981" stroke-width="1.2" opacity="0.8"/>
+<!-- At-risk line -->
+<polyline points="10,35 40,34 70,32 100,35 130,10 150,34" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.8"/>
+<text x="10" y="44" text-anchor="middle" font-size="5" fill="#4a6a8a">freq</text>
+<text x="40" y="44" text-anchor="middle" font-size="5" fill="#4a6a8a">value</text>
+<text x="70" y="44" text-anchor="middle" font-size="5" fill="#4a6a8a">tenure</text>
+<text x="100" y="44" text-anchor="middle" font-size="5" fill="#4a6a8a">satisfy</text>
+<text x="130" y="44" text-anchor="middle" font-size="5" fill="#4a6a8a">churn</text>
+<text x="150" y="44" text-anchor="middle" font-size="5" fill="#4a6a8a">products</text>
+</svg>
+</div>
+</div>
+
+<!-- Conclusion & Future Work -->
+<div class="section-card">
+<h2>Conclusion &amp; Recommendations</h2>
+<p style="margin-bottom:8px;">COFINFAD Analytics demonstrates that interactive visual analytics can transform raw fintech data into actionable business intelligence. Our key recommendations:</p>
+
+<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px;">
+<div style="display:flex;gap:8px;align-items:flex-start;">
+<span style="background:#1A8FAA;color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:3px;min-width:14px;text-align:center;">1</span>
+<p><strong style="color:#f0f4f8;">Retain power users</strong> &mdash; Deploy loyalty programs with real-time satisfaction monitoring dashboards</p>
+</div>
+<div style="display:flex;gap:8px;align-items:flex-start;">
+<span style="background:#1A8FAA;color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:3px;min-width:14px;text-align:center;">2</span>
+<p><strong style="color:#f0f4f8;">Intervene on at-risk segments</strong> &mdash; Personalized outreach and product bundling within 90-day onboarding</p>
+</div>
+<div style="display:flex;gap:8px;align-items:flex-start;">
+<span style="background:#1A8FAA;color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:3px;min-width:14px;text-align:center;">3</span>
+<p><strong style="color:#f0f4f8;">Expand underserved regions</strong> &mdash; Region-specific campaigns for rural Colombian departments with high churn</p>
+</div>
+<div style="display:flex;gap:8px;align-items:flex-start;">
+<span style="background:#1A8FAA;color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:3px;min-width:14px;text-align:center;">4</span>
+<p><strong style="color:#f0f4f8;">Leverage what-if simulations</strong> &mdash; Use the simulator to quantify ROI of retention initiatives before deployment</p>
+</div>
+</div>
+
+<h2>Future Work</h2>
+<ul>
+<li>Integrate additional data sources (e.g., RFM scoring, external economic indicators)</li>
+<li>Develop methods to proactively identify network effects among customer clusters</li>
+<li>Expand the prediction module with ensemble models (Random Forest, XGBoost)</li>
+<li>Add real-time data streaming for live dashboard monitoring</li>
+<li>Incorporate NLP analysis on support ticket text for deeper churn driver insights</li>
+</ul>
+
+<div style="margin-top:10px;">
+<h2>References</h2>
+<p style="font-size:9px;color:#6b8ab0;">
+[1] Kam, T.S. (2024). ISSS608 Visual Analytics &amp; Applications. SMU.<br/>
+[2] Wickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis. Springer.<br/>
+[3] Patil, I. (2021). ggstatsplot: ggplot2 Based Plots with Statistical Details.<br/>
+[4] Friedman, J. et al. (2010). Regularization Paths for GLMs via Coordinate Descent. JSS.
+</p>
+</div>
+</div>
+
+</div>
+
+</div>
+<!-- POSTER FOOTER -->
+<div class="footer-bar">
+<div style="display:flex;align-items:center;gap:8px;">
+<svg width="16" height="16" viewBox="0 0 100 100"><rect width="100" height="100" rx="8" fill="#003D7C"/><text x="50" y="62" text-anchor="middle" font-family="Inter,Arial" font-weight="900" font-size="36" fill="#fff">SMU</text></svg>
+<span style="font-size:9px;color:#8aa3c8;">Singapore Management University &bull; ISSS608 Visual Analytics &amp; Applications &bull; Term 2, AY2025-26</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<span style="font-size:9px;color:#8aa3c8;">Team 13: Ji Guofang &bull; Lin Yan &bull; Nguyen Trong Nhan</span>
+<div style="width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#1A8FAA,#146E82);display:flex;align-items:center;justify-content:center;">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 4-6"/></svg>
+</div>
+</div>
+</div>
+</div>
+<!-- END POSTER -->
+
+<!-- Download / Print Section -->
+<div class="bg-[#121212] rounded-2xl border border-white/5 p-10 md:p-12 mt-12">
+<div class="flex flex-wrap justify-center gap-4">
+<a href="poster-print.html" target="_blank" class="flex items-center gap-4 px-12 py-5 bg-primary text-white rounded-2xl font-bold text-lg shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
+<span class="material-symbols-outlined">open_in_new</span>
+<span class="lang-en">OPEN PRINT VERSION</span><span class="lang-cn">打开打印版本</span>
 </a>
-<a href="#" class="flex items-center gap-4 px-12 py-5 border-2 border-white/10 text-slate-300 rounded-2xl font-bold text-lg hover:border-primary/50 hover:text-primary hover:scale-[1.02] active:scale-[0.98] transition-all no-underline">
-<span class="material-symbols-outlined">open_in_full</span>
-<span class="lang-en">VIEW FULL SIZE</span><span class="lang-cn">查看原图</span>
-</a>
+</div>
+<p class="text-slate-500 text-sm text-center mt-6"><span class="lang-en">Open the print version, then use <strong class="text-slate-400">Ctrl+P</strong> &rarr; "Save as PDF" to export. Set page size to A1 or custom 1440&times;960px for best results.</span><span class="lang-cn">打开打印版本，然后使用 <strong class="text-slate-400">Ctrl+P</strong> → "另存为PDF" 导出。页面大小设置为A1或自定义 1440×960px 效果最佳。</span></p>
 </div>
 
-</div>
-
-</div>
 </main>
 <!-- Footer -->
 <footer class="mt-20 border-t border-white/5 py-16 bg-[#0c0c0c]">
