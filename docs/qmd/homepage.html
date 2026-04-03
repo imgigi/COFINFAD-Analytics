@@ -165,6 +165,7 @@ function closeShinyApp() {
 <a class="text-sm font-medium hover:text-primary transition-colors" href="#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
+<a href="user-guide.html" class="border border-primary text-primary hover:bg-primary/10 px-4 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">User Guide</span><span class="lang-cn">用户指南</span></a>
 <a onclick="openShinyApp(); return false;" href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline">
                     <span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span>
                 </a>
@@ -217,7 +218,7 @@ function closeShinyApp() {
 <p class="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]"><span class="lang-en">Variables</span><span class="lang-cn">变量数</span></p>
 </div>
 <div class="bg-card-dark border border-border-dark p-10 rounded-2xl transition-transform hover:-translate-y-1">
-<p class="text-primary text-5xl font-black mb-2">3</p>
+<p class="text-primary text-5xl font-black mb-2">5</p>
 <p class="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]"><span class="lang-en">Modules</span><span class="lang-cn">分析模块</span></p>
 </div>
 </div>
@@ -228,8 +229,8 @@ function closeShinyApp() {
 <div class="flex-1 space-y-8">
 <h2 class="text-4xl md:text-5xl font-bold border-l-4 border-primary pl-8"><span class="lang-en">About This Project</span><span class="lang-cn">关于本项目</span></h2>
 <div class="space-y-6 text-slate-400 leading-relaxed text-lg">
-<p class="lang-en-block">COFINFAD Analytics is an interactive R Shiny application that transforms Colombia's fintech data into accessible, visual business intelligence. Built on a dataset of 48,723 customers and 3.16 million transactions, the app follows a three-stage analytical narrative: exploring transactional patterns through interactive EDA, segmenting customers via multi-method clustering, and predicting churn risk with regularized regression — all within a unified dashboard requiring no coding.</p>
-<p class="lang-cn-block">COFINFAD Analytics 是一个交互式 R Shiny 应用程序，将哥伦比亚的金融科技数据转化为直观、可视化的商业智能。基于 48,723 名客户和 316 万笔交易数据，该应用遵循三阶段分析叙事：通过交互式 EDA 探索交易模式、通过多方法聚类细分客户群体、以及使用正则化回归预测客户流失风险——所有功能集成在统一仪表板中，无需编写代码。</p>
+<p class="lang-en-block">COFINFAD Analytics is an interactive R Shiny application that transforms Colombia's fintech data into accessible, visual business intelligence. Built on a dataset of 48,723 customers and 3.16 million transactions, the app follows a five-module analytical narrative: exploring transactional patterns through interactive EDA, confirming statistical hypotheses via ggstatsplot (CDA), segmenting customers via multi-method clustering, calibrating predictive models, and simulating churn scenarios with a What-If simulator — all within a unified dashboard requiring no coding.</p>
+<p class="lang-cn-block">COFINFAD Analytics 是一个交互式 R Shiny 应用程序，将哥伦比亚的金融科技数据转化为直观、可视化的商业智能。基于 48,723 名客户和 316 万笔交易数据，该应用遵循五模块分析叙事：通过交互式 EDA 探索交易模式、通过 ggstatsplot 验证统计假设（CDA）、通过多方法聚类细分客户群体、校准预测模型、以及使用 What-If 模拟器模拟流失场景——所有功能集成在统一仪表板中，无需编写代码。</p>
 </div>
 <a href="proposal.html" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all no-underline text-lg">
 <span class="lang-en">Read Full Proposal</span><span class="lang-cn">查看完整提案</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -248,8 +249,8 @@ function closeShinyApp() {
 <!-- Modules Section -->
 <section class="max-w-7xl mx-auto px-4 py-28">
 <h2 class="text-4xl font-bold mb-6 text-center"><span class="lang-en">Core Modules</span><span class="lang-cn">核心模块</span></h2>
-<p class="text-slate-400 text-center max-w-3xl mx-auto mb-16 text-lg lang-en-block">Our analysis follows a coherent narrative: explore <strong class="text-white">what</strong> is happening (EDA), ask <strong class="text-white">why</strong> via customer segmentation (Clustering), and predict <strong class="text-white">what will happen</strong> (Churn Prediction).</p>
-<p class="text-slate-400 text-center max-w-3xl mx-auto mb-16 text-lg lang-cn-block">我们的分析遵循连贯的叙事逻辑：通过 EDA 探索<strong class="text-white">正在发生什么</strong>，通过客户细分（聚类）探究<strong class="text-white">为什么</strong>，再通过流失预测判断<strong class="text-white">未来会怎样</strong>。</p>
+<p class="text-slate-400 text-center max-w-3xl mx-auto mb-16 text-lg lang-en-block">Our analysis follows a five-module narrative: <strong class="text-white">explore</strong> patterns (EDA), <strong class="text-white">confirm</strong> hypotheses (CDA with ggstatsplot), <strong class="text-white">segment</strong> customers (Clustering), <strong class="text-white">calibrate</strong> predictive models, and <strong class="text-white">simulate</strong> churn scenarios (What-If).</p>
+<p class="text-slate-400 text-center max-w-3xl mx-auto mb-16 text-lg lang-cn-block">我们的分析遵循五模块叙事逻辑：<strong class="text-white">探索</strong>数据模式（EDA）、<strong class="text-white">验证</strong>统计假设（CDA，使用 ggstatsplot）、<strong class="text-white">细分</strong>客户群体（聚类）、<strong class="text-white">校准</strong>预测模型、以及<strong class="text-white">模拟</strong>流失场景（What-If）。</p>
 <div class="grid md:grid-cols-3 gap-10">
 <!-- Card 1: Module 1 -->
 <div class="bg-card-dark border border-border-dark p-10 rounded-2xl group hover:border-primary/50 transition-all">
@@ -258,10 +259,10 @@ function closeShinyApp() {
 </div>
 <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20 mb-4 inline-block"><span class="lang-en">Module 1</span><span class="lang-cn">模块一</span></span>
 <h3 class="text-2xl font-bold mb-4"><span class="lang-en">Exploratory &amp; Confirmatory Data Analysis</span><span class="lang-cn">探索性与验证性数据分析</span></h3>
-<p class="text-slate-400 mb-3 leading-relaxed lang-en-block">Interactive time-series of transaction volumes, ANOVA &amp; Welch's T-test with effect-size reporting, Leaflet choropleth maps of 15 Colombian departments, correlation heatmaps, and demographic distribution analysis.</p>
-<p class="text-slate-400 mb-3 leading-relaxed lang-cn-block">交互式交易量时间序列、ANOVA 和 Welch T 检验（含效应量）、哥伦比亚 15 个省份的 Leaflet 分级统计地图、相关性热图和人口统计分布分析。</p>
+<p class="text-slate-400 mb-3 leading-relaxed lang-en-block">Separated into two dedicated tabs: <strong class="text-white">EDA</strong> for high-level overview (time-series, Leaflet choropleth, distributions) and <strong class="text-white">CDA</strong> for statistical hypothesis testing via ggstatsplot (ggbetweenstats with 4 test types, pairwise comparisons, ggcorrmat with hclust-reordered correlation matrix).</p>
+<p class="text-slate-400 mb-3 leading-relaxed lang-cn-block">分为两个独立标签页：<strong class="text-white">EDA</strong> 展示高层概览（时间序列、Leaflet 分级地图、分布图）和 <strong class="text-white">CDA</strong> 进行统计假设检验（ggstatsplot 提供 ggbetweenstats 四种检验类型、成对比较、ggcorrmat hclust 重排序相关矩阵）。</p>
 <div class="flex flex-wrap gap-2 mt-6">
-<span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">ggplot2</span>
+<span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">ggstatsplot</span>
 <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">plotly</span>
 <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">leaflet</span>
 <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded border border-blue-500/20">sf</span>
@@ -274,8 +275,8 @@ function closeShinyApp() {
 </div>
 <span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/20 mb-4 inline-block"><span class="lang-en">Module 2</span><span class="lang-cn">模块二</span></span>
 <h3 class="text-2xl font-bold mb-4"><span class="lang-en">Customer Behavior Clustering</span><span class="lang-cn">客户行为聚类</span></h3>
-<p class="text-slate-400 mb-3 leading-relaxed lang-en-block">Segment 48,723 customers using K-Means, Hierarchical (Ward's D2), and PAM with 10 behavioral features. PCA scatter plots, elbow &amp; silhouette diagnostics, and cluster profile radar charts.</p>
-<p class="text-slate-400 mb-3 leading-relaxed lang-cn-block">使用 K-Means、层次聚类（Ward's D2）和 PAM 方法，基于 10 个行为特征对 48,723 名客户进行细分。包含 PCA 散点图、肘部法与轮廓系数诊断图、聚类画像雷达图。</p>
+<p class="text-slate-400 mb-3 leading-relaxed lang-en-block">Segment 48,723 customers using K-Means, Hierarchical (Ward's D2), and PAM with 10 behavioral features. PCA scatter plots, elbow &amp; silhouette diagnostics, hclust-reordered heatmaps, parallel coordinates, and dendrograms.</p>
+<p class="text-slate-400 mb-3 leading-relaxed lang-cn-block">使用 K-Means、层次聚类（Ward's D2）和 PAM 方法，基于 10 个行为特征对 48,723 名客户进行细分。包含 PCA 散点图、肘部法与轮廓系数诊断图、hclust 重排序热力图、平行坐标图和树状图。</p>
 <div class="flex flex-wrap gap-2 mt-6">
 <span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/20">cluster</span>
 <span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/20">factoextra</span>
@@ -289,13 +290,13 @@ function closeShinyApp() {
 </div>
 <span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20 mb-4 inline-block"><span class="lang-en">Module 3</span><span class="lang-cn">模块三</span></span>
 <h3 class="text-2xl font-bold mb-4"><span class="lang-en">Churn Prediction &amp; What-If Simulation</span><span class="lang-cn">流失预测与假设模拟</span></h3>
-<p class="text-slate-400 mb-3 leading-relaxed lang-en-block">Pre-trained Lasso (L1) &amp; Ridge (L2) via 10-fold CV. Interactive λ slider for bias-variance tradeoff. What-If simulator adjusts customer attributes and shows predicted churn probability in real time.</p>
-<p class="text-slate-400 mb-3 leading-relaxed lang-cn-block">通过 10 折交叉验证预训练 Lasso (L1) 和 Ridge (L2) 模型。交互式 λ 滑块展示偏差-方差权衡。What-If 模拟器可调整客户属性，实时显示预测的流失概率。</p>
+<p class="text-slate-400 mb-3 leading-relaxed lang-en-block">Split into two dedicated pages: <strong class="text-white">Model Calibration</strong> (CV performance, variable importance, predicted vs actual, residuals) and <strong class="text-white">What-If Simulator</strong> (adjust customer attributes via sliders, see prediction breakdown and sensitivity analysis in real time).</p>
+<p class="text-slate-400 mb-3 leading-relaxed lang-cn-block">分为两个独立页面：<strong class="text-white">模型校准</strong>（交叉验证性能、变量重要性、预测vs实际、残差分析）和 <strong class="text-white">What-If 模拟器</strong>（通过滑块调整客户属性，实时查看预测分解和敏感性分析）。</p>
 <div class="flex flex-wrap gap-2 mt-6">
 <span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">glmnet</span>
 <span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">shiny</span>
 <span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">bslib</span>
-<span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">DT</span>
+<span class="text-xs px-2 py-1 bg-green-500/10 text-green-300 rounded border border-green-500/20">scales</span>
 </div>
 </div>
 </div>
@@ -306,10 +307,10 @@ function closeShinyApp() {
 <span class="material-symbols-outlined text-primary text-6xl mb-6">rocket_launch</span>
 <h2 class="text-4xl font-bold mb-6"><span class="lang-en">Interactive Shiny Dashboard</span><span class="lang-cn">交互式 Shiny 仪表板</span></h2>
 <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10 lang-en-block">
-            Our R Shiny application brings all three modules together in a unified, interactive dashboard. Explore transaction trends, segment customers, and simulate churn scenarios — no coding required.
+            Our R Shiny application brings all five modules together in a unified, interactive dashboard. Explore transaction trends, confirm statistical hypotheses, segment customers, calibrate models, and simulate churn scenarios — no coding required.
         </p>
 <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10 lang-cn-block">
-            我们的 R Shiny 应用将三个模块整合到统一的交互式仪表板中。探索交易趋势、细分客户群体、模拟流失场景——无需编写任何代码。
+            我们的 R Shiny 应用将五个模块整合到统一的交互式仪表板中。探索交易趋势、验证统计假设、细分客户群体、校准预测模型、模拟流失场景——无需编写任何代码。
         </p>
 <div class="flex flex-wrap justify-center gap-6 mb-10">
 <div class="flex items-center gap-2 text-slate-400">
@@ -329,7 +330,7 @@ function closeShinyApp() {
 <span class="text-sm"><span class="lang-en">Multi-Method Clustering</span><span class="lang-cn">多方法聚类</span></span>
 </div>
 </div>
-<p class="text-slate-500 text-sm"><span class="lang-en">Built with R Shiny + bslib · Pre-computed clusters &amp; glmnet models for instant responsiveness</span><span class="lang-cn">基于 R Shiny + bslib 构建 · 预计算聚类与 glmnet 模型实现即时响应</span></p>
+<p class="text-slate-500 text-sm"><span class="lang-en">Built with R Shiny + bslib + ggstatsplot · Pre-computed clusters &amp; glmnet models for instant responsiveness</span><span class="lang-cn">基于 R Shiny + bslib + ggstatsplot 构建 · 预计算聚类与 glmnet 模型实现即时响应</span></p>
 </div>
 </section>
 <!-- Team Section -->

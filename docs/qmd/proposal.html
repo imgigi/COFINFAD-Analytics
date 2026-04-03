@@ -161,6 +161,7 @@ function closeShinyApp() {
 <a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.html#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
+<a href="user-guide.html" class="border border-primary text-primary hover:bg-primary/10 px-4 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">User Guide</span><span class="lang-cn">用户指南</span></a>
 <button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
 <a onclick="openShinyApp(); return false;" href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
 <button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
@@ -604,18 +605,18 @@ function closeShinyApp() {
 <h5 class="font-bold text-slate-300 mb-3 text-sm uppercase tracking-wide"><span class="lang-en">Output Components</span><span class="lang-cn">输出组件</span></h5>
 <div class="lang-en-block">
 <ul class="space-y-3 text-slate-400 text-sm">
-<li><code class="text-primary">plotly::plotlyOutput()</code> — renders the interactive time-series line chart (Module 1), PCA scatter plot colour-coded by cluster (Module 2), elbow and silhouette diagnostic plots (Module 2), variable importance bar chart, and cross-validation λ-vs-MSE curve (Module 3). Plotly provides hover tooltips, zoom, and brush selection across all charts.</li>
-<li><code class="text-primary">leaflet::leafletOutput()</code> — renders the choropleth map of Colombian departments in Module 1, coloured by the user-selected metric (customer count, average churn probability, or average CLV). Users can zoom, pan, and click on departments to see detailed tooltips.</li>
-<li><code class="text-primary">DT::DTOutput()</code> — displays the cluster summary statistics table in Module 2 (mean of each feature per cluster) and the current-vs-hypothetical comparison table in Module 3. Both tables are sortable, searchable, and paginated.</li>
-<li><code class="text-primary">uiOutput()</code> — used for the statistical test result panel in Module 1 (dynamically renders test statistic, p-value, effect size, and interpretation) and the churn probability gauge in Module 3 (a reactive HTML gauge that updates as What-If sliders change).</li>
+<li><code class="text-primary">plotly::plotlyOutput()</code> — renders the interactive time-series line chart (EDA), PCA scatter plot colour-coded by cluster, elbow and silhouette diagnostic plots, parallel coordinates, heatmaps (Clustering), variable importance bar chart, cross-validation λ-vs-MSE curve (Model Calibration), and prediction breakdown with sensitivity analysis (What-If Simulator). Plotly provides hover tooltips, zoom, and brush selection across all charts.</li>
+<li><code class="text-primary">leaflet::leafletOutput()</code> — renders the choropleth map of Colombian departments in the EDA tab, coloured by the user-selected metric (customer count, average churn probability, or average CLV). Users can zoom, pan, and click on departments to see detailed tooltips.</li>
+<li><code class="text-primary">plotOutput()</code> — renders ggstatsplot outputs (ggbetweenstats for hypothesis testing, ggcorrmat for correlation matrix with hclust reordering) in the CDA tab, and dendrograms for hierarchical clustering visualization.</li>
+<li><code class="text-primary">uiOutput()</code> — used for the lambda interpretation panel in Model Calibration and the churn risk recommendations in the What-If Simulator (reactive HTML panels that update as model parameters and sliders change).</li>
 </ul>
 </div>
 <div class="lang-cn-block">
 <ul class="space-y-3 text-slate-400 text-sm">
-<li><code class="text-primary">plotly::plotlyOutput()</code> — 渲染交互式时间序列折线图（模块1）、按聚类颜色编码的PCA散点图（模块2）、肘部图和轮廓诊断图（模块2）、变量重要性柱状图和交叉验证 λ vs MSE 曲线（模块3）。Plotly 在所有图表中提供悬停提示、缩放和刷选功能。</li>
-<li><code class="text-primary">leaflet::leafletOutput()</code> — 渲染模块1中的哥伦比亚省份分级统计地图，按用户选择的指标（客户数量、平均流失概率或平均CLV）着色。用户可以缩放、平移和点击省份查看详细提示。</li>
-<li><code class="text-primary">DT::DTOutput()</code> — 显示模块2中的聚类汇总统计表（每个聚类各特征的均值）和模块3中的当前与假设对比表。两个表格均支持排序、搜索和分页。</li>
-<li><code class="text-primary">uiOutput()</code> — 用于模块1中的统计检验结果面板（动态渲染检验统计量、p值、效应量和解释）和模块3中的流失概率仪表（随 What-If 滑块变化而更新的响应式HTML仪表）。</li>
+<li><code class="text-primary">plotly::plotlyOutput()</code> — 渲染交互式时间序列折线图（EDA）、按聚类颜色编码的PCA散点图、肘部图和轮廓诊断图、平行坐标图、热力图（聚类）、变量重要性柱状图、交叉验证 λ vs MSE 曲线（模型校准）、以及预测分解与敏感性分析（What-If 模拟器）。Plotly 在所有图表中提供悬停提示、缩放和刷选功能。</li>
+<li><code class="text-primary">leaflet::leafletOutput()</code> — 渲染 EDA 标签页中的哥伦比亚省份分级统计地图，按用户选择的指标（客户数量、平均流失概率或平均CLV）着色。用户可以缩放、平移和点击省份查看详细提示。</li>
+<li><code class="text-primary">plotOutput()</code> — 渲染 ggstatsplot 输出（CDA 标签页中的 ggbetweenstats 假设检验、ggcorrmat hclust 重排序相关矩阵），以及层次聚类的树状图可视化。</li>
+<li><code class="text-primary">uiOutput()</code> — 用于模型校准中的 lambda 解释面板和 What-If 模拟器中的流失风险建议（随模型参数和滑块变化而更新的响应式 HTML 面板）。</li>
 </ul>
 </div>
 </div>

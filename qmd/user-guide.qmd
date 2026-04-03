@@ -1,0 +1,728 @@
+---
+title: "User Guide - COFINFAD Analytics"
+format:
+  html:
+    theme: none
+    minimal: true
+    page-layout: custom
+    toc: false
+    number-sections: false
+    output-file: user-guide.html
+---
+
+```{=html}
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#f97415",
+          "background-light": "#080808",
+          "background-dark": "#080808",
+          "card-dark": "#121212",
+          "border-dark": "#1f1f1f",
+        },
+        fontFamily: { "display": ["Inter"] },
+        borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.add('dark');
+  });
+</script>
+<style>
+  #title-block-header { display: none !important; }
+  .quarto-title { display: none !important; }
+  header#title-block-header { display: none !important; }
+  header { display: none !important; }
+  #quarto-content { margin: 0 !important; padding: 0 !important; }
+  .page-columns { display: block !important; }
+  body > div.container-fluid, body > .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  main.content { margin: 0 !important; padding: 0 !important; max-width: 100% !important; }
+  body { background-color: #080808 !important; color: #e2e8f0 !important; font-family: 'Inter', sans-serif !important; margin: 0 !important; }
+  html { background-color: #080808 !important; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .lang-cn { display: none; }
+  body.cn .lang-cn { display: inline; }
+  body.cn .lang-en { display: none; }
+  body.cn .lang-cn-block { display: block; }
+  body.cn .lang-en-block { display: none; }
+  .lang-cn-block { display: none; }
+  .shiny-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
+  .shiny-modal.active { display: flex; flex-direction: column; }
+  .shiny-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #121212; border-bottom: 1px solid #1f1f1f; }
+  .shiny-modal-header span { color: #f97415; font-weight: 700; font-size: 14px; }
+  .shiny-modal-close { background: none; border: 1px solid #333; color: #fff; padding: 6px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+  .shiny-modal-close:hover { background: #f97415; border-color: #f97415; }
+  .shiny-modal iframe { flex: 1; width: 100%; border: none; }
+  .step-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #f97415; color: white; border-radius: 50%; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
+</style>
+<script>
+function toggleLang() {
+  document.body.classList.toggle('cn');
+  const btn = document.getElementById('lang-btn');
+  btn.textContent = document.body.classList.contains('cn') ? 'EN' : '中文';
+  localStorage.setItem('lang', document.body.classList.contains('cn') ? 'cn' : 'en');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('lang') === 'cn') {
+    document.body.classList.add('cn');
+    var btn = document.getElementById('lang-btn');
+    if (btn) btn.textContent = 'EN';
+  }
+});
+
+function openShinyApp() {
+  var modal = document.getElementById('shiny-modal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  var iframe = modal.querySelector('iframe');
+  if (!iframe.src) iframe.src = 'https://guofang1028.shinyapps.io/ShinyApp/';
+}
+function closeShinyApp() {
+  var modal = document.getElementById('shiny-modal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+</script>
+<div class="bg-[#080808] font-display text-slate-100 min-h-screen">
+<div id="shiny-modal" class="shiny-modal">
+<div class="shiny-modal-header">
+<span><span class="lang-en">COFINFAD Shiny App</span><span class="lang-cn">COFINFAD Shiny 应用</span></span>
+<div style="display:flex;gap:8px;align-items:center;">
+<a href="https://guofang1028.shinyapps.io/ShinyApp/" target="_blank" style="color:#999;font-size:12px;text-decoration:none;"><span class="lang-en">Open in new tab</span><span class="lang-cn">新标签页打开</span></a>
+<button class="shiny-modal-close" onclick="closeShinyApp()">✕ <span class="lang-en">Close</span><span class="lang-cn">关闭</span></button>
+</div>
+</div>
+<iframe></iframe>
+</div>
+<!-- Navbar -->
+<nav class="sticky top-0 z-50 w-full border-b border-[#1f1f1f] bg-[#080808]/90 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20 items-center">
+<a href="homepage.html" class="flex items-center gap-2 no-underline">
+<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
+</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="proposal.html"><span class="lang-en">Proposal</span><span class="lang-cn">项目提案</span></a>
+<div class="relative dropdown group">
+<button class="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+<span class="lang-en">Methodology</span><span class="lang-cn">方法论</span> <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="dropdown-menu hidden absolute left-0 top-full pt-2 w-56 bg-[#111111] border border-[#1f1f1f] rounded-lg shadow-xl overflow-hidden">
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="data-preparation.html"><span class="lang-en">Data Preparation</span><span class="lang-cn">数据准备</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="exploratory-analysis.html"><span class="lang-en">Exploratory Analysis</span><span class="lang-cn">探索性分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="clustering.html"><span class="lang-en">Clustering</span><span class="lang-cn">聚类分析</span></a>
+<a class="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary" href="prediction.html"><span class="lang-en">Prediction</span><span class="lang-cn">预测模型</span></a>
+</div>
+</div>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="meeting-minutes.html"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.html#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
+</div>
+<div class="flex items-center gap-3">
+<a href="user-guide.html" class="bg-primary/20 border border-primary text-primary px-4 py-2.5 rounded-lg text-sm font-bold no-underline"><span class="lang-en">User Guide</span><span class="lang-cn">用户指南</span></a>
+<a onclick="openShinyApp(); return false;" href="#" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all no-underline"><span class="lang-en">Shiny App</span><span class="lang-cn">Shiny 应用</span></a>
+<button id="lang-btn" onclick="toggleLang()" class="px-3 py-2 border border-[#1f1f1f] rounded-lg hover:bg-[#121212] transition-colors text-sm font-bold text-slate-300">中文</button>
+<button class="p-2 border border-[#1f1f1f] rounded-lg hover:bg-[#111111] transition-colors">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+
+<!-- Hero -->
+<section class="relative mb-16 rounded-2xl overflow-hidden bg-[#0d0d0d] p-12 md:p-20 flex flex-col items-center text-center border border-white/5">
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+<div class="relative z-10 max-w-3xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold tracking-widest uppercase mb-8"><span class="lang-en">USER GUIDE</span><span class="lang-cn">用户指南</span></span>
+<h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight"><span class="lang-en">How to Use the<br/>COFINFAD Shiny App</span><span class="lang-cn">如何使用<br/>COFINFAD Shiny 应用</span></h1>
+<p class="text-xl text-slate-300 font-medium mb-6 lang-en-block">A step-by-step walkthrough of all five analytical modules &mdash; no coding required.</p>
+<p class="text-xl text-slate-300 font-medium mb-6 lang-cn-block">五大分析模块逐步操作指南，无需编写任何代码。</p>
+<a onclick="openShinyApp(); return false;" href="#" class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-3.5 rounded-xl font-bold transition-all no-underline shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+<span class="lang-en">Launch Shiny App</span><span class="lang-cn">启动 Shiny 应用</span>
+</a>
+</div>
+</section>
+
+<!-- Quick Navigation -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold mb-8 text-white"><span class="lang-en">Modules at a Glance</span><span class="lang-cn">模块概览</span></h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<a href="#getting-started" class="bg-[#111] border border-[#1f1f1f] rounded-xl p-5 text-center hover:border-primary/50 transition-all no-underline group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-3xl block mb-2">play_circle</span>
+<p class="text-xs font-semibold text-slate-400 group-hover:text-primary"><span class="lang-en">Getting Started</span><span class="lang-cn">快速入门</span></p>
+</a>
+<a href="#module-eda" class="bg-[#111] border border-[#1f1f1f] rounded-xl p-5 text-center hover:border-orange-400/50 transition-all no-underline group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-orange-400 text-3xl block mb-2">show_chart</span>
+<p class="text-xs font-semibold text-slate-400 group-hover:text-orange-400"><span class="lang-en">Exploratory Overview</span><span class="lang-cn">探索性概览</span></p>
+</a>
+<a href="#module-cda" class="bg-[#111] border border-[#1f1f1f] rounded-xl p-5 text-center hover:border-yellow-400/50 transition-all no-underline group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-yellow-400 text-3xl block mb-2">science</span>
+<p class="text-xs font-semibold text-slate-400 group-hover:text-yellow-400"><span class="lang-en">Confirmatory Analysis</span><span class="lang-cn">验证性分析</span></p>
+</a>
+<a href="#module-clustering" class="bg-[#111] border border-[#1f1f1f] rounded-xl p-5 text-center hover:border-purple-400/50 transition-all no-underline group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-purple-400 text-3xl block mb-2">hub</span>
+<p class="text-xs font-semibold text-slate-400 group-hover:text-purple-400"><span class="lang-en">Segmentation</span><span class="lang-cn">客户细分</span></p>
+</a>
+<a href="#module-model" class="bg-[#111] border border-[#1f1f1f] rounded-xl p-5 text-center hover:border-pink-400/50 transition-all no-underline group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-pink-400 text-3xl block mb-2">model_training</span>
+<p class="text-xs font-semibold text-slate-400 group-hover:text-pink-400"><span class="lang-en">Model Calibration</span><span class="lang-cn">模型校准</span></p>
+</a>
+<a href="#module-simulator" class="bg-[#111] border border-[#1f1f1f] rounded-xl p-5 text-center hover:border-blue-400/50 transition-all no-underline group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-blue-400 text-3xl block mb-2">tune</span>
+<p class="text-xs font-semibold text-slate-400 group-hover:text-blue-400"><span class="lang-en">What-If Simulator</span><span class="lang-cn">假设模拟器</span></p>
+</a>
+</div>
+</section>
+
+<!-- Getting Started -->
+<section id="getting-started" class="mb-20">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-primary text-4xl">play_circle</span>
+<h2 class="text-3xl font-black text-white"><span class="lang-en">Getting Started</span><span class="lang-cn">快速入门</span></h2>
+</div>
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-8 md:p-10">
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">The COFINFAD Shiny App is a fully interactive analytics dashboard — no installation or coding needed. Simply open the app in your browser and navigate between the five analytical tabs using the top navigation bar.</p>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">COFINFAD Shiny 应用是一个完全交互式的分析仪表板，无需安装或编写代码。只需在浏览器中打开应用，通过顶部导航栏在五个分析标签页之间切换即可。</p>
+<div class="grid md:grid-cols-3 gap-6 mb-8">
+<div class="flex gap-4">
+<span class="step-badge mt-1">1</span>
+<div>
+<p class="font-semibold text-white mb-1"><span class="lang-en">Open the App</span><span class="lang-cn">打开应用</span></p>
+<p class="text-slate-400 text-sm leading-relaxed lang-en-block">Click the <strong class="text-primary">Shiny App</strong> button in the navbar above, or visit the app URL directly in a new tab.</p>
+<p class="text-slate-400 text-sm leading-relaxed lang-cn-block">点击上方导航栏中的 <strong class="text-primary">Shiny 应用</strong> 按钮，或直接在新标签页中访问应用链接。</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="step-badge mt-1">2</span>
+<div>
+<p class="font-semibold text-white mb-1"><span class="lang-en">Choose a Module</span><span class="lang-cn">选择模块</span></p>
+<p class="text-slate-400 text-sm leading-relaxed lang-en-block">Use the top navbar tabs — <em>About, Exploratory Overview, Confirmatory Analysis, Customer Segmentation, Model Calibration, What-If Simulator</em> — to navigate between modules.</p>
+<p class="text-slate-400 text-sm leading-relaxed lang-cn-block">使用顶部导航栏标签页——<em>关于、探索性概览、验证性分析、客户细分、模型校准、假设模拟器</em>——在模块之间切换。</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="step-badge mt-1">3</span>
+<div>
+<p class="font-semibold text-white mb-1"><span class="lang-en">Adjust & Explore</span><span class="lang-cn">调整与探索</span></p>
+<p class="text-slate-400 text-sm leading-relaxed lang-en-block">Each module has a <strong class="text-primary">sidebar panel</strong> with filters, dropdowns, and sliders. Change the controls and the charts update instantly.</p>
+<p class="text-slate-400 text-sm leading-relaxed lang-cn-block">每个模块都有一个带有筛选器、下拉菜单和滑块的<strong class="text-primary">侧边栏面板</strong>，更改控件后图表将即时更新。</p>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-primary/5 border border-primary/20 rounded-xl p-5">
+<span class="material-symbols-outlined text-primary mt-0.5">lightbulb</span>
+<p class="text-sm text-slate-300 lang-en-block"><strong class="text-primary">Tip:</strong> All charts are built with <strong>Plotly</strong> — hover over any data point to see exact values. Click legend items to show/hide series. Use the toolbar icons (top-right of each chart) to zoom, pan, or download.</p>
+<p class="text-sm text-slate-300 lang-cn-block"><strong class="text-primary">提示：</strong>所有图表均使用 <strong>Plotly</strong> 构建——将鼠标悬停在数据点上可查看精确数值。点击图例项目可显示/隐藏系列。使用每个图表右上角的工具栏图标进行缩放、平移或下载。</p>
+</div>
+</div>
+</section>
+
+<!-- Module 1: EDA -->
+<section id="module-eda" class="mb-20">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 bg-orange-500/10 border border-orange-500/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-400 text-2xl">show_chart</span>
+</div>
+<div>
+<span class="text-xs font-bold text-orange-400 uppercase tracking-widest"><span class="lang-en">Tab 2</span><span class="lang-cn">标签页 2</span></span>
+<h2 class="text-3xl font-black text-white"><span class="lang-en">Exploratory Overview</span><span class="lang-cn">探索性概览</span></h2>
+</div>
+</div>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Get a high-level picture of transaction volumes, geographic distribution, and customer demographics. Four KPI cards at the top summarise the key numbers at a glance.</p>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">从宏观角度了解交易量、地理分布和客户人口结构。顶部四个 KPI 卡片一览关键数据。</p>
+
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+<!-- Sidebar controls -->
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-orange-400 text-xl">tune</span><span class="lang-en">Sidebar Controls</span><span class="lang-cn">侧边栏控件</span></h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-orange-400 text-lg mt-0.5 flex-shrink-0">date_range</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Date Range</span><span class="lang-cn">日期范围</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Drag or type to filter the time-series chart to a specific period within the 12-month observation window.</p>
+<p class="text-slate-400 text-sm lang-cn-block">拖动或输入以将时间序列图表筛选到 12 个月观察窗口内的特定时间段。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-orange-400 text-lg mt-0.5 flex-shrink-0">checklist</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Transaction Types</span><span class="lang-cn">交易类型</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Check or uncheck <em>Transfer, Withdrawal, Payment, Deposit</em> to show or hide individual series on the time-series chart.</p>
+<p class="text-slate-400 text-sm lang-cn-block">勾选或取消勾选<em>转账、取款、付款、存款</em>，以在时间序列图表上显示或隐藏各系列。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-orange-400 text-lg mt-0.5 flex-shrink-0">map</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Map Metric</span><span class="lang-cn">地图指标</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Select what the Colombian department map/bar chart should display: <em>Customer Count, Avg Churn Probability, Avg Income, Avg CLV,</em> or <em>Avg Satisfaction</em>.</p>
+<p class="text-slate-400 text-sm lang-cn-block">选择哥伦比亚省份地图/条形图显示的指标：<em>客户数量、平均流失概率、平均收入、平均 CLV</em> 或<em>平均满意度</em>。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-orange-400 text-lg mt-0.5 flex-shrink-0">group</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Grouping Variable</span><span class="lang-cn">分组变量</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Choose which demographic to break down the <em>Customer Distribution</em> bar chart by: income bracket, segment, CLV tier, gender, age group, acquisition channel, or feedback sentiment.</p>
+<p class="text-slate-400 text-sm lang-cn-block">选择按哪个人口统计维度分解<em>客户分布</em>条形图：收入档次、细分群体、CLV 层级、性别、年龄组、获客渠道或反馈情感。</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Charts -->
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-orange-400 text-xl">bar_chart</span><span class="lang-en">Charts & What They Show</span><span class="lang-cn">图表及其含义</span></h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-orange-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Monthly Transaction Volume by Type</span><span class="lang-cn">按类型的月度交易量</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Line chart showing COP billions per month, colour-coded by transaction type. Hover for exact values.</p>
+<p class="text-slate-400 text-sm lang-cn-block">折线图显示每月的十亿哥伦比亚比索，按交易类型着色。悬停可查看精确数值。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-orange-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Colombian Department Overview</span><span class="lang-cn">哥伦比亚省份概览</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Interactive choropleth map (or horizontal bar chart) showing the selected metric by Colombian department. Hover over a department to see its value.</p>
+<p class="text-slate-400 text-sm lang-cn-block">交互式分级地图（或水平条形图），按哥伦比亚省份显示所选指标。悬停在省份上可查看其数值。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-orange-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Customer Distribution</span><span class="lang-cn">客户分布</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Horizontal bar chart ranking groups by customer count. Changes dynamically based on the selected <em>Grouping Variable</em>.</p>
+<p class="text-slate-400 text-sm lang-cn-block">按客户数量排序的水平条形图，根据所选<em>分组变量</em>动态变化。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-orange-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Segment Composition by Income Bracket</span><span class="lang-cn">按收入档次的细分群体构成</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Stacked 100% bar chart showing the proportion of customer segments (inactive, occasional, regular, power) within each income group.</p>
+<p class="text-slate-400 text-sm lang-cn-block">堆叠 100% 条形图显示每个收入组内客户细分群体（非活跃、偶发、常规、高活跃）的比例。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-orange-500/5 border border-orange-500/20 rounded-xl p-5">
+<span class="material-symbols-outlined text-orange-400 mt-0.5">tips_and_updates</span>
+<p class="text-sm text-slate-300 lang-en-block"><strong class="text-orange-400">Tip:</strong> Click <strong>Reset Filters</strong> in the sidebar to restore all defaults at once. The KPI cards (Total Customers, Transaction Volume, Avg Churn Rate, Avg Satisfaction) at the top of the page always reflect the currently filtered data.</p>
+<p class="text-sm text-slate-300 lang-cn-block"><strong class="text-orange-400">提示：</strong>点击侧边栏中的<strong>重置筛选器</strong>可一次性恢复所有默认设置。页面顶部的 KPI 卡片（总客户数、交易量、平均流失率、平均满意度）始终反映当前筛选后的数据。</p>
+</div>
+</section>
+
+<!-- Module 2: CDA -->
+<section id="module-cda" class="mb-20">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 bg-yellow-500/10 border border-yellow-500/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-yellow-400 text-2xl">science</span>
+</div>
+<div>
+<span class="text-xs font-bold text-yellow-400 uppercase tracking-widest"><span class="lang-en">Tab 3</span><span class="lang-cn">标签页 3</span></span>
+<h2 class="text-3xl font-black text-white"><span class="lang-en">Confirmatory Analysis</span><span class="lang-cn">验证性分析</span></h2>
+</div>
+</div>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Go beyond patterns and test statistical hypotheses. This tab uses <strong class="text-white">ggstatsplot</strong> to run formal significance tests and display a publication-ready correlation matrix — all driven by the sidebar controls.</p>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">超越数据规律，进行统计假设检验。本标签页使用 <strong class="text-white">ggstatsplot</strong> 运行正式显著性检验并显示可发布的相关矩阵——所有功能均由侧边栏控件驱动。</p>
+
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-yellow-400 text-xl">tune</span><span class="lang-en">Sidebar Controls</span><span class="lang-cn">侧边栏控件</span></h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-yellow-400 text-lg mt-0.5 flex-shrink-0">group</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Grouping Variable</span><span class="lang-cn">分组变量</span></p>
+<p class="text-slate-400 text-sm lang-en-block">The categorical variable used to split customers into groups for the statistical test (e.g., income bracket, gender, segment).</p>
+<p class="text-slate-400 text-sm lang-cn-block">用于将客户划分为群组进行统计检验的分类变量（例如收入档次、性别、细分群体）。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-yellow-400 text-lg mt-0.5 flex-shrink-0">functions</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Test Variable</span><span class="lang-cn">检验变量</span></p>
+<p class="text-slate-400 text-sm lang-en-block">The numeric variable being compared across groups (e.g., avg_tx_value, churn_probability, satisfaction_score).</p>
+<p class="text-slate-400 text-sm lang-cn-block">跨群组进行比较的数值变量（例如平均交易价值、流失概率、满意度评分）。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-yellow-400 text-lg mt-0.5 flex-shrink-0">schema</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Test Approach</span><span class="lang-cn">检验方法</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Choose from <em>Parametric</em> (F-test/t-test), <em>Non-parametric</em> (Kruskal-Wallis/Mann-Whitney), <em>Robust</em>, or <em>Bayesian</em> methods. Each changes the statistics shown in the plot subtitle.</p>
+<p class="text-slate-400 text-sm lang-cn-block">从<em>参数检验</em>（F 检验/t 检验）、<em>非参数检验</em>（Kruskal-Wallis/Mann-Whitney）、<em>稳健检验</em>或<em>贝叶斯</em>方法中选择。每种方法都会改变图表副标题中显示的统计数据。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-yellow-400 text-lg mt-0.5 flex-shrink-0">compare</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Comparison Type</span><span class="lang-cn">比较类型</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Select <em>Between Groups (ANOVA)</em> to compare all groups simultaneously, or <em>Two-Group (T-test)</em> to pick exactly two groups from the dropdowns that appear below.</p>
+<p class="text-slate-400 text-sm lang-cn-block">选择<em>组间比较（ANOVA）</em>同时比较所有组，或<em>双组比较（T 检验）</em>从下方出现的下拉菜单中选择恰好两个组。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-yellow-400 text-lg mt-0.5 flex-shrink-0">grid_view</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Correlation Method</span><span class="lang-cn">相关系数方法</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Controls the correlation matrix on the right. Parametric = Pearson; Non-parametric = Spearman; Robust = percentage bend; Bayesian = posterior correlation.</p>
+<p class="text-slate-400 text-sm lang-cn-block">控制右侧的相关矩阵。参数=Pearson；非参数=Spearman；稳健=百分位弯曲；贝叶斯=后验相关。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-yellow-400 text-xl">bar_chart</span><span class="lang-en">Reading the Charts</span><span class="lang-cn">解读图表</span></h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Hypothesis Test Plot (left)</span><span class="lang-cn">假设检验图（左）</span></p>
+<p class="text-slate-400 text-sm lang-en-block">A violin + box plot for each group. The subtitle shows the test statistic, degrees of freedom, p-value, and effect size. Pairwise comparisons are annotated with significance brackets.</p>
+<p class="text-slate-400 text-sm lang-cn-block">每个组的小提琴图 + 箱线图。副标题显示检验统计量、自由度、p 值和效应量。成对比较用显著性括号标注。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Correlation Matrix (right)</span><span class="lang-cn">相关矩阵（右）</span></p>
+<p class="text-slate-400 text-sm lang-en-block">A heatmap of pairwise correlations between key numeric variables, reordered by hierarchical clustering so that similar variables appear together. Asterisks (*) indicate statistical significance levels.</p>
+<p class="text-slate-400 text-sm lang-cn-block">关键数值变量之间成对相关系数的热力图，按层次聚类重新排序使相似变量相邻显示。星号（*）表示统计显著性水平。</p>
+</div>
+</li>
+</ul>
+<div class="mt-6 flex items-start gap-3 bg-yellow-500/5 border border-yellow-500/20 rounded-xl p-4">
+<span class="material-symbols-outlined text-yellow-400 mt-0.5 text-lg">info</span>
+<p class="text-sm text-slate-300 lang-en-block">For large groups the app automatically samples up to 5,000 rows for performance, so results are still statistically representative.</p>
+<p class="text-sm text-slate-300 lang-cn-block">对于大型数据组，应用会自动抽取最多 5,000 行以保证性能，结果仍具有统计代表性。</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Module 3: Clustering -->
+<section id="module-clustering" class="mb-20">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 bg-purple-500/10 border border-purple-500/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-purple-400 text-2xl">hub</span>
+</div>
+<div>
+<span class="text-xs font-bold text-purple-400 uppercase tracking-widest"><span class="lang-en">Tab 4</span><span class="lang-cn">标签页 4</span></span>
+<h2 class="text-3xl font-black text-white"><span class="lang-en">Customer Segmentation</span><span class="lang-cn">客户细分</span></h2>
+</div>
+</div>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Segment 48,723 customers into distinct behavioral clusters using three different algorithms. Pre-computed results load instantly; for custom feature sets, click <strong class="text-white">Run Clustering</strong> to recompute.</p>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">使用三种不同算法将 48,723 名客户分组为不同的行为聚类。预计算结果即时加载；对于自定义特征集，点击<strong class="text-white">运行聚类</strong>重新计算。</p>
+
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-purple-400 text-xl">tune</span><span class="lang-en">Sidebar Controls</span><span class="lang-cn">侧边栏控件</span></h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-purple-400 text-lg mt-0.5 flex-shrink-0">category</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Feature Preset</span><span class="lang-cn">特征预设</span></p>
+<p class="text-slate-400 text-sm lang-en-block"><em>RFM Features</em> uses Recency, Frequency, Monetary value. <em>Full Behavioral</em> adds tenure, credit, products. <em>Engagement</em> focuses on satisfaction and activity. <em>Custom</em> lets you hand-pick from 10 available features.</p>
+<p class="text-slate-400 text-sm lang-cn-block"><em>RFM 特征</em>使用近度、频率、货币价值。<em>完整行为</em>增加了任期、信用、产品。<em>参与度</em>侧重满意度和活跃度。<em>自定义</em>允许从 10 个可用特征中手动选择。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-purple-400 text-lg mt-0.5 flex-shrink-0">123</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Number of Clusters (k)</span><span class="lang-cn">聚类数量 (k)</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Slide from 2 to 8. Check the <em>Elbow</em> and <em>Silhouette</em> diagnostic charts to choose the optimal k: look for the elbow bend and the highest silhouette score.</p>
+<p class="text-slate-400 text-sm lang-cn-block">从 2 滑动到 8。查看<em>肘部</em>和<em>轮廓系数</em>诊断图选择最优 k：寻找肘部拐点和最高轮廓系数值。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-purple-400 text-lg mt-0.5 flex-shrink-0">account_tree</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Algorithm</span><span class="lang-cn">算法</span></p>
+<p class="text-slate-400 text-sm lang-en-block"><em>K-Means</em> minimises within-cluster variance (fastest). <em>Hierarchical (Ward)</em> builds a tree of merges — see the Dendrogram tab. <em>PAM</em> is more robust to outliers as it uses real data points as cluster centres.</p>
+<p class="text-slate-400 text-sm lang-cn-block"><em>K-Means</em> 最小化簇内方差（最快）。<em>层次聚类（Ward）</em>构建合并树——查看树状图标签页。<em>PAM</em> 使用真实数据点作为聚类中心，对离群值更稳健。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-purple-400 text-lg mt-0.5 flex-shrink-0">palette</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Color Points By</span><span class="lang-cn">着色依据</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Overlay a secondary dimension onto the PCA scatter — colour by cluster assignment, income bracket, customer segment, CLV tier, or churn risk to spot cross-cutting patterns.</p>
+<p class="text-slate-400 text-sm lang-cn-block">在 PCA 散点图上叠加次要维度——按聚类分配、收入档次、客户细分、CLV 层级或流失风险着色，以发现交叉规律。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-purple-400 text-xl">bar_chart</span><span class="lang-en">Charts & Tabs</span><span class="lang-cn">图表与标签页</span></h3>
+<ul class="space-y-3">
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">PCA Cluster Visualization</span><span class="lang-cn">PCA 聚类可视化</span></p>
+<p class="text-slate-400 text-sm lang-en-block">2D scatter plot of the first two principal components. Each point is a customer; colours indicate cluster membership.</p>
+<p class="text-slate-400 text-sm lang-cn-block">前两个主成分的 2D 散点图。每个点代表一位客户；颜色表示聚类归属。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Elbow / Silhouette Diagnostics</span><span class="lang-cn">肘部/轮廓系数诊断</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Use the inner tabs to switch between the elbow curve (total within-cluster sum of squares vs. k) and the silhouette plot (average silhouette width per cluster).</p>
+<p class="text-slate-400 text-sm lang-cn-block">使用内部标签页在肘部曲线（簇内平方和总量 vs. k）和轮廓图（每个聚类的平均轮廓宽度）之间切换。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Feature Heatmap</span><span class="lang-cn">特征热力图</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Normalised cluster centroids as a heatmap — rows are features, columns are clusters. Orange = high, purple = low.</p>
+<p class="text-slate-400 text-sm lang-cn-block">归一化聚类质心的热力图——行为特征，列为聚类。橙色=高，紫色=低。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Parallel Coordinates / Dendrogram / Income Dist.</span><span class="lang-cn">平行坐标/树状图/收入分布</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Three inner tabs: parallel coordinate lines per cluster (feature profiles), the Ward linkage dendrogram, and income bracket breakdown per cluster.</p>
+<p class="text-slate-400 text-sm lang-cn-block">三个内部标签页：每个聚类的平行坐标线（特征概况）、Ward 连接树状图和每个聚类的收入档次分布。</p>
+</div>
+</li>
+</ul>
+<div class="mt-5 flex items-start gap-3 bg-purple-500/5 border border-purple-500/20 rounded-xl p-4">
+<span class="material-symbols-outlined text-purple-400 mt-0.5 text-lg">download</span>
+<p class="text-sm text-slate-300 lang-en-block">Click <strong class="text-purple-400">Export Centroids CSV</strong> at the bottom of the sidebar to download the cluster centroid table for further analysis.</p>
+<p class="text-sm text-slate-300 lang-cn-block">点击侧边栏底部的<strong class="text-purple-400">导出质心 CSV</strong>，下载聚类质心表格以进行进一步分析。</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Module 4: Model Calibration -->
+<section id="module-model" class="mb-20">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 bg-pink-500/10 border border-pink-500/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-pink-400 text-2xl">model_training</span>
+</div>
+<div>
+<span class="text-xs font-bold text-pink-400 uppercase tracking-widest"><span class="lang-en">Tab 5</span><span class="lang-cn">标签页 5</span></span>
+<h2 class="text-3xl font-black text-white"><span class="lang-en">Model Calibration</span><span class="lang-cn">模型校准</span></h2>
+</div>
+</div>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Inspect the performance of the regularised regression model used to predict churn probability. Explore how varying the regularisation strength (lambda) affects which features survive and how accurately the model fits.</p>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">检查用于预测流失概率的正则化回归模型的性能。探索改变正则化强度（lambda）如何影响哪些特征被保留以及模型的拟合精度。</p>
+
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-pink-400 text-xl">tune</span><span class="lang-en">Sidebar Controls</span><span class="lang-cn">侧边栏控件</span></h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-pink-400 text-lg mt-0.5 flex-shrink-0">schema</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Model Type</span><span class="lang-cn">模型类型</span></p>
+<p class="text-slate-400 text-sm lang-en-block"><em>Lasso (L1)</em> shrinks some coefficients exactly to zero, performing implicit feature selection. <em>Ridge (L2)</em> shrinks all coefficients but keeps all features active.</p>
+<p class="text-slate-400 text-sm lang-cn-block"><em>Lasso (L1)</em> 将某些系数精确收缩为零，执行隐式特征选择。<em>Ridge (L2)</em> 收缩所有系数但保留所有特征。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-pink-400 text-lg mt-0.5 flex-shrink-0">linear_scale</span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Lambda Index (λ)</span><span class="lang-cn">Lambda 索引 (λ)</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Drag the slider (1–100) to explore different levels of regularisation. The app defaults to the optimal λ (λ.min from cross-validation). Moving right increases regularisation (simpler model, potentially higher bias). Moving left decreases it (more complex model, potentially overfitting).</p>
+<p class="text-slate-400 text-sm lang-cn-block">拖动滑块（1–100）探索不同的正则化水平。应用默认使用最优 λ（交叉验证中的 λ.min）。向右移动增加正则化（更简单的模型，可能偏差更高）；向左移动减小正则化（更复杂的模型，可能过拟合）。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-pink-400 text-xl">bar_chart</span><span class="lang-en">Charts & KPIs</span><span class="lang-cn">图表与 KPI</span></h3>
+<ul class="space-y-3">
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></span>
+<div><p class="font-semibold text-white text-sm"><span class="lang-en">KPI Cards — Model R², RMSE, Active Features, Churn Probability</span><span class="lang-cn">KPI 卡片 — 模型 R²、RMSE、活跃特征数、流失概率</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Four headline metrics for the currently selected λ. Active Features shows how many variables the model retains at this regularisation level.</p>
+<p class="text-slate-400 text-sm lang-cn-block">当前选定 λ 的四个关键指标。活跃特征数显示模型在此正则化水平下保留的变量数量。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></span>
+<div><p class="font-semibold text-white text-sm"><span class="lang-en">Top Churn Predictors (Variable Importance)</span><span class="lang-cn">主要流失预测因子（变量重要性）</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Horizontal bar chart of the absolute regression coefficients at the selected λ. Longer bars = stronger predictors. Features shrunk to zero by Lasso disappear from this chart.</p>
+<p class="text-slate-400 text-sm lang-cn-block">所选 λ 下绝对回归系数的水平条形图。条形越长=预测能力越强。被 Lasso 收缩为零的特征从此图中消失。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></span>
+<div><p class="font-semibold text-white text-sm"><span class="lang-en">Cross-Validation Performance (λ vs MSE)</span><span class="lang-cn">交叉验证性能（λ vs MSE）</span></p>
+<p class="text-slate-400 text-sm lang-en-block">The CV error curve across all λ values with error bars. The two dashed lines mark λ.min (lowest error) and λ.1se (most regularised model within one standard error of the minimum).</p>
+<p class="text-slate-400 text-sm lang-cn-block">所有 λ 值的交叉验证误差曲线，带误差棒。两条虚线标记 λ.min（最低误差）和 λ.1se（最小值一个标准误差内正则化最强的模型）。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0"></span>
+<div><p class="font-semibold text-white text-sm"><span class="lang-en">Predicted vs Actual & Residual Distribution</span><span class="lang-cn">预测值 vs 实际值 & 残差分布</span></p>
+<p class="text-slate-400 text-sm lang-en-block">The scatter should hug the 45° diagonal for a well-calibrated model. The residual histogram should be centred near zero.</p>
+<p class="text-slate-400 text-sm lang-cn-block">对于校准良好的模型，散点图应紧贴 45° 对角线。残差直方图应以零为中心。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Module 5: What-If Simulator -->
+<section id="module-simulator" class="mb-20">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 bg-blue-500/10 border border-blue-500/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-400 text-2xl">tune</span>
+</div>
+<div>
+<span class="text-xs font-bold text-blue-400 uppercase tracking-widest"><span class="lang-en">Tab 6</span><span class="lang-cn">标签页 6</span></span>
+<h2 class="text-3xl font-black text-white"><span class="lang-en">What-If Simulator</span><span class="lang-cn">假设模拟器</span></h2>
+</div>
+</div>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Construct a hypothetical customer profile by adjusting sliders and instantly see how their predicted churn probability changes. Use the <em>Prediction Breakdown</em> and <em>Sensitivity Analysis</em> charts to understand <em>why</em> the model scores the customer this way.</p>
+<p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">通过调整滑块构建假设客户画像，即时查看其预测流失概率如何变化。使用<em>预测分解</em>和<em>敏感性分析</em>图表理解模型为何给出此评分。</p>
+
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-blue-400 text-xl">tune</span><span class="lang-en">Customer Profile Sliders</span><span class="lang-cn">客户画像滑块</span></h3>
+<div class="grid grid-cols-2 gap-3 text-sm">
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Age</span><span class="lang-cn">年龄</span></p><p class="text-slate-400 text-xs"><span class="lang-en">29–60 years</span><span class="lang-cn">29–60 岁</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Transaction Count</span><span class="lang-cn">交易次数</span></p><p class="text-slate-400 text-xs"><span class="lang-en">1–200 per period</span><span class="lang-cn">每期 1–200 笔</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Avg Tx Value</span><span class="lang-cn">平均交易价值</span></p><p class="text-slate-400 text-xs"><span class="lang-en">100K–20M COP</span><span class="lang-cn">10 万–2000 万哥伦比亚比索</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Satisfaction</span><span class="lang-cn">满意度</span></p><p class="text-slate-400 text-xs"><span class="lang-en">1–10 score</span><span class="lang-cn">1–10 分</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">NPS Score</span><span class="lang-cn">净推荐值</span></p><p class="text-slate-400 text-xs"><span class="lang-en">-100 to +100</span><span class="lang-cn">-100 至 +100</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Credit Utilization</span><span class="lang-cn">信用利用率</span></p><p class="text-slate-400 text-xs"><span class="lang-en">0%–100%</span><span class="lang-cn">0%–100%</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Tenure (months)</span><span class="lang-cn">任期（月）</span></p><p class="text-slate-400 text-xs"><span class="lang-en">1–24 months</span><span class="lang-cn">1–24 个月</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Active Products</span><span class="lang-cn">活跃产品数</span></p><p class="text-slate-400 text-xs"><span class="lang-en">0–10 products</span><span class="lang-cn">0–10 个产品</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Support Tickets</span><span class="lang-cn">支持工单数</span></p><p class="text-slate-400 text-xs"><span class="lang-en">0–20 tickets</span><span class="lang-cn">0–20 个工单</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Spending Volatility</span><span class="lang-cn">消费波动性</span></p><p class="text-slate-400 text-xs"><span class="lang-en">0–10M COP σ</span><span class="lang-cn">0–1000 万哥伦比亚比索 σ</span></p></div>
+<div class="bg-[#1a1a1a] rounded-lg p-3 col-span-2"><p class="text-white font-semibold text-xs mb-1"><span class="lang-en">Household Size</span><span class="lang-cn">家庭规模</span></p><p class="text-slate-400 text-xs"><span class="lang-en">1–10 members</span><span class="lang-cn">1–10 人</span></p></div>
+</div>
+<div class="mt-5 flex items-start gap-3 bg-blue-500/5 border border-blue-500/20 rounded-xl p-4">
+<span class="material-symbols-outlined text-blue-400 mt-0.5 text-lg">restart_alt</span>
+<p class="text-sm text-slate-300 lang-en-block">Click <strong class="text-blue-400">Reset to Defaults</strong> to restore all sliders to the dataset average profile.</p>
+<p class="text-sm text-slate-300 lang-cn-block">点击<strong class="text-blue-400">重置为默认值</strong>将所有滑块恢复为数据集平均画像。</p>
+</div>
+</div>
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
+<h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-blue-400 text-xl">bar_chart</span><span class="lang-en">Reading the Output</span><span class="lang-cn">解读输出</span></h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">KPI Cards — Churn Probability & Risk Level</span><span class="lang-cn">KPI 卡片 — 流失概率 & 风险等级</span></p>
+<p class="text-slate-400 text-sm lang-en-block">The <strong>Churn Probability</strong> card updates in real time as you move sliders. Risk Level is classified as <span class="text-purple-400">LOW</span> (below Q25), <span class="text-yellow-400">MEDIUM</span> (Q25–Q75), or <span class="text-red-400">HIGH</span> (above Q75) based on the dataset's distribution.</p>
+<p class="text-slate-400 text-sm lang-cn-block"><strong>流失概率</strong>卡片随滑块移动实时更新。风险等级根据数据集分布分为<span class="text-purple-400">低风险</span>（低于 Q25）、<span class="text-yellow-400">中等风险</span>（Q25–Q75）或<span class="text-red-400">高风险</span>（高于 Q75）。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Recommendations Panel</span><span class="lang-cn">建议面板</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Colour-coded action boxes appear below the KPI row: green = retention-boosting factors already in good shape, amber/red = actionable areas where improvement would lower churn risk.</p>
+<p class="text-slate-400 text-sm lang-cn-block">彩色行动框出现在 KPI 行下方：绿色=已处于良好状态的留存促进因素，琥珀色/红色=改善后可降低流失风险的可操作领域。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Prediction Breakdown (Waterfall Chart)</span><span class="lang-cn">预测分解（瀑布图）</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Each bar shows how much a feature pushes the predicted churn score up (red) or down (green) from the model baseline. The final bar is the total predicted probability.</p>
+<p class="text-slate-400 text-sm lang-cn-block">每个柱条显示某特征将预测流失评分从模型基准推高（红色）或降低（绿色）的幅度。最终柱条为总预测概率。</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>
+<div>
+<p class="font-semibold text-white text-sm"><span class="lang-en">Sensitivity Analysis (Tornado Chart)</span><span class="lang-cn">敏感性分析（龙卷风图）</span></p>
+<p class="text-slate-400 text-sm lang-en-block">Each feature is nudged ±10% from its current value; the resulting change in churn probability is shown as a horizontal bar. The widest bars = the levers with the most impact for this customer profile.</p>
+<p class="text-slate-400 text-sm lang-cn-block">每个特征从其当前值±10% 变动；由此产生的流失概率变化显示为水平条形。最宽的条形=对当前客户画像影响最大的杠杆。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- FAQ / Tips -->
+<section class="mb-20">
+<h2 class="text-3xl font-black text-white mb-8"><span class="lang-en">Frequently Asked Questions</span><span class="lang-cn">常见问题</span></h2>
+<div class="space-y-4">
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-xl p-6">
+<p class="font-semibold text-white mb-2"><span class="lang-en">The app is slow to load. What should I do?</span><span class="lang-cn">应用加载缓慢，该怎么办？</span></p>
+<p class="text-slate-400 text-sm leading-relaxed lang-en-block">The app is hosted on shinyapps.io and may take 15–30 seconds to "wake up" if it has been idle. Wait a moment and then reload. Once warm, all pre-computed modules (EDA, CDA, preset clustering, model calibration) respond instantly.</p>
+<p class="text-slate-400 text-sm leading-relaxed lang-cn-block">应用托管在 shinyapps.io 上，如果长时间闲置可能需要 15–30 秒"唤醒"。稍等片刻后重新加载。一旦预热，所有预计算模块（EDA、CDA、预设聚类、模型校准）均可即时响应。</p>
+</div>
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-xl p-6">
+<p class="font-semibold text-white mb-2"><span class="lang-en">Why does Custom clustering take longer?</span><span class="lang-cn">为什么自定义聚类需要更长时间？</span></p>
+<p class="text-slate-400 text-sm leading-relaxed lang-en-block">The four preset feature combinations (RFM, Full Behavioral, Engagement) are pre-computed and cached. Custom clustering runs live on 48,723 rows, which may take 5–15 seconds depending on server load and the number of clusters chosen.</p>
+<p class="text-slate-400 text-sm leading-relaxed lang-cn-block">四种预设特征组合（RFM、完整行为、参与度）均已预计算并缓存。自定义聚类对 48,723 行数据实时运行，根据服务器负载和所选聚类数，可能需要 5–15 秒。</p>
+</div>
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-xl p-6">
+<p class="font-semibold text-white mb-2"><span class="lang-en">How are churn probabilities calculated?</span><span class="lang-cn">流失概率是如何计算的？</span></p>
+<p class="text-slate-400 text-sm leading-relaxed lang-en-block">A regularised linear regression (Lasso or Ridge via <code>glmnet</code>) is fitted on the full customer dataset. The What-If Simulator constructs a synthetic customer row from your slider inputs and passes it through the trained model to generate a real-time prediction.</p>
+<p class="text-slate-400 text-sm leading-relaxed lang-cn-block">在完整客户数据集上拟合正则化线性回归（通过 <code>glmnet</code> 的 Lasso 或 Ridge）。假设模拟器从滑块输入构建合成客户行，并通过训练好的模型生成实时预测。</p>
+</div>
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-xl p-6">
+<p class="font-semibold text-white mb-2"><span class="lang-en">Can I download the data or charts?</span><span class="lang-cn">能否下载数据或图表？</span></p>
+<p class="text-slate-400 text-sm leading-relaxed lang-en-block">In the Segmentation tab, click <strong>Export Centroids CSV</strong> to download the cluster centroid table. For any Plotly chart, use the camera icon in the chart toolbar to save a PNG snapshot.</p>
+<p class="text-slate-400 text-sm leading-relaxed lang-cn-block">在细分标签页中，点击<strong>导出质心 CSV</strong>下载聚类质心表格。对于任何 Plotly 图表，使用图表工具栏中的相机图标保存 PNG 快照。</p>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="mb-16">
+<div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-12 text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4 block">rocket_launch</span>
+<h2 class="text-3xl font-black text-white mb-4"><span class="lang-en">Ready to Explore?</span><span class="lang-cn">准备好开始探索了吗？</span></h2>
+<p class="text-slate-400 text-base mb-8 max-w-xl mx-auto lang-en-block">Launch the COFINFAD Shiny App and start uncovering insights from Colombia's fintech data — no coding required.</p>
+<p class="text-slate-400 text-base mb-8 max-w-xl mx-auto lang-cn-block">启动 COFINFAD Shiny 应用，开始挖掘哥伦比亚金融科技数据中的洞察——无需编写任何代码。</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a onclick="openShinyApp(); return false;" href="#" class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-3.5 rounded-xl font-bold transition-all no-underline shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">launch</span>
+<span class="lang-en">Open Shiny App</span><span class="lang-cn">打开 Shiny 应用</span>
+</a>
+<a href="findings.html" class="inline-flex items-center gap-2 border border-primary text-primary hover:bg-primary/10 px-8 py-3.5 rounded-xl font-bold transition-all no-underline">
+<span class="material-symbols-outlined">insights</span>
+<span class="lang-en">Read Findings</span><span class="lang-cn">查看研究发现</span>
+</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#050505] border-t border-[#1f1f1f] py-12 mt-8">
+<div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">analytics</span>
+<span class="text-primary font-black text-lg tracking-tighter">COFINFAD</span>
+</div>
+<p class="text-slate-600 text-xs uppercase tracking-widest">&copy; 2026 COFINFAD Analytics &middot; SMU Team 13</p>
+</div>
+</footer>
+</div>
+```
