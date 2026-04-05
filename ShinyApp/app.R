@@ -627,7 +627,7 @@ ui <- page_navbar(
                 tags$div(style = paste0("font-size:0.74rem;font-weight:600;color:", TEXT_MAIN, ";"),
                   "ISSS608 Visual Analytics & Applications"),
                 tags$div(style = paste0("font-size:0.68rem;color:", TEXT_DIM, ";margin-top:1px;"),
-                  "Singapore Management University \u00b7 AY2024\u20132025 April Term")),
+                  "Singapore Management University \u00b7 AY2025\u20132026 April Term")),
               icon("graduation-cap", style = paste0("color:", ACCENT2, ";font-size:0.9rem;"))
             )
           )
