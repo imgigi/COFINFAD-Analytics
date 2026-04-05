@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(quarto render qmd/poster.qmd)",
+      "Bash(quarto render qmd/)",
+      "Bash(quarto render)"
+    ]
+  }
+}

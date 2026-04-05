@@ -116,7 +116,7 @@ function closeShinyApp() {
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between h-20 items-center">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="7" fill="#f97316"/><rect x="7" y="18" width="4" height="7" rx="1" fill="white"/><rect x="14" y="12" width="4" height="13" rx="1" fill="white"/><rect x="21" y="7" width="4" height="18" rx="1" fill="white"/></svg>
 <span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
 </div>
 <div class="hidden md:flex items-center gap-6">
@@ -134,8 +134,8 @@ function closeShinyApp() {
 </div>
 </div>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="meeting-minutes.html"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
@@ -350,7 +350,7 @@ function closeShinyApp() {
 <footer class="bg-[#050505] border-t border-border-dark py-20">
 <div class="max-w-7xl mx-auto px-4">
 <div class="flex items-center gap-2 mb-16">
-<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="7" fill="#f97316"/><rect x="7" y="18" width="4" height="7" rx="1" fill="white"/><rect x="14" y="12" width="4" height="13" rx="1" fill="white"/><rect x="21" y="7" width="4" height="18" rx="1" fill="white"/></svg>
 <span class="text-primary font-black text-2xl tracking-tighter">COFINFAD</span>
 </div>
 <div class="pt-10 border-t border-border-dark flex flex-col md:flex-row justify-between gap-6 text-[10px] text-slate-600 uppercase tracking-[0.3em]">

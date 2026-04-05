@@ -108,7 +108,7 @@ function closeShinyApp() {
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between h-20 items-center">
 <a href="homepage.html" class="flex items-center gap-2 no-underline">
-<span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+<svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="7" fill="#f97316"/><rect x="7" y="18" width="4" height="7" rx="1" fill="white"/><rect x="14" y="12" width="4" height="13" rx="1" fill="white"/><rect x="21" y="7" width="4" height="18" rx="1" fill="white"/></svg>
 <span class="text-primary font-black text-xl tracking-tighter">COFINFAD</span>
 </a>
 <div class="hidden md:flex items-center gap-6">
@@ -125,8 +125,8 @@ function closeShinyApp() {
 </div>
 </div>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="findings.html"><span class="lang-en">Findings</span><span class="lang-cn">研究发现</span></a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="meeting-minutes.html"><span class="lang-en">Meeting Minutes</span><span class="lang-cn">会议记录</span></a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="poster.html"><span class="lang-en">Poster</span><span class="lang-cn">海报</span></a>
 <a class="text-sm font-medium hover:text-primary transition-colors" href="homepage.html#team"><span class="lang-en">Team</span><span class="lang-cn">团队</span></a>
 </div>
 <div class="flex items-center gap-3">
@@ -246,6 +246,14 @@ function closeShinyApp() {
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Get a high-level picture of transaction volumes, geographic distribution, and customer demographics. Four KPI cards at the top summarise the key numbers at a glance.</p>
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">从宏观角度了解交易量、地理分布和客户人口结构。顶部四个 KPI 卡片一览关键数据。</p>
 
+<div class="mb-8 rounded-2xl overflow-hidden border border-[#1f1f1f] bg-[#0d0d0d]">
+<div class="px-4 py-2 border-b border-[#1f1f1f] flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-red-500/60"></span><span class="w-3 h-3 rounded-full bg-yellow-500/60"></span><span class="w-3 h-3 rounded-full bg-green-500/60"></span>
+<span class="text-xs text-slate-600 ml-2 font-mono"><span class="lang-en">Exploratory Overview — Tab 2</span><span class="lang-cn">探索性概览 — 标签页 2</span></span>
+</div>
+<img src="../images/eda_wireframe.png" alt="Exploratory Overview module screenshot" class="w-full h-auto block" style="opacity:0.9;">
+</div>
+
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <!-- Sidebar controls -->
 <div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
@@ -345,6 +353,14 @@ function closeShinyApp() {
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Go beyond patterns and test statistical hypotheses. This tab uses <strong class="text-white">ggstatsplot</strong> to run formal significance tests and display a publication-ready correlation matrix — all driven by the sidebar controls.</p>
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">超越数据规律，进行统计假设检验。本标签页使用 <strong class="text-white">ggstatsplot</strong> 运行正式显著性检验并显示可发布的相关矩阵——所有功能均由侧边栏控件驱动。</p>
 
+<div class="mb-8 rounded-2xl overflow-hidden border border-[#1f1f1f] bg-[#0d0d0d]">
+<div class="px-4 py-2 border-b border-[#1f1f1f] flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-red-500/60"></span><span class="w-3 h-3 rounded-full bg-yellow-500/60"></span><span class="w-3 h-3 rounded-full bg-green-500/60"></span>
+<span class="text-xs text-slate-600 ml-2 font-mono"><span class="lang-en">Confirmatory Analysis — Tab 3</span><span class="lang-cn">验证性分析 — 标签页 3</span></span>
+</div>
+<img src="../images/eda_wireframe.png" alt="Confirmatory Analysis module screenshot" class="w-full h-auto block" style="opacity:0.9;">
+</div>
+
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
 <h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-yellow-400 text-xl">tune</span><span class="lang-en">Sidebar Controls</span><span class="lang-cn">侧边栏控件</span></h3>
@@ -433,6 +449,14 @@ function closeShinyApp() {
 </div>
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Segment 48,723 customers into distinct behavioral clusters using three different algorithms. Pre-computed results load instantly; for custom feature sets, click <strong class="text-white">Run Clustering</strong> to recompute.</p>
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">使用三种不同算法将 48,723 名客户分组为不同的行为聚类。预计算结果即时加载；对于自定义特征集，点击<strong class="text-white">运行聚类</strong>重新计算。</p>
+
+<div class="mb-8 rounded-2xl overflow-hidden border border-[#1f1f1f] bg-[#0d0d0d]">
+<div class="px-4 py-2 border-b border-[#1f1f1f] flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-red-500/60"></span><span class="w-3 h-3 rounded-full bg-yellow-500/60"></span><span class="w-3 h-3 rounded-full bg-green-500/60"></span>
+<span class="text-xs text-slate-600 ml-2 font-mono"><span class="lang-en">Customer Segmentation — Tab 4</span><span class="lang-cn">客户细分 — 标签页 4</span></span>
+</div>
+<img src="../images/segmentation_wireframe.png" alt="Customer Segmentation module screenshot" class="w-full h-auto block" style="opacity:0.9;">
+</div>
 
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
@@ -531,6 +555,14 @@ function closeShinyApp() {
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Inspect the performance of the regularised regression model used to predict churn probability. Explore how varying the regularisation strength (lambda) affects which features survive and how accurately the model fits.</p>
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">检查用于预测流失概率的正则化回归模型的性能。探索改变正则化强度（lambda）如何影响哪些特征被保留以及模型的拟合精度。</p>
 
+<div class="mb-8 rounded-2xl overflow-hidden border border-[#1f1f1f] bg-[#0d0d0d]">
+<div class="px-4 py-2 border-b border-[#1f1f1f] flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-red-500/60"></span><span class="w-3 h-3 rounded-full bg-yellow-500/60"></span><span class="w-3 h-3 rounded-full bg-green-500/60"></span>
+<span class="text-xs text-slate-600 ml-2 font-mono"><span class="lang-en">Model Calibration — Tab 5</span><span class="lang-cn">模型校准 — 标签页 5</span></span>
+</div>
+<img src="../images/screen.png" alt="Model Calibration module screenshot" class="w-full h-auto block" style="opacity:0.9;">
+</div>
+
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
 <h3 class="font-bold text-white text-lg mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-pink-400 text-xl">tune</span><span class="lang-en">Sidebar Controls</span><span class="lang-cn">侧边栏控件</span></h3>
@@ -602,6 +634,14 @@ function closeShinyApp() {
 </div>
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-en-block">Construct a hypothetical customer profile by adjusting sliders and instantly see how their predicted churn probability changes. Use the <em>Prediction Breakdown</em> and <em>Sensitivity Analysis</em> charts to understand <em>why</em> the model scores the customer this way.</p>
 <p class="text-slate-400 text-base leading-relaxed mb-8 lang-cn-block">通过调整滑块构建假设客户画像，即时查看其预测流失概率如何变化。使用<em>预测分解</em>和<em>敏感性分析</em>图表理解模型为何给出此评分。</p>
+
+<div class="mb-8 rounded-2xl overflow-hidden border border-[#1f1f1f] bg-[#0d0d0d]">
+<div class="px-4 py-2 border-b border-[#1f1f1f] flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-red-500/60"></span><span class="w-3 h-3 rounded-full bg-yellow-500/60"></span><span class="w-3 h-3 rounded-full bg-green-500/60"></span>
+<span class="text-xs text-slate-600 ml-2 font-mono"><span class="lang-en">What-If Simulator — Tab 6</span><span class="lang-cn">假设模拟器 — 标签页 6</span></span>
+</div>
+<img src="../images/screen.png" alt="What-If Simulator module screenshot" class="w-full h-auto block" style="opacity:0.9;">
+</div>
 
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-[#0d0d0d] border border-[#1f1f1f] rounded-2xl p-7">
